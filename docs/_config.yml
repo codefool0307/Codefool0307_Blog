@@ -1,9 +1,0 @@
-# Progress bar in the top during page loading.
-# Dependencies: https://github.com/theme-next/theme-next-pace
-pace: true #是否开启进度条
-# Themes list:
-# pace-theme-big-counter | pace-theme-bounce | pace-theme-barber-shop | pace-theme-center-atom
-# pace-theme-center-circle | pace-theme-center-radar | pace-theme-center-simple | pace-theme-corner-indicator
-# pace-theme-fill-left | pace-theme-flash | pace-theme-loading-bar | pace-theme-mac-osx | pace-theme-minimal
-# For example
-pace_theme: pace-theme-center-atom #选择进度条样式
