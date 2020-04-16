@@ -1,7 +1,9 @@
 
 <div class="cover-main"><img style='max-height:200px;margin-top:80px;' src="icon/QQ图片20200409200450.jpg">
 <h1 id="toBeTopJavaer">
-<a><span>codefool0307—Java工程师两万五千里征途</span></a></h1>
+<a><span><marquee behavior="slide" width="700"  height="100">
+<font color="#FC0200">c</font><font color="#F30709">o</font><font color="#EA0712">d</font><font color="#E1071B">e</font><font color="#D80724">f</font><font color="#CF072D">o</font><font color="#C60736">o</font><font color="#BD073F">l</font><font color="#B40748">0</font><font color="#AB0751">3</font><font color="#A2075A">0</font><font color="#990763">7</font><font color="#90076C">—</font><font color="#870775">J</font><font color="#7E077E">a</font><font color="#750787">v</font><font color="#6C0790">a</font><font color="#630799">工</font><font color="#5A07A2">程</font><font color="#5107AB">师</font><font color="#4807B4">两</font><font color="#3F07BD">万</font><font color="#3607C6">五</font><font color="#2D07CF">千</font><font color="#2407D8">里</font><font color="#1B07E1">征</font><font color="#1207EA">途</font>
+</marquee></span></a></h1>
 
 
 
