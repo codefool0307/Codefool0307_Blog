@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-16 14:31:03
- * @LastEditTime: 2020-04-16 14:36:16
+ * @LastEditTime: 2020-04-16 19:16:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\resources.md
@@ -23,4 +23,4 @@
 
  1. [JavaGuide](https://github.com/Snailclimb/JavaGuide)
  2. [toBeJavaer](https://github.com/hollischuang/toBeTopJavaer)
- 3. [lucifer——前端](https://github.com/azl397985856)
+ 3. [lucifer——前端]( https://lucifer.ren/blog/2020/04/16/thanksGiving3/)
