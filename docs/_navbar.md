@@ -2,7 +2,7 @@
  * @Description: 
  * @Date: 2019-08-05 11:57:02
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-04-16 14:42:50
+ * @LastEditTime: 2020-04-16 14:45:21
  -->
 <!-- * [全部目录](/)-->
 * [个人简介](./authorintroducer.md)
@@ -11,7 +11,7 @@
   * [项目经验](https://codefool0307.github.io/JavaScholar/#/authorintroducer?id=%e9%a1%b9%e7%9b%ae%e7%bb%8f%e9%aa%8c)
   * [获奖情况](https://codefool0307.github.io/JavaScholar/#/authorintroducer?id=%e8%8e%b7%e5%a5%96%e6%83%85%e5%86%b5)
 * [知识笔记]()
-  * [第一部分、Java概念](/0.mindmaster/1.jpg)
+  * [第一部分、Java概念]()
   * [第二部分、OS]()
   * [第三部分、数据库]()
   * [第四部分、算法]()
