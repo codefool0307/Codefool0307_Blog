@@ -2,7 +2,7 @@
  * @Description: 
  * @Date: 2019-08-05 11:57:02
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-04-16 14:36:28
+ * @LastEditTime: 2020-04-16 14:38:11
  -->
 <!-- * [全部目录](/)-->
 * [个人简介](./authorintroducer.md)
@@ -26,6 +26,6 @@
   * [项目二、电商平台]()
   * [项目三、众筹网]()
   * [项目四、教育在线]()
-* [学习资源](/学习资源.md)
+* [学习资源](./resources.md)
   * [书本资源]()
   * [网络资源]()
