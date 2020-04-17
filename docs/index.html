@@ -188,6 +188,8 @@
         scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
         return scrollHeight;
     }
+
+    
 </script>
 
 <script>
@@ -196,7 +198,7 @@
         repo: 'https://github.com/codefool0307/JavaStudyer',
         loadSidebar: true,
         loadNavbar: true,
-        subMaxLevel: 6,
+        subMaxLevel: 6,//控制目录栏到达几层
         maxLevel: 6,
         autoHeader: true,
         coverpage: true,
@@ -270,7 +272,7 @@
 	<script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
 	<!-- 引入图片缩放 -->
 	<script type="text/javascript" src="public/plugins/components/zoom-image-cdn.js"></script>
-	<!-- 复制到剪切板 -->
+	<!-- 复制到剪切板-->
 	<script type="text/javascript" src="public/plugins/docsify-copy-code.min.js"></script>
 	<!-- 点击红心效果 -->
     <script async defer type="text/javascript" src="public/plugins/components/love-click.min.js"></script>
@@ -299,6 +301,17 @@
         })
     </script>	
 
-	<script type="text/javascript" src="public/plugins/components/docsify.gitalk.js"></script>
-</body>
+    <script type="text/javascript" src="public/plugins/components/docsify.gitalk.js"></script>
+    
+    <div class="box">
+        <h1>content</h1>
+        <h1>content</h1>
+        <h1>content</h1>
+        <h1>content</h1>
+        <h1>content</h1>
+    </div>
+    <footer id="footer">
+        <p>footer footer footer</p>
+    </footer>
+ </body>
 </html>

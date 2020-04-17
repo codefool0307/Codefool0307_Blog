@@ -1,5 +1,9 @@
 
-<div class="cover-main"><img style='max-height:200px;margin-top:80px;' src="icon/QQ图片20200409200450.jpg">
+<div class="cover-main">
+<MARQUEE onmouseover=stop() onmouseout=start() scrollAmount=3 loop=infinite deplay="0"><IMG src="" ><IMG src=""></MARQUEE>
+
+<img style='max-height:200px;margin-top:80px;' src="icon/QQ图片20200409200450.jpg">
+
 <h1 id="toBeTopJavaer">
 <a><span><marquee behavior="slide" width="530"  height="100">
 <font color="#FF0000">c</font><font color="#F4000B">o</font><font color="#E90016">d</font><font color="#DE0021">e</font><font color="#D3002C">f</font><font color="#C80037">o</font><font color="#BD0042">o</font><font color="#B2004D">l</font><font color="#A70058">0</font><font color="#9C0063">3</font><font color="#91006E">0</font><font color="#860079">7</font><font color="#7B0084">—</font><font color="#70008F">—</font><font color="#65009A">J</font><font color="#5A00A5">a</font><font color="#4F00B0">v</font><font color="#4400BB">a</font><font color="#3900C6">进</font><font color="#2E00D1">阶</font><font color="#2300DC">之</font><font color="#1800E7">路</font>
