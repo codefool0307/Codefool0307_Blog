@@ -25,14 +25,14 @@
         * [10 正则表达式](/1.basics/1.java-basic/10-正则表达式.md)
         * [11 API与SPI](/1.basics/1.java-basic/11-API&SPI.md)
         * [12 异常](/1.basics/1.java-basic/12-异常.md)
-        * [13 函数式编程](/1.basics/1.java-basic/16-函数式编程.md)
-        * [14 网络编程](/1.basics/1.java-basic/18-网络编程.md)
-        * [15 方法引用](/1.basics/1.java-basic/17-方法引用.md)
-        * [16 编码方式](/1.basics/1.java-basic/14-编码方式.md)
-        * [17 语法糖](/1.basics/1.java-basic/15-语法糖.md)
-        * [18 常用类](/1.basics/1.java-basic/19-类.md)
-        * [19 Java8~14新特性](/1.basics/1.java-basic/20-新特性.md)
-        * [20 源码分析](/1.basics/1.java-basic/21-源码.md)
+        * [13 函数式编程](/1.basics/1.java-basic/13-函数式编程.md)
+        * [14 网络编程](/1.basics/1.java-basic/14-网络编程.md)
+        * [15 方法引用](/1.basics/1.java-basic/15-方法引用.md)
+        * [16 编码方式](/1.basics/1.java-basic/16-编码方式.md)
+        * [17 语法糖](/1.basics/1.java-basic/17-语法糖.md)
+        * [18 常用类](/1.basics/1.java-basic/18-类.md)
+        * [19 Java8~14新特性](/1.basics/1.java-basic/19-新特性.md)
+        * [20 源码分析](/1.basics/1.java-basic/20-源码.md)
 
 * 第四部分、数据结构与算法
 
