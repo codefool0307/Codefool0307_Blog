@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-16 15:12:20
- * @LastEditors: your name
+ * @LastEditTime: 2020-04-18 10:55:45
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_sidebar.md
  -->
@@ -33,6 +33,34 @@
         * [18 常用类](/1.basics/1.java-basic/18-类.md)
         * [19 Java8~14新特性](/1.basics/1.java-basic/19-新特性.md)
         * [20 源码分析](/1.basics/1.java-basic/20-源码.md)
+
+* 第二部分、OS
+
+    * Linux
+  
+        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
+
+
+
+
+    * shell
+  
+        * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
+    
+
+
+
+    * TCP/IP+HTTP+计算机网络
+
+            * [1 基本语法](/2.os/3.TCP/1-模型介绍.md)   
+            
+
+    * 操作系统
+
+            * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
+
+
+
 
 * 第四部分、数据结构与算法
 
