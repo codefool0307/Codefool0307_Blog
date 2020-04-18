@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-18 10:55:45
+ * @LastEditTime: 2020-04-18 14:44:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_sidebar.md
@@ -9,7 +9,7 @@
 
 * 第一部分、JAVA基础
 
-    * java二十讲
+    * [java二十讲](/1.basics/1.java-basic/0-思维导图.md)
     
         * [1 数据类型](/1.basics/1.java-basic/1-数据类型.md)  
         * [2 基础语法](/1.basics/1.java-basic/2-基础语法.md)
@@ -25,14 +25,15 @@
         * [10 正则表达式](/1.basics/1.java-basic/10-正则表达式.md)
         * [11 API与SPI](/1.basics/1.java-basic/11-API&SPI.md)
         * [12 异常](/1.basics/1.java-basic/12-异常.md)
-        * [13 函数式编程](/1.basics/1.java-basic/13-函数式编程.md)
-        * [14 网络编程](/1.basics/1.java-basic/14-网络编程.md)
-        * [15 方法引用](/1.basics/1.java-basic/15-方法引用.md)
-        * [16 编码方式](/1.basics/1.java-basic/16-编码方式.md)
-        * [17 语法糖](/1.basics/1.java-basic/17-语法糖.md)
-        * [18 常用类](/1.basics/1.java-basic/18-类.md)
-        * [19 Java8~14新特性](/1.basics/1.java-basic/19-新特性.md)
-        * [20 源码分析](/1.basics/1.java-basic/20-源码.md)
+        * [13 网络编程](/1.basics/1.java-basic/13-网络编程.md)
+        * [14 编码方式](/1.basics/1.java-basic/14-编码方式.md)
+        * [15 语法糖](/1.basics/1.java-basic/17-语法糖.md)
+        * [16 常用类](/1.basics/1.java-basic/16-类.md)
+        * [17 Java8~14新特性](/1.basics/1.java-basic/17-新特性.md)
+        * [17-1 函数式编程](/1.basics/1.java-basic/17-1-函数式编程.md)
+        * [17-2 方法引用](/1.basics/1.java-basic/17-2-方法引用.md)
+        * [18 面对对象](/1.basics/1.java-basic/18-面对对象.md)
+        * [19 源码分析](/1.basics/1.java-basic/19-源码.md)
 
 * 第二部分、OS
 
@@ -40,24 +41,17 @@
   
         * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
 
-
-
-
     * shell
   
         * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
     
-
-
-
     * TCP/IP+HTTP+计算机网络
-
-            * [1 基本语法](/2.os/3.TCP/1-模型介绍.md)   
-            
-
+  
+        * [1 基本语法](/2.os/3.TCP/1-模型介绍.md)   
+        
     * 操作系统
-
-            * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
+  
+        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
 
 
 
