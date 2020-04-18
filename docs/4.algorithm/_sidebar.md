@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-18 10:55:45
+ * @LastEditTime: 2020-04-18 11:02:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_sidebar.md
@@ -9,7 +9,7 @@
 
 * 第一部分、JAVA基础
 
-    * java二十讲
+    * [java二十讲](/1.basics/1.java-basic/0-思维导图.md)
     
         * [1 数据类型](/1.basics/1.java-basic/1-数据类型.md)  
         * [2 基础语法](/1.basics/1.java-basic/2-基础语法.md)
@@ -40,24 +40,17 @@
   
         * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
 
-
-
-
     * shell
   
         * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
     
-
-
-
     * TCP/IP+HTTP+计算机网络
-
-            * [1 基本语法](/2.os/3.TCP/1-模型介绍.md)   
-            
-
+  
+        * [1 基本语法](/2.os/3.TCP/1-模型介绍.md)   
+        
     * 操作系统
-
-            * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
+  
+        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
 
 
 
