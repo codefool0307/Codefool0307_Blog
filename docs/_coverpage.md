@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-04-15 22:09:19
+ * @LastEditTime: 2020-04-19 10:09:24
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \docs\_coverpage.md
+ -->
 
 <div class="cover-main">
 <MARQUEE onmouseover=stop() onmouseout=start() scrollAmount=3 loop=infinite deplay="0"><IMG src="" ><IMG src=""></MARQUEE>
@@ -18,6 +26,9 @@
     <a href=""> <img src="https://badgen.net/badge/%e8%af%ad%e8%a8%80/Java?icon=rss&color=4ab8a1"></a>
 </div>
 <br>
+
+[点赞](https://github.com/codefool0307/JavaStudyer/stargazers)
+
 <span id="busuanzi_container_site_pv" style="display: inline;">
     👁️本页总访问次数:<span id="busuanzi_value_site_pv"></span> 
 </span>

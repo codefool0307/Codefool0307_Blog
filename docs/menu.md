@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:18
- * @LastEditTime: 2020-04-19 10:06:38
+ * @LastEditTime: 2020-04-19 10:11:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\menu.md
@@ -31,7 +31,7 @@
 
     1. [京东篇](./9.interview/1.实习篇/京东篇.md)  说多了就就是泪，感觉今年京东全是acm的题，第一题ac78，第二题ac12，可能是自己太水了
     2. [华为篇](./9.interview/1.实习篇/华为篇.md)  等待笔试
-    3. [浪潮篇]()    中等难度，等待面试
+    3. [浪潮篇]()    面试结束，等待offer
     4. [跟谁学]()    是做的较为简单的，可能越简单越被刷，等待面试
     5. [携程篇]()    中等难度，等待面试
     6. [中国银行]()  等待笔试
