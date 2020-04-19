@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:18
- * @LastEditTime: 2020-04-19 09:46:28
+ * @LastEditTime: 2020-04-19 09:57:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\menu.md
@@ -14,9 +14,8 @@
  * @Description: In User Settings Edit
  * @FilePath: \docs\menu.md
  -->
-# Java学习路线图
 
-## Java总体学习
+# Java总体学习
 
 个人理解，欢迎各位提出宝贵意见：（因为最近在参加实习笔试，把第九部分、面经放在前面共同进步）
 
