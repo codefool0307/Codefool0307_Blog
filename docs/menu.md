@@ -20,41 +20,58 @@
 
 个人理解，欢迎各位提出宝贵意见：
 
-我把java目前共分为了九大部分：
+我把java目前共分为了十大部分：
 
   第一部分、Java
 
-  A、java基础概念，一共分为了20讲，每一部分正在加速完成中。主要是参考了toBeJavaer这位大佬的思维导图下进行的扩展
+  * A、java基础概念，一共分为了20讲，每一部分正在加速完成中。主要是参考了toBeJavaer这位大佬的思维导图下进行的扩展
 
-  B、基础部分我把并发单独摘出来，成为一个专门的专题，因为并发过于重要，同时知识点也是比较多的
+  * B、基础部分我把并发单独摘出来，成为一个专门的专题，因为并发过于重要，同时知识点也是比较多的
   [并发知识点](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#%E5%B9%B6%E5%8F%91)
 
-  C、JVM，大厂面试的关键所在
+  * C、JVM，大厂面试的关键所在
 
   第二部分、OS
-  A、linux操作系统
 
-  B、shell脚本
+  * A、linux操作系统
 
-  C、TCP/IP+HTTP+计算机网络
+  * B、shell脚本
 
-  D、操作系统
+  * C、TCP/IP+HTTP+计算机网络
+
+  * D、操作系统
 
   第三部分、数据库
 
-  A、MySQL
+  * A、MySQL
 
-  B、Redis
+  * B、Redis
 
-  C、ORacle
+  * C、ORacle
 
-  D、JDBC
+  * D、JDBC
 
-  E、MyCat
+  * E、MyCat
 
   第四部分、算法
 
-  算法共分为了十八部分进行讲解
+  * 栈与排序
+  * 链表
+  * 二叉树
+  * 递归
+  * 字符串
+  * 大数据
+  * 位运算
+  * 数组矩阵
+  * 排序
+  * 查找
+  * 图
+  * 哈希
+  * KMP
+  * 分治
+  * 贪心
+  * 
+  * 算法共分为了十八部分进行讲解
 
   第五部分、前端
 
