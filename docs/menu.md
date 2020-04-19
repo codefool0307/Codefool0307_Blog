@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:18
- * @LastEditTime: 2020-04-19 09:59:54
+ * @LastEditTime: 2020-04-19 10:06:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\menu.md
@@ -121,6 +121,7 @@
      注：由于JS主要是同步操作，学会异步操作比较重要
 
 <font size="7"><font color="#FF0000">第</font><font color="#DB0024">六</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">框</font><font color="#2700D8">架</font></font>
+
   * A、基础框架
 
      1. SSM（包括Spring+SpringMVC+MyBatis）然后另外学习MyBatisPlus+通用Mapper+iBatis
@@ -175,6 +176,7 @@
 
 
 <font size="7"><font color="#FF0000">第</font><font color="#DB0024">七</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">工</font><font color="#2700D8">具</font></font>
+
   * A、Git
 
   * B、maven
@@ -197,9 +199,9 @@
 
 <font size="7"><font color="#FF0000">第</font><font color="#DF0020">八</font><font color="#BF0040">部</font><font color="#9F0060">分</font><font color="#7F0080">、</font><font color="#5F00A0">大</font><font color="#3F00C0">数</font><font color="#1F00E0">据</font></font>
    
-   * Hadoop
+ * Hadoop
 
-   * Spark
+ * Spark
 
   
 <font size="7"><font color="#FF0000">第</font><font color="#DB0024">九</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">项</font><font color="#2700D8">目</font></font>
