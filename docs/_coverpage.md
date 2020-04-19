@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-19 10:09:24
+ * @LastEditTime: 2020-04-19 10:31:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_coverpage.md
@@ -11,6 +11,7 @@
 <MARQUEE onmouseover=stop() onmouseout=start() scrollAmount=3 loop=infinite deplay="0"><IMG src="" ><IMG src=""></MARQUEE>
 
 <img style='max-height:200px;margin-top:80px;' src="icon/QQ图片20200409200450.jpg">
+
 
 <h1 id="toBeTopJavaer">
 <a><span><marquee behavior="slide" width="530"  height="100">
@@ -37,3 +38,5 @@
 </span>
 
 <a href="#/menu">开始阅读</a></p></div><div class="mask"></div></section>
+<br>
+
