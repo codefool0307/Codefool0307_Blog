@@ -1,50 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Java进阶之路</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="Description">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <!--设置浏览器图标-->
-    <link rel="icon" href="./dog.jpg">
-    <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-    <link rel="stylesheet" href="public/themes/gitalk.css">
-    <!--添加音乐
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
-   <script src="https://blog-static.cnblogs.com/files/yjlaugus/APlayer.min.js"></script>
-   <div id="aplayer" class="aplayer"  data-id="2719385392" data-server="netease" data-type="playlist" height="200" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#F58EA8"/>
-   <script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>-->
-   <!--设置卡通人物1-->
+  <meta charset="UTF-8">
+  <title>Java进阶之路</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="./dog1.jpg">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="./custom/style/docs.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./custom/style/custom.css">
+  <!--设置卡通人物1-->
     <!--<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
      <script>
          L2Dwidget.init();
       </script>-->
-   <!--设置卡通人物2-->
-   <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-   <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
-   <script src="live2d-widget-master/autoload.js"></script>
-   <script src="https://g.joyinshare.com/hc/piao.js" type="text/javascript"></script>
-   <!--设置一侧目录图标-->
-   <div class="doc-directory">
-    <ul class="title-content"></ul>
-    <div class="header">
-      <img class="menu-img" src="./menu.png" alt="menu" />
-    </div>
-  </div>
-  <div id="back-to-top" class="backtop" title="回到顶部" >
-    <img class="backtop-img" src="./backtop.png" alt="backtop" />
-  </div>
-</head>
-
-<body>
-    
-    <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+      <!--设置卡通人物2-->
+      <script src="live2d-widget-master/autoload.js"></script>
+      <script src="https://g.joyinshare.com/hc/piao.js" type="text/javascript"></script>
+   
+   <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
    <script>
        var now = new Date(); 
        function createtime() { 
-           var grt= new Date("04/01/2020 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+           var grt= new Date("04/01/2020 08:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
            now.setTime(now.getTime()+250); 
            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
@@ -57,28 +42,44 @@
        } 
    setInterval("createtime()",250);
    </script>
-
-   <!--加载页面-->
-   <div id="app">正在加载中....</div>
-    
-<script>
+</head>
+<body>
+  <div class="doc-directory">
+    <ul class="title-content"></ul>
+    <div class="header">
+      <img class="menu-img" src="./menu.png" alt="menu" />
+    </div>
+  </div>
+  <div id="back-to-top" class="backtop" title="回到顶部" >
+    <img class="backtop-img" src="./backtop.png" alt="backtop" />
+  </div>
+  <div id="app"></div>
+  <script>
     window.$docsify = {
-        name: '<marquee><font color="#FF0000">J</font><font color="#DF0020">a</font><font color="#BF0040">v</font><font color="#9F0060">a</font><font color="#7F0080">进</font><font color="#5F00A0">阶</font><font color="#3F00C0">之</font><font color="#1F00E0">路</font></marquee>',
-        repo: 'https://github.com/codefool0307/JavaStudyer',
-        loadSidebar: true,
-        loadNavbar: true,
-        subMaxLevel: 6,//控制目录栏到达几层
-        maxLevel: 6,
-        autoHeader: true,
-        coverpage: true,
-        notFoundPage: true,
-        auto2top: true,
-		notFoundPage: '_404.md',
-        homepage: 'README.md',
-        //logo: 'dog1.jpg',
-        formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}',
-        //统计字数
-        count:{
+      el: '#app',
+      name: '<marquee><font color="#FF0000">J</font><font color="#DF0020">a</font><font color="#BF0040">v</font><font color="#9F0060">a</font><font color="#7F0080">进</font><font color="#5F00A0">阶</font><font color="#3F00C0">之</font><font color="#1F00E0">路</font></marquee>',
+      repo: 'https://github.com/codefool0307/JavaStudyer',
+      ga: 'UA-150864629-1',
+      subMaxLevel: 6,//控制目录栏到达几层
+      maxLevel: 6,
+      autoHeader: true,
+      auto2top: true,
+      executeScript: true,
+      mergeNavbar: true,
+      formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}',
+      coverpage: true,
+      loadNavbar: true,
+      loadSidebar: true,
+      alias: {
+        '/.*/_navbar.md': '/_navbar.md',
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/.*/_404.md': '/_404.md',
+      },
+      notFoundPage: {
+        '/': '_404.md',
+      },
+       //统计字数
+       count:{
                 countable:true,
                 fontsize:'0.9em',
                 color:'rgb(90,90,90)',
@@ -100,16 +101,9 @@
                     previousText: '上一部分',
                     nextText: '下一部分',
                     },
-        /*formatUpdated: '{MM}/{DD} {HH}:{mm}',
-        formatUpdated: function(time) {
-            const stamp = tinydate('Current time: [{HH}:{mm}:{ss}]');
-            stamp(fooDate);
-            return time;
-        },*/
-        
-        plugins: [
-            //gittalk
-            function (hook, vm) {
+      plugins: [
+        // git talk
+        function (hook, vm) {
           hook.doneEach(function(){
             let path = vm.route.path.split('/').join('');
             let domObj = Docsify.dom;
@@ -125,9 +119,9 @@
             domObj.appendTo(domObj.find(".content"), divEle);
             // Directory folding
           })
-        }, 
-        
-    function(hook) {
+        },
+        //页脚
+        function(hook) {
       var footer = [
         '<hr/>',
         '<footer align="center>',
@@ -139,48 +133,62 @@
       hook.afterEach(function(html) {
         return html + footer;
       });
-    }
-  ],
+    },
+
+        //跳转到相应的页面
+        function(hook, vm) {
+          hook.beforeEach(function (html) {
+            var url = `https://github.com/rain120/study-notes//blob/master/docs/${vm.route.file}`;
+            var gotoHTML = `[📝 GOTO DOCUMENT](${url})\n`;
+
+            return gotoHTML + html + '\n----\n' + 'Last modified <strong>{docsify-updated}</strong>';
+          })
         }
-</script>
-<script type="text/javascript" src="public/docsify.min.js" ></script>
+      ]
+    }
+  </script>
 
-
-<!-- gitalk评论插件 -->
-
-	<!--
-	<script type="text/javascript" src="public/plugins/components/jquery3.2.1.js"></script>
-    -->
-    <!--搜索插件-->
-    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
-	<script async defer type="text/javascript" src="public/plugins/ga.min.js"></script>
-	<!-- 语言高亮 -->
+  <!--1.搜索插件-->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
+  <script async defer type="text/javascript" src="public/plugins/ga.min.js"></script>
+  <!--2. 语言高亮 -->
 	<script async defer type="text/javascript" src="public/plugins/components/prism-javascript.min.js"></script>
 	<script async defer type="text/javascript" src="public/plugins/components/prism-bash.min.js"></script>
 	<script async type="text/javascript" src="public/plugins/components/prism-markdown.min.js"></script>
 	<script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
 	<script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
-	<!-- 引入图片缩放 -->
+	<!--3. 引入图片缩放 -->
 	<script type="text/javascript" src="public/plugins/components/zoom-image-cdn.js"></script>
-	<!-- 复制到剪切板-->
+
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/ga.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
+
+  <!-- <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script> -->
+  <script src="//unpkg.com/docsify/lib/plugins/external-script.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <!-- 复制到剪切板-->
 	<script src="https://unpkg.com/docsify-copy-code@2"></script>
-	<!-- 点击红心效果 -->
-    <script async defer type="text/javascript" src="public/plugins/components/love-click.min.js"></script>
+  <!-- 点击红心效果 -->
+  <script async defer type="text/javascript" src="public/plugins/components/love-click.min.js"></script>
     
-    <!--统计访问量插件-->
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	<!-- 加密 -->
-	<script type="text/javascript" src="public/plugins/components/md5.min.js"></script>MD5
+  
+  
+  <!--统计访问量插件-->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <!-- 加密 -->
+  <script type="text/javascript" src="public/plugins/components/md5.min.js"></script>MD5
 <!--分页插件-->
 <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
 <!--字数统计-->>
 <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
-    <script type="text/javascript" src="public/plugins/components/gitalk.min.js"></script>
-   
-    <script>
-        window.title_id = window.location.hash.match(/#(.*?)([?]|$)/) ? window.location.hash.match(/#(.*?)([?]|$)/)[1] : '/';
-        const gitalk = new Gitalk({
-            clientID: 'd4fb44fe82c102eb80f4',
+  <script type="text/javascript" src="public/plugins/components/gitalk.min.js"></script>
+ 
+  <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+  <script>
+    const gitalk = new Gitalk({
+        clientID: 'd4fb44fe82c102eb80f4',
             clientSecret: '1be4e1a434a439e7f308253d30da074991453b98',
             repo: 'JavaStudyer',	// //存储你评论 issue 的 Github 仓库名
             owner: 'codefool0307',
@@ -189,132 +197,135 @@
             distractionFreeMode: true,	// 是否添加全屏遮罩
             id: md5(window.location.hash),	// 页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
             enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter) 
-        })
-    </script>	
-<script src="./custom/js/backtop.js"></script>
-<script>
-  let fadeTime = 1500;
-  let animateTime = 1000;
-  let height = 100;
-  let hList = [];
-  $(function() {
-    let back2Top = $("#back-to-top");
-    let docDirectory = $('.doc-directory');
+    })
+  </script>
+  <script>
+    // serviceWorker is too slow for user
+    // if (typeof navigator.serviceWorker !== 'undefined') {
+    //   navigator.serviceWorker.register('serviceWorker.js')
+    // }
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150864629-1"></script>
+  <script src="./custom/js/backtop.js"></script>
+  <script>
+    let fadeTime = 1500;
+    let animateTime = 1000;
+    let height = 100;
+    let hList = [];
+    $(function() {
+      let back2Top = $("#back-to-top");
+      let docDirectory = $('.doc-directory');
 
-    $(window).scroll(function() {
-      if (!tContent.is(':hidden')) {
-        tContent.fadeOut(500);
-      }
-      if ($(window).scrollTop() > height) {
-        back2Top.fadeIn(fadeTime);
-      } else {
-        back2Top.fadeOut(fadeTime);
-      }
-    });
-
-    // back to top
-    back2Top.draggable();
-    back2Top.click(function() {
-      back2Top.animate({ top: 'toggle' }, animateTime);
-      if ($('html').scrollTop()) {
-        $('html').animate({ scrollTop: 0 }, animateTime);
-        return false;
-      }
-      $('body').animate({ scrollTop: 0 }, animateTime);
-      return false;            
-    });
-
-    // doc directory
-    let tContent = $('.title-content');
-    
-    // docDirectory.draggable();
-    $('.header').click(function(e) {
-      e.stopPropagation();
-      if (tContent.is(':hidden')) {
-        tContent.fadeIn(500);
-      } else {
-        tContent.fadeOut(500);
-      }
-      setTitle({
-        docDirectory,
-        tContent
+      $(window).scroll(function() {
+        if (!tContent.is(':hidden')) {
+          tContent.fadeOut(500);
+        }
+        if ($(window).scrollTop() > height) {
+          back2Top.fadeIn(fadeTime);
+        } else {
+          back2Top.fadeOut(fadeTime);
+        }
       });
-    });
 
-    $(window).bind('hashchange', function() {
-      const active = document.querySelector('.active');
-      if (active) {
-        active.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
+      // back to top
+      back2Top.draggable();
+      back2Top.click(function() {
+        back2Top.animate({ top: 'toggle' }, animateTime);
+        if ($('html').scrollTop()) {
+          $('html').animate({ scrollTop: 0 }, animateTime);
+          return false;
+        }
+        $('body').animate({ scrollTop: 0 }, animateTime);
+        return false;            
+      });
+
+      // doc directory
+      let tContent = $('.title-content');
+      
+      // docDirectory.draggable();
+      $('.header').click(function(e) {
+        e.stopPropagation();
+        if (tContent.is(':hidden')) {
+          tContent.fadeIn(500);
+        } else {
+          tContent.fadeOut(500);
+        }
+        setTitle({
+          docDirectory,
+          tContent
         });
-      }
-      setTitle({
-        docDirectory,
-        tContent,
+      });
+
+      $(window).bind('hashchange', function() {
+        const active = document.querySelector('.active');
+        if (active) {
+          active.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          });
+        }
+        setTitle({
+          docDirectory,
+          tContent,
+        });
       });
     });
-  });
 
-  function setTitle({
-    docDirectory,
-    tContent,
-  }) {
-    let mainCategoryPath = location.hash.split('/').slice(0, 3).join('/');
-    tContent.empty();
-    tContent.append(`
-      <li class="home-title common">
-        <div class="wrapper">
-          <p>
-            <a class="anchor" href="https://github.com/Rain120/Web-Study/issues/12">2019年度总结</a>
-          </p>
-          <a class="anchor" href="#/notes/guide">学习笔记</a>
-        </div>
-      </li>
-      <li class="category-title common">
-        <div class="wrapper">
-          <span class="dot"></span>
-          <a class="anchor" href="${mainCategoryPath}/guide">回到上一级目录</a>
-        </div>
-      </li>
-    `);
-    
-    hList = $('.content h2, h3, h4, h5');
-    if (hList.length) {
-      hList.each(function() {
-        let tagName = this.tagName.toLowerCase();
-        let [path, hash] = location.hash.split('?');
-        let params = hash ? decodeURIComponent(hash.split('=')[1]) : '';
-        let active = this.id === params;
-        let dotActive = active ? 'dot-active' : '';
-        let aActive = active ? 'active' : '';
-        tContent.append(`
-          <li class="${tagName}-title common">
-            <div class="wrapper" title="${this.outerText}">
-              <span class="dot ${dotActive}"></span>
-              <a class="anchor ${aActive}" href="${path}?id=${this.id}">${this.outerText}</a>
-            </div>
-          </li>
-        `);
-      });
-    } else {
-      hList = $('.content ul');
-      tContent.append(hList.clone());
+    function setTitle({
+      docDirectory,
+      tContent,
+    }) {
+      let mainCategoryPath = location.hash.split('/').slice(0, 3).join('/');
+      tContent.empty();
+      tContent.append(`
+        <li class="home-title common">
+          <div class="wrapper">
+            <p>
+              <a class="anchor" href="https://github.com/Rain120/Web-Study/issues/12">2019年度总结</a>
+            </p>
+            <a class="anchor" href="#/notes/guide">学习笔记</a>
+          </div>
+        </li>
+        <li class="category-title common">
+          <div class="wrapper">
+            <span class="dot"></span>
+            <a class="anchor" href="${mainCategoryPath}/guide">回到上一级目录</a>
+          </div>
+        </li>
+      `);
+      
+      hList = $('.content h2, h3, h4, h5');
+      if (hList.length) {
+        hList.each(function() {
+          let tagName = this.tagName.toLowerCase();
+          let [path, hash] = location.hash.split('?');
+          let params = hash ? decodeURIComponent(hash.split('=')[1]) : '';
+          let active = this.id === params;
+          let dotActive = active ? 'dot-active' : '';
+          let aActive = active ? 'active' : '';
+          tContent.append(`
+            <li class="${tagName}-title common">
+              <div class="wrapper" title="${this.outerText}">
+                <span class="dot ${dotActive}"></span>
+                <a class="anchor ${aActive}" href="${path}?id=${this.id}">${this.outerText}</a>
+              </div>
+            </li>
+          `);
+        });
+      } else {
+        hList = $('.content ul');
+        tContent.append(hList.clone());
+      }
     }
-  }
-</script>
-
-
-
-<script>
+  </script>
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-150864629-1');
   </script>
-
-    <script type="text/javascript" src="public/plugins/components/docsify.gitalk.js"></script> 
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
- </body>
+   
+</body>
 </html>
