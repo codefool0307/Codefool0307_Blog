@@ -190,10 +190,9 @@
     }    
 </script>
 
-
 <script>
     window.$docsify = {
-        name: 'Java进阶之路',
+        name: '<marquee><font color="#FF0000">J</font><font color="#DF0020">a</font><font color="#BF0040">v</font><font color="#9F0060">a</font><font color="#7F0080">进</font><font color="#5F00A0">阶</font><font color="#3F00C0">之</font><font color="#1F00E0">路</font></marquee>',
         repo: 'https://github.com/codefool0307/JavaStudyer',
         loadSidebar: true,
         loadNavbar: true,
@@ -202,8 +201,13 @@
         autoHeader: true,
         coverpage: true,
         notFoundPage: true,
-		notFoundPage: '_404.md',
+        noEmoji: true,
+        auto2top: true,
+		notFoundPage: 'my404.md',
         homepage: 'README.md',
+        loadSidebar: true,
+        //logo: 'dog1.jpg',
+
         //统计字数
         count:{
                 countable:true,
@@ -222,7 +226,12 @@
                     previousText: '上一部分',
                     nextText: '下一部分',
                     },
-        formatUpdated: '{MM}/{DD} {HH}:{mm}',
+        /*formatUpdated: '{MM}/{DD} {HH}:{mm}',
+        formatUpdated: function(time) {
+            const stamp = tinydate('Current time: [{HH}:{mm}:{ss}]');
+            stamp(fooDate);
+            return time;
+        },*/
         plugins: [
         function (hook, vm) {
           hook.doneEach(function() {
@@ -249,7 +258,22 @@
             gitalk.render("gitalk-container-" + label);
           });
         }
-      ]
+      ],
+      plugins: [
+    function(hook) {
+      var footer = [
+        '<hr/>',
+        '<footer align="center>',
+        '<span><a href="https://github.com/codefool0307/JavaStudyer">codefool0307</a> &copy;2020.</span>',
+        '<span>保留所有权利 <a href="https://github.com/codefool0307/JavaStudyer" target="_blank">codefool0307</a>.</span>',
+        '</footer>'
+      ].join('');
+
+      hook.afterEach(function(html) {
+        return html + footer;
+      });
+    }
+  ]
         }
 </script>
 <script type="text/javascript" src="public/docsify.min.js" ></script>
@@ -284,7 +308,8 @@
 <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
 <!--字数统计-->>
 <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
-	<script type="text/javascript" src="public/plugins/components/gitalk.min.js"></script>
+    <script type="text/javascript" src="public/plugins/components/gitalk.min.js"></script>
+   
     <script>
         window.title_id = window.location.hash.match(/#(.*?)([?]|$)/) ? window.location.hash.match(/#(.*?)([?]|$)/)[1] : '/';
         const gitalk = new Gitalk({
@@ -300,6 +325,7 @@
         })
     </script>	
 
-    <script type="text/javascript" src="public/plugins/components/docsify.gitalk.js"></script>
+    <script type="text/javascript" src="public/plugins/components/docsify.gitalk.js"></script> 
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
  </body>
 </html>

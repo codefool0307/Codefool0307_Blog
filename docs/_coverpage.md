@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-19 10:31:42
+ * @LastEditTime: 2020-04-20 10:14:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_coverpage.md
@@ -25,11 +25,10 @@
     <a href=""> <img src="https://badgen.net/badge/%e7%89%88%e6%9c%ac/v1.0.0?icon=telegram&color=4ab8a1"></a>
     <a href="https://codefool0307.github.io/Javastudyer/#/"> <img src="https://badgen.net/badge/%e9%98%85%e8%af%bb/codefool0307?icon=sourcegraph&color=4ab8a1"></a>
     <a href=""> <img src="https://badgen.net/badge/%e8%af%ad%e8%a8%80/Java?icon=rss&color=4ab8a1"></a>
+    <a href="https://github.com/codefool0307/JavaStudyer"> <img src="https://badgen.net/badge/%e7%82%b9%e8%b5%9e/%e8%af%b7%e7%82%b9%e5%87%bb%e8%bf%99%e4%b8%aa%e5%9b%be%e6%a0%87?icon=circleci&color=4ab8a1"></a>
+     
 </div>
 <br>
-
-[点赞](https://github.com/codefool0307/JavaStudyer/stargazers)
-
 <span id="busuanzi_container_site_pv" style="display: inline;">
     👁️本页总访问次数:<span id="busuanzi_value_site_pv"></span> 
 </span>
