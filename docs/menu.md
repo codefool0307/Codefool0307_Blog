@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:18
- * @LastEditTime: 2020-04-20 10:31:04
+ * @LastEditTime: 2020-04-20 10:58:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\menu.md
@@ -16,9 +16,9 @@
  -->
 
 # Java总体学习
-[:pencil2:]
 
-个人理解，欢迎各位提出宝贵意见：（因为最近在参加实习笔试，把第九部分、面经放在前面共同进步）
+
+个人理解，欢迎各位提出宝贵意见：（因为最近在参加实习笔试，把第九部分、面经放在前面共同进步）:pencil2:
 
 <font size="7"><font color="#FF0000">第</font><font color="#DB0024">九</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">面</font><font color="#2700D8">经</font></font>
 
@@ -205,7 +205,7 @@
  * Spark
 
   
-<font size="7"><font color="#FF0000">第</font><font color="#DB0024">九</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">项</font><font color="#2700D8">目</font></font>
+<font size="7"><font color="#FF0000">第</font><font color="#DB0024">十</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">项</font><font color="#2700D8">目</font></font>
 
   目前主要做博客系统、电商平台、众筹、教育在线很传统的项目，有新项目请在issue给我留言，促进我学习，[链接来了](https://github.com/codefool0307/JavaStudyer/issues)
 

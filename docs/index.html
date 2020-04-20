@@ -201,7 +201,6 @@
         autoHeader: true,
         coverpage: true,
         notFoundPage: true,
-        noEmoji: true,
         auto2top: true,
 		notFoundPage: 'my404.md',
         homepage: 'README.md',
@@ -214,6 +213,11 @@
                 fontsize:'0.9em',
                 color:'rgb(90,90,90)',
                 language:'chinese'
+                },
+        copyCode: {
+                buttonText : '复制',
+                errorText  : '复制失败，大哥大姐',
+                successText: '唉呀妈呀，你粘上我了！'
                 },
                 //查找
         search: {
@@ -273,7 +277,7 @@
         return html + footer;
       });
     }
-  ]
+  ],
         }
 </script>
 <script type="text/javascript" src="public/docsify.min.js" ></script>
@@ -296,7 +300,7 @@
 	<!-- 引入图片缩放 -->
 	<script type="text/javascript" src="public/plugins/components/zoom-image-cdn.js"></script>
 	<!-- 复制到剪切板-->
-	<script type="text/javascript" src="public/plugins/docsify-copy-code.min.js"></script>
+	<script src="https://unpkg.com/docsify-copy-code@2"></script>
 	<!-- 点击红心效果 -->
     <script async defer type="text/javascript" src="public/plugins/components/love-click.min.js"></script>
     
