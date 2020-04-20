@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="Description">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--设置浏览器图标-->
+    <link rel="icon" href="./dog.jpg">
     <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
     <link rel="stylesheet" href="public/themes/gitalk.css">
     <!--添加音乐
@@ -20,26 +22,20 @@
       </script>-->
    <!--设置卡通人物2-->
    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+   <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
    <script src="live2d-widget-master/autoload.js"></script>
    <script src="https://g.joyinshare.com/hc/piao.js" type="text/javascript"></script>
-
-    <style>
-		#upToTop {
-			width: 40px;
-			height: 40px;
-			position: fixed;
-			left: 95%;
-			bottom: 30px;
-			background: url(shang.jpg) no-repeat left top;
-			/* margin-left: 610px; */
-		}
-
-		#upToTop:hover {
-			background: url(shang.jpg) no-repeat left -40px;
-		}
-    </style>
-
+   <!--设置一侧目录图标-->
+   <div class="doc-directory">
+    <ul class="title-content"></ul>
+    <div class="header">
+      <img class="menu-img" src="./menu.png" alt="menu" />
+    </div>
+  </div>
+  <div id="back-to-top" class="backtop" title="回到顶部" >
+    <img class="backtop-img" src="./backtop.png" alt="backtop" />
+  </div>
 </head>
 
 <body>
@@ -62,134 +58,9 @@
    setInterval("createtime()",250);
    </script>
 
-
    <!--加载页面-->
    <div id="app">正在加载中....</div>
-   <a style="display:none" href="javascript:;" id="upToTop" title="回到顶部"></a>
-
-   <a href="https://github.com/codefool0307/JavaStudyer" class="github-corner" aria-label="View source on GitHub" target="_blank"><svg width="80" height="80"
-           viewBox="0 0 250 250" style="fill:#64CEAA; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
-           aria-hidden="true">
-           <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-           <path
-               d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-               fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-           <path
-               d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-               fill="currentColor" class="octo-body"></path>
-       </svg></a>
     
-       
-       
-   <style>
-       .github-corner:hover .octo-arm {
-           animation: octocat-wave 560ms ease-in-out
-       }
-   
-       @keyframes octocat-wave {
-   
-           0%,
-           100% {
-               transform: rotate(0)
-           }
-   
-           20%,
-           60% {
-               transform: rotate(-25deg)
-           }
-   
-           40%,
-           80% {
-               transform: rotate(10deg)
-           }
-       }
-   
-       @media (max-width:500px) {
-           .github-corner:hover .octo-arm {
-               animation: none
-           }
-   
-           .github-corner .octo-arm {
-               animation: octocat-wave 560ms ease-in-out
-           }
-       }
-   </style>
-
-<script type="text/javascript">
-    window.onload = function () {
-        var toToBtn = document.getElementById("upToTop");
-        var timer = null;
-
-        window.onscroll = function () {
-            // 滚动条到底部的公式为：scrollTop + clientHeight == scrollHeight
-            if (getScrollTop() + getClientHeight() >= getScrollHeight() - 50) {
-                toToBtn.style.display = "block";
-            } else {
-                toToBtn.style.display = "none";
-            }
-        }
-
-        toToBtn.onclick = function () {
-            if (getScrollHeight() - getClientHeight() > 0) {
-                timer = setInterval(function () {
-                    var backTop = getScrollTop();
-                    //速度操作  减速
-                    var speedTop = backTop / 5;
-                    // 修改滚动条位置
-                    setScrollTop(backTop - speedTop);
-                    //高度不断减少
-                    if (backTop == 0) {  //滑动到顶端
-                        clearInterval(timer);  //清除计时器
-                    }
-                }, 30);
-            }
-        }
-    }
-
-    // 获取滚动条在Y轴上的滚动距离
-    function getScrollTop() {
-        var scroll_top = 0;
-        if (document.documentElement && document.documentElement.scrollTop) {
-            scroll_top = document.documentElement.scrollTop;
-        }
-        else if (document.body) {
-            scroll_top = document.body.scrollTop;
-        }
-        return scroll_top;
-    }
-    // 设置滚动条
-    function setScrollTop(newVal) {
-        if (document.documentElement && document.documentElement.scrollTop) {
-            document.documentElement.scrollTop = newVal;
-        }
-        else if (document.body) {
-            document.body.scrollTop = newVal;
-        }
-    }
-    // 获取内容可视区域
-    function getClientHeight() {
-        var windowHeight = 0;
-        if (document.compatMode == "CSS1Compat") {
-            windowHeight = document.documentElement.clientHeight;
-        } else {
-            windowHeight = document.body.clientHeight;
-        }
-        return windowHeight;
-    }
-    // 获取内容可视区域的高度加上溢出（滚动）的距离
-    function getScrollHeight() {
-        var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
-        if (document.body) {
-            bodyScrollHeight = document.body.scrollHeight;
-        }
-        if (document.documentElement) {
-            documentScrollHeight = document.documentElement.scrollHeight;
-        }
-        scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
-        return scrollHeight;
-    }    
-</script>
-
 <script>
     window.$docsify = {
         name: '<marquee><font color="#FF0000">J</font><font color="#DF0020">a</font><font color="#BF0040">v</font><font color="#9F0060">a</font><font color="#7F0080">进</font><font color="#5F00A0">阶</font><font color="#3F00C0">之</font><font color="#1F00E0">路</font></marquee>',
@@ -202,11 +73,10 @@
         coverpage: true,
         notFoundPage: true,
         auto2top: true,
-		notFoundPage: 'my404.md',
+		notFoundPage: '_404.md',
         homepage: 'README.md',
-        loadSidebar: true,
         //logo: 'dog1.jpg',
-
+        formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}',
         //统计字数
         count:{
                 countable:true,
@@ -236,34 +106,27 @@
             stamp(fooDate);
             return time;
         },*/
+        
         plugins: [
-        function (hook, vm) {
-          hook.doneEach(function() {
-            var label, domObj, main, divEle, gitalk;
-            label = vm.route.path.split("/").pop();
-            domObj = Docsify.dom;
-            main = domObj.getNode("#main");
-
-            Array.apply(
-              null,
-              document.querySelectorAll("div.gitalk-container")
-            ).forEach(function(ele) {
+            //gittalk
+            function (hook, vm) {
+          hook.doneEach(function(){
+            let path = vm.route.path.split('/').join('');
+            let domObj = Docsify.dom;
+            let main = domObj.getNode("#main");
+            Array.apply(null,document.querySelectorAll("div.gitTalk-container")).forEach(function(ele){
               ele.remove();
             });
-
-            divEle = domObj.create("div");
-            divEle.id = "gitalk-container-" + label;
-            divEle.className = "gitalk-container";
-            divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
+            
+            let divEle = domObj.create("div");
+            divEle.id = `gitTalk-container-${path}`;
+            divEle.className = "gitTalk-container";
+            divEle.style = `width: ${main.clientWidth}px; margin: 0 auto 20px;`;
             domObj.appendTo(domObj.find(".content"), divEle);
-            gitalk = new Gitalk(
-              Object.assign(gitalkConfig, { id: !label ? "home" : label })
-            );
-            gitalk.render("gitalk-container-" + label);
-          });
-        }
-      ],
-      plugins: [
+            // Directory folding
+          })
+        }, 
+        
     function(hook) {
       var footer = [
         '<hr/>',
@@ -328,6 +191,128 @@
             enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter) 
         })
     </script>	
+<script src="./custom/js/backtop.js"></script>
+<script>
+  let fadeTime = 1500;
+  let animateTime = 1000;
+  let height = 100;
+  let hList = [];
+  $(function() {
+    let back2Top = $("#back-to-top");
+    let docDirectory = $('.doc-directory');
+
+    $(window).scroll(function() {
+      if (!tContent.is(':hidden')) {
+        tContent.fadeOut(500);
+      }
+      if ($(window).scrollTop() > height) {
+        back2Top.fadeIn(fadeTime);
+      } else {
+        back2Top.fadeOut(fadeTime);
+      }
+    });
+
+    // back to top
+    back2Top.draggable();
+    back2Top.click(function() {
+      back2Top.animate({ top: 'toggle' }, animateTime);
+      if ($('html').scrollTop()) {
+        $('html').animate({ scrollTop: 0 }, animateTime);
+        return false;
+      }
+      $('body').animate({ scrollTop: 0 }, animateTime);
+      return false;            
+    });
+
+    // doc directory
+    let tContent = $('.title-content');
+    
+    // docDirectory.draggable();
+    $('.header').click(function(e) {
+      e.stopPropagation();
+      if (tContent.is(':hidden')) {
+        tContent.fadeIn(500);
+      } else {
+        tContent.fadeOut(500);
+      }
+      setTitle({
+        docDirectory,
+        tContent
+      });
+    });
+
+    $(window).bind('hashchange', function() {
+      const active = document.querySelector('.active');
+      if (active) {
+        active.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+      }
+      setTitle({
+        docDirectory,
+        tContent,
+      });
+    });
+  });
+
+  function setTitle({
+    docDirectory,
+    tContent,
+  }) {
+    let mainCategoryPath = location.hash.split('/').slice(0, 3).join('/');
+    tContent.empty();
+    tContent.append(`
+      <li class="home-title common">
+        <div class="wrapper">
+          <p>
+            <a class="anchor" href="https://github.com/Rain120/Web-Study/issues/12">2019年度总结</a>
+          </p>
+          <a class="anchor" href="#/notes/guide">学习笔记</a>
+        </div>
+      </li>
+      <li class="category-title common">
+        <div class="wrapper">
+          <span class="dot"></span>
+          <a class="anchor" href="${mainCategoryPath}/guide">回到上一级目录</a>
+        </div>
+      </li>
+    `);
+    
+    hList = $('.content h2, h3, h4, h5');
+    if (hList.length) {
+      hList.each(function() {
+        let tagName = this.tagName.toLowerCase();
+        let [path, hash] = location.hash.split('?');
+        let params = hash ? decodeURIComponent(hash.split('=')[1]) : '';
+        let active = this.id === params;
+        let dotActive = active ? 'dot-active' : '';
+        let aActive = active ? 'active' : '';
+        tContent.append(`
+          <li class="${tagName}-title common">
+            <div class="wrapper" title="${this.outerText}">
+              <span class="dot ${dotActive}"></span>
+              <a class="anchor ${aActive}" href="${path}?id=${this.id}">${this.outerText}</a>
+            </div>
+          </li>
+        `);
+      });
+    } else {
+      hList = $('.content ul');
+      tContent.append(hList.clone());
+    }
+  }
+</script>
+
+
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-150864629-1');
+  </script>
 
     <script type="text/javascript" src="public/plugins/components/docsify.gitalk.js"></script> 
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
