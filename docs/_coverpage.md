@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-20 21:23:24
+ * @LastEditTime: 2020-04-20 21:25:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_coverpage.md
@@ -25,7 +25,7 @@
     <a href=""> <img src="https://badgen.net/badge/%e7%89%88%e6%9c%ac/v1.0.0?icon=telegram&color=4ab8a1"></a>
     <a href="https://codefool0307.github.io/Javastudyer/#/"> <img src="https://badgen.net/badge/%e9%98%85%e8%af%bb/codefool0307?icon=sourcegraph&color=4ab8a1"></a>
     <a href=""> <img src="https://badgen.net/badge/%e8%af%ad%e8%a8%80/Java?icon=rss&color=4ab8a1"></a>
-    <a href="https://github.com/codefool0307/JavaStudyer"> <img src="https://badgen.net/badge/%e7%82%b9%e8%b5%9e?icon=circleci&color=4ab8a1"></a>
+    <a href="https://github.com/codefool0307/JavaStudyer"> <img src="https://badgen.net/badge/%e7%82%b9%e8%b5%9e?icon=rss&color=4ab8a1"></a>
      
 </div>
 <br>
