@@ -70,14 +70,7 @@
       coverpage: true,
       loadNavbar: true,
       loadSidebar: true,
-      alias: {
-        '/.*/_navbar.md': '/_navbar.md',
-        '/.*/_sidebar.md': '/_sidebar.md',
-        '/.*/_404.md': '/_404.md',
-      },
-      notFoundPage: {
-        '/': '_404.md',
-      },
+      notFoundPage: '_404.md',
        //统计字数
        count:{
                 countable:true,
@@ -123,7 +116,6 @@
         //页脚
         function(hook) {
       var footer = [
-        '<hr/>',
         '<footer align="center>',
         '<span><a href="https://github.com/codefool0307/JavaStudyer">codefool0307</a> &copy;2020.</span>',
         '<span>保留所有权利 <a href="https://github.com/codefool0307/JavaStudyer" target="_blank">codefool0307</a>.</span>',
@@ -138,7 +130,7 @@
         //跳转到相应的页面
         function(hook, vm) {
           hook.beforeEach(function (html) {
-            var url = `https://github.com/rain120/study-notes//blob/master/docs/${vm.route.file}`;
+            var url = `https://github.com/codefool0307/JavaScholar/tree/master/docsr/${vm.route.file}`;
             var gotoHTML = `[📝 GOTO DOCUMENT](${url})\n`;
 
             return gotoHTML + html + '\n----\n' + 'Last modified <strong>{docsify-updated}</strong>';
@@ -282,7 +274,7 @@
         <li class="home-title common">
           <div class="wrapper">
             <p>
-              <a class="anchor" href="https://github.com/Rain120/Web-Study/issues/12">codefool0307小目录</a>
+              <a class="anchor" href="https://github.com/codefool0307/JavaStudyer">codefool0307小目录</a>
             </p>
           </div>
         </li>
