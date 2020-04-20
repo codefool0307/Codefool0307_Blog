@@ -1,14 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-20 17:09:33
+ * @LastEditTime: 2020-04-20 19:29:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_sidebar.md
  -->
 
 * 第一部分、JAVA基础
-* [java二十讲](/1.basics/1.java-basic/0-思维导图.md)
+    * [java二十讲](/1.basics/1.java-basic/0-思维导图.md)
     
         * [1 面对对象](/1.basics/0.Object/1-面对对象.md)  
         * [2 三大特征细述](/1.basics/0.Object/2-三大特征.md)
