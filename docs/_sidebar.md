@@ -10,10 +10,11 @@
 * 第一部分、JAVA基础
     * [面对对象](/1.basics/1.java-basic/0-思维导图.md)
     
-        * [1 面对对象综述](/1.basics/0.Object/1-面对对象.md)  
-        * [2 三大特征细述](/1.basics/0.Object/2-三大特征.md)
-        * [3 平台无关性](/1.basics/0.Object/3-平台无关性.md)
-        * [4 值传递](/1.basics/0.Object/4-值传递.md)
+        * [1 面对对象与面向过程](/1.basics/0.Object/1-面对对象与面向过程.md)
+        * [2 面对对象综述](/1.basics/0.Object/2-面对对象.md)  
+        * [3 三大特征细述](/1.basics/0.Object/3-三大特征.md)
+        * [4 平台无关性](/1.basics/0.Object/4-平台无关性.md)
+        * [5 值传递](/1.basics/0.Object/5-值传递.md)
   
     * [java二十讲](/1.basics/1.java-basic/0-思维导图.md)
     
