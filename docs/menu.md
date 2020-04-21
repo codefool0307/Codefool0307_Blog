@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:18
- * @LastEditTime: 2020-04-21 11:02:50
+ * @LastEditTime: 2020-04-21 20:30:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\menu.md
@@ -32,14 +32,14 @@
 
     1. [京东篇](./9.interview/1.实习篇/京东篇.md)  说多了就就是泪，感觉今年京东全是acm的题，第一题ac78，第二题ac12，可能是自己太水了
     2. [华为篇](./9.interview/1.实习篇/华为篇.md) 等待笔试
-    3. [浪潮篇]()Offer已拿
-    4. [跟谁学]()是做的较为简单的，可能越简单越被刷，等待面试
-    5. [携程篇]()中等难度，等待面试
-    6. [中国银行]()等待笔试
-    7. [中国邮政]()等待笔试
-    8. [中国电信]()等待笔试
-    9. [特斯拉]()无结果，应该是挂了
-    10. [西门子]()我一直以为西门子是PLC，然而竟然有软开，索性试试吧
+    3. [浪潮篇](./9.interview/1.实习篇/浪潮篇.md)Offer已拿
+    4. [跟谁学](./9.interview/1.实习篇/跟谁学篇.md)是做的较为简单的，可能越简单越被刷，等待面试
+    5. [携程篇](./9.interview/1.实习篇/携程篇.md)笔试已过，放弃面试
+    6. [中国银行](./9.interview/1.实习篇/中国银行篇.md)等待笔试
+    7. [中国邮政](./9.interview/1.实习篇/中国邮政篇.md)等待笔试
+    8. [中国电信](./9.interview/1.实习篇/中国电信篇.md)等待笔试
+    9. [特斯拉](./9.interview/1.实习篇/特斯拉篇.md)无结果，应该是挂了
+    10. [西门子](./9.interview/1.实习篇/西门子篇.md)我一直以为西门子是PLC，然而竟然有软开，索性试试吧
   
 
 
@@ -48,7 +48,9 @@
 
 ## <font size="7"><font color="#FF0000">第</font><font color="#E3001C">一</font><font color="#C70038">部</font><font color="#AB0054">分</font><font color="#8F0070">、</font><font color="#73008C">J</font><font color="#5700A8">a</font><font color="#3B00C4">v</font><font color="#1F00E0">a</font></font>
 
-  * A、java基础概念，一共分为了20讲，每一部分正在加速完成中。主要是参考了toBeJavaer这位大佬的思维导图下进行的扩展
+  * A、面向对象
+
+  * A、java基础概念，一共分为了18讲，每一部分正在加速完成中。主要是参考了toBeJavaer这位大佬的思维导图下进行的扩展
 
   * B、基础部分我把并发单独摘出来，成为一个专门的专题，因为并发过于重要，同时知识点也是比较多的
   [并发知识点](https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#%E5%B9%B6%E5%8F%91)
@@ -77,7 +79,7 @@
 
   * E、MyCat
 
-## <font size="7"><font color="#FF0000">第</font><font color="#DB0024">四</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">算</font><font color="#2700D8">法</font></font>
+## <font color="#FF0000">第</font><font color="#EA0015">四</font><font color="#D5002A">部</font><font color="#C0003F">分</font><font color="#AB0054">、</font><font color="#960069">算</font><font color="#81007E">法</font><font color="#6C0093">与</font><font color="#5700A8">设</font><font color="#4200BD">计</font><font color="#2D00D2">模</font><font color="#1800E7">式</font>
 
   * 栈与排序
   * 链表
