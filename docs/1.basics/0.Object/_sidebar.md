@@ -1,20 +1,22 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-20 19:44:16
+ * @LastEditTime: 2020-04-20 19:50:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_sidebar.md
  -->
 
 * 第一部分、JAVA基础
-    * [A、面对对象](/1.basics/1.java-basic/0-思维导图.md)
+    * [面对对象](/1.basics/1.java-basic/0-思维导图.md)
     
-        * [1 面对对象综述](/1.basics/0.Object/1-面对对象.md)  
-        * [2 三大特征细述](/1.basics/0.Object/2-三大特征.md)
-        * [3 平台无关性](/1.basics/0.Object/3-平台无关性.md)
-        * [4 值传递](/1.basics/0.Object/4-值传递.md)
-    * [B、java十八讲](/1.basics/1.java-basic/0-思维导图.md)
+        * [1 面对对象与面向过程](/1.basics/0.Object/1-面对对象与面向过程.md)
+        * [2 面对对象综述](/1.basics/0.Object/2-面对对象.md)  
+        * [3 三大特征细述](/1.basics/0.Object/3-三大特征.md)
+        * [4 平台无关性](/1.basics/0.Object/4-平台无关性.md)
+        * [5 值传递](/1.basics/0.Object/5-值传递.md)
+  
+    * [java二十讲](/1.basics/1.java-basic/0-思维导图.md)
     
         * [1 数据类型](/1.basics/1.java-basic/1-数据类型.md)  
         * [2 基础语法](/1.basics/1.java-basic/2-基础语法.md)
@@ -37,23 +39,24 @@
         * [17 Java8~14新特性](/1.basics/1.java-basic/17-新特性.md)
         * [17-1 函数式编程](/1.basics/1.java-basic/17-1-函数式编程.md)
         * [17-2 方法引用](/1.basics/1.java-basic/17-2-方法引用.md)
-        * [18 源码分析](/1.basics/1.java-basic/18-源码.md)
+        * [18 面对对象](/1.basics/1.java-basic/18-面对对象.md)
+        * [19 源码分析](/1.basics/1.java-basic/19-源码.md)
 
 * 第二部分、OS
 
-    * [A、Linux]()
+    * Linux
   
         * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
 
-    * [B、shell]()
+    * shell
   
         * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
     
-    * [C、TCP/IP+HTTP+计算机网络]()
+    * TCP/IP+HTTP+计算机网络
   
         * [1 基本语法](/2.os/3.TCP/1-模型介绍.md)   
         
-    * [D、操作系统]()
+    * 操作系统
   
         * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
 
@@ -62,7 +65,7 @@
 
 * 第四部分、数据结构与算法
 
-    * [A、知识点]()
+    * 知识点
   
         * [1 栈与队列](/4.algorithm/1-栈与队列.md)
         * [2 链表](/4.algorithm/2-链表.md)
