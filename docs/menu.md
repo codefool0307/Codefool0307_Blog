@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:18
- * @LastEditTime: 2020-04-20 10:58:24
+ * @LastEditTime: 2020-04-21 11:02:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\menu.md
@@ -20,7 +20,7 @@
 
 个人理解，欢迎各位提出宝贵意见：（因为最近在参加实习笔试，把第九部分、面经放在前面共同进步）:pencil2:
 
-<font size="7"><font color="#FF0000">第</font><font color="#DB0024">九</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">面</font><font color="#2700D8">经</font></font>
+## <font size="7"><font color="#FF0000">第</font><font color="#DB0024">九</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">面</font><font color="#2700D8">经</font></font>
 
   我就只能把自家面试情况说一下，我的都很水，给你一个大佬的链接，上到BAT，下到传统都有，
   
@@ -31,22 +31,22 @@
     自己太水了，没敢去试试BAT和独角兽企业，秋招可以去试试
 
     1. [京东篇](./9.interview/1.实习篇/京东篇.md)  说多了就就是泪，感觉今年京东全是acm的题，第一题ac78，第二题ac12，可能是自己太水了
-    2. [华为篇](./9.interview/1.实习篇/华为篇.md)  等待笔试
-    3. [浪潮篇]()    面试结束，等待offer
-    4. [跟谁学]()    是做的较为简单的，可能越简单越被刷，等待面试
-    5. [携程篇]()    中等难度，等待面试
-    6. [中国银行]()  等待笔试
-    7. [中国邮政]()  等待笔试
-    8. [中国电信]()  等待笔试
-    9. [特斯拉]()    二面中....
-    10. [西门子]()   我一直以为西门子是PLC，然而竟然有软开，索性试试吧
+    2. [华为篇](./9.interview/1.实习篇/华为篇.md) 等待笔试
+    3. [浪潮篇]()Offer已拿
+    4. [跟谁学]()是做的较为简单的，可能越简单越被刷，等待面试
+    5. [携程篇]()中等难度，等待面试
+    6. [中国银行]()等待笔试
+    7. [中国邮政]()等待笔试
+    8. [中国电信]()等待笔试
+    9. [特斯拉]()无结果，应该是挂了
+    10. [西门子]()我一直以为西门子是PLC，然而竟然有软开，索性试试吧
   
 
 
 
 我把java目前共分为了十大部分：
 
-<font size="7"><font color="#FF0000">第</font><font color="#E3001C">一</font><font color="#C70038">部</font><font color="#AB0054">分</font><font color="#8F0070">、</font><font color="#73008C">J</font><font color="#5700A8">a</font><font color="#3B00C4">v</font><font color="#1F00E0">a</font></font>
+## <font size="7"><font color="#FF0000">第</font><font color="#E3001C">一</font><font color="#C70038">部</font><font color="#AB0054">分</font><font color="#8F0070">、</font><font color="#73008C">J</font><font color="#5700A8">a</font><font color="#3B00C4">v</font><font color="#1F00E0">a</font></font>
 
   * A、java基础概念，一共分为了20讲，每一部分正在加速完成中。主要是参考了toBeJavaer这位大佬的思维导图下进行的扩展
 
@@ -55,7 +55,7 @@
 
   * C、JVM，大厂面试的关键所在
 
-<font size="7"><font color="#FF0000">第</font><font color="#DB0024">二</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">O</font><font color="#2700D8">S</font></font>
+## <font size="7"><font color="#FF0000">第</font><font color="#DB0024">二</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">O</font><font color="#2700D8">S</font></font>
 
   * A、linux操作系统
 
@@ -65,7 +65,7 @@
 
   * D、操作系统
 
-<font size="7"><font color="#FF0000">第</font><font color="#DF0020">三</font><font color="#BF0040">部</font><font color="#9F0060">分</font><font color="#7F0080">、</font><font color="#5F00A0">数</font><font color="#3F00C0">据</font><font color="#1F00E0">库</font></font>
+## <font size="7"><font color="#FF0000">第</font><font color="#DF0020">三</font><font color="#BF0040">部</font><font color="#9F0060">分</font><font color="#7F0080">、</font><font color="#5F00A0">数</font><font color="#3F00C0">据</font><font color="#1F00E0">库</font></font>
 
   * A、MySQL
 
@@ -77,7 +77,7 @@
 
   * E、MyCat
 
-<font size="7"><font color="#FF0000">第</font><font color="#DB0024">四</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">算</font><font color="#2700D8">法</font></font>
+## <font size="7"><font color="#FF0000">第</font><font color="#DB0024">四</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">算</font><font color="#2700D8">法</font></font>
 
   * 栈与排序
   * 链表
@@ -97,7 +97,7 @@
   * 动态
   * 四大算法
 
-<font size="7"><font color="#FF0000">第</font><font color="#DB0024">五</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">前</font><font color="#2700D8">端</font></font>
+## <font size="7"><font color="#FF0000">第</font><font color="#DB0024">五</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">前</font><font color="#2700D8">端</font></font>
 
   2021.1月开始学习
 
@@ -121,7 +121,7 @@
      
      注：由于JS主要是同步操作，学会异步操作比较重要
 
-<font size="7"><font color="#FF0000">第</font><font color="#DB0024">六</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">框</font><font color="#2700D8">架</font></font>
+## <font size="7"><font color="#FF0000">第</font><font color="#DB0024">六</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">框</font><font color="#2700D8">架</font></font>
 
   * A、基础框架
 
@@ -176,7 +176,7 @@
      3. Logstash
 
 
-<font size="7"><font color="#FF0000">第</font><font color="#DB0024">七</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">工</font><font color="#2700D8">具</font></font>
+## <font size="7"><font color="#FF0000">第</font><font color="#DB0024">七</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">工</font><font color="#2700D8">具</font></font>
 
   * A、Git
 
@@ -184,39 +184,35 @@
 
   * C、网关（ngnix/LVS/Apache）
 
-  * D、maven
+  * D、SVN
 
-  * E、SVN
-
-  * F、容器
+  * E、容器
 
      1. Docker
 
      2. K8S
 
-  * E、Gradle
+  * F、Gradle
 
-  * F、Jenkins
+  * G、Jenkins
 
-<font size="7"><font color="#FF0000">第</font><font color="#DF0020">八</font><font color="#BF0040">部</font><font color="#9F0060">分</font><font color="#7F0080">、</font><font color="#5F00A0">大</font><font color="#3F00C0">数</font><font color="#1F00E0">据</font></font>
+## <font size="7"><font color="#FF0000">第</font><font color="#DF0020">八</font><font color="#BF0040">部</font><font color="#9F0060">分</font><font color="#7F0080">、</font><font color="#5F00A0">大</font><font color="#3F00C0">数</font><font color="#1F00E0">据</font></font>
    
  * Hadoop
 
  * Spark
 
   
-<font size="7"><font color="#FF0000">第</font><font color="#DB0024">十</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">项</font><font color="#2700D8">目</font></font>
+## <font size="7"><font color="#FF0000">第</font><font color="#DB0024">十</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">项</font><font color="#2700D8">目</font></font>
 
   目前主要做博客系统、电商平台、众筹、教育在线很传统的项目，有新项目请在issue给我留言，促进我学习，[链接来了](https://github.com/codefool0307/JavaStudyer/issues)
 
   比较好的项目——[秒杀](https://github.com/qiurunze123/miaosha)
 
-  第十一部分、热门技术
+  ## <font color="#FF0000">第</font><font color="#E60019">十</font><font color="#CD0032">一</font><font color="#B4004B">部</font><font color="#9B0064">分</font><font color="#82007D">、</font><font color="#690096">人</font><font color="#5000AF">工</font><font color="#3700C8">智</font><font color="#1E00E1">能</font>
 
-  * A、K8S
+  * A、机器学习
+  * B、深度学习
 
-## 第一部分、Java基础学习路线
-
-<div class="cover-main"><img width="1000px" src="icon/Java-1.jpg">
 
 
