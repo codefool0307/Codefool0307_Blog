@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-09 17:50:04
- * @LastEditTime: 2020-04-21 21:47:48
+ * @LastEditTime: 2020-04-21 21:49:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \undefinedd:\04.github\Javastudyer\docs\README.md
@@ -25,7 +25,7 @@
 | 2020年4月25日 | NIO        | :wrench: | 哈希表和有序表在使用层次上的简单介绍                                              | :wrench: |
 | 2020年4月26日 | 基础部分补充     | :wrench: | 详解递归函数完成二叉树的三种遍历                                                | :wrench: |
 | 2020年4月27日 | TCP\-1     | :wrench: | 详解非递归函数完成二叉树的三种遍历                                               | :wrench: |
-| 2020年4月28日 | TCP\-2     | :wrench: | 详解二叉树的序列化和反序列化（深度优先与宽度优先遍历）                                     | :wrench: |
+| 2020年4月28日 | TCP\-2     | :wrench: | 详解二叉树的序列化和反序列化（深度优先与宽度优先遍历）                            | :wrench: |
 | 2020年4月29日 | TCP\-3     | :wrench: | 折纸问题                                                            | :wrench: |
 | 2020年4月30日 | TCP\-4     | :wrench: | 判断搜索二叉树                                                         | :wrench: |
 | 2020年5月1日  | 数据库\-1     | :wrench: | 判断完全二叉树                                                         | :wrench: |
