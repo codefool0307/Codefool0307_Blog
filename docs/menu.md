@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:18
- * @LastEditTime: 2020-04-21 21:57:55
+ * @LastEditTime: 2020-04-21 21:59:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\menu.md
@@ -20,6 +20,7 @@
 
 个人理解，欢迎各位提出宝贵意见：
 
+首页设置了最近的公司
 
 我把java目前共分为了十一部分：
 
