@@ -190,19 +190,7 @@
 
   * A、实习篇
   
-    自己太水了，没敢去试试BAT和独角兽企业，秋招可以去试试
-
-    1. [京东篇](./9.interview/1.实习篇/京东篇.md)  说多了就就是泪，感觉今年京东全是acm的题，第一题ac78，第二题ac12，可能是自己太水了
-    2. [华为篇](./9.interview/1.实习篇/华为篇.md) 等待笔试
-    3. [浪潮篇](./9.interview/1.实习篇/浪潮篇.md)Offer已拿
-    4. [跟谁学](./9.interview/1.实习篇/跟谁学篇.md)是做的较为简单的，可能越简单越被刷，等待面试
-    5. [携程篇](./9.interview/1.实习篇/携程篇.md)笔试已过，放弃面试
-    6. [中国银行](./9.interview/1.实习篇/中国银行篇.md)等待笔试
-    7. [中国邮政](./9.interview/1.实习篇/中国邮政篇.md)等待笔试
-    8. [中国电信](./9.interview/1.实习篇/中国电信篇.md)等待笔试
-    9. [特斯拉](./9.interview/1.实习篇/特斯拉篇.md)无结果，应该是挂了
-    10. [西门子](./9.interview/1.实习篇/西门子篇.md)我一直以为西门子是PLC，然而竟然有软开，索性试试吧
-
+  * B、秋招篇
 
 ## <font size="7"><font color="#FF0000">第</font><font color="#DB0024">十</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">项</font><font color="#2700D8">目</font></font>
 
