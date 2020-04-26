@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-26 21:27:23
+ * @LastEditTime: 2020-04-26 21:30:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_sidebar.md
@@ -289,17 +289,14 @@
     
 * <font color="#FF0000">第九部分、面经</font>
   
-    * <font color="#00E0FF">一、实习</font>
+    * <font color="#00E0FF">一、企业名录</font>
   
         * [企业名录](/9.interview/companycontext.md)  
 
-    * <font color="#00E0FF">一、实习</font>
+    * <font color="#00E0FF">二、面经</font>
   
-        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
+        * [1 京东实习篇](/9.interview/1.实习篇/京东篇.md)  
 
-    * <font color="#00E0FF">二、工作</font>
-  
-        * [1 基本语法](/2.os/2.shell/1-基本语法.md)  
 
 * <font color="#FF0000">第十部分、项目</font>
 
