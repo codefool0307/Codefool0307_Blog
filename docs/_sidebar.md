@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-21 16:38:28
+ * @LastEditTime: 2020-04-26 21:27:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_sidebar.md
@@ -288,6 +288,10 @@
         * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
     
 * <font color="#FF0000">第九部分、面经</font>
+  
+    * <font color="#00E0FF">一、实习</font>
+  
+        * [企业名录](/9.interview/companycontext.md)  
 
     * <font color="#00E0FF">一、实习</font>
   
