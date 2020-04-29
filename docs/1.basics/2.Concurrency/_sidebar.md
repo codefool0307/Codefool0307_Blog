@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-26 21:30:26
+ * @LastEditTime: 2020-04-29 20:58:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_sidebar.md
@@ -300,9 +300,9 @@
 
 * <font color="#FF0000">第十部分、项目</font>
 
-    * <font color="#00E0FF">一、项目一</font>
+    * <font color="#00E0FF">一、项目一 博客系统</font>
   
-        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
+        * [1 创建工程](/10.project/01.Project01/01-创建工程.md)  
 
     * <font color="#00E0FF">二、项目二</font>
   
