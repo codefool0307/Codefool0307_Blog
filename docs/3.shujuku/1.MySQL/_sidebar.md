@@ -1,5 +1,13 @@
 <!--
  * @Author: your name
+ * @Date: 2020-04-18 10:56:28
+ * @LastEditTime: 2020-04-30 14:04:35
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \docs\3.shujuku\1.MySQL\_sidebar.md
+ -->
+<!--
+ * @Author: your name
  * @Date: 2020-04-15 22:09:19
  * @LastEditTime: 2020-04-18 10:55:45
  * @LastEditors: Please set LastEditors
