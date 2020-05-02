@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:18
- * @LastEditTime: 2020-04-21 21:59:14
+ * @LastEditTime: 2020-05-02 19:36:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\menu.md
@@ -184,15 +184,11 @@
 
 ## <font size="7"><font color="#FF0000">第</font><font color="#DB0024">九</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">面</font><font color="#2700D8">经</font></font>
 
-  我就只能把自家面试情况说一下，我的都很水，给你一个大佬的链接，上到BAT，下到传统都有，
-  
-  [大佬链接在此](https://github.com/0voice/interview_internal_reference)
+ *  [阿里巴巴篇]()
+ *  [京东篇]()
+ *  [华为篇]()
+ *  [银行篇]()
 
-  [自己整理的公司名录](https://codefool0307.github.io/JavaScholar/#/?id=%e6%8b%9b%e8%81%98%e7%a8%8b%e5%ba%8f%e5%91%98%e5%85%ac%e5%8f%b8%e7%9b%ae%e5%bd%95)
-
-  * A、实习篇
-  
-  * B、秋招篇
 
 ## <font size="7"><font color="#FF0000">第</font><font color="#DB0024">十</font><font color="#B70048">部</font><font color="#93006C">分</font><font color="#6F0090">、</font><font color="#4B00B4">项</font><font color="#2700D8">目</font></font>
 
