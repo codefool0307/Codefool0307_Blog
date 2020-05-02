@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-29 20:58:54
+ * @LastEditTime: 2020-05-02 19:30:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_sidebar.md
@@ -79,19 +79,21 @@
 
     * <font color="#00E0FF">一、MySQL</font>
   
-        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
+        * [1 数据库相关概念](/3.database/1.MySQL/1-数据库相关概念.md)
+        * [2 MySQL安装与卸载](/3.database/1.MySQL/2-MySQL安装与卸载.md)
+        * [3 SQL语句](/3.database/1.MySQL/3-SQL语句.md)  
 
     * <font color="#00E0FF">二、Redis</font>
   
-        * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
+        * [1 基本语法]()   
     
     * <font color="#00E0FF">三、Oracle</font>
   
-        * [1 基本语法](/2.os/3.TCP/1-模型介绍.md)   
+        * [1 基本语法]()   
         
     * <font color="#00E0FF">四、JDBC</font>
   
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
+        * [1 操作系统概述]() 
     
  
 * <font color="#FF0000">第四部分、数据结构与算法</font>

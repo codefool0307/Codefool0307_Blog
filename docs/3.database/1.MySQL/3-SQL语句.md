@@ -280,7 +280,23 @@ SELECT * FROM `employees` ORDER BY 2 DESC;
 
 注：相关练习详见[练习]()
 
+#### 3.1.2.5 分组查询
 
+select 查询列表 from 表名 where 筛选条件 group by 分组列表 having 分组后筛选 order by 排序列表;
+
+执行顺序：①from子句②where子句③group by 子句④having子句⑤select子句⑥order by子句
+
+注：
+1. 分组查询中的筛选分为两类
+
+```java
+			   筛选的基表	使用的关键词		位置
+分组前筛选		原始表		where			group by 的前面
+
+分组后筛选		分组后的结果集  having			group by的后面
+
+where——group by ——having
+```
 
 
 
