@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-05-02 19:30:10
+ * @LastEditTime: 2020-05-02 21:29:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_sidebar.md
@@ -85,15 +85,15 @@
 
     * <font color="#00E0FF">二、Redis</font>
   
-        * [1 基本语法]()   
+        * [1 基本语法](/3.database/1.MySQL/3-SQL语句.md)   
     
     * <font color="#00E0FF">三、Oracle</font>
   
-        * [1 基本语法]()   
+        * [1 基本语法](/3.database/1.MySQL/3-SQL语句.md)   
         
     * <font color="#00E0FF">四、JDBC</font>
   
-        * [1 操作系统概述]() 
+        * [1 操作系统概述](/3.database/1.MySQL/3-SQL语句.md) 
     
  
 * <font color="#FF0000">第四部分、数据结构与算法</font>
