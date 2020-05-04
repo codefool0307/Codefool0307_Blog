@@ -298,7 +298,259 @@ select 查询列表 from 表名 where 筛选条件 group by 分组列表 having 
 where——group by ——having
 ```
 
+```java
+
+# 分组查询
+USE myemployees;
+# 1.查询每个工种员工的平均工资
+SELECT AVG(salary),job_id
+FROM employees
+GROUP BY `job_id`;
+
+# 2.查询每个领导手下人数
+
+SELECT COUNT(*),`manager_id`
+FROM employees
+WHERE manager_id IS NOT NULL
+GROUP BY `manager_id`;
+
+# 3.查询邮箱中包含a字符的每个部门的最高工资
+
+SELECT MAX(salary) `department_id`
+FROM employees
+WHERE `email` LIKE "%a%"
+GROUP BY `department_id`;
+
+# 4.查询每个领导手下有奖金的员工的平均工资
+
+SELECT AVG(salary) `manager_id`
+FROM `employees`
+WHERE `commission_pct` IS NOT NULL
+GROUP BY `manager_id`
+
+# 5. 查询哪个部门的员工个数>5
+SELECT COUNT(*) ,`department_id`
+FROM `employees`
+
+GROUP BY `department_id`
+HAVING COUNT(*)>5;
+
+# 6.每个工种有奖金的员工的最高工资>12000的工种编号和最高工资
+SELECT job_id,MAX(`salary`)
+FROM `employees`
+WHERE `commission_pct` IS NOT NULL
+GROUP BY `job_id`
+HAVING MAX(`salary`)>12000
+
+# 7.按照多字段分组
+# 7.1 查询每个工种每个部门的最低工资、并按最低工资排序
+
+SELECT `job_id`,`department_id`,MIN(`salary`)
+FROM `employees`
+GROUP BY `job_id`,`department_id` 
+ORDER BY MIN(`salary`) DESC
+
+```
+##### 3.1.2.5.1 分组函数
+
+分组函数清单：
+
+sum(字段名)：求和
+avg(字段名)：求平均数
+max(字段名)：求最大值
+min(字段名)：求最小值
+count(字段名)：计算非空字段值的个数
 
 
+#### 3.1.2.6 常见函数
+
+常见函数：
+   * 字符函数
+		concat
+		substr
+		length（str）
+		char_length
+		upper
+		lower
+		trim
+		left
+		right
+		lpad
+		rpad
+		instr
+		strcmp
+	* 数学函数
+		abs
+		ceil
+		floor
+		round
+		truncate
+		mod	
+	* 日期函数
+		now 
+		curtime
+		curdate
+		datediff
+		date_format
+		str_to_date
+	* 流程控制函数
+		if
+		case
+
+##### 3.1.2.6.1 常见函数
+
+```java
+# 常见函数
+# 1.concat拼接字符串
+SELECT CONCAT("hello",first_name,last_name) 备注 
+FROM employees
+
+# 2.length获取长度
+SELECT LENGTH(first_name),first_name
+FROM employees
+
+# 3.char_length 获取字符个数
+SELECT CHAR_LENGTH(first_name),first_name
+FROM employees
+
+# 4.substring截取子串
+
+SELECT SUBSTRING('kajfhskhfkhakj',3,7)
+
+# 5.instr获取字符第一次出现的索引
+
+SELECT INSTR('hellokjsdfagkhhelloksdfkahhello','hello')
+
+# 6.TRIM去掉前后指定的字符
+
+SELECT TRIM('   大哥 二哥 都是 我哥     ') AS a;
+SELECT TRIM(' ' FROM '   大哥 二哥 都是 我哥     ') AS b;
+
+# 7.左填充 lpad/右填充 rpad
+SELECT LPAD('大哥',4,'二哥');
+
+SELECT RPAD('大哥',4,'三哥');
+
+# 8.大写upper/小写lower
+
+# 查询员工表姓名：要求：首字符大写， 其他字符小写，名所有字符大写，且姓和名之间用_分割，最后别名OUTPUT
+
+SELECT CONCAT(UPPER(SUBSTR(`first_name`,1,1)),LOWER(SUBSTR(`first_name`,2)),'_',UPPER(`first_name`)) OUTPUT
+FROM employees;
+
+# 9.strcmp比较两个字符大小
+
+SELECT STRCMP('321','123');
+
+# 10.left/right截取子串
+
+SELECT LEFT('武林外传',1)
+
+SELECT RIGHT('武林外传',1)
+```
+
+##### 3.1.2.6.2 数学函数
+
+```java
+# 数学函数
+
+# 1.绝对值ABS
+
+SELECT ABS(-2.4)
+
+# 2.ceil 向上取整(坐标轴来看是往右看)
+
+SELECT CEIL(-1.98)
+
+# 3.floor 向下取整
+
+SELECT FLOOR(9.87)
+
+# 4.round 四舍五入
+
+SELECT ROUND(6.168751797496579)
+
+# 5.truncate 截断，与四舍五入类似，但是要注意用法
+
+SELECT TRUNCATE(6.1241,3)
+
+# 6.mod取余
+
+SELECT MOD(-10,3)
+   # 注：a%b=a-a/b*b
+```
+
+##### 3.1.2.6.3 日期函数
+
+```java
+# 日期函数
+
+# 1.now
+
+SELECT NOW()
+
+#2. curdate
+
+SELECT CURDATE();
+
+#3. curtime
+
+SELECT CURTIME();
+
+#4. datediff
+
+SELECT DATEDIFF('1900-01-01','1949-10-01')
+
+# 5. date_format
+
+SELECT DATE_FORMAT('1900-01-01','%Y年%M月%d日')
+
+# 6.str_to_date 按照制定个是解析日期
+
+SELECT STR_TO_DATE('3/14 1898','%m/%d %Y')
+```
+
+#### 3.1.2.7 连接查询
+
+说明：又称多表查询，当查询语句涉及到的字段来自于多个表时，就会用到连接查询
+
+![avatar](./assets/3-2.jpg)
+
+如果想查询beatys表的id所对应的boys的id值？
+
+![avatar](./assets/3-3.jpg)
+
+笛卡尔乘积现象：表1 有m行，表2有n行，结果=m*n行
+
+	发生原因：没有有效的连接条件
+	如何避免：添加有效的连接条件
+
+分类：
+
+	按年代分类：
+	1、sql92标准:仅仅支持内连接
+		  内连接：
+			等值连接
+			非等值连接
+			自连接
+	2、sql99标准【推荐】：支持内连接+外连接（左外和右外）+交叉连接
+	按功能分类：
+		  内连接：
+			等值连接
+			非等值连接
+			自连接
+		  外连接：
+			左外连接
+			右外连接
+			全外连接
+		
+		交叉连接
 
 
+##### 3.1.2.7.1 等值连接
+
+① 多表等值连接的结果为多表的交集部分
+② n表连接，至少需要n-1个连接条件
+③ 多表的顺序没有要求
+④一般需要为表起别名
+⑤可以搭配前面介绍的所有子句使用，比如排序、分组、筛选
