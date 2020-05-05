@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-05-06 06:26:39
+ * @LastEditTime: 2020-05-06 06:29:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_sidebar.md
@@ -83,7 +83,7 @@
         * [2 MySQL安装与卸载](/3.database/1.MySQL/2-MySQL安装与卸载.md)
         * [3 SQL语句](/3.database/1.MySQL/3-SQL语句.md) 
         * [4 事务](/3.database/1.MySQL/4-事务.md) 
-        * [5 Mysql安装]()
+        * [5 Mysql安装](/3.database/1.MySQL/5-MySQL安装.md)
         * [6 架构]() 
         * [7 索引]() 
         * [8 查询]() 
