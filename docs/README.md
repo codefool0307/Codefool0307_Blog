@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-09 17:50:04
- * @LastEditTime: 2020-05-05 13:22:14
+ * @LastEditTime: 2020-05-05 13:23:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \undefinedd:\04.github\Javastudyer\docs\README.md
@@ -40,7 +40,7 @@
         <td>第18天</td>
     </tr>
     <tr>
-        <td>数据库（共计11天）</td>
+        <td>数据库</td>
         <td>DML+DQL+DDL</td>
         <td>JDBC概述<br>连接<br>CURD操作<br>BLOB<br>批量插入</td>
         <td>事务<br>DAO<br>连接池<br>DButils</td>
@@ -61,7 +61,7 @@
         <td>无</td>
     </tr>
     <tr>
-        <td>框架（18天）</td>
+        <td>框架</td>
         <td>:wrench:</td>
         <td>:wrench:</td>
         <td>:wrench:</td>
@@ -82,7 +82,7 @@
         <td>:wrench:</td>
     </tr>
     <tr>
-        <td>NIO+面对对象（1天）</td>
+        <td>NIO+面对对象</td>
         <td>:wrench:</td>
         <td>无</td>
         <td>无</td>
@@ -229,7 +229,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>git（1天）</td>
+        <td>git</td>
         <td>:wrench:</td>
         <td></td>
         <td></td>
@@ -250,7 +250,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>maven（1天）</td>
+        <td>maven</td>
         <td>:wrench:</td>
         <td></td>
         <td></td>
@@ -271,7 +271,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>svn（1天）</td>
+        <td>svn</td>
         <td>:wrench:</td>
         <td></td>
         <td></td>
@@ -292,7 +292,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>docker（3天）</td>
+        <td>docker</td>
         <td>:wrench:</td>
         <td>:wrench:</td>
         <td>:wrench:</td>
@@ -313,7 +313,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>Jenkins（1天）</td>
+        <td>Jenkins</td>
         <td>:wrench:</td>
         <td></td>
         <td></td>
@@ -334,7 +334,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>nginx（1天）</td>
+        <td>nginx</td>
         <td>:wrench:</td>
         <td></td>
         <td></td>
@@ -733,7 +733,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>项目一（12天）</td>
+        <td>项目一</td>
         <td>:wrench:</td>
         <td></td>
         <td></td>
@@ -754,7 +754,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>项目二（21天）</td>
+        <td>项目二</td>
         <td>:wrench:</td>
         <td></td>
         <td></td>
@@ -775,7 +775,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>项目二补充（7天）</td>
+        <td>项目二补充</td>
         <td>:wrench:</td>
         <td></td>
         <td></td>
@@ -796,7 +796,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>项目三（26天）</td>
+        <td>项目三</td>
         <td>:wrench:</td>
         <td></td>
         <td></td>
