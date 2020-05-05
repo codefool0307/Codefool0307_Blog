@@ -510,15 +510,11 @@ SELECT DATE_FORMAT('1900-01-01','%Y年%M月%d日')
 SELECT STR_TO_DATE('3/14 1898','%m/%d %Y')
 ```
 
-#### 3.1.2.7 连接查询
+#### 3.1.2.7 连接查询——sql92
 
 说明：又称多表查询，当查询语句涉及到的字段来自于多个表时，就会用到连接查询
 
 ![avatar](./assets/3-2.jpg)
-
-如果想查询beatys表的id所对应的boys的id值？
-
-![avatar](./assets/3-3.jpg)
 
 笛卡尔乘积现象：表1 有m行，表2有n行，结果=m*n行
 
@@ -547,10 +543,117 @@ SELECT STR_TO_DATE('3/14 1898','%m/%d %Y')
 		交叉连接
 
 
+语法:
+select 查询列表 from 表1 别名,表2 别名 where 连接条件 and 筛选条件 group by 分组列表 having 分组后筛选 order by 排序列表
+
+执行顺序：
+1、from子句 2、where子句 3、and子句 4、group by子句 5、having子句 6、select子句 7、order by子句
+
 ##### 3.1.2.7.1 等值连接
 
+
+等值连接：
+    在上图的新表上做筛选，选出符合条件的
+      sql92：select * from A,B where A.学号=B.学号
+
+注：
 ① 多表等值连接的结果为多表的交集部分
-② n表连接，至少需要n-1个连接条件
-③ 多表的顺序没有要求
-④一般需要为表起别名
-⑤可以搭配前面介绍的所有子句使用，比如排序、分组、筛选
+② n表连接，至少需要n-1个连接条件,比如说有3个表连接，那么就得where a 逻辑符号 b
+③ 两表连接必须是存在共同项
+④ 一般需要为表起别名
+⑤ 可以搭配前面介绍的所有子句使用，比如排序、分组、筛选
+
+```java
+#sql92链接，只有内连接
+
+USE girls
+
+# 1.引入：
+# 查询女神名对应的男神名
+
+SELECT `name`,`boyName`
+FROM `beauty`,`boys`
+WHERE `beauty`.`boyfriend_id`=`boys`.`id`;
+
+# 2.起别名
+
+# 查询员工名、工种号、工种名
+SELECT e.`last_name`,e.`job_id`,j.`job_title`
+FROM `employees` e,`jobs` j
+WHERE e.`job_id`=j.`job_id`
+
+# 3.两个表顺序进行调换
+SELECT e.`last_name`,e.`job_id`,j.`job_title`
+FROM `jobs` j,`employees` e
+WHERE e.`job_id`=j.`job_id`
+
+# 4.加入筛选
+# 查询有奖金的员工名、部门名
+SELECT e.`last_name`,d.`department_name`,e.`commission_pct`
+FROM `employees` e,`departments` d
+WHERE e.`department_id`=d.`department_id`
+AND `commission_pct` IS NOT NULL
+
+# 5.分组 
+# 查询每个城市的部门个数
+SELECT l.city ,COUNT(*)
+FROM `locations` l,`departments` d
+WHERE l.`location_id`=d.`location_id`
+GROUP BY city
+
+# 6.实现三表连接
+
+# 查询员工名、部门名和所在的城市
+SELECT e.`last_name`,d.`department_name`,l.city
+FROM `employees` e,`departments` d,`locations` l
+WHERE e.`department_id`=d.`department_id` 
+AND d.`location_id`=l.`location_id`
+```
+##### 3.1.2.7.2 非等值连接
+
+其实很简单 不是WHERE a = b 形式的都行，比如用between and 或者大于小于号
+我们现在来个案例 对于员工工资做个离散的等级划分 好像小学的A = 90~100 分 一样
+例子：select * from B,B mm where B.奖金>mm.奖金
+
+```java
+# sql92非等值连接（大体理解就是不再使用=）
+# 查询员工的工资和工资级别
+SELECT e.`salary`,j.`job_title`
+FROM employees e,jobs j
+WHERE salary BETWEEN `min_salary` AND `max_salary`;
+ORDER BY e.salary DESC;
+```
+##### 3.1.2.7.3 自连接
+
+一张表里面，栏目属性之间的判断。
+之前都是两张表间 甚至可以多张表间 WHERE e.id = f.id = g.id 这种形式
+
+```java
+SELECT e.`last_name`,m.`manager_id`
+FROM `employees` e,`employees` m
+WHERE e.`employee_id`=m.`manager_id`
+```
+#### 3.1.2.8 连接查询——sql99
+
+语法：
+SELECT 查询列表
+FROM 表名1 别名【INNER】 JOIN  表名2 别名
+ON 连接条件
+WHERE 筛选条件
+GROUP BY 分组列表
+HAVING 分组后筛选
+ORDER BY 排序列表;
+
+SQL92和SQL99的区别：
+
+	SQL99，使用JOIN关键字代替了之前的逗号，并且将连接条件和筛选条件进行了分离，提高阅读性！！！
+主要的与上面一样，例子：
+
+```java
+SELECT e.`last_name`,j.`department_name`
+FROM `employees` e JOIN `departments` j
+ON e.`department_id` = j.`department_id`
+```
+
+
+
