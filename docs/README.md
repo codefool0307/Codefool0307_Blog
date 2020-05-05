@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-09 17:50:04
- * @LastEditTime: 2020-05-05 13:17:24
+ * @LastEditTime: 2020-05-05 13:22:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \undefinedd:\04.github\Javastudyer\docs\README.md
@@ -43,11 +43,11 @@
         <td>数据库（共计11天）</td>
         <td>DML+DQL+DDL</td>
         <td>JDBC概述<br>连接<br>CURD操作<br>BLOB<br>批量插入</td>
-        <td>事务<br>DAO<br>连接池<br>DButils<br></td>
-        <td></td>
-        <td>:wrench:</td>
-        <td>:wrench:</td>
-        <td>:wrench:</td>
+        <td>事务<br>DAO<br>连接池<br>DButils</td>
+        <td>MySQL在linux安装<br>架构<br>索引<br>查询<br>工具</td>
+        <td>主从复制<br>MyCat</td>
+        <td>Nosql介绍与安装<br>Redis类型<br>配置文件</td>
+        <td>持久化<br>事务<br>发布订阅<br>复制<br>Jedis</td>
         <td>:wrench:</td>
         <td>:wrench:</td>
         <td>:wrench:</td>
