@@ -649,11 +649,571 @@ SQL92和SQL99的区别：
 	SQL99，使用JOIN关键字代替了之前的逗号，并且将连接条件和筛选条件进行了分离，提高阅读性！！！
 主要的与上面一样，例子：
 
+##### 3.1.2.8.1 内连接
 ```java
 SELECT e.`last_name`,j.`department_name`
 FROM `employees` e JOIN `departments` j
 ON e.`department_id` = j.`department_id`
 ```
 
+##### 3.1.2.8.2 外连接
+ 
+比如说两个表中
+
+![avatar](./assets/3-4.jpg)
+
+外连接的主要特点是：查询出来的结果存在不满足条件的可能。
+
+主要分为了：左连接、右连接
+
+* 左连接：
+SELECT * FROM emp e LEFT OUTER JOIN dept d ON e.deptno=d.deptno;
+注意：OUTER可以省略
+左连接是先查询出左表（即以左表为主），然后查询右表，右表中满足条件的显示出来，不满足条件的显示NULL。
+* 右连接
+右连接与左连接正好相反。
+
+```java
+#sql99外连接
+
+USE girls;
+# 查询所有女神的记录，以及对应的男神名，如果没有对应的男神，则显示null
+SELECT b.*,bo.*
+FROM beauty b 
+LEFT JOIN boys bo ON b.`boyfriend_id`=bo.`id`
+ORDER BY boyfriend_id DESC;
+
+# 查询哪个女神没有男朋友
+
+SELECT b.*
+FROM beauty b
+LEFT JOIN boys bo ON b.`boyfriend_id`=bo.`id`
+WHERE `boyfriend_id` IS NULL
+```
+注：
+1. on 后面是需要跟着两个表的连接条件，而不是筛选
+2. ![avatar](./assets/3-5.jpg)
+
+#### 3.1.2.9 子查询
+
+出现在其他语句的内部的select语句，称为子查询或内查询
+	
+	里面嵌套其他select语句的查询语句，称为主查询或外查询
+
+注：
+
+  子查询不一定必须出现在select语句内部，只是出现在select语句内部的时候较多！
+
+示例：
+
+```java
+	select first_name from employees where department_id >(
+       select department_id from departments
+       where  location_id=1700
+) 
+```
+
+分类：
+
+按子查询出现的位置进行分类：
+
+1. select后面
+	
+	要求：子查询的结果为单行单列（标量子查询）
+
+2. from后面
+	
+	要求：子查询的结果可以为多行多列
+
+3. where或having后面 ★
+	
+	要求：子查询的结果必须为单列
+
+4. exists后面
+	
+	要求：子查询结果必须为单列（相关子查询）
+	
+特点：
+	1. 子查询一般放在小括号中
+	2. 子查询的执行优先于主查询
+	3. 单行子查询对应了 单行操作符：> < >= <= = <>
+	   多行子查询对应了 多行操作符：any/some  all in   
+
+```java
+#一、放在where或having后面
+#一）单行子查询
+USE myemployees
+#案例1：谁的工资比 Abel 高?
+# 第一步，查询abel工资
+SELECT salary
+FROM `employees`
+WHERE `last_name`='Abel'
+# 第二步，谁比abel高呢
+SELECT `last_name`,salary
+FROM `employees`
+WHERE salary>(
+		SELECT salary
+		FROM `employees`
+		WHERE `last_name`='Abel'
+)
+
+# 返回job_id与141号员工相同，salary比143号员工多的员工姓名，job_id 和工资
+# 第一步、查询141号job_id
+SELECT `job_id`
+FROM `employees`
+WHERE `employee_id`=141
+
+# 第二步、查找工资比143号多的
+
+SELECT `salary`
+FROM `employees`
+WHERE `employee_id`=143
+
+# 第三步、汇总
+SELECT `last_name`,`job_id`,`salary`
+FROM `employees`
+WHERE job_id=(
+		SELECT `job_id`
+		FROM `employees`
+		WHERE `employee_id`=141
+)
+AND
+       salary>(
+		SELECT `salary`
+		FROM `employees`
+		WHERE `employee_id`=143   
+       
+)
+
+#案例3：公司工资最少的员工的last_name,job_id和salary
+# 查询最低工资
+SELECT MIN(salary)
+FROM `employees`
+
+# 查询
+
+SELECT last_name,job_id,salary
+FROM `employees`
+WHERE `salary`=(
+SELECT MIN(salary)
+FROM `employees`
+)
+
+#案例4：查询最低工资大于50号部门最低工资的部门id和其最低工资
+# 最低工资
+SELECT MIN(salary)
+FROM `employees`
+
+# 50号部门
+SELECT MIN(`salary`)
+FROM `employees`
+WHERE `department_id`=50
+
+# 比较
+SELECT `department_id`,`salary`
+FROM `employees`
+GROUP BY `department_id`
+WHERE (
+SELECT MIN(`salary`)
+FROM `employees`
+WHERE `department_id`=50
+)<MIN(salary)
+
+#二）多行子查询
+/*
+
+in:判断某字段是否在指定列表内  
+x in(10,30,50)
 
 
+any/some:判断某字段的值是否满足其中任意一个
+
+x>any(10,30,50)
+x>min()
+
+x=any(10,30,50)
+x in(10,30,50)
+
+
+all:判断某字段的值是否满足里面所有的
+
+x >all(10,30,50)
+x >max()
+
+*/
+
+#案例1：返回location_id是1400或1700的部门中的所有员工姓名
+
+# 14000或者17000
+SELECT `department_id`
+FROM `departments`
+WHERE `location_id` IN(14000,17000)
+
+# 查询
+SELECT `last_name`
+FROM `employees`
+WHERE `department_id` IN(
+SELECT DISTINCT `department_id`
+FROM `departments`
+WHERE `location_id` IN(14000,17000)
+)
+```
+未补充完成程序
+
+
+#### 3.1.2.10 分页查询
+
+应用场景：当页面上的数据，一页显示不全，则需要分页显示
+
+分页查询的sql命令请求数据库服务器——>服务器响应查询到的多条数据——>前台页面
+
+语法：
+
+select 查询列表 from 表1 别名 join 表2 别名 on 连接条件 where 筛选条件 group by 分组 having 分组后筛选 order by 排序列表 limit 起始条目索引,显示的条目数
+
+执行顺序：
+
+1》from子句 2》join子句 3》on子句 4》where子句 5》group by子句 6》having子句 7》select子句 8》order by子句 9》limit子句
+
+特点：
+①起始条目索引如果不写，默认是0
+②limit后面支持两个参数
+参数1：显示的起始条目索引
+参数2：条目数
+
+公式：
+
+假如要显示的页数是page，每页显示的条目数为size
+
+select * from employees limit (page-1)*size,size;
+
+#### 3.1.2.11 联合查询
+
+当查询结果来自于多张表，但多张表之间没有关联，这个时候往往使用联合查询，也称为union查询
+
+语法：
+select 查询列表 from 表1  where 筛选条件  
+	union
+select 查询列表 from 表2  where 筛选条件  
+
+
+特点：
+
+1、多条待联合的查询语句的查询列数必须一致，查询类型、字段意义最好一致
+2、union实现去重查询
+   union all 实现全部查询，包含重复项
+
+```java
+#案例：查询所有国家的年龄>20岁的用户信息
+
+SELECT * FROM usa WHERE uage >20 UNION
+SELECT * FROM chinese WHERE age >20 ;
+```
+
+## 3.2 DDL——查询语言
+
+### 3.2.1 语法：
+
+主要分为库的管理与表的管理
+
+1. 库——创建、删除
+2. 表——创建、修改、删除、赋值
+
+### 3.2.2 功能：
+
+#### 3.2.2.1 库的管理
+
+一、创建数据库
+
+```java
+CREATE DATABASE stuDB;
+CREATE DATABASE IF NOT EXISTS stuDB;
+```
+二、删除数据库
+
+```java
+DROP DATABASE stuDB;
+DROP DATABASE IF EXISTS stuDB;
+```
+
+#### 3.2.2.2 表的管理
+##### 3.2.2.2.1 语法
+
+语法：
+CREATE TABLE [IF NOT EXISTS] 表名(
+	字段名  字段类型  【字段约束】,
+	字段名  字段类型  【字段约束】,
+	字段名  字段类型  【字段约束】,
+	字段名  字段类型  【字段约束】,
+	字段名  字段类型  【字段约束】
+	
+
+);
+
+##### 3.2.2.2.2 几个概念
+
+1. 数据类型：
+```java
+	1、整型
+		TINYINT SMALLINT  INT  BIGINT 
+	2、浮点型
+		FLOAT(m,n)
+		DOUBLE(m,n) 
+		DECIMAL(m,n)
+		m和n可选
+	3、字符型
+		CHAR(n):n可选
+		VARCHAR(n)：n必选
+		TEXT
+		n表示最多字符个数
+	4、日期型
+		DATE TIME  DATETIME TIMESTAMP
+	5、二进制型
+		BLOB 存储图片数据
+```
+2. 常见约束
+   
+说明：用于限制表中字段的数据的，从而进一步保证数据表的数据是一致的、准确的、可靠的！
+```java
+NOT NULL 非空：用于限制该字段为必填项
+DEFAULT 默认：用于限制该字段没有显式插入值，则直接显式默认值
+PRIMARY KEY 主键：用于限制该字段值不能重复，设置为主键列的字段默认不能为空
+	一个表只能有一个主键，当然可以是组合主键
+	
+UNIQUE 唯一：用于限制该字段值不能重复
+		字段是否可以为空		一个表可以有几个
+		
+	主键	×				1个
+	唯一    √				n个
+CHECK检查：用于限制该字段值必须满足指定条件
+	CHECK(age BETWEEN 1 AND 100)
+	
+	
+FOREIGN KEY 外键:用于限制两个表的关系,要求外键列的值必须来自于主表的关联列
+	要求：
+	①主表的关联列和从表的关联列的类型必须一致，意思一样，名称无要求
+	②主表的关联列要求必须是主键
+```
+```java
+DROP TABLE IF EXISTS stuinfo;
+CREATE TABLE IF NOT EXISTS stuinfo(
+	stuid INT PRIMARY KEY,#添加了主键约束
+	stuname VARCHAR(20) UNIQUE NOT NULL,#添加了唯一约束+非空
+	stugender CHAR(1) DEFAULT '男',#添加了默认约束
+	email VARCHAR(20) NOT NULL,
+	age INT CHECK( age BETWEEN 0 AND 100),#添加了检查约束，mysql不支持
+	majorid INT,
+	CONSTRAINT fk_stuinfo_major FOREIGN KEY (majorid) REFERENCES major(id)#添加了外键约束
+
+);
+```
+
+##### 3.2.2.2.3 表的管理
+
+```java
+#一、创建
+CREATE TABLE IF NOT EXISTS stuinfo(
+	stuid INT ,
+	stuname VARCHAR(20),
+	stugender CHAR(1),
+	email VARCHAR(20),
+	borndate DATETIME
+
+);
+#二、修改
+语法：ALTER TABLE 表名 ADD|MODIFY|CHANGE|DROP COLUMN 字段名 字段类型 【字段约束】;
+
+#1.修改表名
+
+ALTER TABLE stuinfo RENAME TO students;
+
+
+#2.添加字段
+ALTER TABLE students ADD COLUMN borndate TIMESTAMP NOT NULL;
+
+DESC students;
+
+#3.修改字段名
+
+ALTER TABLE students CHANGE COLUMN borndate birthday DATETIME NULL;
+
+#4.修改字段类型
+ALTER TABLE students MODIFY COLUMN birthday TIMESTAMP ;
+#5.删除字段
+
+ALTER TABLE students DROP COLUMN birthday;
+
+DESC students;
+
+#三、删除表 √
+
+DROP TABLE IF EXISTS students;
+
+#四、复制表√
+
+#仅仅复制表的结构
+
+CREATE TABLE newTable2 LIKE major;
+
+#复制表的结构+数据
+
+CREATE TABLE newTable3 SELECT * FROM girls.`beauty`;
+
+#案例：复制employees表中的last_name,department_id,salary字段到新表 emp表，但不复制数据
+
+CREATE TABLE emp 
+SELECT last_name,department_id,salary 
+FROM myemployees.`employees`
+WHERE 1=2;
+```
+
+## 3.3 DML——数据处理语句
+
+```java
+#一、数据 的插入
+/*
+
+语法：
+插入单行：
+	insert into 表名(字段名1,字段名2 ,...) values (值1，值2,...);
+插入多行：
+	insert into 表名(字段名1,字段名2 ,...) values
+	 (值1，值2,...),(值1，值2,...),(值1，值2,...);
+
+特点：
+
+①字段和值列表一一对应
+包含类型、约束等必须匹配
+
+②数值型的值，不用单引号
+非数值型的值，必须使用单引号
+
+③字段顺序无要求
+
+*/
+SELECT * FROM stuinfo;
+
+#案例1：要求字段和值列表一一对应，且遵循类型和约束的限制
+INSERT INTO stuinfo(stuid,stuname,stugender,email,age,majorid)
+VALUES(1,'吴倩','男','wuqian@qq.com',12,1); 
+
+
+INSERT INTO stuinfo(stuid,stuname,stugender,email,age,majorid)
+VALUES(6,'李宗盛2','女','wuqian@qq.com',45,2); 
+
+#案例2：可以为空字段如何插入
+
+#方案1：字段名和值都不写
+INSERT INTO stuinfo(stuid,stuname,email,majorid)
+VALUES(5,'齐鱼','qiqin@qq.com',2); 
+
+
+#方案1：字段名写上，值使用null
+
+INSERT INTO stuinfo(stuid,stuname,email,age,majorid)
+VALUES(5,'齐鱼','qiqin@qq.com',NULL,2); 
+
+SELECT * FROM stuinfo;
+
+
+#案例3：默认字段如何插入
+
+#方案1：字段名写上，值使用default
+INSERT INTO stuinfo(stuid,stuname,email,stugender,majorid)
+VALUES(7,'齐小鱼','qiqin@qq.com',DEFAULT,2); 
+
+#方案2：字段名和值都不写
+
+INSERT INTO stuinfo(stuid,stuname,email,majorid)
+VALUES(7,'齐小鱼','qiqin@qq.com',2); 
+
+
+#案例4：可以省略字段列表，默认所有字段
+INSERT INTO stuinfo VALUES(8,'林忆莲','女','lin@126.com',12,3);
+
+
+INSERT INTO stuinfo VALUES(NULL,'小黄','男','dd@12.com',12,3);
+
+
+
+SELECT * FROM stuinfo;
+
+#二、数据 的修改
+
+/*
+语法：
+update 表名 set 字段名 = 新值,字段名=新值,...
+where 筛选条件;
+*/
+
+
+#案例1：修改年龄<20的专业编号为3号，且邮箱更改为 xx@qq.com
+
+
+UPDATE stuinfo SET majorid = 3,email='xx@qq.com'
+WHERE age<20;
+
+
+#三、数据 的删除
+/*
+
+方式1：delete语句
+
+	语法：delete from 表名 where 筛选条件;
+方式2：truncate语句
+	语法：truncate table 表名;
+
+*/
+
+#案例1：删除姓李所有信息
+
+DELETE FROM stuinfo WHERE stuname LIKE '李%';
+
+#案例2：删除表中所有数据
+TRUNCATE TABLE stuinfo ;
+
+
+#【面试题】delete和truncate的区别
+
+1.delete可以添加WHERE条件
+  TRUNCATE不能添加WHERE条件，一次性清除所有数据
+2.truncate的效率较高
+3.如果删除带自增长列的表，
+  使用DELETE删除后，重新插入数据，记录从断点处开始
+  使用TRUNCATE删除后，重新插入数据，记录从1开始
+  
+  SELECT * FROM gradeinfo;
+
+  TRUNCATE TABLE gradeinfo;
+  
+  INSERT INTO gradeinfo(gradename)VALUES('一年级'),('2年级'),('3年级');
+  
+4.delete 删除数据，会返回受影响的行数
+  TRUNCATE删除数据，不返回受影响的行数
+  
+5.delete删除数据，可以支持事务回滚
+  TRUNCATE删除数据，不支持事务回滚
+
+/*
+补充：设置自增长列
+
+1、自增长列要求必须设置在一个键上，比如主键或唯一键
+2、自增长列要求数据类型为数值型
+3、一个表至多有一个自增长列
+
+*/
+
+CREATE TABLE gradeinfo(
+	gradeID INT PRIMARY KEY AUTO_INCREMENT,
+	gradeName VARCHAR(20)
+);
+
+SELECT * FROM gradeinfo;
+
+INSERT INTO gradeinfo VALUES(NULL,'一年级'),(NULL,'2年级'),(NULL,'3年级');
+
+
+INSERT INTO gradeinfo(gradename)VALUES('一年级'),('2年级'),('3年级');
+
+
+```

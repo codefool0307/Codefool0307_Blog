@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-21 11:13:20
+ * @LastEditTime: 2020-05-05 17:07:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_sidebar.md
@@ -79,55 +79,86 @@
 
     * <font color="#00E0FF">一、MySQL</font>
   
-        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
+        * [1 数据库相关概念](/3.database/1.MySQL/1-数据库相关概念.md)
+        * [2 MySQL安装与卸载](/3.database/1.MySQL/2-MySQL安装与卸载.md)
+        * [3 SQL语句](/3.database/1.MySQL/3-SQL语句.md) 
+        * [4 事务](/3.database/1.MySQL/4-事务.md) 
+        * [5 Mysql安装]()
+        * [6 架构]() 
+        * [7 索引]() 
+        * [8 查询]() 
+        * [9 工具]() 
+        * [10 主从复制]() 
+        * [11 MyCat——中间件]() 
 
     * <font color="#00E0FF">二、Redis</font>
   
-        * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
+        * [1 介绍安装]()
+        * [2 Redis类型]() 
+        * [3 配置文件]() 
+        * [4 持久化]() 
+        * [5 事务]() 
+        * [6 发布订阅]() 
+        * [7 复制]() 
+        * [8 Jedis]()    
     
     * <font color="#00E0FF">三、Oracle</font>
   
-        * [1 基本语法](/2.os/3.TCP/1-模型介绍.md)   
+        * [1 介绍安装]()   
         
     * <font color="#00E0FF">四、JDBC</font>
   
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
+        * [1 JDBC综述](/3.database/3.JDBC/1-JDBC综述.md)
+        * [2 JDBC连接方式](/3.database/3.JDBC/2-JDBC连接方式.md)
+        * [3 CURD操作]()
+        * [4 BLOB]()
+        * [5 批量注入]()
+        * [6 事务]()
+        * [7 DAO]()
+        * [8 连接池]()
+        * [9 DBUtils]() 
     
  
 * <font color="#FF0000">第四部分、数据结构与算法</font>
 
-    * <font color="#00E0FF">一、知识点</font>
+    * <font color="#00E0FF">一、算法知识点</font>
   
-        * [1 栈与队列](/4.algorithm/1-栈与队列.md)
-        * [2 链表](/4.algorithm/2-链表.md)
-        * [3 二叉树](/4.algorithm/3-二叉树.md)
-        * [4 递归](/4.algorithm/4-递归.md)
-        * [5 字符串](/4.algorithm/5-字符串.md)
-        * [6 大数据](/4.algorithm/6-大数据.md)
-        * [7 位运算](/4.algorithm/7-位运算.md)
-        * [8 数组矩阵](/4.algorithm/8-数组矩阵.md)
-        * [9 排序](/4.algorithm/9-排序.md)
-        * [10 查找](/4.algorithm/10-查找.md)
-        * [11 图](/4.algorithm/11-图.md)
-        * [12 哈希表](/4.algorithm/12-哈希表.md)
-        * [13 KMP](/4.algorithm/13-KMP.md)
-        * [14 分治](/4.algorithm/14-分治.md)
-        * [15 贪心](/4.algorithm/15-贪心.md)
-        * [16 动态规划](/4.algorithm/16-动态规划.md)
-        * [17 四大算法](/4.algorithm/17-四大算法.md)
-        * [18-1 小技巧——异或](/4.algorithm/18-小技巧1异或.md)
-    
+        * [1 栈与队列](/4.algorithm/1.algorithm/1-栈与队列.md)
+        * [2 链表](/4.algorithm/1.algorithm/2-链表.md)
+        * [3 二叉树](/4.algorithm/1.algorithm/3-二叉树.md)
+        * [4 递归](/4.algorithm/1.algorithm/4-递归.md)
+        * [5 字符串](/4.algorithm/1.algorithm/5-字符串.md)
+        * [6 大数据](/4.algorithm/1.algorithm/6-大数据.md)
+        * [7 位运算](/4.algorithm/1.algorithm/7-位运算.md)
+        * [8 数组矩阵](/4.algorithm/1.algorithm/8-数组矩阵.md)
+        * [9 排序](/4.algorithm/1.algorithm/9-排序.md)
+        * [10 查找](/4.algorithm/1.algorithm/10-查找.md)
+        * [11 图](/4.algorithm/1.algorithm/11-图.md)
+        * [12 哈希表](/4.algorithm/1.algorithm/12-哈希表.md)
+        * [13 KMP](/4.algorithm/1.algorithm/13-KMP.md)
+        * [14 分治](/4.algorithm/1.algorithm/14-分治.md)
+        * [15 贪心](/4.algorithm/1.algorithm/15-贪心.md)
+        * [16 动态规划](/4.algorithm/1.algorithm/16-动态规划.md)
+        * [17 四大算法](/4.algorithm/1.algorithm/17-四大算法.md)
+        * [18-1 小技巧——异或](/4.algorithm/1.algorithm/18-小技巧1异或.md)
+  
+    * <font color="#00E0FF">二、设计模式知识点</font>
+  
+        * [1 设计模式七大原则](/4.algorithm/2.design/1-设计模式七大原则.md)
+        * [2 UML](/4.algorithm/2.design/2-UML类图.md)
+        * [3 设计模式](/4.algorithm/2.design/3-设计模式.md)
+        
     * <font color="#00E0FF">二、刷题——leetcode</font>
   
-        * [1 排序专题](/4.algorithm/1-栈与队列.md)
-        * [2 树专题](/4.algorithm/2-链表.md)
-        * [3 链表专题](/4.algorithm/3-二叉树.md)
+        * [1 排序专题](/4.algorithm/3.leetcode)
+        * [2 树专题](/4.algorithm/3.leetcode)
+        * [3 链表专题](/4.algorithm/3.leetcode)
 
     * <font color="#00E0FF">三、刷题——ACM</font>
   
-        * [1 贪心算法专题](/4.algorithm/1-栈与队列.md)
-        * [2 动态规划专题](/4.algorithm/2-链表.md)
-        * [3 图论专题](/4.algorithm/3-二叉树.md)   
+        * [1 贪心算法专题](/4.algorithm/4.acm)
+        * [2 动态规划专题](/4.algorithm/4.acm)
+        * [3 图论专题](/4.algorithm/4.acm)   
         
 
 * <font color="#FF0000">第五部分、前端</font>
@@ -282,20 +313,15 @@
         * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
     
 * <font color="#FF0000">第九部分、面经</font>
-
-    * <font color="#00E0FF">一、实习</font>
   
-        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
+        * [1 京东篇](/9.interview/1.实习篇/京东篇.md)  
 
-    * <font color="#00E0FF">二、工作</font>
-  
-        * [1 基本语法](/2.os/2.shell/1-基本语法.md)  
 
 * <font color="#FF0000">第十部分、项目</font>
 
-    * <font color="#00E0FF">一、项目一</font>
+    * <font color="#00E0FF">一、项目一 博客系统</font>
   
-        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
+        * [1 创建工程](/10.project/01.Project01/01-创建工程.md)  
 
     * <font color="#00E0FF">二、项目二</font>
   
