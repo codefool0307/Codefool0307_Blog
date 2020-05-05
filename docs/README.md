@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-09 17:50:04
- * @LastEditTime: 2020-05-05 13:10:51
+ * @LastEditTime: 2020-05-05 13:14:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \undefinedd:\04.github\Javastudyer\docs\README.md
@@ -41,10 +41,10 @@
     </tr>
     <tr>
         <td>数据库（共计11天）</td>
-        <td>:wrench:</td>
-        <td>:wrench:</td>
-        <td>:wrench:</td>
-        <td>:wrench:</td>
+        <td>DML+DQL+DDL</td>
+        <td>JDBC概述<br>连接<br>CURD操作<br>BLOB<br>批量插入</td>
+        <td></td>
+        <td></td>
         <td>:wrench:</td>
         <td>:wrench:</td>
         <td>:wrench:</td>
