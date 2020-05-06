@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-05-06 06:29:01
+ * @LastEditTime: 2020-05-06 08:27:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \docs\_sidebar.md
@@ -84,39 +84,39 @@
         * [3 SQL语句](/3.database/1.MySQL/3-SQL语句.md) 
         * [4 事务](/3.database/1.MySQL/4-事务.md) 
         * [5 Mysql安装](/3.database/1.MySQL/5-MySQL安装.md)
-        * [6 架构]() 
-        * [7 索引]() 
-        * [8 查询]() 
-        * [9 工具]() 
-        * [10 主从复制]() 
-        * [11 MyCat——中间件]() 
+        * [6 架构](/3.database/1.MySQL/6-架构.md) 
+        * [7 索引](/3.database/1.MySQL/7-索引.md) 
+        * [8 查询](/3.database/1.MySQL/8-查询.md) 
+        * [9 工具](/3.database/1.MySQL/9-工具.md) 
+        * [10 主从复制](/3.database/1.MySQL/10-主从复制.md) 
+        * [11 MyCat——中间件](/3.database/1.MySQL/11-MyCat.md) 
 
     * <font color="#00E0FF">二、Redis</font>
   
-        * [1 介绍安装]()
-        * [2 Redis类型]() 
-        * [3 配置文件]() 
-        * [4 持久化]() 
-        * [5 事务]() 
-        * [6 发布订阅]() 
-        * [7 复制]() 
-        * [8 Jedis]()    
+        * [1 介绍安装](/3.database/2.Redis/1-介绍安装.md)
+        * [2 Redis类型](/3.database/2.Redis/2-Redis类型.md) 
+        * [3 配置文件](/3.database/2.Redis/3-配置文件.md) 
+        * [4 持久化](/3.database/2.Redis/4-持久化.md) 
+        * [5 事务](/3.database/2.Redis/5-事务.md) 
+        * [6 发布订阅](/3.database/2.Redis/6-发布订阅.md) 
+        * [7 复制](/3.database/2.Redis/7-复制.md) 
+        * [8 Jedis](/3.database/2.Redis/8-jedis.md)    
     
     * <font color="#00E0FF">三、Oracle</font>
   
-        * [1 介绍安装]()   
+        * [1 介绍安装](/3.database/2.Redis/1-介绍安装.md)   
         
     * <font color="#00E0FF">四、JDBC</font>
   
         * [1 JDBC综述](/3.database/3.JDBC/1-JDBC综述.md)
         * [2 JDBC连接方式](/3.database/3.JDBC/2-JDBC连接方式.md)
-        * [3 CURD操作]()
-        * [4 BLOB]()
-        * [5 批量注入]()
-        * [6 事务]()
-        * [7 DAO]()
-        * [8 连接池]()
-        * [9 DBUtils]() 
+        * [3 CURD操作](/3.database/3.JDBC/3-CURD操作.md)
+        * [4 BLOB](/3.database/3.JDBC/4-BLOB.md)
+        * [5 批量注入](/3.database/3.JDBC/5-批量注入.md)
+        * [6 事务](/3.database/3.JDBC/6-事务.md)
+        * [7 DAO](/3.database/3.JDBC/7-DAO.md)
+        * [8 连接池](/3.database/3.JDBC/8-连接池.md)
+        * [9 DBUtils](/3.database/3.JDBC/9-DBUtils.md) 
     
  
 * <font color="#FF0000">第四部分、数据结构与算法</font>
