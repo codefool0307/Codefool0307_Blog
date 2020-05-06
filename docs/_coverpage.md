@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-24 20:36:27
- * @LastEditors: your name
+ * @LastEditTime: 2020-05-06 22:38:12
+ * @LastEditors: 孙浩然
  * @Description: In User Settings Edit
  * @FilePath: \docs\_coverpage.md
  -->
@@ -16,7 +16,6 @@
  -->
 
 <div class="cover-main">
-<MARQUEE onmouseover=stop() onmouseout=start() scrollAmount=3 loop=infinite deplay="0"><IMG src="" ><IMG src=""></MARQUEE>
 
 <img style='max-height:200px;margin-top:80px;' src="icon/QQ图片20200409200450.jpg">
 
@@ -46,4 +45,8 @@
 
 <a href="#/menu">开始阅读</a></p></div><div class="mask"></div></section>
 <br>
+
+![avatar](https://media.giphy.com/media/26DN8buG5HsuPXy1y/giphy.gif)
+
+![color](#f0f0f0)
 
