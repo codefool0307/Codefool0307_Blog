@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-05-06 22:38:12
+ * @LastEditTime: 2020-05-06 22:53:31
  * @LastEditors: 孙浩然
  * @Description: In User Settings Edit
  * @FilePath: \docs\_coverpage.md
@@ -46,7 +46,5 @@
 <a href="#/menu">开始阅读</a></p></div><div class="mask"></div></section>
 <br>
 
-![avatar](https://media.giphy.com/media/26DN8buG5HsuPXy1y/giphy.gif)
 
-![color](#f0f0f0)
 
