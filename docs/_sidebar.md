@@ -1,11 +1,12 @@
 <!--
- * @Author: your name
+ * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-05-06 08:27:20
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
+ * @LastEditors: 孙浩然
+ * @LastEditTime: 2020-05-06 21:36:10
  * @FilePath: \docs\_sidebar.md
+ * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
+
 
 * <font color="#FF0000">第一部分、JAVA基础</font>
     * <font color="#00E0FF">一、面对对象</font>
