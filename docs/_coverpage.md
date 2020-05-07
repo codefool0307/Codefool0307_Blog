@@ -1,30 +1,22 @@
 <!--
- * @Author: your name
+ * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-05-06 23:07:59
  * @LastEditors: 孙浩然
- * @Description: In User Settings Edit
+ * @LastEditTime: 2020-05-07 08:31:00
  * @FilePath: \docs\_coverpage.md
+ * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
-<!--
- * @Author: your name
- * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-21 11:42:18
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \docs\_coverpage.md
- -->
+
 
 <div class="cover-main">
 
-<img style='max-height:200px;margin-top:80px;' src="icon/QQ图片20200409200450.jpg">
+<img style='max-height:200px;margin-top:80px;' src="icon/QQ图片20200409200450.jpg"><small>1.1</small>
 
 
 <h1 id="toBeTopJavaer">
 <a><span><marquee behavior="slide" width="530"  height="100">
 <font color="#FF0000">c</font><font color="#F4000B">o</font><font color="#E90016">d</font><font color="#DE0021">e</font><font color="#D3002C">f</font><font color="#C80037">o</font><font color="#BD0042">o</font><font color="#B2004D">l</font><font color="#A70058">0</font><font color="#9C0063">3</font><font color="#91006E">0</font><font color="#860079">7</font><font color="#7B0084">—</font><font color="#70008F">—</font><font color="#65009A">J</font><font color="#5A00A5">a</font><font color="#4F00B0">v</font><font color="#4400BB">a</font><font color="#3900C6">进</font><font color="#2E00D1">阶</font><font color="#2300DC">之</font><font color="#1800E7">路</font>
 </marquee></span></a></h1>
-
 
 
 <div align="center">
@@ -45,6 +37,12 @@
 
 <a href="#/menu">开始阅读</a></p></div><div class="mask"></div></section>
 <br>
+
+<!--![](https://media.giphy.com/media/1LAArSrLLApVu/giphy.gif)-->
+
+
+
+
 
 
 
