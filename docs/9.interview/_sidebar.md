@@ -1,11 +1,14 @@
 <!--
- * @Author: your name
+ * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
- * @LastEditTime: 2020-04-26 21:30:26
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
+ * @LastEditors: 孙浩然
+ * @LastEditTime: 2020-05-13 22:10:39
  * @FilePath: \docs\_sidebar.md
+ * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
+* <font color="#FF0000">面试考察点</font>
+  
+    * [面试考察点](./9.interview/1.牛客面经/面经.md)
 
 * <font color="#FF0000">第一部分、JAVA基础</font>
     * <font color="#00E0FF">一、面对对象</font>
@@ -79,19 +82,44 @@
 
     * <font color="#00E0FF">一、MySQL</font>
   
-        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
+        * [1 数据库相关概念](/3.database/1.MySQL/1-数据库相关概念.md)
+        * [2 MySQL安装与卸载](/3.database/1.MySQL/2-MySQL安装与卸载.md)
+        * [3 SQL语句](/3.database/1.MySQL/3-SQL语句.md) 
+        * [4 事务](/3.database/1.MySQL/4-事务.md) 
+        * [5 Mysql安装](/3.database/1.MySQL/5-MySQL安装.md)
+        * [6 架构](/3.database/1.MySQL/6-架构.md) 
+        * [7 索引](/3.database/1.MySQL/7-索引.md) 
+        * [8 查询](/3.database/1.MySQL/8-查询.md) 
+        * [9 工具](/3.database/1.MySQL/9-工具.md) 
+        * [10 主从复制](/3.database/1.MySQL/10-主从复制.md) 
+        * [11 MyCat——中间件](/3.database/1.MySQL/11-MyCat.md) 
 
     * <font color="#00E0FF">二、Redis</font>
   
-        * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
+        * [1 介绍安装](/3.database/2.Redis/1-介绍安装.md)
+        * [2 Redis类型](/3.database/2.Redis/2-Redis类型.md) 
+        * [3 配置文件](/3.database/2.Redis/3-配置文件.md) 
+        * [4 持久化](/3.database/2.Redis/4-持久化.md) 
+        * [5 事务](/3.database/2.Redis/5-事务.md) 
+        * [6 发布订阅](/3.database/2.Redis/6-发布订阅.md) 
+        * [7 复制](/3.database/2.Redis/7-复制.md) 
+        * [8 Jedis](/3.database/2.Redis/8-jedis.md)    
     
     * <font color="#00E0FF">三、Oracle</font>
   
-        * [1 基本语法](/2.os/3.TCP/1-模型介绍.md)   
+        * [1 介绍安装](/3.database/2.Redis/1-介绍安装.md)   
         
     * <font color="#00E0FF">四、JDBC</font>
   
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
+        * [1 JDBC综述](/3.database/3.JDBC/1-JDBC综述.md)
+        * [2 JDBC连接方式](/3.database/3.JDBC/2-JDBC连接方式.md)
+        * [3 CURD操作](/3.database/3.JDBC/3-CURD操作.md)
+        * [4 BLOB](/3.database/3.JDBC/4-BLOB.md)
+        * [5 批量注入](/3.database/3.JDBC/5-批量注入.md)
+        * [6 事务](/3.database/3.JDBC/6-事务.md)
+        * [7 DAO](/3.database/3.JDBC/7-DAO.md)
+        * [8 连接池](/3.database/3.JDBC/8-连接池.md)
+        * [9 DBUtils](/3.database/3.JDBC/9-DBUtils.md) 
     
  
 * <font color="#FF0000">第四部分、数据结构与算法</font>
@@ -289,20 +317,14 @@
     
 * <font color="#FF0000">第九部分、面经</font>
   
-    * <font color="#00E0FF">一、企业名录</font>
-  
-        * [企业名录](/9.interview/companycontext.md)  
-
-    * <font color="#00E0FF">二、面经</font>
-  
-        * [1 京东实习篇](/9.interview/1.实习篇/京东篇.md)  
+        * [1 京东篇](/9.interview/1.实习篇/京东篇.md)  
 
 
 * <font color="#FF0000">第十部分、项目</font>
 
-    * <font color="#00E0FF">一、项目一</font>
+    * <font color="#00E0FF">一、项目一 博客系统</font>
   
-        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
+        * [1 创建工程](/10.project/01.Project01/01-创建工程.md)  
 
     * <font color="#00E0FF">二、项目二</font>
   
