@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-05-07 08:31:00
+ * @LastEditTime: 2020-05-17 15:28:17
  * @FilePath: \docs\_coverpage.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -15,7 +15,7 @@
 
 <h1 id="toBeTopJavaer">
 <a><span><marquee behavior="slide" width="530"  height="100">
-<font color="#FF0000">c</font><font color="#F4000B">o</font><font color="#E90016">d</font><font color="#DE0021">e</font><font color="#D3002C">f</font><font color="#C80037">o</font><font color="#BD0042">o</font><font color="#B2004D">l</font><font color="#A70058">0</font><font color="#9C0063">3</font><font color="#91006E">0</font><font color="#860079">7</font><font color="#7B0084">—</font><font color="#70008F">—</font><font color="#65009A">J</font><font color="#5A00A5">a</font><font color="#4F00B0">v</font><font color="#4400BB">a</font><font color="#3900C6">进</font><font color="#2E00D1">阶</font><font color="#2300DC">之</font><font color="#1800E7">路</font>
+<font color="#FF0000">程</font><font color="#E80017">序</font><font color="#D1002E">员</font><font color="#BA0045">E</font><font color="#A3005C">r</font><font color="#8C0073">r</font><font color="#75008A">o</font><font color="#5E00A1">r</font><font color="#4700B8">的</font><font color="#3000CF">日</font><font color="#1900E6">常</font>
 </marquee></span></a></h1>
 
 

@@ -1,8 +1,8 @@
 <!--
  * @Description: 
  * @Date: 2019-08-05 11:57:02
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-04-29 21:23:56
+ * @LastEditors: 孙浩然
+ * @LastEditTime: 2020-05-16 20:37:35
  -->
 <!-- * [全部目录](/)-->
 * [个人简介](./authorintroducer.md)
@@ -21,11 +21,7 @@
   * [第八部分、大数据]()
   * [第九部分、面经]()
   * [第九部分、项目]()
-* [项目笔记](/项目笔记/)
-  * [项目一、博客系统](https://codefool0307.github.io/JavaScholar/#/10.project/01.Project01/01-%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B)
-  * [项目二、电商平台]()
-  * [项目三、众筹网]()
-  * [项目四、教育在线]()
+* [博客项目]([/项目笔记/](https://codefool0307.github.io/JavaScholar/#/10.project/01.Project01/01-%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B))
 * [学习资源](./resources.md)
   * [书本资源]()
   * [网络资源]()
