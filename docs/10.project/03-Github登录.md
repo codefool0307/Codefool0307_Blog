@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-05-18 09:19:17
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-05-18 14:41:53
+ * @LastEditTime: 2020-05-18 19:34:03
  * @FilePath: \docs\10.project\03-Github登录.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
@@ -131,6 +131,16 @@ public class GithubProvider {
        return null;
     }
 ```
+由于没有okhttp的相应jar包，那么我们必须要进行相应的设置
+
+```java
+<dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.14.1</version>
+</dependency>
+```
+
 由于在发送请求的时候，要核对社区中id、serect等等一系列信息，这些信息有太多了，那么我就把这一系列信心进行了封装处理
 使用AccessTokenDTO进行封装
 
@@ -210,6 +220,16 @@ public GihubUser getUser(String accessToken){
 }
 }
 ```
+因为要使用json转换，所以一定要将fastjson导入
+
+```java
+<dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.57</version>
+</dependency>
+```
+
 由于获取githubuser的信息也要封装起来，创建了一个GithubUser类
 
 ```java
