@@ -66,7 +66,9 @@
 
 [githubAPP登录文档](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)
 
-<font color=red size='9'>1. 根据登录流程文档，index.html中让登录按键绑定一个登录地址并且携带参数：</font>
+<font color=red size='7'>1. 根据登录流程文档，index.html中让登录按键绑定一个登录地址并且携带参数：</font>
+
+<font color=pick size='5'>作用：社区向GitHub发送访问请求，要求登录</font>
    
    | Name 姓名       | Type 类型 | Description 描述                                                                   |
 |---------------|---------|----------------------------------------------------------------------------------|
@@ -88,10 +90,9 @@
 
 ![avatar](./assets/3-7.jpg)
 
+<font color=blue size='7'>2. 接收请求</font>
 
-<font color=red size='9'>2. 解析出code地址，通过code调用access_token</font>
-   
-   <font color=blue size='7'>1. 创建AuthorizeContoller</font>
+<font color=pick size='5'>作用：用来接收GitHub传回来的数据</font>
 
 ```java
 @Controller
@@ -105,25 +106,10 @@ public class AuthorizeController {
 ```
 这样就可以完成了参数的接收，两参数在进行调用access来进行接收就好了，由于接收是post，那么用java模拟post请求就可以了，一般是使用第三方的如HttpClient，但是这次试用OKhttp
 
-这个是OKHttp的post
-```java
-public static final MediaType JSON
-    = MediaType.get("application/json; charset=utf-8");
 
-OkHttpClient client = new OkHttpClient();
+<font color=blue size='7'>3. 发出请求</font>
+<font color=pick size='5'>作用：将github的access_token请求发送到社区中</font>
 
-String post(String url, String json) throws IOException {
-  RequestBody body = RequestBody.create(json, JSON);
-  Request request = new Request.Builder()
-      .url(url)
-      .post(body)
-      .build();
-  try (Response response = client.newCall(request).execute()) {
-    return response.body().string();
-  }
-}
-```
-   <font color=blue size='7'>2. 创建GithubProvider来接收</font>
 ```java
 @Component
 public class GithubProvider {
@@ -145,20 +131,160 @@ public class GithubProvider {
        return null;
     }
 ```
-因为GitHub在接收的时候，由于需要把社区的id、serect等传输到
+由于在发送请求的时候，要核对社区中id、serect等等一系列信息，这些信息有太多了，那么我就把这一系列信心进行了封装处理
+使用AccessTokenDTO进行封装
+
+```java
+public class AccessTokenDTO {
+    private String client_id;
+    private String client_secret;
+    private String code;
+    private String redirect_uri;
+    private String state;
+
+构造函数、get/set方法、toString方法
+```
+那么我就还要在接收请求设置id等，
+
+```java
+@Autowired
+    private GithubProvider githubProvider;//使用这个注解的原因在于不需要再实例化对象了
+    @GetMapping("/callback")
+    public String callback(@RequestParam(name = "code")String code,
+                           @RequestParam(name = "state")String state){
+        AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
+        accessTokenDTO.setClient_id("Iv1.2bc3b748c47800d6");
+        accessTokenDTO.setClient_secret("41d8ec7591e4fc6612d37032c2d02922db1796d");
+        accessTokenDTO.setCode(code);
+        accessTokenDTO.setRedirect_uri("http://localhost:9997/callback");
+        accessTokenDTO.setState(state);
+        String accessToken = githubProvider.getAccessToken(accessTokenDTO);
+        return "index";
+    }
+```
+
+<font color=blue size='7'>4.使用access_token调用github的user的信息</font>
+<font color=pick size='5'>作用：开始真正的得到user的相关信息，2、3两部分只是发送和接收</font>
+
+首先在github中获取user的相关信息
+
+```java
+@Component
+public class GithubProvider {
+    public String getAccessToken(AccessTokenDTO accessTokenDTO){
+
+        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
+        OkHttpClient client = new OkHttpClient();
+
+        RequestBody body = RequestBody.create(mediaType, JSON.toJSONString(accessTokenDTO));
+        Request request = new Request.Builder()
+                .url("https://github.com/login/oauth/access_token")
+                .post(body)
+                .build();
+        try (Response response = client.newCall(request).execute()) {
+            String string = response.body().string();
+            String token = string.split("&")[0].split("=")[1];
+            return token;
+            //System.out.println(string);
+            //return string;
+        }catch(Exception e){
 
 
+        }
+       return null;
+    }
+public GihubUser getUser(String accessToken){
+    OkHttpClient client = new OkHttpClient();
 
+        Request request = new Request.Builder()
+                .url("https://api.github.com/user?access_token"+accessToken)
+                .build();
 
+        try (Response response = client.newCall(request).execute()) {
+            String string = response.body().string();
+            GihubUser GihubUser = JSON.parseObject(string, GihubUser.class);
+            return GihubUser;
+        }catch(Exception e){
+        }
+        return null;
+}
+}
+```
+由于获取githubuser的信息也要封装起来，创建了一个GithubUser类
 
-因为request等必须使用的是okhttp的
+```java
+public class GihubUser {
+    private String name;
+    private Long id;
+    private String bio;
 
+构造函数、get/set方法、toString方法
+```
+运行程序，最后发现点击登录之后，网址会发生变化了，
+登陆成功
+![avatar](./assets/3-9.jpg)
 
-注：如何自动导入
+同时会在输出栏生成一个内容
+
+```java
+error=incorrect_client_credentials&error_description=The+client_id+and%2For+client_secret+passed+are+incorrect.&error_uri=https%3A%2F%2Fdeveloper.github.com%2Fapps%2Fmanaging-oauth-apps%2Ftroubleshooting-oauth-app-access-token-request-errors%2F%23incorrect-client-credentials
+```
+
+那么之后，我就可以对获取的信息进行分割获取
+
+```java
+@Component
+public class GithubProvider {
+    public String getAccessToken(AccessTokenDTO accessTokenDTO){
+
+        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
+        OkHttpClient client = new OkHttpClient();
+
+        RequestBody body = RequestBody.create(mediaType, JSON.toJSONString(accessTokenDTO));
+        Request request = new Request.Builder()
+                .url("https://github.com/login/oauth/access_token")
+                .post(body)
+                .build();
+        try (Response response = client.newCall(request).execute()) {
+            String string = response.body().string();
+            String token = string.split("&")[0].split("=")[1];
+            return token;
+            //System.out.println(string);
+            //return string;
+        }catch(Exception e){
+```
+
+之后，对github的信息进行获取用户信息
+
+```java
+@Controller
+public class AuthorizeController {
+    @Autowired
+    private GithubProvider githubProvider;
+    @GetMapping("/callback")
+    public String callback(@RequestParam(name = "code")String code,
+                           @RequestParam(name = "state")String state){
+        AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
+        accessTokenDTO.setClient_id("Iv1.2bc3b748c47800d6");
+        accessTokenDTO.setClient_secret("41d8ec7591e4fc6612d37032c2d02922db1796d");
+        accessTokenDTO.setCode(code);
+        accessTokenDTO.setRedirect_uri("http://localhost:9997/callback");
+        accessTokenDTO.setState(state);
+        String accessToken = githubProvider.getAccessToken(accessTokenDTO);
+        GihubUser user = githubProvider.getUser(accessToken);
+        System.out.println(user.getName());
+        return "index";
+
+    }
+}
+```
+注：
+
+1. 如何自动导入
 
 ![avatar](./assets/3-8.jpg)
 
-error=incorrect_client_credentials&error_description=The+client_id+and%2For+client_secret+passed+are+incorrect.&error_uri=https%3A%2F%2Fdeveloper.github.com%2Fapps%2Fmanaging-oauth-apps%2Ftroubleshooting-oauth-app-access-token-request-errors%2F%23incorrect-client-credentials
+2. provider类的作用就是模拟get、post方法
 
 
 null
