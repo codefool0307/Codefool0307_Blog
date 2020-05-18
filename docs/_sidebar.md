@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-05-13 22:10:39
+ * @LastEditTime: 2020-05-19 06:48:11
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -325,6 +325,8 @@
     * [1-创建工程](/10.project/01-创建工程.md) 
     * [2-导航栏](/10.project/02-快速搭建页面.md)
     * [3-Github登录](/10.project/03-Github登录.md)
+    * [4-配置文件](/10.project/04-配置文件.md)
+    * [5-CookieheSession](/10.project/05-Cookie和Session.md)
 
 
 * <font color="#FF0000">第十一部分、人工智能</font>
