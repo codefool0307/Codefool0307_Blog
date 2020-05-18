@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-05-18 09:19:17
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-05-18 12:53:52
+ * @LastEditTime: 2020-05-18 14:41:53
  * @FilePath: \docs\10.project\03-Github登录.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
@@ -64,8 +64,9 @@
 
 ## 3.4 代码
 
+[githubAPP登录文档](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)
 
-1. 根据登录流程文档，index.html中让登录按键绑定一个登录地址并且携带参数：
+<font color=red size='9'>1. 根据登录流程文档，index.html中让登录按键绑定一个登录地址并且携带参数：</font>
    
    | Name 姓名       | Type 类型 | Description 描述                                                                   |
 |---------------|---------|----------------------------------------------------------------------------------|
@@ -83,14 +84,14 @@
 
 那么运行之后，就会进行登录：
 
-目前因为没有编写地址，会出现这个问题：
+目前因为没有编写地址，所以登陆之后会跳转到这个页面：
 
 ![avatar](./assets/3-7.jpg)
 
 
-2. 解析出code地址，通过code调用access_token
+<font color=red size='9'>2. 解析出code地址，通过code调用access_token</font>
    
-   1. 创建AuthorizeContoller
+   <font color=blue size='7'>1. 创建AuthorizeContoller</font>
 
 ```java
 @Controller
@@ -102,9 +103,60 @@ public class AuthorizeController {
     }
 }
 ```
+这样就可以完成了参数的接收，两参数在进行调用access来进行接收就好了，由于接收是post，那么用java模拟post请求就可以了，一般是使用第三方的如HttpClient，但是这次试用OKhttp
+
+这个是OKHttp的post
+```java
+public static final MediaType JSON
+    = MediaType.get("application/json; charset=utf-8");
+
+OkHttpClient client = new OkHttpClient();
+
+String post(String url, String json) throws IOException {
+  RequestBody body = RequestBody.create(json, JSON);
+  Request request = new Request.Builder()
+      .url(url)
+      .post(body)
+      .build();
+  try (Response response = client.newCall(request).execute()) {
+    return response.body().string();
+  }
+}
+```
+   <font color=blue size='7'>2. 创建GithubProvider来接收</font>
+```java
+@Component
+public class GithubProvider {
+    public String getAccessToken(AccessTokenDTO accessTokenDTO){
+        MediaType mediaType = MediaType.get("application/json; charset=utf-8");
+        OkHttpClient client = new OkHttpClient();
+        RequestBody body = RequestBody.create(mediaType, JSON.toJSONString(accessTokenDTO));
+        Request request = new Request.Builder()
+                .url("https://github.com/login/oauth/access_token")
+                .post(body)
+                .build();
+        try (Response response = client.newCall(request).execute()) {
+            String string = response.body().string();
+            System.out.println(string);//由于不知道会生成什么
+            return string;
+        }catch(Exception e){
+
+        }
+       return null;
+    }
+```
+
+因为request等必须使用的是okhttp的
 
 
+注：如何自动导入
 
+![avatar](./assets/3-8.jpg)
+
+error=incorrect_client_credentials&error_description=The+client_id+and%2For+client_secret+passed+are+incorrect.&error_uri=https%3A%2F%2Fdeveloper.github.com%2Fapps%2Fmanaging-oauth-apps%2Ftroubleshooting-oauth-app-access-token-request-errors%2F%23incorrect-client-credentials
+
+
+null
 
 
 
