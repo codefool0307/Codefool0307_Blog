@@ -2,8 +2,8 @@
  * @Author: 孙浩然
  * @Date: 2020-05-18 09:19:17
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-05-18 09:57:54
- * @FilePath: \docs\10.project\01.Project01\03-Github登录.md
+ * @LastEditTime: 2020-05-18 12:53:52
+ * @FilePath: \docs\10.project\03-Github登录.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
 <!--
@@ -15,128 +15,94 @@
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
 
-GitHub登录
+# 3.GitHub登录
 
-最下面有一个api
-找到一个GitHub APP和一个授权app
-然后找到一个building outh app一步一步来
+经过创建导航条之后，我们就可以进行github的登录设计了
 
-找到settings-developer看手机图片
+## 3.1 Github APP
+1. 首先在github官网下方会有几个相关连接
 
-4-5张可能
+![avatar](./assets/3-1.jpg)
 
-登录流程：
+2. 找到API进行并找得到GitHub APP
 
-用户发送请求，社区会点击登录（）自己的
-之后调用GitHub，调用了一个授权地址
-GitHub验证完成之后，会回调url地址并携带code
-社区解析一下url地址，解析结束之后，会有一个access和code
-再次调用GitHub，如果是正确的胡，就睡返回access——token，使用gaccess的调用GitHub的user的api
-获取真实用户信息：user携带token去GitHub，如果正确，会返回给社区一个user信息
-最后一步，社区就会把信息存入数据库，更新登录状态。
-最后返回到用户，表示登录成功
+![avatar](./assets/3-2.jpg)
 
-去index找到啊登录标签，a hrefclientid和redirecturi还有一个scope还有一个state=1随便的写
+## 3.2 创建Github APP的账号
 
-启动服务运行一下试试呗
+创建一个app账号，并且跟着说明文档走
 
-由于没有编辑地址，会显示error page
-获取code吧
+![avatar](./assets/3-3.jpg)
 
-在Controller中新创建一个AuthorizeCOntroller
-初始页面一致
-参数接受，两个参数用post，嗲用access接口，java模拟post请求，经常会使用http的client
+之后开始创建
 
-本节使用okhttp，
+![avatar](./assets/3-4.jpg)
 
-手机图
+之后会提示注册成功
 
-copy到我们的项目中，创建了一个provider包，叫GitHubprovider的文件
+![avatar](./assets/3-5.jpg)
 
-不需要实例化对象，ioc功能，
-GitHub文档要求五个对象，那么创建一个dto-accesstokendto来进行封装
-因为比较多，所以我们使用dto
+## 3.3 登录流程
 
-之后再provider文件中，放置okhttp，不需要那个string那一部分
+![avatar](./assets/3-6.jpg)
 
-将类转换为json，用mvnresopr，反应比较慢，方拾二：
-command+n找fastjason，
-点击相对应版本粘贴进来，
+理解：
 
-再次进入provider，uil问题，拷贝GitHub的uil进来就好了，
+[silu](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)
 
-GitHub封装好了，但是没有调用他，去authcontroleer嗲用
+1. 用户发送访问请求，在社区的页面点击登录，会把自己的client、id、Client secret进行构造（1.1）
 
-使用自动注入注解进行注入，
+2. 通过使用一个authorize授权地址调用github，验证完用户名和密码之后，github会重新访问社区，回调之前就写好的redirect-uri地址，并且携带一个code（1.2-1.2.1）
 
-手机图
+3. 社区接收到code的时候会再次调用github的access_token并携带code，如果验证正确，github会直接返回access_token（1.2.1.1-1.2.1.2）
 
-拿到accesstoken调用挨批，来获取user的信息
+4. 再次使用access_token调用github的user的api，会获取到github的user信息（1.2.1.3-1.2.1.4）
 
-去GitHub文档，
-看3.
-回到developer页面就是有id页面去personal access tokens 中gerate new token
-然后点击user写一下community，用来验证是否可以回来数据
-然后打开一个无痕模式，用api.github.io+上面这个东西，试试能不能获取
-这样3.   就可以了
+5. 返回user信息之后会存入数据库、更新登录状态（1.2.1.5）
+
+6. 最后返回到用户，表示登陆成功（1.2.1.6）
+
+## 3.4 代码
 
 
-provider中创建一个新方法id，那么，bio
-在dto创建爱你githubuser封装
-之后再OKhttp的个体中，进行copy
-
-url就是api。。。。。。的
-
-惦记登录你看网址和蓝有变化
-对这个进行拆分，以$拆分
-
-运行，看看能不能出现东西
+1. 根据登录流程文档，index.html中让登录按键绑定一个登录地址并且携带参数：
+   
+   | Name 姓名       | Type 类型 | Description 描述                                                                   |
+|---------------|---------|----------------------------------------------------------------------------------|
+| client_id    | string  | Required. 当你选择你的应用程序的时候，你可以在你的GitHub App settings 应用程序设置你的GitHub应用程序的客户端ID(clent_id)。 |
+| redirect_uri | string  | 在您的应用程序中，授权后将发送用户的 URL。 中提供的 URL 必须完全匹配用户授权回调 URL                                |
+| state         | string  | 这应该包含一个随机字符串，以防止伪造攻击，并可能包含任何其他任意数据                                               |
+| login         | string  |  建议用于登录和授权应用程序的特定帐户                                                              |
 
 
-配置文件分离
+```java
+<li><a href="https://github.com/login/oauth/authorize?client_id=Iv1.2bc3b748c47800d6&redirect_uri=http://localhost:9997/callback&scope=user&state=1">登录</a></li>
+```
 
-appli的peoperties文件，吧authcontoller的一些放进来
+注:scope=user&state=1可以不填写，具体填写内容之后详细阐述
 
+那么运行之后，就会进行登录：
 
-手机图
+目前因为没有编写地址，会出现这个问题：
 
-运行
-
-
-看一下session和cookies
-
-cookie银行卡，session银行账户，domain是哪个银行，exp是过期时间
-
-登录之后，我显示小区登录会去掉，
-
-autho文件
-
-写入user不为空判断
+![avatar](./assets/3-7.jpg)
 
 
-去index中，修改登录，看一下thymeleaf判断session取值，百度一下
-indexde htmml的xmlns：th换一下
-在li中写一个属性 th:if
+2. 解析出code地址，通过code调用access_token
+   
+   1. 创建AuthorizeContoller
 
-运行一下
+```java
+@Controller
+public class AuthorizeController {
+    public String callback(@RequestParam(name = "code")String name,
+                           @RequestParam(name = "state")String state){
+        return "index";
 
-手机图
+    }
+}
+```
 
-变更一下，
-但是不能持久化，之后会用数据库
-
-
-
-
-之后引入jar包就是maven，                                           
-
-引用第三方工具，
-
-
-
-
-
-快捷键alt+鼠标左键下拉即可
 
 
 
