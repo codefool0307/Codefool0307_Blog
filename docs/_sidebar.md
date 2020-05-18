@@ -317,8 +317,8 @@
     
 * <font color="#FF0000">第九部分、面经</font>
   
-    * [1 京东篇](/9.interview/1.实习篇/京东篇.md)  
-
+    * [面经](/9.interview/面经.md)
+    * [公司详细信息](/9.interview/companycontext.md)  
 
 * <font color="#FF0000">博客项目</font>
 
