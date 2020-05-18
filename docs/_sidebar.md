@@ -323,7 +323,7 @@
 * <font color="#FF0000">博客项目</font>
 
     * [1-创建工程](/10.project/01-创建工程.md) 
-    * [2-快速创建页面] (/10.project/02-快速搭建页面.md)
+    * [2-导航栏](/10.project/02-快速搭建页面.md)
     * [3-Github登录](/10.project/03-Github登录.md)
 
 

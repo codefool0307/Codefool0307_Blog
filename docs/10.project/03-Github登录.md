@@ -145,7 +145,7 @@ public class GithubProvider {
        return null;
     }
 ```
-因为GitHub在接收的时候，由于需要把社区的id、serect等放入到
+因为GitHub在接收的时候，由于需要把社区的id、serect等传输到
 
 
 
