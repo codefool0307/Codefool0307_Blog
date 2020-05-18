@@ -1,26 +1,19 @@
-# 2 快速搭建页面
-
-使用一个工具boostrap
-打开这个网站，并在GitHub的主页中标注一下吧
-
-找到一个导航栏样式
-
-然后下载boostrap相关的css等样式
-然后在demo中static中放置资源文件
-
-并把hello改为index
-title修改一下名字
-并引入两个个link标签一个script标签分别是。。。。。
-
-开始做表头
-
-span只要一个
-
-直接看视频15：00
-
-修改indexController为最原始版手机照片
-
-输入8887就可以了
+<!--
+ * @Author: 孙浩然
+ * @Date: 2020-05-18 09:19:17
+ * @LastEditors: 孙浩然
+ * @LastEditTime: 2020-05-18 09:57:54
+ * @FilePath: \docs\10.project\01.Project01\03-Github登录.md
+ * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
+--> 
+<!--
+ * @Author: 孙浩然
+ * @Date: 2020-05-18 09:19:17
+ * @LastEditors: 孙浩然
+ * @LastEditTime: 2020-05-18 09:19:18
+ * @FilePath: \docs\10.project\01.Project01\03-Github登录.md
+ * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
+--> 
 
 GitHub登录
 
