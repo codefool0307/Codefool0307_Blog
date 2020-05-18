@@ -317,18 +317,15 @@
     
 * <font color="#FF0000">第九部分、面经</font>
   
-        * [1 京东篇](/9.interview/1.实习篇/京东篇.md)  
+    * [1 京东篇](/9.interview/1.实习篇/京东篇.md)  
 
 
-* <font color="#FF0000">第十部分、项目</font>
+* <font color="#FF0000">博客项目</font>
 
-    * <font color="#00E0FF">一、项目一 博客系统</font>
-  
-        * [1 创建工程](/10.project/01.Project01/01-创建工程.md)  
+    * [1-创建工程](/10.project/01-创建工程.md) 
+    * [2-快速创建页面] (/10.project/02-快速搭建页面.md)
+    * [3-Github登录](/10.project/03-Github登录.md)
 
-    * <font color="#00E0FF">二、项目二</font>
-  
-        * [1 基本语法](/2.os/2.shell/1-基本语法.md)  
 
 * <font color="#FF0000">第十一部分、人工智能</font>
 

@@ -21,7 +21,7 @@
   * [第八部分、大数据]()
   * [第九部分、面经]()
   * [第九部分、项目]()
-* [博客项目]([/项目笔记/](https://codefool0307.github.io/JavaScholar/#/10.project/01.Project01/01-%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B))
+* [博客项目](/10.project/00-博客系统总体流程图与所用技术.md)
 * [学习资源](./resources.md)
   * [书本资源]()
   * [网络资源]()

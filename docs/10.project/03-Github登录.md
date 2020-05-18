@@ -137,7 +137,7 @@ public class GithubProvider {
                 .build();
         try (Response response = client.newCall(request).execute()) {
             String string = response.body().string();
-            System.out.println(string);//由于不知道会生成什么
+            System.out.println(string);//由于不知道会成什么
             return string;
         }catch(Exception e){
 
@@ -145,6 +145,11 @@ public class GithubProvider {
        return null;
     }
 ```
+因为GitHub在接收的时候，由于需要把社区的id、serect等放入到
+
+
+
+
 
 因为request等必须使用的是okhttp的
 
