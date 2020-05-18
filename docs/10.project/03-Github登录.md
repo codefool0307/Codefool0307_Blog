@@ -234,8 +234,7 @@ error=incorrect_client_credentials&error_description=The+client_id+and%2For+clie
 
 ```java
 @Component
-public class GithubProvider {
-    public String getAccessToken(AccessTokenDTO accessTokenDTO){
+public class GithubProvider {    public String getAccessToken(AccessTokenDTO accessTokenDTO){
 
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
         OkHttpClient client = new OkHttpClient();
@@ -286,8 +285,6 @@ public class AuthorizeController {
 
 2. provider类的作用就是模拟get、post方法
 
-
-null
 
 
 
