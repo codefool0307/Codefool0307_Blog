@@ -277,34 +277,8 @@
     
 * <font color="#FF0000">第七部分、工具</font>
 
-    * <font color="#00E0FF">一、Git</font>
+    * [maven安装](/docs/7.tools/01-mavne配置.md)
   
-        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
-
-    * <font color="#00E0FF">二、Maven</font>
-  
-        * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
-    
-    * <font color="#00E0FF">三、网关</font>
-  
-        * [1 基本语法](/2.os/3.TCP/1-模型介绍.md)   
-        
-    * <font color="#00E0FF">四、SVN</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
-
-    * <font color="#00E0FF">五、容器</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
-    
-    * <font color="#00E0FF">六、Gradle</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
-
-    * <font color="#00E0FF">七、Jenkins</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md)    
-       
 * <font color="#FF0000">第八部分、大数据</font>
 
     * <font color="#00E0FF">一、Hadoop</font>
