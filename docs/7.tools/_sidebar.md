@@ -277,7 +277,7 @@
     
 * <font color="#FF0000">第七部分、工具</font>
 
-    * [maven安装](/docs/7.tools/01-mavne配置.md)
+    * [maven安装](/7.tools/01-mavne配置.md)
   
 * <font color="#FF0000">第八部分、大数据</font>
 
