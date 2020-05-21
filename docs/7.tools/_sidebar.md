@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-05-13 22:10:39
+ * @LastEditTime: 2020-05-19 06:48:11
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -277,34 +277,8 @@
     
 * <font color="#FF0000">第七部分、工具</font>
 
-    * <font color="#00E0FF">一、Git</font>
+    * [maven安装](/docs/7.tools/01-mavne配置.md)
   
-        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
-
-    * <font color="#00E0FF">二、Maven</font>
-  
-        * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
-    
-    * <font color="#00E0FF">三、网关</font>
-  
-        * [1 基本语法](/2.os/3.TCP/1-模型介绍.md)   
-        
-    * <font color="#00E0FF">四、SVN</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
-
-    * <font color="#00E0FF">五、容器</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
-    
-    * <font color="#00E0FF">六、Gradle</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
-
-    * <font color="#00E0FF">七、Jenkins</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md)    
-       
 * <font color="#FF0000">第八部分、大数据</font>
 
     * <font color="#00E0FF">一、Hadoop</font>
@@ -317,14 +291,16 @@
     
 * <font color="#FF0000">第九部分、面经</font>
   
-    * [1 京东篇](/9.interview/1.实习篇/京东篇.md)  
-
+    * [面经](/9.interview/面经.md)
+    * [公司详细信息](/9.interview/companycontext.md)  
 
 * <font color="#FF0000">博客项目</font>
 
     * [1-创建工程](/10.project/01-创建工程.md) 
     * [2-导航栏](/10.project/02-快速搭建页面.md)
     * [3-Github登录](/10.project/03-Github登录.md)
+    * [4-配置文件](/10.project/04-配置文件.md)
+    * [5-CookieheSession](/10.project/05-Cookie和Session.md)
 
 
 * <font color="#FF0000">第十一部分、人工智能</font>
