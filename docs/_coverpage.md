@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-05-22 09:54:31
+ * @LastEditTime: 2020-05-22 09:55:46
  * @FilePath: \docs\_coverpage.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -14,7 +14,7 @@
 
 
 <h1 id="toBeTopJavaer">
-<a><span><marquee behavior="slide" width="500"  height="100">
+<a><span><marquee behavior="slide" width="300"  height="100">
 <font color="#FF0000">小</font><font color="#D5002A">白</font><font color="#AB0054">菜</font><font color="#81007E">程</font><font color="#5700A8">序</font><font color="#2D00D2">员</font>
 </marquee></span></a></h1>
 
