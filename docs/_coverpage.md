@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-05-22 09:37:34
+ * @LastEditTime: 2020-05-22 09:54:31
  * @FilePath: \docs\_coverpage.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -10,7 +10,7 @@
 
 <div class="cover-main">
 
-<img style='max-height:200px;margin-top:80px;' src="icon/QQ图片20200409200450.jpg"><small>1.1</small>
+<img style='max-height:200px;margin-top:80px;' src="tubiao.jpg"><small>1.1</small>
 
 
 <h1 id="toBeTopJavaer">
