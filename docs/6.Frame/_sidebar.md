@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-05-22 09:07:00
+ * @LastEditTime: 2020-05-25 08:46:55
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -264,7 +264,13 @@
     
 * <font color="#FF0000">第九部分、面经</font>
   
-    * [面试考察点](./9.interview/1.牛客面经/面经.md)
+    * [java基础面试考察点](/9.interview/1.面经/1-java基础面经.md)
+    * [计算机网络面试考察点](/9.interview/1.面经/2-计算机网络面经.md)
+    * [数据库面试考察点](/9.interview/1.面经/3-数据库面经.md)
+    * [算法与设计模式面试考察点](/9.interview/1.面经/4-算法与设计模式面经.md)
+    * [框架面试考察点](/9.interview/1.面经/6-框架面经.md)
+    * [常用工具面试考察点](/9.interview/1.面经/7-常用工具面经.md)
+    * [错题分析](/9.interview/2.错题/面试错题解析.md)
     * [公司详细信息](/9.interview/companycontext.md)  
 
 * <font color="#FF0000">博客项目</font>

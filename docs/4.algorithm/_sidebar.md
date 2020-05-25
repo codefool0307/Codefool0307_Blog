@@ -2,13 +2,10 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-05-13 22:10:39
+ * @LastEditTime: 2020-05-25 08:46:55
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
-* <font color="#FF0000">面试考察点</font>
-  
-    * [面试考察点](./9.interview/1.牛客面经/面经.md)
 
 * <font color="#FF0000">第一部分、JAVA基础</font>
     * <font color="#00E0FF">一、面对对象</font>
@@ -166,33 +163,7 @@
 
 * <font color="#FF0000">第五部分、前端</font>
 
-    * <font color="#00E0FF">一、HTML+CSS+less+Boostrap</font>
-  
-        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
-
-    * <font color="#00E0FF">二、JS+JQ</font>
-  
-        * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
-    
-    * <font color="#00E0FF">三、NodeJS+MongoDB</font>
-  
-        * [1 基本语法](/2.os/3.TCP/1-模型介绍.md)   
-        
-    * <font color="#00E0FF">四、Zepto+AngularJS</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
-
-    * <font color="#00E0FF">五、ES5_6_7</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
-    
-    * <font color="#00E0FF">六、Grunt+Gulp+Webpack</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
-
-    * <font color="#00E0FF">七、框架</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md)    
+    详细细节待日后补充
 
 
 * <font color="#FF0000">第六部分、框架</font>
@@ -277,34 +248,10 @@
     
 * <font color="#FF0000">第七部分、工具</font>
 
-    * <font color="#00E0FF">一、Git</font>
+    * [1 maven安装](/7.tools/01-mavne配置.md)
+    * [2 tomcat安装](/7.tools/02-tomcat配置.md)
+    * [3 git安装](/7.tools/03-git安装.md)
   
-        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
-
-    * <font color="#00E0FF">二、Maven</font>
-  
-        * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
-    
-    * <font color="#00E0FF">三、网关</font>
-  
-        * [1 基本语法](/2.os/3.TCP/1-模型介绍.md)   
-        
-    * <font color="#00E0FF">四、SVN</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
-
-    * <font color="#00E0FF">五、容器</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
-    
-    * <font color="#00E0FF">六、Gradle</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md) 
-
-    * <font color="#00E0FF">七、Jenkins</font>
-  
-        * [1 操作系统概述](/2.os/4.OS/1-概述.md)    
-       
 * <font color="#FF0000">第八部分、大数据</font>
 
     * <font color="#00E0FF">一、Hadoop</font>
@@ -317,22 +264,34 @@
     
 * <font color="#FF0000">第九部分、面经</font>
   
-    * [面经](/9.interview/面经.md)
+    * [java基础面试考察点](/9.interview/1.面经/1-java基础面经.md)
+    * [计算机网络面试考察点](/9.interview/1.面经/2-计算机网络面经.md)
+    * [数据库面试考察点](/9.interview/1.面经/3-数据库面经.md)
+    * [算法与设计模式面试考察点](/9.interview/1.面经/4-算法与设计模式面经.md)
+    * [框架面试考察点](/9.interview/1.面经/6-框架面经.md)
+    * [常用工具面试考察点](/9.interview/1.面经/7-常用工具面经.md)
+    * [错题分析](/9.interview/2.错题/面试错题解析.md)
     * [公司详细信息](/9.interview/companycontext.md)  
 
 * <font color="#FF0000">博客项目</font>
 
-    * [1-创建工程](/10.project/01-创建工程.md) 
-    * [2-导航栏](/10.project/02-快速搭建页面.md)
-    * [3-Github登录](/10.project/03-Github登录.md)
-
+    * [1 创建工程](/10.project/01-创建工程.md) 
+    * [2 页面设计](/10.project/02-快速搭建页面.md)
+    * [3 Github登录](/10.project/03-Github登录.md)
+    * [4 配置文件](/10.project/04-配置文件.md)
+    * [5 CookieheSession](/10.project/05-Cookie和Session.md)
+    * [6 数据库](/10.project/06-数据库.md)
+    * [7 回复与评论](/10.project/07-回复与评论.md)
+    * [8 其余功能](/10.project/08-其余功能.md)
+    * [9 项目发布](/10.project/09-项目发布.md)
+    * [10 热门话题](/10.project/10-热门话题.md)
+    * [11 流量变现](/10.project/11-流量变现.md)
+    * [12 视频教程](/10.project/12-视频教程.md)
+  
 
 * <font color="#FF0000">第十一部分、人工智能</font>
 
     * <font color="#00E0FF">一、机器学习</font>
   
-        * [1 基本发展史](/2.os/1.linux/1-基本发展史.md)  
-
     * <font color="#00E0FF">二、深度学习</font>
   
-        * [1 基本语法](/2.os/2.shell/1-基本语法.md) 
