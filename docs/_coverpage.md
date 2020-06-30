@@ -2,13 +2,8 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
-<<<<<<< HEAD:_coverpage.md
- * @LastEditTime: 2020-06-30 10:20:15
+ * @LastEditTime: 2020-06-30 10:49:07
  * @FilePath: \Java-Point\docs\_coverpage.md
-=======
- * @LastEditTime: 2020-05-22 10:09:53
- * @FilePath: \docs\_coverpage.md
->>>>>>> parent of 07524ec... 首页各连接设置:docs/_coverpage.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
 
@@ -25,11 +20,7 @@
 
 
 <div align="center">
-<<<<<<< HEAD:_coverpage.md
-    <a href="(https://github.com/codefool0307/Java-Point/blob/master/docs/intro.html"> <img src="https://badgen.net/badge/%e4%bd%9c%e8%80%85/shr?icon=github&color=4ab8a1"></a>
-=======
-    <a href="https://github.com/codefool0307/Javastudyer/blob/master/authorintroducer.md"> <img src="https://badgen.net/badge/%e4%bd%9c%e8%80%85/shr?icon=github&color=4ab8a1"></a>
->>>>>>> parent of 07524ec... 首页各连接设置:docs/_coverpage.md
+   [<img src="https://badgen.net/badge/%e4%bd%9c%e8%80%85/shr?icon=github&color=4ab8a1">](/docs/authorintroducer.md)
     <a href=""> <img src="https://badgen.net/badge/%e7%89%88%e6%9c%ac/v1.0.0?icon=telegram&color=4ab8a1"></a>
     <a href="https://codefool0307.github.io/Javastudyer/#/"> <img src="https://badgen.net/badge/%e9%98%85%e8%af%bb/codefool0307?icon=sourcegraph&color=4ab8a1"></a>
     <a href=""> <img src="https://badgen.net/badge/%e8%af%ad%e8%a8%80/Java?icon=rss&color=4ab8a1"></a>
