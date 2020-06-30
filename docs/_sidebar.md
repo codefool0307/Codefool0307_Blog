@@ -2,8 +2,8 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-05-25 08:46:55
- * @FilePath: \docs\_sidebar.md
+ * @LastEditTime: 2020-06-30 16:37:08
+ * @FilePath: \Java-Point\docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
 
@@ -121,7 +121,7 @@
  
 * <font color="#FF0000">第四部分、数据结构与算法</font>
 
-    * <font color="#00E0FF">一、算法知识点</font>
+    * <font color="#00E0FF">一、算法</font>
   
         * [1 栈与队列](/4.algorithm/1.algorithm/1-栈与队列.md)
         * [2 链表](/4.algorithm/1.algorithm/2-链表.md)
@@ -142,95 +142,11 @@
         * [17 四大算法](/4.algorithm/1.algorithm/17-四大算法.md)
         * [18-1 小技巧——异或](/4.algorithm/1.algorithm/18-小技巧1异或.md)
   
-    * <font color="#00E0FF">二、leetcode</font>
-  
-        * [leetcode01](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode02](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode03](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode04](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode05](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode06](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode07](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode08](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-        * [leetcode](/4.algorithm/3.leetcode/leetcode01.md)
-
-
-
     * <font color="#00E0FF">二、设计模式</font>
   
         * [1 排序专题](/4.algorithm/3.leetcode)
         * [2 树专题](/4.algorithm/3.leetcode)
-        * [3 链表专题](/4.algorithm/3.leetcode)
-
-    * <font color="#00E0FF">三、刷题——ACM</font>
-  
-        * [1 贪心算法专题](/4.algorithm/4.acm)
-        * [2 动态规划专题](/4.algorithm/4.acm)
-        * [3 图论专题](/4.algorithm/4.acm)   
-        
+        * [3 链表专题](/4.algorithm/3.leetcode)       
 
 * <font color="#FF0000">第五部分、前端</font>
 
