@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:18
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-06-30 10:57:32
+ * @LastEditTime: 2020-06-30 11:16:11
  * @FilePath: \Java-Point\docs\authorintroducer.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
@@ -11,11 +11,13 @@
 
 ## 个人简介
 
+
 ## 项目经验
+
+
 
 ## 获奖情况
 
-## 自我评价
 
 
 
