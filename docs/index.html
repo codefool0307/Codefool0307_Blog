@@ -59,7 +59,7 @@
     window.$docsify = {
       el: '#app',
       name: '<font color="#FF0000">小</font><font color="#D5002A">白</font><font color="#AB0054">菜</font><font color="#81007E">程</font><font color="#5700A8">序</font><font color="#2D00D2">员</font>',
-      repo: 'https://github.com/codefool0307/JavaStudyer',
+      repo: 'https://github.com/codefool0307/Java-Point',
       ga: 'UA-150864629-1',
       subMaxLevel: 6,//控制目录栏到达几层
       maxLevel: 6,
@@ -117,8 +117,8 @@
         function(hook) {
       var footer = [
         '<footer align="center>',
-        '<span><a href="https://github.com/codefool0307/JavaStudyer">codefool0307</a> &copy;2020.</span>',
-        '<span>保留所有权利 <a href="https://github.com/codefool0307/JavaStudyer" target="_blank">codefool0307</a>.</span>',
+        '<span><a href="https://github.com/codefool0307/Java-Point">codefool0307</a> &copy;2020.</span>',
+        '<span>保留所有权利 <a href="https://github.com/codefool0307/Java-Point" target="_blank">codefool0307</a>.</span>',
         '</footer>'
       ].join('');
 
@@ -130,7 +130,7 @@
         //跳转到相应的页面
         function(hook, vm) {
           hook.beforeEach(function (html) {
-            var url = `https://github.com/codefool0307/JavaScholar/tree/master/docsr/${vm.route.file}`;
+            var url = `https://github.com/codefool0307/Java-Point/tree/master/docsr/${vm.route.file}`;
             var gotoHTML = `[📝 GOTO DOCUMENT](${url})\n`;
 
             return gotoHTML + html + '\n----\n' + 'Last modified <strong>{docsify-updated}</strong>';
@@ -179,7 +179,7 @@
     const gitalk = new Gitalk({
         clientID: 'd4fb44fe82c102eb80f4',
             clientSecret: '1be4e1a434a439e7f308253d30da074991453b98',
-            repo: 'JavaStudyer',	// //存储你评论 issue 的 Github 仓库名
+            repo: 'Java-Point',	// //存储你评论 issue 的 Github 仓库名
             owner: 'codefool0307',
             admin: ['codefool0307'],	// 这个仓库的管理员
             title: decodeURI(window.title_id),
