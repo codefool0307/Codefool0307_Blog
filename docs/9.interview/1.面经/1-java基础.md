@@ -48,10 +48,12 @@
   - [9-3：get需要加锁么，为什么？ （蚂蚁金服）](#9-3get需要加锁么为什么-蚂蚁金服)
 - [10.java基础-集合-hashmap](#10java基础-集合-hashmap)
   - [10-1：HashMap的底层实现](#10-1hashmap的底层实现)
+  - [HashMap中(tab.length - 1) & hash作用](#hashmap中tablength---1--hash作用)
   - [10-2：扰动函数以及作用](#10-2扰动函数以及作用)
   - [10-3：哈希冲突的解决方法](#10-3哈希冲突的解决方法)
   - [10-4：HashMap的put操作](#10-4hashmap的put操作)
-  - [10-5：hash函数以及常用方法](#10-5hash函数以及常用方法)
+  - [10-5 reHash过程](#10-5-rehash过程)
+  - [10-6：hash函数以及常用方法](#10-6hash函数以及常用方法)
   - [10-6：hashmap树化门槛及作用](#10-6hashmap树化门槛及作用)
   - [10-7：hashmap性能提升作用和好处](#10-7hashmap性能提升作用和好处)
   - [10-8：hashmap的特性](#10-8hashmap的特性)
@@ -69,6 +71,7 @@
   - [11-1：ConcurrentHashMap的底层实现，怎么做到线程安全的](#11-1concurrenthashmap的底层实现怎么做到线程安全的)
   - [11-2：为何会出现ConcurrenHashMap?](#11-2为何会出现concurrenhashmap)
   - [11-3：为什么ConcurrentHashMap为何不支持null键和null值](#11-3为什么concurrenthashmap为何不支持null键和null值)
+  - [分段锁原理](#分段锁原理)
 - [12.java基础-集合-TreeMap](#12java基础-集合-treemap)
   - [12-1:TreeMap底层原理：](#12-1treemap底层原理)
   - [11-3：java8中map相关红黑树引用背景](#11-3java8中map相关红黑树引用背景)
@@ -93,8 +96,10 @@
   - [15-6：HashTable、Hashmap区别和适用场景](#15-6hashtablehashmap区别和适用场景)
   - [15-7： ConcurrentHashMap、Hashmap区别和适用场景](#15-7-concurrenthashmaphashmap区别和适用场景)
   - [15-8： Hashset、Hashmap区别和适用场景](#15-8-hashsethashmap区别和适用场景)
+  - [JAVA集合类](#java集合类)
 - [java基础-设计类问题](#java基础-设计类问题)
   - [如果想要一个key对应多个Value的话，怎么设计Map](#如果想要一个key对应多个value的话怎么设计map)
+  - [插入一万个元素之后会不会扩容，扩容扩多少](#插入一万个元素之后会不会扩容扩容扩多少)
 
 <!-- /TOC -->
 
@@ -370,6 +375,11 @@ get操作全程不需要加锁是因为Node的成员变量是用volatile修饰�
    
 2. JDK1.8之后在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为8）（将链表转换成红黑树前会判断，如果当前数组的长度小于64，那么会选择先进行数组扩容，而不是转换为红黑树）时，将链表转化为红黑树，以减少搜索时间。
 
+## HashMap中(tab.length - 1) & hash作用
+
+1. 保证不会发生数组越界
+
+2. 保证元素尽可能的均匀分布
 
 ## 10-2：扰动函数以及作用
 
@@ -402,7 +412,12 @@ HashMap通过key的hashCode经过扰动函数处理过后得到hash值，然后�
 
 5. 如果链表节点数已经达到8个，首先判断当前hashMap的长度，如果不足64，只进行resize，扩容table，如果达到64就将冲突的链表为红黑树。
 
-## 10-5：hash函数以及常用方法
+## 10-5 reHash过程
+
+1. 首先创建一个比现有哈希表更大的新哈希表（expand）
+2. 然后将旧哈希表的所有元素都迁移到新哈希表去（rehash）
+
+## 10-6：hash函数以及常用方法
 
 1. 直接定址法：直接以key或者key上加上某个常数作为哈希地址
 2. 数字分析法：提取key中取值比较均匀的数字作为哈希地址
@@ -507,6 +522,9 @@ loadFactor表示HashMap的拥挤程度
 
 无法分辨是key没找到的null还是有key值为null，这在多线程里面是模糊不清的，所以压根就不让put=null。
 
+## 分段锁原理
+
+首先将数据分成一段一段的存储，然后给每一段数据配一把锁，当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问。
 
 # 12.java基础-集合-TreeMap
 
@@ -665,11 +683,53 @@ TreeMap的实现就是红黑树数据结构，也就说是一棵自平衡的排�
 <font color="#986078">使用场景：</font>
 
 
+## JAVA集合类
+
+1. Collection
+   1. List
+        * Arraylist： Object数组
+        * Vector： Object数组
+        * LinkedList： 双向链表(JDK1.6之前为循环链表， JDK1.7取消了循环)
+    2. Set
+        * HashSet（⽆序，唯⼀） : 基于 HashMap 实现的，底层采⽤ HashMap 来保存元素
+        * LinkedHashSet： LinkedHashSet 继承于 HashSet，并且其内部是通过 LinkedHashMap 来实现的。有点类似于我们之前说的LinkedHashMap 其内部是基于 HashMap 实现⼀样，不过还是有⼀点点区别的
+        * TreeSet（有序，唯⼀）： 红⿊树(⾃平衡的排序⼆叉树)
+2. Map
+    1. HashMap： JDK1.8之前HashMap由数组+链表组成的，数组是HashMap的主体，链表则是主要为了解决哈希冲突⽽存在的（“拉链法”解决冲突）。 JDK1.8以后在解决哈希冲突时有了较⼤的变化，当链表⻓度⼤于阈值（默认为8）时，将链表转化为红⿊树，以减少搜索时间
+    2. LinkedHashMap： LinkedHashMap 继承⾃ HashMap，所以它的底层仍然是基于拉链式散列结构即由数组和链表或红⿊树组成。另外， LinkedHashMap 在上⾯结构的基础上，增加了⼀条双向链表，使得上⾯的结构可以保持键值对的插⼊顺序。同时通过对链表进⾏相应的操作，实现了访问顺序相关逻辑。详细可以查看： 《LinkedHashMap 源码详细分析（JDK1.8）》
+    3. Hashtable： 数组+链表组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突⽽存在的
+    4. TreeMap： 红⿊树（⾃平衡的排序⼆叉树）
+
+
 # java基础-设计类问题
 
 ## 如果想要一个key对应多个Value的话，怎么设计Map
 
 https://blog.csdn.net/yanzhenjie1003/article/details/51550264?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
+
+
+## 插入一万个元素之后会不会扩容，扩容扩多少
+
+1. HashMap 构造方法传递的 initialCapacity，它实际表示 table 的容量。
+   
+   * 只是代表了 table 数组容量为 1000
+
+2. 构造方法传递的initialCapacity，最终会被tableSizeFor()方法动态调整为2的N次幂，以方便在扩容的时候，计算数据在newTable中的位置。
+
+  * 虽然你传入了10000，但是实际传入的是10000/loadFactor，但是呢会调整为最接近的2 的 N 次幂
+  
+    * 如：实际传入了10000/0.75=13333，最接近的是2^13=16384，那么就采用16384
+  
+3. 如果设置了table的初始容量，会在初始化 table 时，将扩容阈值 threshold 重新调整为 table.size * loadFactor。
+
+  * 那么可以储存的最大容量就是：16384*0.75=12288
+
+注：HashMap 是否扩容，由 threshold 决定，而 threshold 又由初始容量和 loadFactor 决定。
+
+
+
+
+
 
 
 
