@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-07-01 10:38:12
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-06 10:06:04
+ * @LastEditTime: 2020-07-06 10:36:28
  * @FilePath: \Java-Point\docs\9.interview\1.面经\1-java基础.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
@@ -440,10 +440,8 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 ## 11-4：set的重复元素
 
 1. HashSet会先计算对象的hashcode值来判断对象加入的位置，同时也会与其他加入的对象的hashcode值作比较，如果没有相符的hashcode，HashSet会假设对象没有重复出现。但是如果发现有相同hashcode值的对象，这时会调用equals()方法来检查hashcode相等的对象是否真的相同。如果两者相同，HashSet就不会让加入操作成功。
-
-2. TreeMap是按key排序的，元素在插入TreeSet时compareTo()方法要被调用，所以TreeSet中的元素要实现Comparable接口。TreeSet作为一种Set，它不允许出现重复元素。
-   
-3. TreeSet是用compareTo()来判断重复元素的。
+  
+2. TreeSet是用compareTo()来判断重复元素的。
 
 ## 11-5：Enumeration和itrator区别
 1. 函数接口不同
@@ -463,10 +461,6 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 2. 使用SynchronizedList的时候，进行遍历时要手动进行同步处理。
 
 3. SynchronizedList可以指定锁定的对象。
-
-
-
-
 
 # 12.java基础-集合-Collections
 
@@ -488,8 +482,71 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 
 3. Map(用Key来搜索的专家):使用键值对存储。Map会维护与Key有关联的值。两个Key可以引用相同的对象，但Key不能重复，典型的Key是String类型，但也可以是任何对象。
 
-## 14-2：区别和适用场景
+## 14-2：arraylist、linkedlist区别和适用场景
 
+1. 是否保证线程安全： ArrayList 和 LinkedList 都是不同步的，也就是不保证线程安全；
+2. 底层数据结构： Arraylist 底层使用的是 Object 数组；LinkedList 底层使用的是 双向链表 数据结构
+3. 插入和删除是否受元素位置的影响： 
+   ① ArrayList 采用数组存储，所以插入和删除元素的时间复杂度受元素位置的影响。 
+   ② LinkedList 采用链表存储，插入，删除元素时间复杂度不受元素位置的影响，如果是要在指定位置i插入和删除元素的话需要先移动到指定位置再插入。
+4. 是否支持快速随机访问： LinkedList 不支持高效的随机元素访问，而 ArrayList 支持。快速随机访问就是通过元素的序号快速获取元素对象(对应于get(int index) 方法)。<br>
+5. 内存空间占用： ArrayList的空间浪费主要体现在在list列表的结尾会预留一定的容量空间，而LinkedList的空间花费则体现在它的每一个元素都需要消耗比ArrayList更多的空间（因为要存放直接后继和直接前驱以及数据）
 
+<font color="#986078">使用场景：</font>
 
+当需要对数据进行对此访问的情况下选用ArrayList，当需要对数据进行多次增加删除修改时采用LinkedList。
 
+## 14-3：vector、Arraylist区别和适用场景
+
+1. Vector是多线程安全的，
+2. Vector类中的方法很多有synchronized进行修饰，这样就导致了Vector在效率上无法与ArrayList相比
+3. 两个都是采用的线性连续空间存储元素，但是当空间不足的时候，两个类的增加方式是不同。
+4. Vector可以设置增长因子，而ArrayList不可以
+   
+<font color="#986078">使用场景：</font>
+
+1. 安全因素
+2. 在集合中使用数据量比较大的数据
+
+## 14-4：treeset、hashset区别和适用场景
+
+1. TreeSet 是二差树实现的,Treeset中的数据是自动排好序的，不允许放入null值
+   HashSet 是哈希表实现的,HashSet中的数据是无序的，可以放入null，但只能放入一个null，两者中的值都不能重复，就如数据库中唯一约束
+
+2. HashSet要求放入的对象必须实现HashCode()方法，放入的对象，是以hashcode码作为标识的，而具有相同内容的String对象，hashcode是一样，所以放入的内容不能重复。但是同一个类的对象可以放入不同的实例	
+
+<font color="#986078">使用场景：</font>
+
+在我们需要排序的功能时，我们才使用TreeSet。
+
+## 14-5：HashMap、Treemap区别和适用场景
+
+1. HashMap：基于哈希表实现，使用HashMap要求添加的键明确定义了hasCode（）和equals（），为了优化hashMap空间的使用，可以调优初始容量和负载因子。hashmap适用于在map中插入，删除和定位元素。hashmap的结果是没有排序的的。
+2. TreeMap：基于红黑树实现，TreeMap没有调优选项，该树总是处于平衡状态。treemap适用于按自然顺序或自定义顺序遍历键（key），TreeMap实现SortMap接口，能够把保存的额近路根据键排序，默认是按键值的升序排序，也可以指定排序的比较器。
+
+<font color="#986078">使用场景：</font>
+
+## 14-6：HashTable、Hashmap区别和适用场景
+
+1 继承和实现方式不同<br>
+2 线程安全不同<br>
+3 对null值的处理不同<br>
+4 支持的遍历种类不同<br>
+5 通过Iterator迭代器遍历时，遍历的顺序不同<br>
+6 容量的初始值 和 增加方式都不一样<br>
+7 添加key-value时的hash值算法不同<br>
+8 部分API不同<br>"	
+   
+<font color="#986078">使用场景：</font>
+
+1. 若在单线程中，我们往往会选择HashMap；
+2. 而在多线程中，则会选择Hashtable。(02)，
+3. 若不能插入null元素，则选择Hashtable；否则，可以选择HashMap。
+
+## 14-7： ConcurrentHashMap、Hashmap区别和适用场景
+1. ConcurrentHashMap对桶数组进行了分段，而HashMap并没有。
+2. ConcurrentHashMap在每一个分段上都用锁进行了保护。HashMap没有锁机制。所以，前者线程安全的，后者不是线程安全的。
+   
+<font color="#986078">使用场景：</font>
+
+1.安全因素
