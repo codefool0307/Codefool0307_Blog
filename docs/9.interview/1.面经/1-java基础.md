@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-07-01 10:38:12
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-06 10:52:52
+ * @LastEditTime: 2020-07-06 14:48:51
  * @FilePath: \Java-Point\docs\9.interview\1.面经\1-java基础.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
@@ -288,9 +288,15 @@ HashMap的hash方法。
 使用hash方法也就是扰动函数是为了防止一些实现比较差的hashCode()方法，换句话说使用扰动函数之后可以减少碰撞。
 
 
-## 10-3：拉链法
+## 10-3：哈希冲突的解决方法
 
+1. 拉链法
+   
 将链表和数组相结合。也就是说创建一个链表数组，数组中每一格就是一个链表。若遇到哈希冲突，则将冲突的值加到链表中即可。
+
+2. 开发地址法
+
+所有输入的元素全部存放在哈希表里，先通过哈希函数进行判断，若是发生哈希冲突，就以当前地址为基准，根据再寻址的方法（探查序列），去寻找下一个地址，若发生冲突再去寻找，直至找到一个为空的地址为止。
 
 ## 10-4：HashMap的put操作
 
@@ -388,48 +394,56 @@ loadFactor表示HashMap的拥挤程度
    
 3. 在SynchronizedMap类中使用了synchronized同步关键字来保证对Map的操作是线程安全的。
 
-## 10-17：ConcurrentHashMap的底层实现，怎么做到线程安全的
+## 10-17：hashmap为什么是2的秘方次
+
+如果length为2的N次方，取模运算可以变成位与运算，效率显著提高！但是要浪费一些空间。
+
+## 10-18：hashmap的多线程导致死循环
+
+并发下的Rehash会造成元素之间会形成一个循环链表。在JDK8之后，使用了链表转化为红黑树的形式，可以解决这个问题，但是呢还会有数据丢失等弊端
+
+# 11.java基础-集合-ConcurrentHashMap
+
+## 11-1：ConcurrentHashMap的底层实现，怎么做到线程安全的
 
 在JDK1.7的时候，ConcurrentHashMap（分段锁）?对整个桶数组进行了分割分段(Segment)，每一把锁只锁容器其中一部分数据，多线程访问容器里不同数据段的数据，就不会存在锁竞争，提高并发访问率。?到了?JDK1.8?的时候已经摒弃了Segment的概念，而是直接用?Node?数组+链表+红黑树的数据结构来实现，并发控制使用?synchronized?和?CAS?来操作。（JDK1.6以后?对?synchronized锁做了很多优化）?整个看起来就像是优化过且线程安全的?HashMap，虽然在JDK1.8中还能看到?Segment?的数据结构，但是已经简化了属性，只是为了兼容旧版本；
 
-## 10-18：为何会出现ConcurrenHashMap?
+## 11-2：为何会出现ConcurrenHashMap?
 
 线程安全，读写还快，以空间换时间
 内存直接分为了16个segment，每个segment实际上还是存储的哈希表，写入的时候，先找到对应的segment，然后锁这个segment，写完，解锁，汗！就这么简单解决了，锁segment的时候，其他segment还可以继续工作
 
-## 10-19：hashmap为什么是2的秘方次
+## 11-3：为什么ConcurrentHashMap为何不支持null键和null值
 
-如果length为2的N次方，取模运算可以变成位与运算，效率显著提高！但是要浪费一些空间。
+无法分辨是key没找到的null还是有key值为null，这在多线程里面是模糊不清的，所以压根就不让put=null。
 
-## 10-20：hashmap的多线程导致死循环
 
-并发下的Rehash会造成元素之间会形成一个循环链表。在JDK8之后，使用了链表转化为红黑树的形式，可以解决这个问题，但是呢还会有数据丢失等弊端
+# 12.java基础-集合-TreeMap
 
-## 10-21：java8中map相关红黑树引用背景
+## 12-1:TreeMap底层原理：
+
+TreeMap的实现就是红黑树数据结构，也就说是一棵自平衡的排序二叉树，这样就可以保证当需要快速检索指定节点。
+
+
+## 11-3：java8中map相关红黑树引用背景
 
 书本
 
-## 10-22：hashcode与equals
+## 11-4：为什么要重写hashcode与equals
 
-1. 如果两个对象相等，则hashcode一定也是相同的
-2. 两个对象相等,对两个equals方法返回true
-3. 两个对象有相同的hashcode值，它们也不一定是相等的
-   
-综上，equals方法被覆盖过，则hashCode方法也必须被覆盖
+往HashMap添加元素的时候，需要先定位到在数组的位置（hashCode方法）；如果只重写了 equals 方法，两个对象 equals 返回了true，集合是不允许出现重复元素的，只能插入一个；此时如果没有重写 hashCode 方法，那么就无法定位到同一个位置，集合还是会插入元素。这样集合中就出现了重复元素了。那么重写的equals方法就没有意义了。
 
-hashCode()的默认行为是对堆上的对象产生独特值。如果没有重写hashCode()，则该class的两个对象无论如何都不会相等（即使这两个对象指向相同的数据）。
+# 12.java基础-集合-Collection
 
-# 11.java基础-集合-Collection
-
-## 11-1：ArrayList数组长度源码
+## 12-1：ArrayList数组长度源码
 
 一部分是用来存储数据元素，一部分是用来存储数组大小，标志，锁定，类信息指针等对象头信息，对象头信息最大占用内存不可超过8字节。
 
-## 11-2：arraylist扩容机制
+## 12-2：arraylist扩容机制
 
 如果元素的个数，大于其容量，则把其容量扩展为原来容量的1.5倍。
 
-## 11-3：遍历删除arraylist元素
+## 12-3：遍历删除arraylist元素
 
 1. 直接使用普通for循环进行操作
 2. 直接使用Iterator进行操作
@@ -437,24 +451,24 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 4. 使用增强for循环其实也可以
 5. 直接使用fail-safe的集合类
 
-## 11-4：set的重复元素
+## 12-4：hashset原理
 
 1. HashSet会先计算对象的hashcode值来判断对象加入的位置，同时也会与其他加入的对象的hashcode值作比较，如果没有相符的hashcode，HashSet会假设对象没有重复出现。但是如果发现有相同hashcode值的对象，这时会调用equals()方法来检查hashcode相等的对象是否真的相同。如果两者相同，HashSet就不会让加入操作成功。
   
 2. TreeSet是用compareTo()来判断重复元素的。
 
-## 11-5：Enumeration和itrator区别
+## 12-5：Enumeration和itrator区别
 1. 函数接口不同
    * Enumeration只有2个函数接口。通过Enumeration，我们只能读取集合的数据，而不能对数据进行修改。
    * Iterator只有3个函数接口。Iterator除了能读取集合的数据之外，也能数据进行删除操作。
 1. Iterator支持fail-fast机制，而Enumeration不支持。
 2. Enumeration迭代器只能遍历Vector、Hashtable这种古老的集合，因此通常不要使用它，除非在某些极端情况下，不得不使用Enumeration，否则都应该选择Iterator迭代器。
 
-## 11-6：comparable和Comparator的区别
+## 12-6：comparable和Comparator的区别
 
 书本
 
-## 11-7：SynchronizedList
+## 12-7：SynchronizedList
 
 1. SynchronizedList有很好的扩展和兼容功能。他可以将所有的List的子类转成线程安全的类。
    
@@ -462,19 +476,19 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 
 3. SynchronizedList可以指定锁定的对象。
 
-# 12.java基础-集合-Collections
+# 13.java基础-集合-Collections
 
-## 12-1：Collection和collections区别
+## 13-1：Collection和collections区别
 
 1. Collection是一个集合接口。它提供了对集合对象进行基本操作的通用接口方法
 2. Collections是一个包装类。它包含有各种有关集合操作的静态多态方法。此类不能实例化，就像一个工具类，服务于Java的Collection框架。
 
-# 13.java基础-集合-Arrays
+# 14.java基础-集合-Arrays
 
 
-# 14.java基础-集合-集合大比较（区别和使用场景）
+# 15.java基础-集合-集合大比较（区别和使用场景）
 
-## 14-1：set和list、map的区别
+## 15-1：set和list、map的区别
 
 1. List(对付顺序的好帮手)：List接口存储一组不唯一（可以有多个元素引用相同的对象），有序的对象
 
@@ -482,7 +496,7 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 
 3. Map(用Key来搜索的专家):使用键值对存储。Map会维护与Key有关联的值。两个Key可以引用相同的对象，但Key不能重复，典型的Key是String类型，但也可以是任何对象。
 
-## 14-2：arraylist、linkedlist区别和适用场景
+## 15-2：arraylist、linkedlist区别和适用场景
 
 1. 是否保证线程安全： ArrayList 和 LinkedList 都是不同步的，也就是不保证线程安全；
 2. 底层数据结构： Arraylist 底层使用的是 Object 数组；LinkedList 底层使用的是 双向链表 数据结构
@@ -496,7 +510,7 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 
 当需要对数据进行对此访问的情况下选用ArrayList，当需要对数据进行多次增加删除修改时采用LinkedList。
 
-## 14-3：vector、Arraylist区别和适用场景
+## 15-3：vector、Arraylist区别和适用场景
 
 1. Vector是多线程安全的，
 2. Vector类中的方法很多有synchronized进行修饰，这样就导致了Vector在效率上无法与ArrayList相比
@@ -508,7 +522,7 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 1. 安全因素
 2. 在集合中使用数据量比较大的数据
 
-## 14-4：treeset、hashset区别和适用场景
+## 15-4：treeset、hashset区别和适用场景
 
 1. TreeSet 是二差树实现的,Treeset中的数据是自动排好序的，不允许放入null值
    HashSet 是哈希表实现的,HashSet中的数据是无序的，可以放入null，但只能放入一个null，两者中的值都不能重复，就如数据库中唯一约束
@@ -519,14 +533,14 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 
 在我们需要排序的功能时，我们才使用TreeSet。
 
-## 14-5：HashMap、Treemap区别和适用场景
+## 15-5：HashMap、Treemap区别和适用场景
 
 1. HashMap：基于哈希表实现，使用HashMap要求添加的键明确定义了hasCode（）和equals（），为了优化hashMap空间的使用，可以调优初始容量和负载因子。hashmap适用于在map中插入，删除和定位元素。hashmap的结果是没有排序的的。
 2. TreeMap：基于红黑树实现，TreeMap没有调优选项，该树总是处于平衡状态。treemap适用于按自然顺序或自定义顺序遍历键（key），TreeMap实现SortMap接口，能够把保存的额近路根据键排序，默认是按键值的升序排序，也可以指定排序的比较器。
 
 <font color="#986078">使用场景：</font>
 
-## 14-6：HashTable、Hashmap区别和适用场景
+## 15-6：HashTable、Hashmap区别和适用场景
 
 1 继承和实现方式不同<br>
 2 线程安全不同<br>
@@ -543,7 +557,7 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 2. 而在多线程中，则会选择Hashtable。(02)，
 3. 若不能插入null元素，则选择Hashtable；否则，可以选择HashMap。
 
-## 14-7： ConcurrentHashMap、Hashmap区别和适用场景
+## 15-7： ConcurrentHashMap、Hashmap区别和适用场景
 1. ConcurrentHashMap对桶数组进行了分段，而HashMap并没有。
 2. ConcurrentHashMap在每一个分段上都用锁进行了保护。HashMap没有锁机制。所以，前者线程安全的，后者不是线程安全的。
    
@@ -551,7 +565,7 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 
 1.安全因素
 
-## 14-8： Hashset、Hashmap区别和适用场景
+## 15-8： Hashset、Hashmap区别和适用场景
 
 1. 接口：实现了Map接⼝ 实现Set接⼝
 2. 存储：存储键值对 仅存储对象
@@ -559,5 +573,15 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 4. 计算：HashMap使⽤键（Key）计算Hashcode     HashSet使⽤成员对象来计算hashcode值，对于两个对象来说hashcode可能相同，所以equals()⽅法⽤来判断对象的相等性，
    
 <font color="#986078">使用场景：</font>
+
+
+# java基础-设计类问题
+
+## 如果想要一个key对应多个Value的话，怎么设计Map
+
+https://blog.csdn.net/yanzhenjie1003/article/details/51550264?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
+
+
+
 
 
