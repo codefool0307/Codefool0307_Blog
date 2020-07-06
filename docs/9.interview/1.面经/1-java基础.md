@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-07-01 10:38:12
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-06 10:36:28
+ * @LastEditTime: 2020-07-06 10:52:52
  * @FilePath: \Java-Point\docs\9.interview\1.面经\1-java基础.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
@@ -550,3 +550,14 @@ hashCode()的默认行为是对堆上的对象产生独特值。如果没有重�
 <font color="#986078">使用场景：</font>
 
 1.安全因素
+
+## 14-8： Hashset、Hashmap区别和适用场景
+
+1. 接口：实现了Map接⼝ 实现Set接⼝
+2. 存储：存储键值对 仅存储对象
+3. 添加元素：调⽤ put（）向map中添加元素       调⽤ add（） ⽅法向Set中添加元素
+4. 计算：HashMap使⽤键（Key）计算Hashcode     HashSet使⽤成员对象来计算hashcode值，对于两个对象来说hashcode可能相同，所以equals()⽅法⽤来判断对象的相等性，
+   
+<font color="#986078">使用场景：</font>
+
+
