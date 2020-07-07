@@ -2,13 +2,13 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-06-30 11:27:29
+ * @LastEditTime: 2020-07-07 10:55:10
  * @FilePath: \Java-Point\docs\_coverpage.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
 <div class="cover-main">
 
-<img style='max-height:200px;margin-top:80px;' src="tubiao.jpg"><small>1.1</small>
+<img style='max-height:200px;margin-top:80px;' src="tubiao.jpg"><small>2.1</small>
 
 <h1 id="toBeTopJavaer">
 <a><span><marquee behavior="slide" width="270"  height="100">
