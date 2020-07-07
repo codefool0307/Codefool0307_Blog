@@ -15,5 +15,8 @@ public class yaunama {
         System.setProperty(s1, "false");
         boolean aBoolean2 = Boolean.getBoolean(s1);
         System.out.println(aBoolean2);
+
+        Long aLong = new Long();
+        Number number = new Number();
     }
 }
