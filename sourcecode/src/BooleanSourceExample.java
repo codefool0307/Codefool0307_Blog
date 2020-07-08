@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class yaunama {
+public class BooleanSourceExample {
     public static void main(String[] args) {
         Boolean aTrue = Boolean.TRUE;
         Boolean aBoolean = new Boolean(true);
@@ -16,7 +16,9 @@ public class yaunama {
         boolean aBoolean2 = Boolean.getBoolean(s1);
         System.out.println(aBoolean2);
 
-        Long aLong = new Long();
-        Number number = new Number();
+        int i=3;
+        boolean neg=(i<0);
+        System.out.println(neg);
+
     }
 }

@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-07-01 10:38:12
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-08 08:34:17
+ * @LastEditTime: 2020-07-08 09:21:51
  * @FilePath: \Java-Point\docs\9.interview\1.面经\1-java基础.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
@@ -634,14 +634,14 @@ https://blog.csdn.net/yanzhenjie1003/article/details/51550264?utm_medium=distrib
 
 
 
-# java基础-IO-各种流
+# 20.java基础-IO-各种流
 
-## -1：为何还要有字符流
+## 20-1：为何还要有字符流
 
 因为我们不知道编码类型很容易出现乱码，所以IO就提供了一个直接操作字符的接口
 
 
-## -2：BIO\NIO\AIO区别
+## 20-2：BIO\NIO\AIO区别
 
 1. BIO （Blocking I/O）：同步阻塞I/O模式，数据的读取写入必须阻塞在一个线程内等待其完成。
 
@@ -661,7 +661,7 @@ https://blog.csdn.net/yanzhenjie1003/article/details/51550264?utm_medium=distrib
 2. 同步/非同步主要是说你需不需要看着水壶？
 
 
-## -3：BIO\NIO\AIO使用场景
+## 20-3：BIO\NIO\AIO使用场景
 
 1. BIO方式适用于连接数目比较小且固定的架构，这种方式对服务器资源要求比较高，并发局限于应用中，JDK1.4以前的唯一选择，但程序直观简单易理解。
 
@@ -672,7 +672,7 @@ https://blog.csdn.net/yanzhenjie1003/article/details/51550264?utm_medium=distrib
 
 
 
-## -4：linux的5种IO模型
+## 20-4：linux的5种IO模型
 
 1. 阻塞式IO模型
 
@@ -684,7 +684,7 @@ https://blog.csdn.net/yanzhenjie1003/article/details/51550264?utm_medium=distrib
 
 5. 异步IO模型
 
-## -5:IO多路复用
+## 20-5:IO多路复用
 
 如果有一百万个I/O流进来，那我们就需要开启一百万个进程一一对应处理这些I/O流，这样会造成CPU占有率会多高，这个实现方式及其的不合理。
 
@@ -695,6 +695,8 @@ https://blog.csdn.net/yanzhenjie1003/article/details/51550264?utm_medium=distrib
 1. select大妈 每一个女生下楼, select大妈都不知道这个是不是你的女神, 她需要一个一个询问, 并且select大妈能力还有限, 最多一次帮你监视1024个妹子
 2. poll大妈不限制盯着女生的数量, 只要是经过宿舍楼门口的女生, 都会帮你去问是不是你女神
 3. epoll大妈不限制盯着女生的数量, 并且也不需要一个一个去问. 那么如何做呢? epoll大妈会为每个进宿舍楼的女生脸上贴上一个大字条,上面写上女生自己的名字, 只要女生下楼了, epoll大妈就知道这个是不是你女神了, 然后大妈再通知你.
+
+
 
 
 
