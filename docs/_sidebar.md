@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-03 11:23:55
+ * @LastEditTime: 2020-07-08 14:06:34
  * @FilePath: \Java-Point\docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -157,11 +157,12 @@
 
     * <font color="#00E0FF">一、基础框架</font>
       
-      * <font color="#00E000">1、SSM</font>
+      * <font color="#00E000">1、Spring</font>
   
-        * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
+        * [1 spring框架概述](./6.Frame/1.Spring/1-spring框架概述.md) 
+        * [2 IOC](./6.Frame/1.Spring/2-IOC.md)   
 
-      * <font color="#00E000">2、SpringBoot</font>
+      <!-- * <font color="#00E000">2、SpringBoot</font>
   
         * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
     
@@ -231,7 +232,7 @@
     
       * <font color="#00E000">3、Logstash</font>  
   
-        * [1 基本语法](/2.os/2.shell/1-基本语法.md)   
+        * [1 基本语法](/2.os/2.shell/1-基本语法.md) -->
     
 * <font color="#FF0000">第七部分、工具</font>
 
