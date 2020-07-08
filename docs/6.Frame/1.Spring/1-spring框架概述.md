@@ -2,17 +2,15 @@
  * @Author: 孙浩然
  * @Date: 2020-05-14 20:43:32
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-08 14:03:12
+ * @LastEditTime: 2020-07-08 14:11:37
  * @FilePath: \Java-Point\docs\6.Frame\1.Spring\1-spring框架概述.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
-# 1. Spring框架概述
-
-## 1.1 框架概念
+# 1 框架概念
 
 不过多的进行介绍了
 
-## 1.2 模块划分
+# 2 模块划分
 
 ![avatar](https://github.com/codefool0307/Java-Point/blob/master/docs/6.Frame/1.Spring/assets/1-1.jpg?raw=true)
 
@@ -58,8 +56,10 @@
     spring-test-4.0.0.RELEASE
     ```
 
+# 3 IOC+AOP
 
-     
+
+ ![avatar](https://github.com/codefool0307/Java-Point/blob/master/docs/6.Frame/1.Spring/assets/1-2.jpg?raw=true)    
 
 
 
