@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-09 14:15:52
+ * @LastEditTime: 2020-07-09 14:17:47
  * @FilePath: \Java-Point\docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -33,7 +33,7 @@
     
         * [修订中](/1.basics/1.java-basic/1-数据类型.md)      
     
-     * <font color="#00E0FF">七、Mybatis源码</font>
+    * <font color="#00E0FF">七、Mybatis源码</font>
     
         * [修订中](/1.basics/1.java-basic/1-数据类型.md)      
 
