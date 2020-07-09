@@ -159,22 +159,22 @@
                     },      
       plugins: [
         // git talk
-        // function (hook, vm) {
-        //   hook.doneEach(function(){
-        //     let path = vm.route.path.split('/').join('');
-        //     let domObj = Docsify.dom;
-        //     let main = domObj.getNode("#main");
-        //     Array.apply(null,document.querySelectorAll("div.gitTalk-container")).forEach(function(ele){
-        //       ele.remove();
-        //     });
-        //     let divEle = domObj.create("div");
-        //     divEle.id = `gitTalk-container-${path}`;
-        //     divEle.className = "gitTalk-container";
-        //     divEle.style = `width: ${main.clientWidth}px; margin: 0 auto 20px;`;
-        //     domObj.appendTo(domObj.find(".content"), divEle);
-        //     // Directory folding
-        //   })
-        // },
+        function (hook, vm) {
+          hook.doneEach(function(){
+            let path = vm.route.path.split('/').join('');
+            let domObj = Docsify.dom;
+            let main = domObj.getNode("#main");
+            Array.apply(null,document.querySelectorAll("div.gitTalk-container")).forEach(function(ele){
+              ele.remove();
+            });
+            let divEle = domObj.create("div");
+            divEle.id = `gitTalk-container-${path}`;
+            divEle.className = "gitTalk-container";
+            divEle.style = `width: ${main.clientWidth}px; margin: 0 auto 20px;`;
+            domObj.appendTo(domObj.find(".content"), divEle);
+            // Directory folding
+          })
+        },
       
         //DocsifyCodefund.create('51d43327-eea3-4e27-bd44-e075e67a84fb'), // 把这个id改成你的codefund id,
         //跳转到相应的页面
