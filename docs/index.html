@@ -112,16 +112,7 @@
   
   <script>
 
-    document.documentElement.style.overflowX = 'hidden';
-
-var pluginVar= [
-    //使用cloud studio 不需要在线编辑插件了 EditOnGithubPlugin.create("https://github.com/javastar920905/mdbook/tree/master/docs/","","在线编辑")
-]
-  //时光轴页面不显示 在线编辑按钮
-if ( window.screen.width<768||window.location.href.indexOf("timeline.html")>=0) {
-    pluginVar=[];
-}
-
+  
     window.$docsify = {
       //el: '#app',
       name: '<font color="#FF0000">J</font><font color="#E3001C">a</font><font color="#C70038">v</font><font color="#AB0054">a</font><font color="#8F0070">源</font><font color="#73008C">码</font><font color="#5700A8">不</font><font color="#3B00C4">归</font><font color="#1F00E0">路</font>',
