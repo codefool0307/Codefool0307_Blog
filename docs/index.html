@@ -29,12 +29,7 @@
       <!--设置卡通人物2-->
       <script src="live2d-widget-master/autoload.js"></script>
       <script src="https://g.joyinshare.com/hc/piao.js" type="text/javascript"></script>
-   
-   
-</head>
-<body>
-
-  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+   <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
    <script>
        var now = new Date(); 
        function createtime() { 
@@ -51,8 +46,12 @@
        } 
    setInterval("createtime()",250);
    </script>
+   
+</head>
+<body>
+
   <div class="doc-directory">
-    
+    <ul class="title-content"></ul>
     <div class="header">
       <img class="menu-img" src="./menu.png" alt="menu" />
     </div>
@@ -68,9 +67,8 @@
   </div> -->
   
   <script>
-
     window.$docsify = {
-      //el: '#app',
+      el: '#app',
       name: '<font color="#FF0000">J</font><font color="#E3001C">a</font><font color="#C70038">v</font><font color="#AB0054">a</font><font color="#8F0070">源</font><font color="#73008C">码</font><font color="#5700A8">不</font><font color="#3B00C4">归</font><font color="#1F00E0">路</font>',
       repo: 'https://github.com/codefool0307/Java-Practice',
       ga: 'UA-150864629-1',
@@ -133,8 +131,7 @@
           })
         },
       
-        //DocsifyCodefund.create('51d43327-eea3-4e27-bd44-e075e67a84fb'), // 把这个id改成你的codefund id,
-        //跳转到相应的页面
+         //跳转到相应的页面
         function(hook, vm) {
           hook.beforeEach(function (html) {
             if (/githubusercontent\.com/.test(vm.route.file)) {
