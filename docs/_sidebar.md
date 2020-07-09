@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-09 14:29:20
+ * @LastEditTime: 2020-07-09 14:34:05
  * @FilePath: \Java-Point\docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -45,7 +45,7 @@
     
         * [修订中](/1.basics/1.java-basic/1-数据类型.md)  
 
-     * <font color="#00E0FF">十、Netty源码</font>
+    * <font color="#00E0FF">十、Netty源码</font>
     
         * [修订中](/1.basics/1.java-basic/1-数据类型.md)  
 
@@ -229,7 +229,7 @@
 
 * <font color="#FF0000">V-面试经验</font>
 
-    * [java基础面试考察点](/9.interview/1.面经/1-java基础.md)
+    * [java基础面试考察点](./5.interview/1-java基础面经.md)
   
 * <font color="#FF0000">VI-项目</font>
 
