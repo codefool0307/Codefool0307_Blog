@@ -2,10 +2,13 @@
 
 public class NumberSourceExample {
     public static void main(String[] args) {
-        /*Integer integer = new Integer(1);
+        Integer integer = new Integer(1);
         String s = Integer.toString(-2, 1);
-        System.out.println(s);*/
-        int i=2;
+        System.out.println(s);
+        //表示是字符串形式
+        System.out.println(s+3);
+
+        /*int i=2;
         boolean ne=(i<0);
         if (!ne){
             i=-i;
@@ -18,7 +21,7 @@ public class NumberSourceExample {
 
         //toUnsignedString0方法测试
 
-        Integer.toUnsignedString0()
+        Integer.toUnsignedString0()*/
     }
 
 
