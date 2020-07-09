@@ -1355,17 +1355,19 @@ public final class Integer extends Number implements Comparable<Integer> {  //�
 	 *     is equal to zero.
 	 * @since 1.5
 	 */
+	//返回无符号整型i的最高非零位前面的0的个数，包括符号位在内
+	//”>>>”表示无符号右移运算符。高位补0
 	public static int numberOfLeadingZeros(int i) {
 		// HD, Figure 5-6
 		if (i == 0)
 			return 32;
-		
-		int n = 1;
-		if (i >>> 16 == 0) { n += 16; i <<= 16; }
-		if (i >>> 24 == 0) { n +=  8; i <<=  8; }
-		if (i >>> 28 == 0) { n +=  4; i <<=  4; }
-		if (i >>> 30 == 0) { n +=  2; i <<=  2; }
-		n -= i >>> 31;
+
+		int n = 1;//n作为符号位存在
+		if (i >>> 16 == 0) { n += 16; i <<= 16; }  //i右移16位   左移赋值
+		if (i >>> 24 == 0) { n +=  8; i <<=  8; }  //i右移24位
+		if (i >>> 28 == 0) { n +=  4; i <<=  4; }  //i右移28位
+		if (i >>> 30 == 0) { n +=  2; i <<=  2; }  //i右移30位
+		n -= i >>> 31;//
 		return n;
 	}
 

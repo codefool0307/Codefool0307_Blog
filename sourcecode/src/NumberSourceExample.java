@@ -11,6 +11,14 @@ public class NumberSourceExample {
             i=-i;
         }
         System.out.println(i);
+
+        //方法numberOfLeadingZeros测试
+        int i1 = Integer.numberOfLeadingZeros(4325888);
+        System.out.println(i1);
+
+        //toUnsignedString0方法测试
+
+        Integer.toUnsignedString0()
     }
 
 
