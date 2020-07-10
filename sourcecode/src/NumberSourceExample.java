@@ -2,26 +2,22 @@
 
 public class NumberSourceExample {
     public static void main(String[] args) {
-        Integer integer = new Integer(1);
+        Integer integer = new Integer(9);
         String s = Integer.toString(-2, 1);
         System.out.println(s);
         //表示是字符串形式
         System.out.println(s+3);
 
-        /*int i=2;
-        boolean ne=(i<0);
-        if (!ne){
-            i=-i;
-        }
-        System.out.println(i);
 
-        //方法numberOfLeadingZeros测试
-        int i1 = Integer.numberOfLeadingZeros(4325888);
-        System.out.println(i1);
+        Integer integer1 = new Integer(67);
+        String s1 = Integer.toHexString(integer1);
+        String s2 = Integer.toBinaryString(integer1);
+        System.out.println(s1);
+        System.out.println(s2);
 
-        //toUnsignedString0方法测试
 
-        Integer.toUnsignedString0()*/
+        String s3 = Integer.toString(78);
+        System.out.println(s3);
     }
 
 
