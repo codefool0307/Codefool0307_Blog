@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-07-13 15:24:02
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-13 16:57:37
+ * @LastEditTime: 2020-07-13 17:02:47
  * @FilePath: \Java-Point\docs\2.Study\12.Spring\3-1-IOC常用标签.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/Java-Point/#/)，如对源码有异议请在我的博客中提问
 --> 
@@ -133,6 +133,9 @@ constructor-arg标签也得写入标签，标签中写入属性
 
 # 5 为各种属性赋值
 
+## 5.1 基础赋值
 
+
+## 5.2 引用类型赋值
 
 
