@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-07-08 14:02:49
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-13 14:21:34
+ * @LastEditTime: 2020-07-13 15:38:34
  * @FilePath: \Java-Point\docs\2.Study\12.Spring\2-IOC.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
@@ -60,6 +60,12 @@ Ioc就是一个专门<font color="red" size="5">用来创建对象</font>的<fon
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--注意：
+1. bean的作用是与HelloWord helloword = new HelloWord()一样的，但是注意不等同于new 对象，因为他是用了反射的思维在里面
+   我们用的类就是person类，然后对person实例化，实例化对象名为person01，之后进行了setName()方法去设置属性的值
+-->
+
 <bean id="person01" class="person" >
 	<property name="lastname" value="张三"></property>
 	<property name="age" value="18"></property>
@@ -92,8 +98,19 @@ public class Demo20070703IOC {
 	@Test
 	public void test01(){
 		ClassPathXmlApplicationContext ioc =
-			new ClassPathXmlApplicationContext("spring-config.xml");
-		 person bean = (person) ioc.getBean("person01");
+			new ClassPathXmlApplicationContext("spring-config.xml");//我们找到了xml 文件，如何找到ioc中的bean呢？
+
+/*  如何找到ioc中的bean呢
+
+1.方法一:利用id定位到IOC容器中的bean
+HelloWord helloword = applicationContext.getBean(“person01”);
+在配置文件中,配置的bean很多的时候,就要靠id的定位才可以准确地找到对应的bean. 
+
+2. 方法二:利用类型
+HelloWord helloword = applicationContext.getBean(HelloWord.class);
+解析:实质是通过类型去获得bean，如果bean不是唯一的，那就无法获取，因为不知道要获取的是哪一个。HelloWord.class  
+*/
+		person bean = (person) ioc.getBean("person01");
 		System.out.println(bean);
 	}
 
