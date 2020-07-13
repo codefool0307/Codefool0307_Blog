@@ -2,8 +2,8 @@
  * @Author: 孙浩然
  * @Date: 2020-05-14 20:43:32
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-08 14:11:37
- * @FilePath: \Java-Point\docs\6.Frame\1.Spring\1-spring框架概述.md
+ * @LastEditTime: 2020-07-13 17:43:24
+ * @FilePath: \Java-Point\docs\2.Study\12.Spring\1-spring框架概述.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
 # 1 框架概念
@@ -12,28 +12,30 @@
 
 # 2 模块划分
 
-![avatar](https://github.com/codefool0307/Java-Point/blob/master/docs/6.Frame/1.Spring/assets/1-1.jpg?raw=true)
+![avatar](http://qd6kny79g.bkt.clouddn.com/Spring1-1.jpg)
 
 一共21个分类，三个一组
 
 1. Core Container:核心容器（IOC）；黑色代表这部分的功能由哪些jar包组成；要使用这个部分的完整功能，这些jar都需要导入
    
-   ```java
+```java
+
    spring-beans-4.0.0.RELEASE、
    spring-core-4.0.0.RELEASE、
    spring-context-4.0.0.RELEASE、
    spring-expression-4.0.0.RELEASE
-   ```
+   
+```
 
 2. Data Access/Integration:数据库访问
 
-  ```java
+```java
      spring-jdbc-4.0.0.RELEASE、
      spring-orm(Object Relation Mapping)-4.0.0.RELEASE、
      spring-ox（xml）m-4.0.0.RELEASE、
      spring-jms-4.0.0.RELEASE、（Intergration）
      spring-tx-4.0.0.RELEASE(事务)
-  ```
+```
 
 3. Web:Spring开发web应用的模块；
 
@@ -59,7 +61,7 @@
 # 3 IOC+AOP
 
 
- ![avatar](https://github.com/codefool0307/Java-Point/blob/master/docs/6.Frame/1.Spring/assets/1-2.jpg?raw=true)    
+ ![avatar](http://qd6kny79g.bkt.clouddn.com/Spring1-2.jpg)    
 
 
 

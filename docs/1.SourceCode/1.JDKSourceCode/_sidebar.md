@@ -2,8 +2,8 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-09 16:13:12
- * @FilePath: \Java-Point\docs\1.SourceCode\1.JDKSourceCode\_sidebar.md
+ * @LastEditTime: 2020-07-13 17:17:37
+ * @FilePath: \Java-Point\docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
 
@@ -118,7 +118,9 @@
     
     * <font color="#00E0FF">十二、Spring学习</font>
   
-        * [修订中](/1.basics/1.java-basic/1-数据类型.md)
+        * [1.Spring框架](./2.Study/12.Spring/1-spring框架概述.md)
+        * [2.IOC](./2.Study/12.Spring/2-IOC.md)
+        * [2.IOC标签](./2.Study/12.Spring/3-1-IOC常用标签.md)
     
     * <font color="#00E0FF">十三、SpringMVC学习</font>
   
@@ -234,4 +236,3 @@
 * <font color="#FF0000">VI-项目</font>
 
     * <font color="#00E0FF">修订中</font>
- 
