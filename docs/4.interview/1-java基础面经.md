@@ -2,8 +2,8 @@
  * @Author: 孙浩然
  * @Date: 2020-07-01 10:38:12
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-13 08:54:46
- * @FilePath: \Java-Point\docs\5.interview\1-java基础面经.md
+ * @LastEditTime: 2020-07-14 13:35:08
+ * @FilePath: \Java-Point\docs\4.interview\1-java基础面经.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
 # Java十八讲
@@ -862,3 +862,74 @@ List<?> 是一个未知类型的List，而List<Object> 其实是任意类型的L
 会出现类型擦除
 
 编译器在编译一个继承自泛型类的子类时，为了方法覆盖的签名匹配，保留泛型类型的多态性，会生成一个桥接方法
+
+# 25-java基础-异常
+
+## 25-1:异常的分类
+
+1. Error表⽰系统级的错误，是java运⾏环境内部错误或者硬件问题，不能指望程序来处理这样的问题
+
+2. Exception 表⽰程序需要捕捉、 需要处理的常， 是由与程序设计的不完善⽽出现的问题， 程序必须处理的问题。
+
+## 25-2：异常类型
+
+0. Java中的异常， 主要可以分为两⼤类——受检异常（ checked exception） 和 ⾮受检异常（ unchecked exception）
+
+1. 受检异常
+
+这种异常在IO操作中⽐较多。 ⽬的就是告诉这个⽅法的调⽤者，我这个⽅法不保证⼀定可以成功， 是有可能找不到对应的⽂件 的， 你要明确的对这种情况做特殊处理哦。
+
+2. 非受检异常
+
+这种异常⼀般可以理解为是代码原因导致的。⽐如发⽣空指针、数组越界等。
+
+
+## 25-3：异常链
+
+是指在进⾏⼀个异常处理时抛出了另外⼀个异常， 由此产⽣了⼀个异常链条。
+
+该技术⼤多⽤于将“ 受检查异常” （ checked exception） 封装成为“⾮受检查异常”（ unchecked exception)或者RuntimeException。
+
+
+
+
+
+
+# java基础-常用类-String
+
+## -1：String不可变性
+
+整个String类是被final所修饰，而其用来存储值的底层实际上是一个私有final类型的字符数组，因此在JVM运行的时候是把字符串当成常量存储在运行时常量池内部
+
+## -2：拼接方式
+
+1. 使用+
+2. 使用concat
+3. 使用StringBuilder
+4. 使用StringBuffer
+5. 使用StringUtils.join
+
+## -3: String、StringBuffer和StringBuilder区别
+
+1. 运行速度上：StringBuilder>StringBuffer>String(因为String每次都要生成新对象)
+
+2. 线程安全：StringBuffer，多益StringBuilder：适用于单线程进行操作
+
+3. 是否可变：优质String不可变
+
+4. 底层实现：StringBuffer用了同步块synchronized
+
+# java基础-常用类-String应用
+
+## -1：String 和 char[] 数组谁更适合存密码
+
+
+# java基础-常用类-枚举
+
+## -1：enum线程安全
+
+
+# java基础-序列
+
+
+
