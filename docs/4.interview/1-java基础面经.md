@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-07-01 10:38:12
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-14 13:35:08
+ * @LastEditTime: 2020-07-16 09:15:31
  * @FilePath: \Java-Point\docs\4.interview\1-java基础面经.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
@@ -930,6 +930,8 @@ List<?> 是一个未知类型的List，而List<Object> 其实是任意类型的L
 
 
 # java基础-序列
+
+
 
 
 
