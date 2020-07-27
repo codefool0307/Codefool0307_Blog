@@ -2,14 +2,27 @@
  * @Author: 孙浩然
  * @Date: 2020-07-01 10:38:12
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-16 09:15:31
- * @FilePath: \Java-Point\docs\4.interview\1-java基础面经.md
+ * @LastEditTime: 2020-07-24 14:47:45
+ * @FilePath: \docs\4.interview\1-java基础面经.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
 # Java十八讲
 
+# java基础-java特性
+
+## -1：java特点
+
+1. 简单易学；
+2. ⾯向对象（封装，继承，多态）；
+3. 平台⽆关性（ Java 虚拟机实现平台⽆关性）；
+4. 可靠性；
+5. 安全性；
+6. ⽀持多线程（ C++ 语⾔没有内置的多线程机制，因此必须调⽤操作系统的多线程功能来进⾏多线程程序设计，⽽ Java 语⾔却提供了多线程⽀持）；
+7. ⽀持⽹络编程并且很⽅便（ Java 语⾔诞⽣本身就是为简化⽹络编程设计的，因此 Java 语⾔不仅⽀持⽹络编程⽽且很⽅便）；
+8. 编译与解释并存；
+
 # 1.java基础-数据类型-8种常见类型
-##  1-1：八种数据类型是什么？
+##  1-1：八种数据类型是什么？-中兴
 
 1. 字符型   char
 2. 布尔型  boolean
@@ -36,6 +49,11 @@
 ##  1-5：什么是浮点数？
 由一个有效数字加上幂数来表示，使用浮点数的主要原因是由于计算机二进制的运算
 
+## 1-6：String为什么不是基本数据类型-字节
+
+1. 基本类型仅表示简单的数据类型，引用类型可以表示复杂的数据类型，还可以操作这种数据类型的行为 
+
+2. java虚拟机处理基础类型与引用类型的方式是不一样的，对于基本类型，java虚拟机会为其分配数据类型实际占用的内存空间，而对于引用类型变量，他仅仅是一个指向堆区中某个实例的指针。
 
 # 2.java基础-数据类型-自动拆装箱
 ## 2-1：为什么要有自动拆装箱
@@ -891,15 +909,13 @@ List<?> 是一个未知类型的List，而List<Object> 其实是任意类型的L
 该技术⼤多⽤于将“ 受检查异常” （ checked exception） 封装成为“⾮受检查异常”（ unchecked exception)或者RuntimeException。
 
 
-
-
-
-
 # java基础-常用类-String
 
-## -1：String不可变性
+## -1：String为什么是final的？-京东
 
-整个String类是被final所修饰，而其用来存储值的底层实际上是一个私有final类型的字符数组，因此在JVM运行的时候是把字符串当成常量存储在运行时常量池内部
+1. 它创建的时候HashCode就被缓存了，不需要重新计算，这样在键值对就运行很快
+2. 为了线程安全，可以被多个线程调用
+3. 只有字符串不变，才能实现字符串池，调取方便
 
 ## -2：拼接方式
 
@@ -909,29 +925,139 @@ List<?> 是一个未知类型的List，而List<Object> 其实是任意类型的L
 4. 使用StringBuffer
 5. 使用StringUtils.join
 
-## -3: String、StringBuffer和StringBuilder区别
+## -3: String、StringBuffer和StringBuilder区别-京东
 
 1. 运行速度上：StringBuilder>StringBuffer>String(因为String每次都要生成新对象)
 
-2. 线程安全：StringBuffer，多益StringBuilder：适用于单线程进行操作
+2. 线程安全：StringBuffer，StringBuilder：适用于单线程进行操作
 
 3. 是否可变：优质String不可变
 
 4. 底层实现：StringBuffer用了同步块synchronized
 
+## -4：StringBuffer如何实现线程安全-京东
+
+直接通过synchronized 关键字来实现同步操作
+
+## -5：String类中的equals是如何重写的
+
+通过重写object的equals方法，
+
+1. object的equals方法是比较的对象的内存地址
+2. String的equals方法比较的是对象的值。
+
 # java基础-常用类-String应用
 
 ## -1：String 和 char[] 数组谁更适合存密码
+
+相对来说是String更合适，原因是底层有final关键字进行了修饰
+
+## -2：String str = new String("abc");创建了几个对象-百度，京东
+
+分情况讨论：
+1. 如果常量池中没有abc，会创建两个
+   * 一个是new  String 创建的一个新的对象
+   * 一个是常量“abc”对象的内容创建出的一个新的String对象
+
+2. 如果常量池有，会创建一个
+
+[详情1](https://blog.csdn.net/qq_36470686/article/details/83444483)
+[详情2](https://www.cnblogs.com/zhaideyou/p/5875175.html)
+
+## -3：处理数据量较大的字符串用string还是stringbuilder，为什么
+
+Stringbuilder，操作字符串效率更高
+
+注：StringBuffer虽然也可以处理字符而且线程安全，但是处理字符相对Stringbuilder慢
+
+## -4：为什么StringBuffer和StringBuilder比String更快-百度
+
+1. string类设计成final类型，每次有修改操作时，都会赋值给新的对象。
+
+2. 因为赋值给新的对象，原来的对象就不再引用，就会进行回收。
+
+3. 因为string拼接的扩容机制，当在某个点上，会发生oom(内存用完了)
 
 
 # java基础-常用类-枚举
 
 ## -1：enum线程安全
 
+## -2: switch 是否可用于String类型的判断，Java哪个版本之后有此功能的-海美迪科技
 
-# java基础-序列
+JDK1.7开始支持
+
+# java基础-常用类-
 
 
+
+# java基础-面对对象
+
+## -1 ：面对对象三大特征
+
+1. 封装
+2. 继承
+3. 多态
+
+## -2：面对对象的五大原则
+
+1. 单一职责原则
+   * 一个类，最好只做一件事，只有一个引起它的变化
+2. 开放封闭原则
+   * 对抽象编程，而不对具体编程
+3. Liskov替换原则
+   * 子类必须能够替换其基类（这个是继承的关键）
+4. 依赖倒置原则
+   * 抽象不依赖于具体，具体依赖于抽象
+5. 接口隔离原则
+   * 使用多个小的专门的接口，而不要使用一个大的总接口
+
+# -3:多态的必要条件
+
+1. 有类继承或者接口实现
+2. 子类要重写父类的方法
+3. 父类的引用指向子类的对象
+
+## -4:重载与重写
+
+1. 重载——函数或者方法有同样的名称，但是参数列表不相同的情形
+2. 重写——Java的子类与父类中有两个名称、参数列表都相同的方法的情况。由于他们具有相同的方法签名，所以子类中的新方法将覆盖父类中原有的方法
+
+# java基础-序列化
+
+## -1：什么是序列化和饭序列化
+
+1. 序列化是将对象转换为可传输格式的过程。 是一种数据的持久化手段。一般广泛应用于网络传输，RMI和RPC等场景中。
+
+2. 反序列化是序列化的逆操作。
+
+## -2：java对象如何实现序列化
+
+对象序列化机制（object serialization）是Java语言内建的一种对象持久化方式，
+
+通过对象序列化，可以把对象的状态保存为字节数组，并且可以在有需要的时候将这个字节数组通过反序列化的方式再转换成对象。对象序列化可以很容易的在JVM中的活动对象和字节数组（流）之间进行转换。
+
+## -3:该接口并没有方法和字段，为什么只有实现了该接口的类的对象才能被序列化呢？
+
+这是因为，在序列化操作过程中会对类型进行检查，要求被序列化的类必须属于Enum、Array和Serializable类型其中的任何一种。
+
+## -4: 什么是serialVersionUID
+
+1. 这样做是为了serialVersionUID是用来验证版本一致性的，保证安全的，因为⽂件存储中的内容可能被篡改。
+2. 在进⾏反序列化时， JVM会把传来的字节流中的serialVersionUID与本地相应实体类的serialVersionUID进⾏⽐较， 如果相同就认为是⼀致的， 可以进⾏反序列化， 否则就会出现序列化版本不⼀致的异常
+
+# Java基础-常用类-时间类
+
+## -1：SimpDateFormat是线程不安全的类，不要定义为static变量，如果定义，必须加锁或工具类
+
+1. SimpleDateFormat中的format方法在执行过程中，会使用一个成员变量calendar来保存时间。
+
+2. 由于我们在声明SimpleDateFormat的时候，使用的是static定义的。那么这个SimpleDateFormat就是一个共享变量，随之，SimpleDateFormat中的calendar也就可以被多个线程访问到。
+
+解决方案：
+1. SimpleDateFormat变成了局部变量，就不会被多个线程同时访问到了，就避免了线程安全问题。
+2. 通过加锁，使多个线程排队顺序执行。避免了并发导致的线程安全问题。
+3. ThreadLocal 可以确保每个线程都可以得到单独的一个 SimpleDateFormat 的对象
 
 
 
