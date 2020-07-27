@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-27 08:51:29
+ * @LastEditTime: 2020-07-27 17:18:38
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -110,7 +110,7 @@
 
     * <font color="#00E0FF">十、数据结构与算法学习</font>
   
-        * [修订中](/1.basics/1.java-basic/1-数据类型.md)   
+        * [异或操作](./2.Study/10.algorithm/异或操作.md)   
         
     * <font color="#00E0FF">十一、设计模式学习</font>
   
