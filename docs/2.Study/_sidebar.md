@@ -2,8 +2,8 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-13 17:17:37
- * @FilePath: \Java-Point\docs\_sidebar.md
+ * @LastEditTime: 2020-07-27 08:51:29
+ * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
 
@@ -231,7 +231,8 @@
 
 * <font color="#FF0000">V-面试经验</font>
 
-    * [java基础面试考察点](./5.interview/1-java基础面经.md)
+    * [java基础面试考察点](./4.interview/1-java基础面经.md)
+    * [计算机网络面试考察点](./4.interview/6-计算机网络.md)
   
 * <font color="#FF0000">VI-项目</font>
 
