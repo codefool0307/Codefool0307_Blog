@@ -2,8 +2,8 @@
  * @Author: 孙浩然
  * @Date: 2020-07-13 07:35:01
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-13 07:41:40
- * @FilePath: \Java-Point\docs\2.Study\12.Spring\1.Spring面经.md
+ * @LastEditTime: 2020-07-28 14:32:16
+ * @FilePath: \docs\4.interview\12-Spring面经.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/Java-Point/#/)，如对源码有异议请在我的博客中提问
 --> 
 
@@ -50,3 +50,67 @@ Spring中的这几个注解有什么区别：@Component 、@Repository、@Servic
 @PostConstruct 初始化注解
 
 @PreDestroy 摧毁注解 默认 单例 启动就加载
+
+## Spring中Bean的作用域
+
+
+## Spring的AOP和IOC。写过哪些动态代理
+
+## AOP的应用场景？
+
+## Spring相关，SpringAOP底层怎么实现的
+
+## 什么是SpringIOC?
+
+## Spring的核心是什么
+
+## AOP的应用场景
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
