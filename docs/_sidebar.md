@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-07-28 16:49:09
+ * @LastEditTime: 2020-07-29 08:07:22
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -93,6 +93,10 @@
         * [修订中](/1.basics/1.java-basic/1-数据类型.md)
     
     * <font color="#00E0FF">六、计算机网络学习</font>
+  
+        * [修订中](/1.basics/1.java-basic/1-数据类型.md)
+    
+     * <font color="#00E0FF">六、操作系统</font>
   
         * [修订中](/1.basics/1.java-basic/1-数据类型.md)
     
@@ -257,6 +261,7 @@
     * [4-linux面试考察点](./4.interview/4-linux面经.md)
     * [5-shell面试考察点](./4.interview/5-shell面经.md)
     * [6-计算机网络面试考察点](./4.interview/6-计算机网络.md)
+    * [6-1-操作系统面试考察点](./4.interview/6.1-操作系统.md)
     * [7-MySQL面试考察点](./4.interview/7-Mysql面经.md)
     * [8-redis面试考察点](./4.interview/8-redis面经.md)
     * [9-MongDB面试考察点](./4.interview/9-MongDB面经.md)
