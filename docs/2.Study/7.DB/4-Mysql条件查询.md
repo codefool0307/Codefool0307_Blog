@@ -25,7 +25,6 @@
 		in
 		is null
 	
-
 ## 1.2 按条件表达式筛选
 
 ```sql
@@ -160,8 +159,6 @@ FROM
 WHERE
 	commission_pct IS NOT NULL;
 ```
-
-
 	
 ### 1.4.5 安全等于  <=>
 
