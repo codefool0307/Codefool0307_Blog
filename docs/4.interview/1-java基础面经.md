@@ -926,15 +926,15 @@ List<?>是一个未知类型的List，而List<Object> 其实是任意类型的Li
 该技术⼤多⽤于将“ 受检查异常” （ checked exception） 封装成为“⾮受检查异常”（ unchecked exception)或者RuntimeException。
 
 
-# java基础-常用类-String
+# 23.java基础-常用类-String
 
-## -1：String为什么是final的？-京东
+## 23-1：String为什么是final的？
 
 1. 它创建的时候HashCode就被缓存了，不需要重新计算，这样在键值对就运行很快
 2. 为了线程安全，可以被多个线程调用
 3. 只有字符串不变，才能实现字符串池，调取方便
 
-## -2：拼接方式
+## 23-2：拼接方式
 
 1. 使用+
 2. 使用concat
@@ -942,34 +942,32 @@ List<?>是一个未知类型的List，而List<Object> 其实是任意类型的Li
 4. 使用StringBuffer
 5. 使用StringUtils.join
 
-## -3: String、StringBuffer和StringBuilder区别-京东
+## 23-3: String、StringBuffer和StringBuilder区别
 
 1. 运行速度上：StringBuilder>StringBuffer>String(因为String每次都要生成新对象)
 
-2. 线程安全：StringBuffer，StringBuilder：适用于单线程进行操作
+2. 线程安全：StringBuffer，String 
 
-3. 是否可变：优质String不可变
+3. 是否可变：只有String不可变
 
 4. 底层实现：StringBuffer用了同步块synchronized
 
-## -4：StringBuffer如何实现线程安全-京东
+## 23-4：StringBuffer如何实现线程安全
 
 直接通过synchronized 关键字来实现同步操作
 
-## -5：String类中的equals是如何重写的
+## 23-5：String类中的equals是如何重写的
 
 通过重写object的equals方法，
 
 1. object的equals方法是比较的对象的内存地址
 2. String的equals方法比较的是对象的值。
 
-# java基础-常用类-String应用
-
-## -1：String 和 char[] 数组谁更适合存密码
+## 23-6：String 和 char[] 数组谁更适合存密码
 
 相对来说是String更合适，原因是底层有final关键字进行了修饰
 
-## -2：String str = new String("abc");创建了几个对象-百度，京东
+## 23-7：String str = new String("abc");创建了几个对象-百度，京东
 
 分情况讨论：
 1. 如果常量池中没有abc，会创建两个
@@ -981,14 +979,13 @@ List<?>是一个未知类型的List，而List<Object> 其实是任意类型的Li
 [详情1](https://blog.csdn.net/qq_36470686/article/details/83444483)
 [详情2](https://www.cnblogs.com/zhaideyou/p/5875175.html)
 
-## -3：处理数据量较大的字符串用string还是stringbuilder，为什么
+## 23-8：处理数据量较大的字符串用string还是stringbuilder，为什么
 
 Stringbuilder，操作字符串效率更高
 
 注：StringBuffer虽然也可以处理字符而且线程安全，但是处理字符相对Stringbuilder慢
 
-## -4：为什么StringBuffer和StringBuilder比String更快-百度
-
+## 23-9：为什么StringBuffer和StringBuilder比String更快
 1. string类设计成final类型，每次有修改操作时，都会赋值给新的对象。
 
 2. 因为赋值给新的对象，原来的对象就不再引用，就会进行回收。
