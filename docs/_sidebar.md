@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-08-09 11:16:36
+ * @LastEditTime: 2020-08-09 16:19:42
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -106,7 +106,8 @@
         * [SQL语言分类](./2.Study/7.DB/2-SQL语言分类.md)
         * [MySQL基础查询](./2.Study/7.DB/3-Mysql基础查询.md)
         * [MySQL条件查询](./2.Study/7.DB/4-Mysql条件查询.md)
-        * [MySQL排序查询]()
+        * [MySQL排序查询](./2.Study/7.DB/5-MySQL排序查询.md)
+        * [MySQL常见函数](./2.Study/7.DB/6-MySQL常见函数.md)
     
     * <font color="#00E0FF">八、Redis学习</font>
   
