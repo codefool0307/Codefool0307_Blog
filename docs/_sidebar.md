@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-08-09 16:19:42
+ * @LastEditTime: 2020-08-16 14:54:18
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -272,10 +272,7 @@
     * [9-MongDB面试考察点](./4.interview/9-MongDB面经.md)
     * [10-算法面试考察点](./4.interview/10-算法面经.md)
     * [11-设计模式面试考察点](./4.interview/11-设计模式.md)
-    * [12-Spring面试考察点](./4.interview/12-Spring面经.md)
-    * [13-SpringMVC面试考察点](./4.interview/13-SpringMVC面经.md)
-    * [14-MyBatis面试考察点](./4.interview/14-MyBatis面经.md)
-    * [15-SpringBoot面试考察点](./4.interview/15-SpringBoot面经.md)
+    * [12-框架面试考察点](./4.interview/12-15-框架面经.md)
     * [16-SpringSecurity面试考察点](./4.interview/16-SpringSecurity面经.md)
     * [17-Netty面试考察点](./4.interview/17-Netty面经.md)
     * [18-Ngnix面试考察点](./4.interview/18-Ngnix面经.md)
