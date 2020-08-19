@@ -47,9 +47,10 @@
 - [10.java基础-运算符-相等问题](#10java基础-运算符-相等问题)
   - [10-1： == 与 equals](#10-1--与-equals)
   - [10-2：为什么要重写hashcode与equals](#10-2为什么要重写hashcode与equals)
-  - [10-3：为什么两个对象有相同的hashcode值，它们也不一定是相等的？](#10-3为什么两个对象有相同的hashcode值它们也不一定是相等的)
-  - [10-4：说说&和&&的区别。](#10-4说说和的区别)
-  - [10-5：用最有效率的方法算出 2 乘以 8 等于几?](#10-5用最有效率的方法算出-2-乘以-8-等于几)
+  - [10-3：重写equals不重写hashcode会出现什么问题](#10-3重写equals不重写hashcode会出现什么问题)
+  - [10-4：为什么两个对象有相同的hashcode值，它们也不一定是相等的？](#10-4为什么两个对象有相同的hashcode值它们也不一定是相等的)
+  - [10-5：说说&和&&的区别。](#10-5说说和的区别)
+  - [10-6：用最有效率的方法算出 2 乘以 8 等于几?](#10-6用最有效率的方法算出-2-乘以-8-等于几)
 - [11.java基础-数据类型-8种常见类型](#11java基础-数据类型-8种常见类型)
   - [11-1：八种数据类型是什么？-中兴](#11-1八种数据类型是什么-中兴)
   - [11-2：数据类型的范围](#11-2数据类型的范围)
@@ -76,7 +77,7 @@
   - [15-3：使用 final 关键字修饰一个变量时，是引用不能变，还是引用的对象不能变？](#15-3使用-final-关键字修饰一个变量时是引用不能变还是引用的对象不能变)
 - [16.java基础-关键字-this关键字和super关键字](#16java基础-关键字-this关键字和super关键字)
 - [17.java基础-关键字-transient](#17java基础-关键字-transient)
-- [18.java基础-集合-hashmap的数据结构](#18java基础-集合-hashmap的数据结构)
+- [18.java基础-集合map-hashmap的数据结构](#18java基础-集合map-hashmap的数据结构)
   - [17-1：hashmap的数据结构](#17-1hashmap的数据结构)
   - [18-2；为什么JDK8时候引入了红黑树？](#18-2为什么jdk8时候引入了红黑树)
   - [18-3：插入元素方式](#18-3插入元素方式)
@@ -90,56 +91,55 @@
   - [18-11：hash函数以及常用方法](#18-11hash函数以及常用方法)
   - [18-12：hashmap树化门槛及作用](#18-12hashmap树化门槛及作用)
   - [18-13：hashmap的特性](#18-13hashmap的特性)
-- [19.java基础-集合-hashmap源码数值分析](#19java基础-集合-hashmap源码数值分析)
+  - [18-14:HashMap为什么可以插入空值?](#18-14hashmap为什么可以插入空值)
+- [19.java基础-集合map-hashmap源码数值分析](#19java基础-集合map-hashmap源码数值分析)
   - [19-1:HashMap中(tab.length - 1) & hash作用](#19-1hashmap中tablength---1--hash作用)
   - [19-2：请解释一下HashMap的参数loadFactor，它的作用是什么？](#19-2请解释一下hashmap的参数loadfactor它的作用是什么)
   - [19-3：HashMap的扩容因子为什么是0.75](#19-3hashmap的扩容因子为什么是075)
   - [19-4:为什么默认初始化桶数组大小为16](#19-4为什么默认初始化桶数组大小为16)
-  - [19-5：hashmap为什么是2的秘方次](#19-5hashmap为什么是2的秘方次)
-- [20.java基础-集合-hashmap线程问题](#20java基础-集合-hashmap线程问题)
-  - [13-15:hashMap是否线程安全](#13-15hashmap是否线程安全)
-  - [为什么hashmap中String、integer包装类适合作为key](#为什么hashmap中stringinteger包装类适合作为key)
-  - [13-16：线程安全的Map](#13-16线程安全的map)
-  - [13-18：hashmap的多线程导致死循环](#13-18hashmap的多线程导致死循环)
-  - [13-19:HashMap为什么可以插入空值?](#13-19hashmap为什么可以插入空值)
-  - [13-20：设计线程安全的map](#13-20设计线程安全的map)
-  - [13-21：怎么处理构造相同hash的字符串进行攻击?](#13-21怎么处理构造相同hash的字符串进行攻击)
-  - [13-22: Jdk7如何处理hashcode字符串攻击](#13-22-jdk7如何处理hashcode字符串攻击)
-- [14.java基础-集合-ConcurrentHashMap](#14java基础-集合-concurrenthashmap)
-  - [14-1：ConcurrentHashMap的底层实现，怎么做到线程安全的](#14-1concurrenthashmap的底层实现怎么做到线程安全的)
-  - [14-2：为何会出现ConcurrenHashMap?](#14-2为何会出现concurrenhashmap)
-  - [14-3：为什么ConcurrentHashMap为何不支持null键和null值](#14-3为什么concurrenthashmap为何不支持null键和null值)
-  - [14-4：分段锁原理](#14-4分段锁原理)
-- [15.java基础-集合-TreeMap](#15java基础-集合-treemap)
-  - [15-1:TreeMap底层原理：](#15-1treemap底层原理)
-  - [15-3：重写equals不重写hashcode会出现什么问题](#15-3重写equals不重写hashcode会出现什么问题)
-- [16.java基础-集合-Collection](#16java基础-集合-collection)
-  - [16-1：ArrayList数组长度源码](#16-1arraylist数组长度源码)
-  - [16-2：arraylist扩容机制](#16-2arraylist扩容机制)
-  - [16-3：遍历删除arraylist元素](#16-3遍历删除arraylist元素)
-  - [16-4：数组(Array)和列表(ArrayList)有什么区别？ 什么时候应该使用 Array 而不是ArrayList？](#16-4数组array和列表arraylist有什么区别-什么时候应该使用-array-而不是arraylist)
-  - [16-5：hashset原理](#16-5hashset原理)
-  - [16-6：Enumeration和itrator区别](#16-6enumeration和itrator区别)
-  - [16-7：快速失败(fail-fast)和安全失败(fail-safe)的区别是什么？](#16-7快速失败fail-fast和安全失败fail-safe的区别是什么)
-  - [16-8：comparable和Comparator的区别](#16-8comparable和comparator的区别)
-  - [16-9：SynchronizedList](#16-9synchronizedlist)
-- [17.java基础-集合-Collections](#17java基础-集合-collections)
-  - [13-1：Collection和collections区别](#13-1collection和collections区别)
-- [18.java基础-集合-Arrays](#18java基础-集合-arrays)
-- [19.java基础-集合-集合大比较（区别和使用场景）](#19java基础-集合-集合大比较区别和使用场景)
-  - [19-1：set和list、map的区别](#19-1set和listmap的区别)
-  - [19-2：arraylist、linkedlist区别和适用场景](#19-2arraylistlinkedlist区别和适用场景)
-  - [19-3：vector、Arraylist区别和适用场景](#19-3vectorarraylist区别和适用场景)
-  - [19-4：treeset、hashset区别和适用场景](#19-4treesethashset区别和适用场景)
-  - [19-5：HashMap、Treemap区别和适用场景](#19-5hashmaptreemap区别和适用场景)
-  - [19-6：HashTable、Hashmap区别和适用场景](#19-6hashtablehashmap区别和适用场景)
-  - [19-7： ConcurrentHashMap、Hashmap区别和适用场景](#19-7-concurrenthashmaphashmap区别和适用场景)
-  - [19-8： Hashset、Hashmap区别和适用场景](#19-8-hashsethashmap区别和适用场景)
-  - [19-9：WeakHashMap的使用场景，实现原理](#19-9weakhashmap的使用场景实现原理)
-  - [19-10：JAVA集合类](#19-10java集合类)
-- [20.java基础-设计类问题](#20java基础-设计类问题)
-  - [20-1：如果想要一个key对应多个Value的话，怎么设计Map](#20-1如果想要一个key对应多个value的话怎么设计map)
-  - [20-2：插入一万个元素之后会不会扩容，扩容扩多少](#20-2插入一万个元素之后会不会扩容扩容扩多少)
+  - [19-5：hashmap为什么是2的次幂](#19-5hashmap为什么是2的次幂)
+- [20.java基础-集合map-hashmap线程问题](#20java基础-集合map-hashmap线程问题)
+  - [20-1:hashMap是否线程安全](#20-1hashmap是否线程安全)
+  - [20-2为什么hashmap中String、integer包装类适合作为key](#20-2为什么hashmap中stringinteger包装类适合作为key)
+  - [20-3：线程安全的Map](#20-3线程安全的map)
+  - [20-4：设计线程安全的map](#20-4设计线程安全的map)
+- [21.java基础-集合map-ConcurrentHashMap](#21java基础-集合map-concurrenthashmap)
+  - [21-1：ConcurrentHashMap的底层实现](#21-1concurrenthashmap的底层实现)
+  - [21-2：为何会出现ConcurrenHashMap?](#21-2为何会出现concurrenhashmap)
+  - [21-3：为什么ConcurrentHashMap（hashtable）为何不支持null键和null值](#21-3为什么concurrenthashmaphashtable为何不支持null键和null值)
+  - [21-4：ConcurrentHashMap的put操作](#21-4concurrenthashmap的put操作)
+  - [21-5：分段锁原理](#21-5分段锁原理)
+- [22.java基础-集合map-TreeMap](#22java基础-集合map-treemap)
+  - [22-1:TreeMap底层原理：](#22-1treemap底层原理)
+  - [22-2：使用场景](#22-2使用场景)
+- [23.java基础-集合map-LinkedHashmap](#23java基础-集合map-linkedhashmap)
+  - [23-1：linkedhashmap的底层原理](#23-1linkedhashmap的底层原理)
+- [24.java基础-集合map-HashTable](#24java基础-集合map-hashtable)
+  - [24-1：HashTable的底层原理](#24-1hashtable的底层原理)
+- [25.java基础-集合list-ArrayList](#25java基础-集合list-arraylist)
+  - [25-1：数组(Array)和列表(ArrayList)有什么区别？ 什么时候应该使用 Array 而不是ArrayList？](#25-1数组array和列表arraylist有什么区别-什么时候应该使用-array-而不是arraylist)
+- [26.java基础-集合list-vector](#26java基础-集合list-vector)
+- [27.java基础-集合list-linkedlist](#27java基础-集合list-linkedlist)
+- [28.java基础-集合set-HashSet](#28java基础-集合set-hashset)
+  - [28-1：hashset原理](#28-1hashset原理)
+- [29.java基础-集合set-TreeSet](#29java基础-集合set-treeset)
+  - [29-1：TreeSet原理](#29-1treeset原理)
+- [30.java基础-集合set-LinkedSet](#30java基础-集合set-linkedset)
+  - [30-1：LinkedSet原理](#30-1linkedset原理)
+- [31.java基础-集合-集合大比较（区别和使用场景）](#31java基础-集合-集合大比较区别和使用场景)
+  - [31-1：set和list、map的区别](#31-1set和listmap的区别)
+  - [31-2：arraylist、linkedlist区别和适用场景](#31-2arraylistlinkedlist区别和适用场景)
+  - [31-3：vector、Arraylist区别和适用场景](#31-3vectorarraylist区别和适用场景)
+  - [31-4：HashMap、Treemap、linkedHashMap区别和适用场景](#31-4hashmaptreemaplinkedhashmap区别和适用场景)
+  - [31-5：HashTable、Hashmap区别和适用场景](#31-5hashtablehashmap区别和适用场景)
+  - [31-6： ConcurrentHashMap、Hashmap区别和适用场景](#31-6-concurrenthashmaphashmap区别和适用场景)
+  - [31-7： Hashset、Hashmap区别和适用场景](#31-7-hashsethashmap区别和适用场景)
+  - [31-8：treeset、hashset区别和适用场景](#31-8treesethashset区别和适用场景)
+  - [31-9：JAVA集合类](#31-9java集合类)
+- [32.java基础-设计类问题](#32java基础-设计类问题)
+  - [32-1：如果想要一个key对应多个Value的话，怎么设计Map](#32-1如果想要一个key对应多个value的话怎么设计map)
+  - [32-2：插入一万个元素之后会不会扩容，扩容扩多少](#32-2插入一万个元素之后会不会扩容扩容扩多少)
+  - [32-3：创建一个对象HashMap<Integer,Integer> map=new HashMap<>先put(10),然后get(new Long(10))结果是多少？](#32-3创建一个对象hashmapintegerinteger-mapnew-hashmap先put10然后getnew-long10结果是多少)
 - [21.java基础-IO-各种流](#21java基础-io-各种流)
   - [21-1：为何还要有字符流](#21-1为何还要有字符流)
   - [21-2：字节流和字符流区别](#21-2字节流和字符流区别)
@@ -435,18 +435,23 @@ new 运算符，new创建对象实例，对象引⽤指向对象实例。⼀个�
 
 当你把对象加入HashSet时，HashSet会先计算对象的hashcode值来判断对象加入的位置，同时也会与其他已经加入的对象的ashcode值作比较，如果没有相符的hashcode，HashSet会假设对象没有重复出现。但是如果发现有相同hashcode值的对象，这时会调equals（）方法来检查hashcode相等的对象是否真的相同。如果两者相同，HashSet就不会让其加入操作成功。如果不同的话，就会重新散列到其他位置。。这样我们就大大减少了equals的次数，相应就大大提高了执行速度。
 
-## 10-3：为什么两个对象有相同的hashcode值，它们也不一定是相等的？
+## 10-3：重写equals不重写hashcode会出现什么问题
+
+在存储散列集合时 ,如果原对象equals(新对象) ,但没有对hashCode重写,则在集合中将会存储两个值相同的对象,从而导致混淆。
+
+
+## 10-4：为什么两个对象有相同的hashcode值，它们也不一定是相等的？
 
 hashCode方法实际上返回的就是对象存储的物理地址，也就是说 hashcode 只是用来缩小查找成本。
 
 
-## 10-4：说说&和&&的区别。
+## 10-5：说说&和&&的区别。
 
 1. &和&&都可以表示逻辑与，当运算符两边的表达式的结果都为 true 时，整个运算结果才为 true，否则，只要有一方为 false，则结果为 false。
 2. &&还具有短路的功能，即如果第一个表达式为 false，则不再计算第二个表达式，所以不会出现 NullPointerException 
 3. &还可以用作位运算符，当&操作符两边的表达式不是 boolean 类型时， &表示按位与操作
 
-## 10-5：用最有效率的方法算出 2 乘以 8 等于几?
+## 10-6：用最有效率的方法算出 2 乘以 8 等于几?
 
 用移位运算符
 
@@ -657,7 +662,7 @@ public class Sub extends Super {
 阻⽌实例中那些⽤此关键字修饰的的变量序列化；当对象被反序列化时，被 transient 修饰的变量值不会被持久化和恢复。 transient 只能修饰变量，不能修饰类和⽅法。
 
 
-# 18.java基础-集合-hashmap的数据结构
+# 18.java基础-集合map-hashmap的数据结构
 
 ## 17-1：hashmap的数据结构
 
@@ -756,8 +761,6 @@ HashMap通过key的hashCode经过扰动函数处理过后得到hash值，然后�
 作用：
 这个本质上，是一个安全问题。因为在元素放置过程中，如果一个对象哈希冲突，都被放置到同一个桶中，则会形成一个链表。而链表查询是线性的，会严重影响存取的性能。
 
-
-
 ## 18-13：hashmap的特性
 
 1. 允许空键和空值（但空键只有一个，且放在第一位）
@@ -765,8 +768,12 @@ HashMap通过key的hashCode经过扰动函数处理过后得到hash值，然后�
 3. key不允许重复。
 
 
+## 18-14:HashMap为什么可以插入空值?
 
-# 19.java基础-集合-hashmap源码数值分析
+
+
+
+# 19.java基础-集合map-hashmap源码数值分析
 
 
 ## 19-1:HashMap中(tab.length - 1) & hash作用
@@ -793,15 +800,15 @@ loadFactor表示HashMap的拥挤程度
 如果桶初始化桶数组设置太大，就会浪费内存空间，16是一个折中的大小，既不会像1，2，3那样放几个元素就扩容，也不会像几千几万那样可以只会利用一点点空间从而
 造成大量的浪费。
 
-## 19-5：hashmap为什么是2的秘方次
+## 19-5：hashmap为什么是2的次幂
 
-如果length为2的N次方，取模运算可以变成位与运算，效率显著提高！但是要浪费一些空间。
-
-
-# 20.java基础-集合-hashmap线程问题
+取模运算可以变成位与运算，效率显著提高！但是要浪费一些空间。
 
 
-## 13-15:hashMap是否线程安全
+# 20.java基础-集合map-hashmap线程问题
+
+
+## 20-1:hashMap是否线程安全
 
 在JDK1.7的时候没有加入同步锁保护，同时由于JDK1.7在并发执行put造作导致扩容行为从而导致环形链表，在获取数据遍历链表形成死循环，同时hashmap迭代器的fail-fast策略，一旦在使用地带器过程中出现并发操作，就会跑出异常。
 
@@ -809,38 +816,22 @@ loadFactor表示HashMap的拥挤程度
 
 所以多线程情况下，首选线程安全的ConcurrentHashMap
 
-## 为什么hashmap中String、integer包装类适合作为key
+## 20-2为什么hashmap中String、integer包装类适合作为key
 
 1. 包装类重写了equals\hashcode方法，不容易出现hash值计算错误
-2. 由于String类型是final的，具有不变性，保证了key的不可更改性
+2. 由于String类型是final的，保证了key的不可更改性
 
-## 13-16：线程安全的Map
+## 20-3：线程安全的Map
 
 * Hashtable
 * ConcurrentHashMap
 * SynchronizedMap
 
-1. Hashtable源码中是使用synchronized来保证线程安全的
+1. Hashtable、SynchronizedMap源码中是使用synchronized来保证线程安全的
    
 2. ConcurrentHashMap沿用了与它同时期的HashMap版本的思想，底层依然由“数组”+链表+红黑树的方式思想，但是ConcurrentHashMap没有对整个hash表进行锁定，而是采用了分离锁（segment）的方式进行局部锁定。具体体现在，它在代码中维护着一个segment数组。
    
-3. 在SynchronizedMap类中使用了synchronized同步关键字来保证对Map的操作是线程安全的。
-
-
-
-## 13-18：hashmap的多线程导致死循环
-
-并发下的Rehash会造成元素之间会形成一个循环链表。在JDK8之后，使用了链表转化为红黑树的形式，可以解决这个问题，但是呢还会有数据丢失等弊端
-
-## 13-19:HashMap为什么可以插入空值?
-
-HashMap中添加key==null的Entry时会调用putForNullKey方法直接去遍历
-
-如果找到了e.key==null,就保存null值对应的新值,然后覆盖原值
-如果没有找到就调用addEntry方法添加一个key为null的Entry
-
-
-## 13-20：设计线程安全的map
+## 20-4：设计线程安全的map
 
 1. 使用synchronized来进行约束：
 
@@ -851,119 +842,109 @@ HashMap中添加key==null的Entry时会调用putForNullKey方法直接去遍历
 4. 使用JDK1.5提供的ConcurrentHashMap,该类将Map的存储空间分为若干块,每块拥有自己的锁,减少了多个线程争夺同一个锁的情况
 
 
-## 13-21：怎么处理构造相同hash的字符串进行攻击?
+# 21.java基础-集合map-ConcurrentHashMap
 
-1. 当客户端提交一个请求并附带参数的时候, web应用服务器会把我们的参数转化成一个HashMa存储
-2. 由于物理存储结构是不同的, key值会被转化成Hashcode ,这个hashcode有会被转成数组的下标: 
-3. 不同的string就会产生相同hashcode而导致碰撞,碰撞后的物理存储变成：0-->value1-->value2;
-如何处理？
-1. 限制post和ge的参数个数,越少越好
-2. 限制post数据包的大小
-3. WAF(网站应用级入侵防御系统)
+## 21-1：ConcurrentHashMap的底层实现
 
-## 13-22: Jdk7如何处理hashcode字符串攻击
+从JDK1.7版本的数组+Segment+分段锁的方式实现，分段锁Segment，它类似于HashMap的结构，内部拥有一个Entry数组，数组中的每个元素又是一个链表,同时又是一个ReentrantLock。ConcurrentHashMap内部使用分段锁技术，将数据分成一段一段的存储，然后给每一段数据配一把锁，当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问，能够实现真正的并发访问。虽然在写操作的时候可以只对元素所在的Segment进行加锁即可，不会影响到其他的Segment这一种结构，但是带来的副作用是Hash的过程要比普通的HashMap要长
 
-HashMap会动态的使用一个专门的treermap实现来替换掉它。
+到JDK1.8版本中synchronized+CAS+HashEntry+红黑树。数据结构上取消了Segment分段锁的数据结构，取而代之的是数组+链表+红黑树的结构。为了保证线程安全，JDK1.8采用CAS+Synchronized保证线程安全。JDK1.8现调整为对每个数组元素加锁。由于定位结点的hash算法简化会带来弊端,Hash冲突加剧,因此在链表节点数量大于8时，会将链表转化为红黑树进行存储。这样查询时间复杂度会得到改善
 
-# 14.java基础-集合-ConcurrentHashMap
+## 21-2：为何会出现ConcurrenHashMap?
 
-## 14-1：ConcurrentHashMap的底层实现，怎么做到线程安全的
+1. 线程安全，读写还快，以空间换时间
 
-在JDK1.7的时候，ConcurrentHashMap（分段锁）?对整个桶数组进行了分割分段(Segment)，每一把锁只锁容器其中一部分数据，多线程访问容器里不同数据段的数据，就不会存在锁竞争，提高并发访问率。?到了?JDK1.8?的时候已经摒弃了Segment的概念，而是直接用?Node?数组+链表+红黑树的数据结构来实现，并发控制使用?synchronized?和?CAS?来操作。（JDK1.6以后?对?synchronized锁做了很多优化）?整个看起来就像是优化过且线程安全的?HashMap，虽然在JDK1.8中还能看到?Segment?的数据结构，但是已经简化了属性，只是为了兼容旧版本；
+2. 改善了hashmap迭代器出现的ConcurrentModificationException
 
-## 14-2：为何会出现ConcurrenHashMap?
+* 由于ConcurrentHashMap对于会产生并发操作的node都会有加锁同步处理,且迭代器获取tab[index]开头node时都会从主存来获得,保证获取的数据是最新的，从而保证了迭代器在迭代过程中即使有put , remove等操作同时发生也可以保证迭代的安全性,不会出现ConcurrentModificationException
 
-线程安全，读写还快，以空间换时间
-内存直接分为了16个segment，每个segment实际上还是存储的哈希表，写入的时候，先找到对应的segment，然后锁这个segment，写完，解锁，汗！就这么简单解决了，锁segment的时候，其他segment还可以继续工作
+## 21-3：为什么ConcurrentHashMap（hashtable）为何不支持null键和null值
 
-## 14-3：为什么ConcurrentHashMap为何不支持null键和null值
+ConcurrentHashmap和Hashtable都是支持并发的，这样会有一个问题，当你通过get(k)获取对应的value时，如果获取到的是null时，你无法判断，它是put（k,v）的时候value为null，还是这个key从来没有做过映射。HashMap是非并发的，可以通过contains(key)来做这个判断。而支持并发的Map在调用m.contains（key）和m.get(key),m可能已经不同了。
 
-无法分辨是key没找到的null还是有key值为null，这在多线程里面是模糊不清的，所以压根就不让put=null。
+## 21-4：ConcurrentHashMap的put操作
 
-## 14-4：分段锁原理
+1：首先判断是否初始化，如果没有初始化则进入initTable()方法进行初始化工作
+2：如果已经初始化了，进入无限循环，原子判断key对应的数组下标是否有值了
+3：如果key对应的下标没有值，通过:CAS原理插入，插入成功则退出循环，插入失败则继续循环，所以这种无锁的机制都是利用无限循环+CAS操作。
+4：如果key对应的下标已经存在值,判断此时hash==MOVED,则进入帮助扩容。
+5：如果key对应的下标已经存在值，但是hash!=MOVED,则需要对数组的这个下标进行加锁了，以保证线程的安全。
+6：如果数组的这个下标是一个链表，则对操作链表（判断链表用hash>=0）
+7：如果数组的这个下标是一个红黑树，则操作红黑树。
+8：插入成功后，如果链表的长度已经达到了红黑树的阀门8，则首先判断此时数组的长度是否大于64，如果小于64则进行扩容，如果大于等于64则链表变成红黑树
+9：判断容器是否扩容
+
+## 21-5：分段锁原理
 
 首先将数据分成一段一段的存储，然后给每一段数据配一把锁，当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问。
 
-# 15.java基础-集合-TreeMap
+# 22.java基础-集合map-TreeMap
 
-## 15-1:TreeMap底层原理：
+## 22-1:TreeMap底层原理：
 
-TreeMap的实现就是红黑树数据结构，也就说是一棵自平衡的排序二叉树，这样就可以保证当需要快速检索指定节点。
+TreeMap是桶+红黑树的实现方式.TreeMap的底层结构就是一个数组,数组中每一个元素又是一个红黑树.当添加一个元素(key-value)的时候,根据key的hash值来确定插入到哪一个桶中(确定插入数组中的位置),当桶中有多个元素时,使用红黑树进行保存;当一个桶中存放的数据过多,那么根据key查找的效率就会降低
 
+## 22-2：使用场景
 
+1. 需要基于排序的统计功能：
 
-## 15-3：重写equals不重写hashcode会出现什么问题
+2. 需要快速增删改查的存储功能：
 
-在存储散列集合时 ,如果原对象equals(新对象) ,但没有对hashCode重写,则在集合中将会存储两个值相同的对象,从而导致混淆。
+3. 需要快速增删改查而且需要保证遍历和插入顺序一致的存储功能：
 
-# 16.java基础-集合-Collection
+# 23.java基础-集合map-LinkedHashmap
 
-## 16-1：ArrayList数组长度源码
+## 23-1：linkedhashmap的底层原理
 
-一部分是用来存储数据元素，一部分是用来存储数组大小，标志，锁定，类信息指针等对象头信息，对象头信息最大占用内存不可超过8字节。
+linkedhashmap继承HashMap，他比hashmap多维护了一个双向链表
 
-## 16-2：arraylist扩容机制
+# 24.java基础-集合map-HashTable
 
-如果元素的个数，大于其容量，则把其容量扩展为原来容量的1.5倍。
+## 24-1：HashTable的底层原理
 
-## 16-3：遍历删除arraylist元素
+HashTable的与HashMap中相似，有一点重大区别就是所有的操作都是通过synchronized锁保护的。只有获得了对应的锁，才能进行后续的读写等操作。
 
-1. 直接使用普通for循环进行操作
-2. 直接使用Iterator进行操作
-3. 使用Java8中提供的filter过滤
-4. 使用增强for循环其实也可以
-5. 直接使用fail-safe的集合类
+# 25.java基础-集合list-ArrayList
 
-## 16-4：数组(Array)和列表(ArrayList)有什么区别？ 什么时候应该使用 Array 而不是ArrayList？
+## 25-1：数组(Array)和列表(ArrayList)有什么区别？ 什么时候应该使用 Array 而不是ArrayList？
 1. 定义上： Array 可以包含基本类型和对象类型， ArrayList 只能包含对象类型。 
 2. 容量上： Array 大小固定， ArrayList 的大小是动态变化的。 
 3. 操作上： ArrayList 提供更多的方法和特性， 
    
 使用基本数据类型或者知道数据元素数量的时候可以考虑 Array;ArrayList 处理固定数量的基本类型数据类型时会自动装箱来减少编码工作量，但是相对较慢。
 
-## 16-5：hashset原理
-
-1. HashSet会先计算对象的hashcode值来判断对象加入的位置，同时也会与其他加入的对象的hashcode值作比较，如果没有相符的hashcode，HashSet会假设对象没有重复出现。但是如果发现有相同hashcode值的对象，这时会调用equals()方法来检查hashcode相等的对象是否真的相同。如果两者相同，HashSet就不会让加入操作成功。
-  
-2. TreeSet是用compareTo()来判断重复元素的。
-
-## 16-6：Enumeration和itrator区别
-1. Enumeration 速度是 Iterator 的 2 倍， 同时占用更少的内存。 
-2. Iterator 远远 比 Enumeration 安全 ， 因为其他线程不能够修改正在被iterator遍历的集合里面的对象。 
-3. Iterator允许调用者删除底层集合里面的元素， 这对Enumeration来说是不可能的。
-
-## 16-7：快速失败(fail-fast)和安全失败(fail-safe)的区别是什么？
-
-Iterator 的安全失败是基于对底层集合做拷贝，因此，它不受源集合上修改的影响 。
-快速失败的迭代器会抛出 ConcurrentModificationException 异常， 
-安全失败的迭代器永远不会抛出这样的异常
-
-## 16-8：comparable和Comparator的区别
-
-1. Comparable接口被用来提供对象的自然排序，可使用它来提供基于单个逻辑的排序。
-2. Comparator接口被用来提供不同的排序算法，可根据制定字段选择需要使用的Comparator来对指定的对象集合进行排序。
-
-## 16-9：SynchronizedList
-
-1. SynchronizedList有很好的扩展和兼容功能。他可以将所有的List的子类转成线程安全的类。
-   
-2. 使用SynchronizedList的时候，进行遍历时要手动进行同步处理。
-
-3. SynchronizedList可以指定锁定的对象。
-
-# 17.java基础-集合-Collections
-
-## 13-1：Collection和collections区别
-
-1. Collection是一个集合接口。它提供了对集合对象进行基本操作的通用接口方法
-2. Collections是一个包装类。它包含有各种有关集合操作的静态多态方法。此类不能实例化，就像一个工具类，服务于Java的Collection框架。
-
-# 18.java基础-集合-Arrays
+# 26.java基础-集合list-vector
 
 
-# 19.java基础-集合-集合大比较（区别和使用场景）
+# 27.java基础-集合list-linkedlist
 
-## 19-1：set和list、map的区别
+
+# 28.java基础-集合set-HashSet
+
+## 28-1：hashset原理
+
+HashSet会先计算对象的hashcode值来判断对象加入的位置，同时也会与其他加入的对象的hashcode值作比较，如果没有相符的hashcode，HashSet会假设对象没有重复
+出现。但是如果发现有相同hashcode值的对象，这时会调用equals()方法来检查hashcode相等的对象是否真的相同。如果两者相同，HashSet就不会让加入操作成功。
+
+# 29.java基础-集合set-TreeSet
+
+## 29-1：TreeSet原理
+
+# 30.java基础-集合set-LinkedSet
+
+## 30-1：LinkedSet原理
+
+# 31.java基础-集合-集合大比较（区别和使用场景）
+
+主要从一下几方面分析
+
+1. 线程
+2. 底层
+3. 时间复杂度
+4. 内存
+5. 其他
+
+## 31-1：set和list、map的区别
 
 1. List(对付顺序的好帮手)：List接口存储一组不唯一（可以有多个元素引用相同的对象），有序的对象
 
@@ -971,7 +952,7 @@ Iterator 的安全失败是基于对底层集合做拷贝，因此，它不受�
 
 3. Map(用Key来搜索的专家):使用键值对存储。Map会维护与Key有关联的值。两个Key可以引用相同的对象，但Key不能重复，典型的Key是String类型，但也可以是任何对象。
 
-## 19-2：arraylist、linkedlist区别和适用场景
+## 31-2：arraylist、linkedlist区别和适用场景
 
 1. 是否保证线程安全： ArrayList 和 LinkedList 都是不同步的，也就是不保证线程安全；
 2. 底层数据结构： Arraylist 底层使用的是 Object 数组；LinkedList 底层使用的是 双向链表 数据结构
@@ -985,19 +966,67 @@ Iterator 的安全失败是基于对底层集合做拷贝，因此，它不受�
 
 当需要对数据进行对此访问的情况下选用ArrayList，当需要对数据进行多次增加删除修改时采用LinkedList。
 
-## 19-3：vector、Arraylist区别和适用场景
+## 31-3：vector、Arraylist区别和适用场景
 
-1. Vector是多线程安全的，
-2. Vector类中的方法很多有synchronized进行修饰，这样就导致了Vector在效率上无法与ArrayList相比
-3. 两个都是采用的线性连续空间存储元素，但是当空间不足的时候，两个类的增加方式是不同。
-4. Vector可以设置增长因子，而ArrayList不可以
+1. 线程：Vector是多线程安全的，
+2. 底层：两个都是数组实现，
+3. 时间复杂度：Vector类中的方法很多有synchronized进行修饰，这样就导致了Vector在效率上无法与ArrayList相比
+4. 内存：但是当空间不足的时候，两个类的增加方式是不同。vector增长率为目前数组长度的100%,而arraylist增长率为目前数组长度的50%
+5. 其他：Vector可以设置增长因子，而ArrayList不可以
    
 <font color="#986078">使用场景：</font>
 
 1. 安全因素
 2. 在集合中使用数据量比较大的数据
 
-## 19-4：treeset、hashset区别和适用场景
+
+## 31-4：HashMap、Treemap、linkedHashMap区别和适用场景
+
+1. 线程安全：都不是线程安全的
+2. 底层：TreeMap的底层是红黑树，能够按照键值进行升序排列，而HashMap与linkedHashMap是基于哈希表实现，
+3. 时间复杂度：Treemap由于是红黑树，hashmap要更快一些，
+4. 内存，由于Treemap使用的是红黑树，内存要大于另外两个， 又因为linkedhashmap多维护了一个双向链表，也要大约hashmap
+5. 其他：hashmap排序是无序的。另外两种排序有序
+   
+<font color="#986078">使用场景：</font>
+
+## 31-5：HashTable、Hashmap区别和适用场景
+
+1. 线程安全，hashtable更加安全
+2. 底层，hashtable底层加入了锁保护
+3. 时间复杂度，由于加入了锁保护，hashtable时间复杂度要低于hashmap
+4. 内存，
+5. 其他
+
+<font color="#986078">使用场景：</font>
+
+1. 若在单线程中，我们往往会选择HashMap；
+2. 而在多线程中，则会选择Hashtable。(02)，
+3. 若不能插入null元素，则选择Hashtable；否则，可以选择HashMap。
+
+
+## 31-6： ConcurrentHashMap、Hashmap区别和适用场景
+
+1. ConcurrentHashMap对桶数组进行了分段，而HashMap并没有。
+2. ConcurrentHashMap在每一个分段上都用锁进行了保护。HashMap没有锁机制。所以，前者线程安全的，后者不是线程安全的。
+   
+<font color="#986078">使用场景：</font>
+
+1.安全因素
+
+## 31-7： Hashset、Hashmap区别和适用场景
+
+待定
+1. 接口：实现了Map接⼝ 实现Set接⼝
+2. 存储：存储键值对 仅存储对象
+3. 添加元素：调⽤ put（）向map中添加元素       调⽤ add（） ⽅法向Set中添加元素
+4. 计算：HashMap使⽤键（Key）计算Hashcode     HashSet使⽤成员对象来计算hashcode值，对于两个对象来说hashcode可能相同，所以equals()⽅法⽤来判断对象的相等性，
+   
+<font color="#986078">使用场景：</font>
+
+
+
+## 31-8：treeset、hashset区别和适用场景
 
 1. TreeSet 是二差树实现的,Treeset中的数据是自动排好序的，不允许放入null值
    HashSet 是哈希表实现的,HashSet中的数据是无序的，可以放入null，但只能放入一个null，两者中的值都不能重复，就如数据库中唯一约束
@@ -1008,51 +1037,7 @@ Iterator 的安全失败是基于对底层集合做拷贝，因此，它不受�
 
 在我们需要排序的功能时，我们才使用TreeSet。
 
-## 19-5：HashMap、Treemap区别和适用场景
-
-1. HashMap：基于哈希表实现，使用HashMap要求添加的键明确定义了hasCode（）和equals（），为了优化hashMap空间的使用，可以调优初始容量和负载因子。hashmap适用于在map中插入，删除和定位元素。hashmap的结果是没有排序的的。
-2. TreeMap：基于红黑树实现，TreeMap没有调优选项，该树总是处于平衡状态。treemap适用于按自然顺序或自定义顺序遍历键（key），TreeMap实现SortMap接口，能够把保存的额近路根据键排序，默认是按键值的升序排序，也可以指定排序的比较器。
-
-<font color="#986078">使用场景：</font>
-
-## 19-6：HashTable、Hashmap区别和适用场景
-
-1 继承和实现方式不同<br>
-2 线程安全不同<br>
-3 对null值的处理不同<br>
-4 支持的遍历种类不同<br>
-5 通过Iterator迭代器遍历时，遍历的顺序不同<br>
-6 容量的初始值 和 增加方式都不一样<br>
-7 添加key-value时的hash值算法不同<br>
-8 部分API不同<br>"	
-   
-<font color="#986078">使用场景：</font>
-
-1. 若在单线程中，我们往往会选择HashMap；
-2. 而在多线程中，则会选择Hashtable。(02)，
-3. 若不能插入null元素，则选择Hashtable；否则，可以选择HashMap。
-
-## 19-7： ConcurrentHashMap、Hashmap区别和适用场景
-1. ConcurrentHashMap对桶数组进行了分段，而HashMap并没有。
-2. ConcurrentHashMap在每一个分段上都用锁进行了保护。HashMap没有锁机制。所以，前者线程安全的，后者不是线程安全的。
-   
-<font color="#986078">使用场景：</font>
-
-1.安全因素
-
-## 19-8： Hashset、Hashmap区别和适用场景
-
-1. 接口：实现了Map接⼝ 实现Set接⼝
-2. 存储：存储键值对 仅存储对象
-3. 添加元素：调⽤ put（）向map中添加元素       调⽤ add（） ⽅法向Set中添加元素
-4. 计算：HashMap使⽤键（Key）计算Hashcode     HashSet使⽤成员对象来计算hashcode值，对于两个对象来说hashcode可能相同，所以equals()⽅法⽤来判断对象的相等性，
-   
-<font color="#986078">使用场景：</font>
-
-## 19-9：WeakHashMap的使用场景，实现原理
-
-
-## 19-10：JAVA集合类
+## 31-9：JAVA集合类
 
 1. Collection
    1. List
@@ -1065,19 +1050,19 @@ Iterator 的安全失败是基于对底层集合做拷贝，因此，它不受�
         * TreeSet（有序，唯⼀）： 红⿊树(⾃平衡的排序⼆叉树)
 2. Map
     1. HashMap： JDK1.8之前HashMap由数组+链表组成的，数组是HashMap的主体，链表则是主要为了解决哈希冲突⽽存在的（“拉链法”解决冲突）。 JDK1.8以后在解决哈希冲突时有了较⼤的变化，当链表⻓度⼤于阈值（默认为8）时，将链表转化为红⿊树，以减少搜索时间
-    2. LinkedHashMap： LinkedHashMap 继承⾃ HashMap，所以它的底层仍然是基于拉链式散列结构即由数组和链表或红⿊树组成。另外， LinkedHashMap 在上⾯结构的基础上，增加了⼀条双向链表，使得上⾯的结构可以保持键值对的插⼊顺序。同时通过对链表进⾏相应的操作，实现了访问顺序相关逻辑。详细可以查看： 《LinkedHashMap 源码详细分析（JDK1.8）》
+    2. LinkedHashMap： LinkedHashMap 继承⾃ HashMap，所以它的底层仍然是基于拉链式散列结构即由数组和链表或红⿊树组成。另外， LinkedHashMap 在上⾯结构的基础上，增加了⼀条双向链表，使得上⾯的结构可以保持键值对的插⼊顺序。同时通过对链表进⾏相应的操作，实现了访问顺序相关逻辑。详细可以查看： 
     3. Hashtable： 数组+链表组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突⽽存在的
     4. TreeMap： 红⿊树（⾃平衡的排序⼆叉树）
 
 
-# 20.java基础-设计类问题
+# 32.java基础-设计类问题
 
-## 20-1：如果想要一个key对应多个Value的话，怎么设计Map
+## 32-1：如果想要一个key对应多个Value的话，怎么设计Map
 
 https://blog.csdn.net/yanzhenjie1003/article/details/51550264?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
 
 
-## 20-2：插入一万个元素之后会不会扩容，扩容扩多少
+## 32-2：插入一万个元素之后会不会扩容，扩容扩多少
 
 HashMap 是否扩容，由 threshold 决定，而 threshold 又由初始容量和 loadFactor 决定。
 
@@ -1095,6 +1080,13 @@ HashMap 是否扩容，由 threshold 决定，而 threshold 又由初始容量�
 
   * 那么可以储存的最大容量就是：16384*0.75=12288
 
+## 32-3：创建一个对象HashMap<Integer,Integer> map=new HashMap<>先put(10),然后get(new Long(10))结果是多少？
+
+为空，原因是
+
+1. hashmap在存入的时候，先对key做一遍hash，以hash值作为数组下标，如果发现下标已有值，判断存的key跟传入的key是不是相同，如果相同覆盖，显然Integer 和 Long 肯定不是一个类型，所以 Long 123 和 Integer 123 hashmap会认为是 hash冲突
+
+2. hashmap 在 get的时候，也是先做hash处理，根据hash值查找对应的数组下标查找,虽然存入Integer 123  根据 Long 123 来获取返回的 是 NULL
 
 # 21.java基础-IO-各种流
 
