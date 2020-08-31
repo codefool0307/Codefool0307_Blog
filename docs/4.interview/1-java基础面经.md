@@ -95,7 +95,7 @@
   - [18-10：HashMap的get操作](#18-10hashmap的get操作)
   - [18-11：hashmap的get和put操作的时间复杂度](#18-11hashmap的get和put操作的时间复杂度)
   - [18-12：hashmap的String类型如何计算hashcode的](#18-12hashmap的string类型如何计算hashcode的)
-  - [18-13:reHash过程](#18-13rehash过程)
+  - [18-13：reHash过程](#18-13rehash过程)
   - [18-14：hash函数以及常用方法](#18-14hash函数以及常用方法)
   - [18-15：HashMap为什么要树化?](#18-15hashmap为什么要树化)
   - [18-16：hashmap树化门槛及作用](#18-16hashmap树化门槛及作用)
@@ -752,7 +752,7 @@ HashMap通过key的hashCode经过扰动函数处理过后得到hash值，然后�
 
 1. 如果数组的这个位置是空的，把key放进去，put操作就完成了。
 
-2. 如果数组位置不为空，就判断该元素与要存入的元素的?hash?值以及?key?是否相同，如果相同的话，直接覆盖
+2. 如果数组位置不为空，就判断该元素与要存入的元素的hash值以及key是否相同，如果相同的话，直接覆盖
 
 3. 若果不相等，这个元素必然是个链表。遍历链表逐一比对value，如果value在链表中不存在，就把新建节点，将value放进去，put操作完成。
 
@@ -762,16 +762,15 @@ HashMap通过key的hashCode经过扰动函数处理过后得到hash值，然后�
 
 ## 18-10：HashMap的get操作
 
-1. 先对key的hashCode()做hash，然后计算index。
+1. 查找位置。
 
 2. 如果访问的节点是bucket里的第一个节点，则直接命中；
 
-3. 如果有冲突，则通过key.equals(k)去树或链表中查找对应的entry。其中，树的时间复杂度为O(logn)；链表的时间复杂度为O
-   (n)。
+3. 如果有冲突，则通过key.equals(k)去树或链表中查找对应的entry。
 
 ## 18-11：hashmap的get和put操作的时间复杂度
 
-当HashMap的entry的数组足够大，key的hash值足够分散时，即是可以实现一个entry数组下标最多只对应了一个entry，此时get方法的时间复杂度可以达到O(1)。
+如果说一个entry数组下标最多只对应了一个entry，此时get方法的时间复杂度可以达到O(1)。
 
 但是如果所有的hash都一样，那么退化为线性查找，变成了O（n）
 
@@ -785,7 +784,7 @@ HashMap通过key的hashCode经过扰动函数处理过后得到hash值，然后�
 
 哈希分布比较均匀。偶数的冲突率很高，只有少数例外。小乘数（1-20）的冲突率也很高
 
-## 18-13:reHash过程
+## 18-13：reHash过程
 
 1. 首先创建一个比现有哈希表更大的新哈希表（expand）
 2. 然后将旧哈希表的所有元素都迁移到新哈希表去（rehash）
