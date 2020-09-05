@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-07-01 10:38:12
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-08-21 10:54:45
+ * @LastEditTime: 2020-09-05 10:43:39
  * @FilePath: \docs\4.interview\1-java基础面经.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
@@ -134,11 +134,17 @@
 - [25.java基础-集合list-ArrayList](#25java基础-集合list-arraylist)
   - [25-1：数组(Array)和列表(ArrayList)有什么区别？ 什么时候应该使用 Array 而不是ArrayList？](#25-1数组array和列表arraylist有什么区别-什么时候应该使用-array-而不是arraylist)
   - [25-2：扩容机制](#25-2扩容机制)
+  - [25-3：ArrayList的add操作](#25-3arraylist的add操作)
+  - [25-4：Arraylist初始大小以及扩容大小](#25-4arraylist初始大小以及扩容大小)
+  - [25-5：那如何解决ArrayList线程不安全问题呢？](#25-5那如何解决arraylist线程不安全问题呢)
 - [26.java基础-集合list-vector](#26java基础-集合list-vector)
+  - [26-1：Vector是保证线程安全的](#26-1vector是保证线程安全的)
 - [27.java基础-集合list-linkedlist](#27java基础-集合list-linkedlist)
 - [28.java基础-集合set-HashSet](#28java基础-集合set-hashset)
   - [28-1：hashset原理](#28-1hashset原理)
   - [28-2：hashSet的内存泄漏](#28-2hashset的内存泄漏)
+  - [28-3：为什么HashSet不安全](#28-3为什么hashset不安全)
+  - [28-4：如何保证线程安全](#28-4如何保证线程安全)
 - [29.java基础-集合set-TreeSet](#29java基础-集合set-treeset)
   - [29-1：TreeSet原理](#29-1treeset原理)
 - [30.java基础-集合set-LinkedSet](#30java基础-集合set-linkedset)
@@ -1044,8 +1050,31 @@ HashTable的与HashMap中相似，有一点重大区别就是所有的操作都�
 3. 当扩容量（newCapacity）大于ArrayList数组定义的最大值后会调用hugeCapacity来进行判断。如果minCapacity已经大于
    Integer的最大值（溢出为负数）那么抛出OutOfMemoryError（内存溢出）否则的话根据与MAX_ARRAY_SIZE的比较情况确定是返回Integer最大值还是MAX_ARRAY_SIZE。这边也可以看到ArrayList允许的最大容量就是Integer的最大值（-2的31次方~2的31次方减1）。
 
+## 25-3：ArrayList的add操作
+
+不是原子操作，原因主要是elementData[size++] = e可以继续进行拆分
+
+## 25-4：Arraylist初始大小以及扩容大小
+
+ArrayList添加第一个元素时，数组的容量设置为10
+
+4.当ArrayList数组超过当前容量时，扩容至1.5倍（遇到计算结果为小数的，向下取整），第一次扩容后，容量为15，第二次扩容至22
+
+## 25-5：那如何解决ArrayList线程不安全问题呢？
+
+1. 用Vector代替ArrayList
+2. 用Collections.synchronized(new ArrayList<>())
+   *  因为Collections.synchronizedList封装后的list，list的所有操作方法都是带synchronized关键字的，相当于所有操作都会进行加锁，所以使用它是线程安全的但是除迭代数组之外
+3. CopyOnWriteArrayList
+   * 写操作：添加元素时，不直接往当前容器添加，而是先拷贝一份数组，在新的数组中添加元素后，在将原容器的引用指向新的容器。因为数组时用volatile关键字修 
+     饰的，所以当array重新赋值后，其他线程可以立即知道（volatile的可见性）
+   * 读操作：读取数组时，读老的数组，不需要加锁。
+   * 读写分离：写操作是copy了一份新的数组进行写，读操作是读老的数组，所以是读写分离。
 # 26.java基础-集合list-vector
 
+由于vector中Add方法加了synchronized，来保证add操作是线程安全的
+
+## 26-1：Vector是保证线程安全的
 
 # 27.java基础-集合list-linkedlist
 
@@ -1054,9 +1083,9 @@ HashTable的与HashMap中相似，有一点重大区别就是所有的操作都�
 
 ## 28-1：hashset原理
 
-HashSet会先计算对象的hashcode值来判断对象加入的位置，同时也会与其他加入的对象的hashcode值作比较，如果没有相符的
-hashcode，HashSet会假设对象没有重复出现。但是如果发现有相同hashcode值的对象，这时会调用equals()方法来检查hashcode
-相等的对象是否真的相同。如果两者相同，HashSet就不会让加入操作成功。
+HashSet会先计算对象的hashcode值来判断对象加入的位置，同时也会与其他加入的对象的hashcode值作比较，如果没有相符
+的hashcode，HashSet会假设对象没有重复出现。但是如果发现有相同hashcode值的对象，这时会调用equals()方法来检查
+hashcode相等的对象是否真的相同。如果两者相同，HashSet就不会让加入操作成功。
 
 ## 28-2：hashSet的内存泄漏
 
@@ -1064,6 +1093,16 @@ hashcode，HashSet会假设对象没有重复出现。但是如果发现有相�
 
 HashSet集合中时的哈希值就不同了，在这种情况下，即使在contains方法使用该对象的当前引用作为参数去HashSet集合中检索对象，也将返回找不到对象的结果，这也会
 导致无法从HashSet集合中删除当前对象，造成内存泄露。
+
+## 28-3：为什么HashSet不安全
+
+底层add操作不保证可见性、原子性。所以不是线程安全的
+
+## 28-4：如何保证线程安全
+
+1. 使用Collections.synchronizedSet
+
+2. 使用CopyOnWriteArraySet
 
 # 29.java基础-集合set-TreeSet
 
@@ -1093,7 +1132,8 @@ HashSet集合中时的哈希值就不同了，在这种情况下，即使在cont
 
 ## 31-2：arraylist、linkedlist区别和适用场景
 
-1. 是否保证线程安全： ArrayList 和 LinkedList 都是不同步的，也就是不保证线程安全；
+1. 是否保证线程安全： ArrayList在单线程下是线程安全的，多线程下由于多个线程不断抢夺资源，所以会出现不安全
+                     -------和 LinkedList 都是不同步的，也就是不保证线程安全；
 2. 底层数据结构： Arraylist 底层使用的是 Object 数组；LinkedList 底层使用的是 双向链表 数据结构
 3. 插入和删除是否受元素位置的影响： 
    ① ArrayList 采用数组存储，所以插入和删除元素的时间复杂度受元素位置的影响。 
@@ -1176,6 +1216,8 @@ HashSet集合中时的哈希值就不同了，在这种情况下，即使在cont
 
 ## 31-9：JAVA集合类
 
+集合框架有Map和Collection两大类
+
 1. Collection
    1. List
         * Arraylist： Object数组
@@ -1185,6 +1227,9 @@ HashSet集合中时的哈希值就不同了，在这种情况下，即使在cont
         * HashSet（⽆序，唯⼀） : 基于 HashMap 实现的，底层采⽤ HashMap 来保存元素
         * LinkedHashSet： LinkedHashSet 继承于 HashSet，并且其内部是通过 LinkedHashMap 来实现的。有点类似于我们之前说的LinkedHashMap 其内部是基于 HashMap 实现⼀样，不过还是有⼀点点区别的
         * TreeSet（有序，唯⼀）： 红⿊树(⾃平衡的排序⼆叉树)
+    3. Queue
+
+
 2. Map
     1. HashMap： JDK1.8之前HashMap由数组+链表组成的，数组是HashMap的主体，链表则是主要为了解决哈希冲突⽽存在的（“拉链法”解决冲突）。 JDK1.8以后在解决哈希冲突时有了较⼤的变化，当链表⻓度⼤于阈值（默认为8）时，将链表转化为红⿊树，以减少搜索时间
     2. LinkedHashMap： LinkedHashMap 继承⾃ HashMap，所以它的底层仍然是基于拉链式散列结构即由数组和链表或红⿊树组成。另外， LinkedHashMap 在上⾯结构的基础上，增加了⼀条双向链表，使得上⾯的结构可以保持键值对的插⼊顺序。同时通过对链表进⾏相应的操作，实现了访问顺序相关逻辑。详细可以查看： 
@@ -1193,14 +1238,18 @@ HashSet集合中时的哈希值就不同了，在这种情况下，即使在cont
 
 ## 31-10：并发集合
 
-并发集合 java.util.concurrent.*。
+1. Queue
+  * ConcurrentLinkedQueue
+  * BlockingQueue
+    * ArrayBlockingQueue：基于数组、先进先出、线程安全，可实现指定时间的阻塞读写，并且容量可以限制
+    * LinkedBlockingQueue：基于链表实现，读写各用一把锁，在高并发读写操作都多的情况下，性能优于ArrayBlockingQueue
+  * Deque
+2. CopyOnWriteArrayList：线程安全且在读操作时无锁的ArrayList
+3. CopyOnWriteArraySet：基于CopyOnWriteArrayList，不添加重复元素
+4. ConcurrentMap：线程安全的HashMap的实现
+   * ConcurrentHashMap
+   * ConcurrentNavigableMap
 
-常见的并发集合：
-ConcurrentHashMap：线程安全的HashMap的实现
-CopyOnWriteArrayList：线程安全且在读操作时无锁的ArrayList
-CopyOnWriteArraySet：基于CopyOnWriteArrayList，不添加重复元素
-ArrayBlockingQueue：基于数组、先进先出、线程安全，可实现指定时间的阻塞读写，并且容量可以限制
-LinkedBlockingQueue：基于链表实现，读写各用一把锁，在高并发读写操作都多的情况下，性能优于ArrayBlockingQueue
 
 ## 31-11：并发集合出现的原因
 
@@ -1266,6 +1315,7 @@ HashMap 是否扩容，由 threshold 决定，而 threshold 又由初始容量�
 
 多线程编程的时候往往用到互斥锁与信号量使得线程同步，如果不按此方法进行安全编程，很有可能使得线程对境界资源访问的时候出现竞态。注意:我们需要达到的是线
 程同步，需要避免的是竞态
+
 
 # 33.java基础-IO-各种流
 
