@@ -185,56 +185,56 @@
   - [34-3：Class.forName和classloader.loadClass的区别](#34-3classforname和classloaderloadclass的区别)
   - [34-4：哪些类不能反射](#34-4哪些类不能反射)
   - [34-5：反射优缺点](#34-5反射优缺点)
-  - [43-6：反射的应用场景](#43-6反射的应用场景)
-- [44.java基础-注解](#44java基础-注解)
-  - [44-1：元注解以及分类](#44-1元注解以及分类)
-  - [44-2：Java常用注解](#44-2java常用注解)
-- [45.java基础-泛型](#45java基础-泛型)
-  - [45-1：什么是泛型](#45-1什么是泛型)
-  - [45-2：编译器如何处理泛型](#45-2编译器如何处理泛型)
-  - [45-3：为什么Java要用这种编译器](#45-3为什么java要用这种编译器)
-  - [45-4: 什么是类型擦除](#45-4-什么是类型擦除)
-  - [45-5：类型擦除过程](#45-5类型擦除过程)
-  - [45-6：泛型带来的问题](#45-6泛型带来的问题)
-  - [45-7：List泛型和原始类型List之间的区别?](#45-7list泛型和原始类型list之间的区别)
-  - [45-8：List泛型和原始类型List泛型之间的区别?](#45-8list泛型和原始类型list泛型之间的区别)
-  - [45-9:子类继承父类的public可以写成private吗](#45-9子类继承父类的public可以写成private吗)
-  - [45-10：多态时是否会出现类型擦除](#45-10多态时是否会出现类型擦除)
-- [46-java基础-异常](#46-java基础-异常)
-  - [46-1：异常的分类](#46-1异常的分类)
-  - [46-2：Java 中的两种异常类型是什么？ 他们有什么区别？](#46-2java-中的两种异常类型是什么-他们有什么区别)
-  - [46-3：异常类型](#46-3异常类型)
-  - [46-4：什么是OOM？常见有哪些OOM？](#46-4什么是oom常见有哪些oom)
-  - [46-3：异常链](#46-3异常链)
-- [47.java基础-常用类-String](#47java基础-常用类-string)
-  - [47-1：String为什么是final的？](#47-1string为什么是final的)
-  - [47-2：拼接方式](#47-2拼接方式)
-  - [47-3: String、StringBuffer和StringBuilder区别](#47-3-stringstringbuffer和stringbuilder区别)
-  - [47-4：StringBuffer如何实现线程安全](#47-4stringbuffer如何实现线程安全)
-  - [47-5：String 和 char[] 数组谁更适合存密码](#47-5string-和-char-数组谁更适合存密码)
-  - [47-6：String str = new String("abc");创建了几个对象-百度，京东](#47-6string-str--new-stringabc创建了几个对象-百度京东)
-  - [47-7：处理数据量较大的字符串用string还是stringbuilder，为什么](#47-7处理数据量较大的字符串用string还是stringbuilder为什么)
-  - [47-8：为什么StringBuffer和StringBuilder比String更快（不变性）](#47-8为什么stringbuffer和stringbuilder比string更快不变性)
-  - [47-9：如何把一段逗号分割的字符串转换成一个数组?](#47-9如何把一段逗号分割的字符串转换成一个数组)
-  - [47-10：String的内部属性](#47-10string的内部属性)
-  - [47-11：String的常用方法](#47-11string的常用方法)
-- [48.java基础-常用类-枚举](#48java基础-常用类-枚举)
-  - [48-1：enum线程安全](#48-1enum线程安全)
-  - [48-2: switch 是否可用于String类型的判断，Java哪个版本之后有此功能的](#48-2-switch-是否可用于string类型的判断java哪个版本之后有此功能的)
-- [49.Java基础-常用类-时间类](#49java基础-常用类-时间类)
-  - [49-1：SimpDateFormat是线程不安全的类，不要定义为static变量，如果定义，必须加锁或工具类](#49-1simpdateformat是线程不安全的类不要定义为static变量如果定义必须加锁或工具类)
-- [50.java基础-常用类-Object类](#50java基础-常用类-object类)
-  - [50-1:Object类有哪些方法](#50-1object类有哪些方法)
-  - [50-2：为什么操作线程方法会在Object对象中](#50-2为什么操作线程方法会在object对象中)
-- [51.java基础-序列化](#51java基础-序列化)
-  - [51-1：什么是序列化和饭序列化](#51-1什么是序列化和饭序列化)
-  - [51-2：序列化的作用](#51-2序列化的作用)
-  - [51-3：java对象如何实现序列化](#51-3java对象如何实现序列化)
-  - [51-4：java对象如何实现反序列化](#51-4java对象如何实现反序列化)
-  - [51-5：哪些不会被序列化](#51-5哪些不会被序列化)
-  - [51-6：序列化协议有哪些](#51-6序列化协议有哪些)
-  - [51-7:该接口并没有方法和字段，为什么只有实现了该接口的类的对象才能被序列化呢？](#51-7该接口并没有方法和字段为什么只有实现了该接口的类的对象才能被序列化呢)
-  - [51-8: 什么是serialVersionUID](#51-8-什么是serialversionuid)
+  - [34-6：反射的应用场景](#34-6反射的应用场景)
+- [35.java基础-注解](#35java基础-注解)
+  - [35-1：元注解以及分类](#35-1元注解以及分类)
+  - [35-2：Java常用注解](#35-2java常用注解)
+- [36.java基础-泛型](#36java基础-泛型)
+  - [36-1：什么是泛型](#36-1什么是泛型)
+  - [36-2：编译器如何处理泛型](#36-2编译器如何处理泛型)
+  - [36-3：为什么Java要用这种编译器](#36-3为什么java要用这种编译器)
+  - [36-4: 什么是类型擦除](#36-4-什么是类型擦除)
+  - [36-5：类型擦除过程](#36-5类型擦除过程)
+  - [36-6：泛型带来的问题](#36-6泛型带来的问题)
+  - [36-7：List泛型和原始类型List之间的区别?](#36-7list泛型和原始类型list之间的区别)
+  - [36-8：List泛型和原始类型List泛型之间的区别?](#36-8list泛型和原始类型list泛型之间的区别)
+  - [36-9:子类继承父类的public可以写成private吗](#36-9子类继承父类的public可以写成private吗)
+  - [36-10：多态时是否会出现类型擦除](#36-10多态时是否会出现类型擦除)
+- [37-java基础-异常](#37-java基础-异常)
+  - [37-1：异常的分类](#37-1异常的分类)
+  - [37-2：Java 中的两种异常类型是什么？ 他们有什么区别？](#37-2java-中的两种异常类型是什么-他们有什么区别)
+  - [37-3：异常类型](#37-3异常类型)
+  - [37-4：什么是OOM？常见有哪些OOM？](#37-4什么是oom常见有哪些oom)
+  - [37-3：异常链](#37-3异常链)
+- [38.java基础-常用类-String](#38java基础-常用类-string)
+  - [38-1：String为什么是final的？](#38-1string为什么是final的)
+  - [38-2：拼接方式](#38-2拼接方式)
+  - [38-3: String、StringBuffer和StringBuilder区别](#38-3-stringstringbuffer和stringbuilder区别)
+  - [38-4：StringBuffer如何实现线程安全](#38-4stringbuffer如何实现线程安全)
+  - [38-5：String 和 char[] 数组谁更适合存密码](#38-5string-和-char-数组谁更适合存密码)
+  - [38-6：String str = new String("abc");创建了几个对象-百度，京东](#38-6string-str--new-stringabc创建了几个对象-百度京东)
+  - [38-7：处理数据量较大的字符串用string还是stringbuilder，为什么](#38-7处理数据量较大的字符串用string还是stringbuilder为什么)
+  - [38-8：为什么StringBuffer和StringBuilder比String更快（不变性）](#38-8为什么stringbuffer和stringbuilder比string更快不变性)
+  - [38-9：如何把一段逗号分割的字符串转换成一个数组?](#38-9如何把一段逗号分割的字符串转换成一个数组)
+  - [38-10：String的内部属性](#38-10string的内部属性)
+  - [38-11：String的常用方法](#38-11string的常用方法)
+- [39.java基础-常用类-枚举](#39java基础-常用类-枚举)
+  - [39-1：enum线程安全](#39-1enum线程安全)
+  - [39-2: switch 是否可用于String类型的判断，Java哪个版本之后有此功能的](#39-2-switch-是否可用于string类型的判断java哪个版本之后有此功能的)
+- [40.Java基础-常用类-时间类](#40java基础-常用类-时间类)
+  - [40-1：SimpDateFormat是线程不安全的类，不要定义为static变量，如果定义，必须加锁或工具类](#40-1simpdateformat是线程不安全的类不要定义为static变量如果定义必须加锁或工具类)
+- [41.java基础-常用类-Object类](#41java基础-常用类-object类)
+  - [41-1：Object类有哪些方法](#41-1object类有哪些方法)
+  - [41-2：为什么操作线程方法会在Object对象中](#41-2为什么操作线程方法会在object对象中)
+- [42.java基础-序列化](#42java基础-序列化)
+  - [42-1：什么是序列化和饭序列化](#42-1什么是序列化和饭序列化)
+  - [42-2：序列化的作用](#42-2序列化的作用)
+  - [42-3：java对象如何实现序列化](#42-3java对象如何实现序列化)
+  - [42-4：java对象如何实现反序列化](#42-4java对象如何实现反序列化)
+  - [42-5：哪些不会被序列化](#42-5哪些不会被序列化)
+  - [42-6：序列化协议有哪些](#42-6序列化协议有哪些)
+  - [42-7：该接口并没有方法和字段，为什么只有实现了该接口的类的对象才能被序列化呢？](#42-7该接口并没有方法和字段为什么只有实现了该接口的类的对象才能被序列化呢)
+  - [42-8: 什么是serialVersionUID](#42-8-什么是serialversionuid)
 
 <!-- /TOC -->
 
@@ -1150,7 +1150,7 @@ HashSet集合中时的哈希值就不同了，在这种情况下，即使在cont
 1. 线程：Vector是多线程安全的，
 2. 底层：两个都是数组实现，
 3. 时间复杂度：Vector类中的方法很多有synchronized进行修饰，这样就导致了Vector在效率上无法与ArrayList相比
-4. 内存：但是当空间不足的时候，两个类的增加方式是不同。vector增长率为目前数组长度的100%,而arraylist增长率为目前数组长度的50%
+4. 内存：但是当空间不足的时候，两个类的增加方式是不同。vector增长率为目前数组长度的100%,而arraylist增长率为目前数组长度的41%
 5. 其他：Vector可以设置增长因子，而ArrayList不可以
    
 <font color="#986078">使用场景：</font>
@@ -1253,7 +1253,7 @@ HashSet集合中时的哈希值就不同了，在这种情况下，即使在cont
 
 ## 31-11：并发集合出现的原因
 
-书本p50  ---1
+书本p41  ---1
 
 ## 31-11：collection与collections的区别
 
@@ -1282,7 +1282,7 @@ Collections则是集合类的一个工具类/帮助类，其中提供了一系�
 
 ## 32-1：如果想要一个key对应多个Value的话，怎么设计Map
 
-https://blog.csdn.net/yanzhenjie1003/article/details/51550264?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
+https://blog.csdn.net/yanzhenjie1003/article/details/42541264?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
 
 
 ## 32-2：插入一万个元素之后会不会扩容，扩容扩多少
@@ -1465,15 +1465,15 @@ JAVA 反射机制是在运行状态中，对于任意一个类，都能够知道
         
       2、安全问题，让我们可以动态操作改变类的属性同时也增加了类的安全隐患。
 
-## 43-6：反射的应用场景
+## 34-6：反射的应用场景
 
 1. 使用 JDBC 连接数据库时使用 Class.forName()通过反射加载数据库的驱动程序；
 2. Spring 框架的 IOC（动态加载管理 Bean）创建对象以及 AOP（动态代理）功能都和反射有联系；
 3. 动态配置实例的属性；
 
-# 44.java基础-注解
+# 35.java基础-注解
 
-## 44-1：元注解以及分类
+## 35-1：元注解以及分类
 
 定义其他注解的注解 ，共四个
 
@@ -1485,7 +1485,7 @@ JAVA 反射机制是在运行状态中，对于任意一个类，都能够知道
 
 4. @Inherited（允许子类继承父类中的注解）
  
-## 44-2：Java常用注解
+## 35-2：Java常用注解
 
 1. @Override 表示当前方法覆盖了父类的方法
 
@@ -1499,21 +1499,21 @@ JAVA 反射机制是在运行状态中，对于任意一个类，都能够知道
 
 扩展[Spring常用注解]()
 
-# 45.java基础-泛型
+# 36.java基础-泛型
 
-## 45-1：什么是泛型
+## 36-1：什么是泛型
 
 1. 允许在定义类和接口的时候使⽤类型
 
 2. 泛型可以提⾼代码的复⽤性
 
-## 45-2：编译器如何处理泛型
+## 36-2：编译器如何处理泛型
 
 1. Code specialization：在实例化一个泛型类或泛型方法时都产生一份新的字节码or二进制代码。
 
 2. Code sharing：对每个泛型类只生成唯一的一份目标代码；该泛型类的所有实例都映射到这份目标代码上，在需要的时候执行类型检查和类型转换。
 
-## 45-3：为什么Java要用这种编译器
+## 36-3：为什么Java要用这种编译器
 
 1. C++和C#是使用Code specialization的处理机制，他有几个缺点:
    * 导致代码膨胀。
@@ -1521,17 +1521,17 @@ JAVA 反射机制是在运行状态中，对于任意一个类，都能够知道
 
 2. Java编译器通过Code sharing方式为每个泛型类型创建唯一的字节码表示，并且将该泛型类型的实例都映射到这个唯一的字节码表示上。将多种泛型类形实例映射到唯一的字节码表示是通过类型擦除（type erasue）实现的。
 
-## 45-4: 什么是类型擦除
+## 36-4: 什么是类型擦除
 
 Java的泛型基本上都是在编译器这个层次上实现的，在生成的字节码中是不包含泛型中的类型信息的，使用泛型的时候加上类型参数，在编译器编译的时候会去掉，这个过程成为类型擦除。
 
-## 45-5：类型擦除过程
+## 36-5：类型擦除过程
 
 1. 将所有的泛型参数用最顶级的父类型进行替换。 
 
 2. 移除所有的类型参数
 
-## 45-6：泛型带来的问题
+## 36-6：泛型带来的问题
 
 1. 虚拟机中没有泛型，只有普通类和普通方法,所有泛型类的类型参数在编译时都会被擦除,泛型类并没有自己独有的Class类对象。比如并不存在List<String>.class或是List<Integer>.class，而只有List.class。 
 
@@ -1543,44 +1543,44 @@ Java的泛型基本上都是在编译器这个层次上实现的，在生成的�
     
 5. 泛型的类型参数不能用在Java异常处理的catch语句中。
 
-## 45-7：List泛型和原始类型List之间的区别?
+## 36-7：List泛型和原始类型List之间的区别?
 
  List<Object>和原始类型List之间的区别?
 1. 在编译时编译器不会对原始类型进行类型安全检查，会对带参数的类进行检查
 2. 你可以把任何带参数的类型传递给原始类型List，但是list会产生编译错误
 
-## 45-8：List泛型和原始类型List泛型之间的区别?
+## 36-8：List泛型和原始类型List泛型之间的区别?
 
 List<?>和原始类型List<Object>之间的区别?
 
 List<?>是一个未知类型的List，而List<Object> 其实是任意类型的List。你可以把List<String>, List<Integer>赋值给List<?>，却不能把List<String>赋值给 List<Object>。
 
-## 45-9:子类继承父类的public可以写成private吗
+## 36-9:子类继承父类的public可以写成private吗
 
 可以写，但是变为private之后，需要对方法重写写get/set方法
 
-## 45-10：多态时是否会出现类型擦除
+## 36-10：多态时是否会出现类型擦除
 
 会出现类型擦除
 
 编译器在编译一个继承自泛型类的子类时，为了方法覆盖的签名匹配，保留泛型类型的多态性，会生成一个桥接方法
 
-# 46-java基础-异常
+# 37-java基础-异常
 
-## 46-1：异常的分类
+## 37-1：异常的分类
 
 1. Error表⽰系统级的错误，是java运⾏环境内部错误或者硬件问题，不能指望程序来处理这样的问题
 
 2. Exception 表⽰程序需要捕捉、 需要处理的常， 是由与程序设计的不完善⽽出现的问题， 程序必须处理的问题。
 
-## 46-2：Java 中的两种异常类型是什么？ 他们有什么区别？
+## 37-2：Java 中的两种异常类型是什么？ 他们有什么区别？
 
 Java 中有两种异常： 受检查的(checked)异常和不受检查的(unchecked)异常。
 
 1. 不受检查的异常不需要在方法或者是构造函数上声明 
 2. 受检查的异常必须要用 throws 语句在方法或者是构造函数上声明。
 
-## 46-3：异常类型
+## 37-3：异常类型
 
 0. Java中的异常， 主要可以分为两⼤类——受检异常（ checked exception） 和 ⾮受检异常（ unchecked exception）
 
@@ -1592,7 +1592,7 @@ Java 中有两种异常： 受检查的(checked)异常和不受检查的(uncheck
 
 这种异常⼀般可以理解为是代码原因导致的。⽐如发⽣空指针、数组越界等。
 
-## 46-4：什么是OOM？常见有哪些OOM？
+## 37-4：什么是OOM？常见有哪些OOM？
 
 1. Java堆溢出——OutOfMemoryError
 
@@ -1629,22 +1629,22 @@ Java 中有两种异常： 受检查的(checked)异常和不受检查的(uncheck
 解决方法：通过修改参数来修改方法区大小；
 
 
-## 46-3：异常链
+## 37-3：异常链
 
 是指在进⾏⼀个异常处理时抛出了另外⼀个异常， 由此产⽣了⼀个异常链条。
 
 该技术⼤多⽤于将“ 受检查异常” （ checked exception） 封装成为“⾮受检查异常”（ unchecked exception)或者RuntimeException。
 
 
-# 47.java基础-常用类-String
+# 38.java基础-常用类-String
 
-## 47-1：String为什么是final的？
+## 38-1：String为什么是final的？
 
 1. 它创建的时候HashCode就被缓存了，不需要重新计算，这样在键值对就运行很快
 2. 为了线程安全，可以被多个线程调用
 3. 只有字符串不变，才能实现字符串池，提高效率
 
-## 47-2：拼接方式
+## 38-2：拼接方式
 
 1. 使用+
 2. 使用concat
@@ -1652,7 +1652,7 @@ Java 中有两种异常： 受检查的(checked)异常和不受检查的(uncheck
 4. 使用StringBuffer
 5. 使用StringUtils.join
 
-## 47-3: String、StringBuffer和StringBuilder区别
+## 38-3: String、StringBuffer和StringBuilder区别
 
 1. 运行速度上：StringBuilder>StringBuffer>String(因为String每次都要生成新对象)
 
@@ -1662,15 +1662,15 @@ Java 中有两种异常： 受检查的(checked)异常和不受检查的(uncheck
 
 4. 底层实现：StringBuffer用了同步块synchronized
 
-## 47-4：StringBuffer如何实现线程安全
+## 38-4：StringBuffer如何实现线程安全
 
 直接通过synchronized 关键字来实现同步操作
 
-## 47-5：String 和 char[] 数组谁更适合存密码
+## 38-5：String 和 char[] 数组谁更适合存密码
 
 相对来说是String更合适，原因是底层有final关键字进行了修饰
 
-## 47-6：String str = new String("abc");创建了几个对象-百度，京东
+## 38-6：String str = new String("abc");创建了几个对象-百度，京东
 
 分情况讨论：
 1. 如果常量池中没有abc，会创建两个
@@ -1679,16 +1679,16 @@ Java 中有两种异常： 受检查的(checked)异常和不受检查的(uncheck
 
 2. 如果常量池有，会创建一个
 
-[详情1](https://blog.csdn.net/qq_36470686/article/details/83444483)
-[详情2](https://www.cnblogs.com/zhaideyou/p/5875175.html)
+[详情1](https://blog.csdn.net/qq_36380686/article/details/83354393)
+[详情2](https://www.cnblogs.com/zhaideyou/p/5874275.html)
 
-## 47-7：处理数据量较大的字符串用string还是stringbuilder，为什么
+## 38-7：处理数据量较大的字符串用string还是stringbuilder，为什么
 
 Stringbuilder，操作字符串效率更高
 
 注：StringBuffer虽然也可以处理字符而且线程安全，但是处理字符相对Stringbuilder慢
 
-## 47-8：为什么StringBuffer和StringBuilder比String更快（不变性）
+## 38-8：为什么StringBuffer和StringBuilder比String更快（不变性）
 
 1. string类设计成final类型，每次有修改操作时，都会赋值给新的对象。
 
@@ -1696,12 +1696,12 @@ Stringbuilder，操作字符串效率更高
 
 3. 因为string拼接的扩容机制，当在某个点上，会发生oom(内存用完了)
 
-## 47-9：如何把一段逗号分割的字符串转换成一个数组?
+## 38-9：如何把一段逗号分割的字符串转换成一个数组?
 
 1 用正则表达式，代码大概为： String [] result = orgStr.split(“,”);
 2 用 StingTokenizer 
 
-## 47-10：String的内部属性
+## 38-10：String的内部属性
 
 1. 创建一个能够容纳两个数组长度的数组
 
@@ -1711,7 +1711,7 @@ Stringbuilder，操作字符串效率更高
 	 
 4. 通过String构造器将数组转换成为新的字符串。
 
-## 47-11：String的常用方法
+## 38-11：String的常用方法
 
 1. 求字符串长度----length方法
 
@@ -1729,17 +1729,17 @@ Stringbuilder，操作字符串效率更高
 
 8. 字符串中字符的替换-----replace方法
 
-# 48.java基础-常用类-枚举
+# 39.java基础-常用类-枚举
 
-## 48-1：enum线程安全
+## 39-1：enum线程安全
 
-## 48-2: switch 是否可用于String类型的判断，Java哪个版本之后有此功能的
+## 39-2: switch 是否可用于String类型的判断，Java哪个版本之后有此功能的
 
 JDK1.7开始支持
 
-# 49.Java基础-常用类-时间类
+# 40.Java基础-常用类-时间类
 
-## 49-1：SimpDateFormat是线程不安全的类，不要定义为static变量，如果定义，必须加锁或工具类
+## 40-1：SimpDateFormat是线程不安全的类，不要定义为static变量，如果定义，必须加锁或工具类
 
 1. SimpleDateFormat中的format方法在执行过程中，会使用一个成员变量calendar来保存时间。
 
@@ -1751,9 +1751,9 @@ JDK1.7开始支持
 3. ThreadLocal 可以确保每个线程都可以得到单独的一个 SimpleDateFormat 的对象
 
 
-# 50.java基础-常用类-Object类
+# 41.java基础-常用类-Object类
 
-## 50-1:Object类有哪些方法
+## 41-1：Object类有哪些方法
 
 1. clone方法
 2. getClass方法
@@ -1765,42 +1765,42 @@ JDK1.7开始支持
 8. notify方法
 9. notifyAll方法
 
-## 50-2：为什么操作线程方法会在Object对象中
+## 41-2：为什么操作线程方法会在Object对象中
 
 1. 这些方法存在于同步中；
 2. 使用这些方法必须标识同步所属的锁；
 3. 锁可以是任意对象，所以任意对象调用方法一定定义在Object类中。
 
-# 51.java基础-序列化
+# 42.java基础-序列化
 
-## 51-1：什么是序列化和饭序列化
+## 42-1：什么是序列化和饭序列化
 
 1. 序列化是将对象转换为可传输格式的过程。 是一种数据的持久化手段。一般广泛应用于网络传输，RMI和RPC等场景中。
 
 2. 反序列化是序列化的逆操作。
 
-## 51-2：序列化的作用
+## 42-2：序列化的作用
 
 1. Java远程方法调用
 2. 对JavaBean进行序列化
 
-## 51-3：java对象如何实现序列化
+## 42-3：java对象如何实现序列化
 
   * 实现Serializable接口
   * 实现ExternalSeri alizable方法
 
-## 51-4：java对象如何实现反序列化
+## 42-4：java对象如何实现反序列化
 
   * 实现Serializable接口的对象在反序列化时不需要调用对象所在类的构造方法。
   * 实现externalSerializable接口的方法在反序列化时会调用构造方法。
 
-## 51-5：哪些不会被序列化
+## 42-5：哪些不会被序列化
 
 1. 被static修饰的属性不会被序列化
 2. 对象的类名、属性都会被序列化,方法不会被序列化
 
 
-## 51-6：序列化协议有哪些
+## 42-6：序列化协议有哪些
 
 1. COM,COM的序列化的原理利用了编译器中虚表,使得其学习成本巨大.
 2. CORBA，COBRA的主要问题是版本之间兼容性较差,以及使用复杂晦涩.
@@ -1809,11 +1809,11 @@ JDK1.7开始支持
 5. JSON，序列化后数据更加简洁，而且解析速度较快
 6. protobuf、avro不仅兼容json格式，解析速度更快
 
-## 51-7:该接口并没有方法和字段，为什么只有实现了该接口的类的对象才能被序列化呢？
+## 42-7：该接口并没有方法和字段，为什么只有实现了该接口的类的对象才能被序列化呢？
 
 这是因为，在序列化操作过程中会对类型进行检查，要求被序列化的类必须属于Enum、Array和Serializable类型其中的任何一种。
 
-## 51-8: 什么是serialVersionUID
+## 42-8: 什么是serialVersionUID
 
 1. 这样做是为了serialVersionUID是用来验证版本一致性的，保证安全的，因为⽂件存储中的内容可能被篡改。
 2. 在进⾏反序列化时， JVM会把传来的字节流中的serialVersionUID与本地相应实体类的serialVersionUID进⾏⽐较， 如果相同就认为是⼀致的， 可以进⾏反序列化， 否则就会出现序列化版本不⼀致的异常
