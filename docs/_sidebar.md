@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-09-05 14:28:53
+ * @LastEditTime: 2020-09-05 17:08:02
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -258,7 +258,7 @@
     * <font color="#00E0FF">八、Kafka学习</font>
    
 
-* <font color="#FF0000">V-面试经验</font>
+<!--* <font color="#FF0000">V-面试经验</font>
 
     * [1-java基础面试考察点](./4.interview/1-java基础面经.md)
     * [2-并发面试考察点](./4.interview/2-并发面经.md)
@@ -278,7 +278,7 @@
     * [18-Ngnix面试考察点](./4.interview/18-Ngnix面经.md)
     * [19-Maven面试考察点](./4.interview/19-Maven面经.md)
     * [20-Git面试考察点](./4.interview/20-Git面经.md)
-    * [21-Jekins面试考察点](./4.interview/21-Jekins面经.md)
+    * [21-Jekins面试考察点](./4.interview/21-Jekins面经.md)-->
   
 * <font color="#FF0000">VI-项目</font>
 
