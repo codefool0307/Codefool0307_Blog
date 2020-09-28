@@ -51,9 +51,9 @@ java开发工具箱(JDK)
 
 ## 2-1：面对对象三大特征(特点)
 
-1. 封装
-2. 继承
-3. 多态
+   1. 封装
+   2. 继承
+   3. 多态
 
 ## 2-2：面对对象的五大原则
 
@@ -277,7 +277,7 @@ After changeData(n), n = 3
         change(person);
         System.out.println(person);
     }
-
+//
     public static void change(Person p) {
         p = new Person();
     }
@@ -1350,7 +1350,7 @@ HashSet由哈希表(实际上是一个HashMap实例)支持，不保证set的迭�
 
 当一个对象被存储进HashSet集合中以后，就不能修改该对象的参与计算哈希值的属性值了，否则对象修改后的哈希值与最初存储进
 
-HashSet集合中时的哈希值就不同了，在这种情况下，即使在contains方法使用该对象的当前引用作�����������参数去HashSet集合中检索对
+HashSet集合中时的哈希值就不同了，在这种情况下，即使在contains方法使用该对象的当��������用作�����������参数去HashSet集合中检索对
 象，也将返回找不到对象的结果，这也会导致无法从HashSet集合中删除当前对象，造成内���泄露。
 
 ## 28-3：为什么HashSet不安全
@@ -2941,7 +2941,7 @@ CPU 上下文切换就是先把前一个任务的 CPU 上下文
    为了提高 CPU 利用率，在这种发送 I/O 事件致使 CPU 空闲的情况下，
    调度程序需要从就绪队列中选择一个进程来运行。
 
-2. 原则二：有的程序执��某个任务花费的时间会比较长，
+2. 原则二：��的程序执��某个任务花费的时间会比较长，
    如果这个程序一直占用着 CPU，
    会造成系统吞吐量（CPU 在单位时间内完成的进程数量）的降低。
    所以，要提高系统的吞吐率，调度程序要权衡长任务和短任务进程的运行完成数量。
@@ -4242,7 +4242,7 @@ jdk中提供了4中拒绝策略：
  7             continue;
  8 
  9         InterlockedIncrement(&pThis->m_lRunThreadNum);       
-10         while(!pThis->m_qItask.empty())                                        //由if->while 代码优化
+10         while(!pThis->m_qItask.empty())                                        //由if->while 代码������
 11         {
 12             if(WaitForSingleObject(pThis->m_lMutex,100) == WAIT_TIMEOUT)    //上锁
 13                 continue;
@@ -5483,7 +5483,7 @@ JVM在程序运行过程当中，会创建大量的对象，
 
 Young Gen垃圾回收时，采用将存活对象复制到到空的Suvivor Space的方式来确保尽量不存在内存碎片，
 
-采用空间换时间的方式来加速内存中不再被持有的对象尽快能够得到回收。
+采用空间换时间的方式来加速内存中���再被���������对象尽快能够得到回收。
 
 ## 6-3：为什么会有年轻代
 
