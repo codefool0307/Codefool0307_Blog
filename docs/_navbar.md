@@ -12,13 +12,6 @@
   * [项目经验](./navbar/authorintroducer?id=项目经验)
   * [获奖情况](./navbar/authorintroducer?id=获奖情况) 
   
-* 刷题
+* [书籍推荐](./navbar/书籍推荐.md)
   
-  * [刷题提纲](./navbar/刷题记录.md)
-  * [牛客选择](./navbar/牛客刷题.md)
-  
-* [面经](./navbar/面经记录.md)
- 
 * [博客项目](https://github.com/codefool0307/Java-Blog)
-
-* [书本资源](./book.md)
