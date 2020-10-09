@@ -47,6 +47,28 @@ java开发工具箱(JDK)
 基类的成员变量。
 派生类的成员变量。
 
+## 1-4：⾯向过程性能⽐⾯向对象⾼
+
+Java 性能差的主要原因并不是因为它是⾯向对象语⾔，
+⽽是 Java 是半编译语⾔，最终的执⾏代码并不是可以直接被 CPU 执⾏的⼆进制机械码。
+
+## 1-5：持久化对象三种状态
+
+1.瞬时态：也叫做临时态或自由态，它一般指我们new出来的对象，
+          它不存在OID,与hibernate session无关联，
+          在数据库中也无记录。它使用完成后，
+          会被jvm直接回收掉，
+          它只是用于信息携带。
+2.持久态：在hibernate session管理范围内，
+         它具有持久化标识OID它的特点，
+         在事务未提交前一直是持久态，
+         当它发生改变时，hibernate是可以检测到的。
+3.托管态：也叫做游离态或离线态，
+          它是指持久态对象失去了与session的关联，
+          托管态对象它存在OID,在数据库中有可能存在，
+          也有可能不存在。对于托管态对象，
+          它发生改变时hibernet不能检测到。
+
 # 2.java基础-面对对象
 
 ## 2-1：面对对象三大特征(特点)
@@ -269,8 +291,6 @@ public class Test {
 构造方法不可以被重写，因为重写发生在父类和子类之间，要求方法名称相同，
 而构造方法的名称是和类名相同的，而子类类名不会和父类类名相同，所以不可以被重写。
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 # 4.java基础-重载与重写 
 
 ## 4-1：重载与重写
@@ -410,8 +430,6 @@ class Person {
 就会影响到另一个对象。
 即默认拷贝构造函数只是对对象进行浅拷贝复制(逐个成员依次拷贝)，
 即只复制对象空间而不复制资源。
-
-# ~~~~~~~~=-=======+++++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # 7.java基础-equals与hashcode
 
@@ -568,8 +586,6 @@ i++：先赋值再自加。
 处理器会调用总线锁。对于有些处理器不支持缓存锁，
 就算锁定的内存区域在处理器的缓存行，这时也会调用总线锁。
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 # 9.java基础-数据类型
 
 ## 9-1：八种数据类型是什么？
@@ -698,8 +714,6 @@ Syatem.out.print(i == J); //false
 由于 +=是 java 语言规定的运算符， 
 java 编译器会对它进行特殊处理，因此可以正确编译
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 # 10.java基础-关键字
 
 ## 10-1: 通过反射访问private成员和方法，既然能访问为什么要private？
@@ -812,8 +826,6 @@ public class Sub extends Super {
 当对象被反序列化时，被 transient 修饰的变量值不会被持久化和恢复。 
 transient 只能修饰变量，不能修饰类和⽅法。
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 # 11.java基础-各种集合家族
 
 ## 11-1：Collection集合框架
@@ -881,8 +893,6 @@ transient 只能修饰变量，不能修饰类和⽅法。
 所以线程一执行的时候，会将next节点，设置为自己，
 导致自己互相使用next引用对方，因此产生链表，导致死循环。
 但是在JDK 8用head 和 tail 来保证链表的顺序和之前一样。
-
-## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # 12.Hashmap
 
@@ -1029,12 +1039,32 @@ end->next 也自然指向的是 NULL。
 同时因为AVL树需要更高的旋转次数才能在修改时正确地重新平衡数据结构，
 所以红黑树相对AVL树他的插入更快！
 
+#### 12-2-3-5：为什么不用二叉查找树代替，而选择红黑树
+
+红黑树是为了解决二叉查找树的缺陷，
+二叉查找树在特殊情况下会变成一条线性结构
+这就跟原来使用链表结构一样了，造成很深的问题，
+遍历查找会非常慢。
+而红黑树在插入新数据后可能需要
+通过左旋，右旋、变色这些操作来保持平衡，
+引入红黑树就是为了查找数据快，解决链表查询深度的问题
+
 ### 12-3-4：HashMap为什么可以插入空值?
 
 HashMap在put的时候会调用hash()方法来计算key的hashcode值，
 可以从hash算法中看出当key==null时返回的值为0。
 因此key为null时，
 hash算法返回值为0，不会调用key的hashcode方法。
+
+### 12-4：JDK8中hashmap的改变
+
+1. 在java 1.8中，如果链表的长度超过了8，
+   那么链表将转换为红黑树。但是
+   桶的数量必须大于64，小于64的时候只会扩容
+2. 发生hash碰撞时，
+   java 1.7 会在链表的头部插入，
+   而java 1.8会在链表的尾部插入
+3. 在java 1.8中，Entry被Node替代。
 
 ## 12-2：put操作
 
@@ -1154,7 +1184,25 @@ final Node<K,V> getNode(int hash, Object key) {
 31的一个不错的特性是乘法可以用移位和减法来代替，以获得更好的性能
 哈希分布比较均匀。偶数的冲突率很高，只有少数例外。小乘数（1-20）的冲突率也很高
 
-## 12-5：hashmap扩容过程
+## 12-5：hashmap源码部分
+
+### 12-5-1：HashMap中(tab.length - 1) & hash作用
+
+1. 保证不会发生数组越界
+2. 保证元素尽可能的均匀分布
+
+### 12-5-3：为什么默认初始化桶数组大小
+
+如果我们没有设置初始容量大小，随着元素的不断增加，
+HashMap会发生多次扩容，而HashMap中的扩容机制决定了每次扩容都需要重建hash表，
+是非常影响性能的。
+
+### 12-5-4：hashmap为什么是2的次幂
+
+取模运算可以变成位与运算，效率显著提高！但是要浪费一些空间。
+
+
+## 12-6：hashmap扩容过程
 
 1. 若threshold（阈值）不为空，table的首次初始化大小为阈值，
    否则初始化为缺省值大小16
@@ -1169,7 +1217,7 @@ final Node<K,V> getNode(int hash, Object key) {
 5. 重新调整map的大小，
    并将原来的对象放入新的bucket数组中。
 
-### 12-5-1：什么时候扩容
+### 12-6-1：什么时候扩容
 
 当向容器添加元素的时候，会判断当前容器的元素个数，
 如果大于等于阈值
@@ -1179,19 +1227,57 @@ Resize步骤
 2. ReHash：遍历原Entry数组，把所有的Entry重新Hash到新数组。
            因为长度扩大以后，Hash的规则也随之改变。
 
-### 12-5-2：reHash（重散列）过程
+### 12-6-2：reHash（重散列）过程
 
 1. 首先创建一个比现有哈希表更大的新哈希表（expand）
 2. 然后将旧哈希表的所有元素都迁移到新哈希表去（rehash）
 
-### 12-5-3：HashMap的扩容因子为什么是0.75
+### 12-6-3：该容量如何变化
 
-1. 如果设置过大，如0.85，桶中键值对碰撞的几率就会越大，
-   同一个桶位置可能会存放好几个value值，
-   这样就会增加搜索的时间，性能下降。
-2. 如果设置过小，如0.1，那么10个桶，threshold为1，你放两个键值对就要扩容，太浪费空间了。
+扩容时，调用 resize() 方法，将 table 长度变为原来的两倍
+扩容的其实是table 长度，而不是 threshold阈值
 
-### 12-5-4：为什么在JDK1.7的时候是先进行扩容后进行插入，而在JDK1.8的时候则是先插入后进行扩容的呢？
+### 12-6-4：这种变化会带来什么问题
+
+如果数据很大的情况下，扩展时将会带来性能的损失，
+在性能要求很高的地方，这种损失很可能很致命。
+
+### 12-6-3：扩容的几个参数
+
+#### 12-6-3-1：HashMap 的 table 的容量如何确定
+
+table 数组大小是由 capacity 这个参数确定的，
+默认是16，也可以构造时传入，最大限制是1<<30；
+
+#### 12-6-3-2：loadFactor 是什么
+
+loadFactor 是装载因子，
+主要目的是用来确认table数组是否需要动态扩展，
+默认值是0.75，
+比如table 数组大小为 16，
+装载因子为 0.75 时，threshold 就是12，
+当 table 的实际大小超过 12 时，
+table就需要动态扩容；
+
+##### 12-6-3-2-1：扩容因子为什么是0.75
+
+如果负载因子小，意味着阈值变小。比如容量为10 的HashMap，
+负载因子为0.5f，那么存储5个就会扩容到20，
+出现哈希冲突的可能性变小，但是空间利用率不高。
+适用于有足够内存并要求查询效率的场景。
+相反如果阈值为1 ，那么容量为10，
+就必须存储10个元素才进行扩容，
+出现冲突的概率变大，
+极端情况下可能会从O(1)退化到O(n)。
+适用于内存敏感但不要求要求查询效率的场景
+
+### 12-6-6：数组扩容
+
+创建一个新的数组，其容量为旧数组的两倍，
+并重新计算旧数组中结点的存储位置。
+结点在新数组中的位置只有两种，原下标位置或原下标+旧数组的大小。
+
+### 12-6-7：为什么在JDK1.7的时候是先进行扩容后进行插入，而在JDK1.8的时候则是先插入后进行扩容的呢
 
 在JDK1.7中的话，是先进行扩容后进行插入的，
 就是当你发现你插入的桶是不是为空，
@@ -1205,7 +1291,7 @@ Resize步骤
 减少了一次无用扩容，
 也减少了内存的使用
 
-### 12-5-5：JDK1.8链表转化为红黑树的阈值是8,而不是7或者不是20呢
+### 12-6-8：JDK1.8链表转化为红黑树的阈值是8,而不是7或者不是20呢
 
 1. 中间有个差值7可以有效防止链表和树频繁转换，降低效率
 2. 由于treenodes的大小大约是常规节点的两倍，
@@ -1215,7 +1301,7 @@ Resize步骤
    容器中节点分布在hash桶中的频率遵循泊松分布，
    桶的长度超过8的概率非常非常小。
 
-### 12-5-6：插入一万个元素之后会不会扩容，扩容扩多少
+### 12-6-6：插入一万个元素之后会不会扩容，扩容扩多少
 
 HashMap 是否扩容，由 threshold 决定，而 threshold 又由初始容量和 loadFactor 决定。
 1. HashMap 构造方法传递的 initialCapacity，它实际表示 table 的容量。
@@ -1230,7 +1316,10 @@ HashMap 是否扩容，由 threshold 决定，而 threshold 又由初始容量�
    将扩容阈值 threshold 重新调整为 table.size * loadFactor。
   * 那么可以储存的最大容量就是：16384*0.75=12288
 
-## 12-6：hash函数
+
+
+
+## 12-7：hash函数
 
 1. 直接定址法：直接以key或者key上加上某个常数作为哈希地址
 2. 数字分析法：提取key中取值比较均匀的数字作为哈希地址
@@ -1242,7 +1331,21 @@ HashMap 是否扩容，由 threshold 决定，而 threshold 又由初始容量�
               然后按照需求求取中间的几位作为哈希地址
 6. 伪随机数法：采用一个伪随机数作为哈希函数
 
-### 12-6-1：哈希冲突的解决方法
+### 12-7-1：hash 的实现
+
+JDK 1.8 中，是通过 hashCode() 的高 16 位异或低 16 位实现的：
+(h = k.hashCode()) ^ (h >>> 16)，
+主要是从速度，功效和质量来考虑的，
+减少系统的开销，
+也不会造成因为高位没有参与下标的计算，
+从而引起的碰撞。
+
+#### 12-7-1-2：为什么要用异或运算符？
+
+保证了对象的 hashCode 的 32 位值只要有一位发生改变，
+整个 hash() 返回值就会改变。尽可能的减少碰撞。
+
+### 12-7-2：哈希冲突的解决方法
 
 1. 拉链法
    创建一个链表数组，数组中每一格就是一个链表。
@@ -1254,13 +1357,13 @@ HashMap 是否扩容，由 threshold 决定，而 threshold 又由初始容量�
    去寻找下一个地址，若发生冲突再去寻找，
    直至找到一个为空的地址为止。
 
-## 12-7：扰动函数以及作用
+## 12-8：扰动函数以及作用
 
 HashMap的hash方法。
 为了防止一些实现比较差的hashCode()方法，
 使用扰动函数之后可以减少碰撞。
 
-## 12-8：hashmap线程问题
+## 12-9：hashmap线程问题
 
 hashmap是线程不安全的
 在JDK1.7的时候没有加入同步锁保护，
@@ -1274,7 +1377,7 @@ hashmap是线程不安全的
 所以多线程情况下，
 首选线程安全的ConcurrentHashMap
 
-### 12-8-1：线程安全的Map
+### 12-9-1：线程安全的Map
 
 * Hashtable
 * ConcurrentHashMap
@@ -1287,7 +1390,7 @@ hashmap是线程不安全的
    而是采用了分离锁（segment）的方式进行局部锁定。
    具体体现在，它在代码中维护着一个segment数组。
    
-### 12-8-2：设计线程安全的map
+### 12-9-2：设计线程安全的map
 
 1. 使用synchronized来进行约束：
 2. 使用JDK1.5版本所提供的lock机制
@@ -1296,14 +1399,14 @@ hashmap是线程不安全的
    该类将Map的存储空间分为若干块,
    每块拥有自己的锁,减少了多个线程争夺同一个锁的情况
 
-## 12-9：hashmap应用
+## 12-10：hashmap应用
 
-### 12-9-1：为什么hashmap中String、integer包装类适合作为key
+### 12-10-1：为什么hashmap中String、integer包装类适合作为key
 
 1. 包装类重写了equals\hashcode方法，不容易出现hash值计算错误
 2. 由于String类型是final的，保证了key的不可更改性
 
-### 12-9-2：如果想要一个key对应多个Value的话，怎么设计Map
+### 12-10-2：如果想要一个key对应多个Value的话，怎么设计Map
 
 1.普通做法
   Map<Object,List<Object>> map=new HashMap<>();
@@ -1428,7 +1531,7 @@ public static void main(String[] args) {
             System.out.println(key + ": " + value);}}}
 ```
 
-### 12-9-3：创建一个对象HashMap<Integer,Integer> map=new HashMap<>先put(10),然后get(new Long(10))结果是多少？
+### 12-10-3：创建一个对象HashMap<Integer,Integer> map=new HashMap<>先put(10),然后get(new Long(10))结果是多少？
 
 为空，原因是
 1. hashmap在存入的时候，先对key做一遍hash，
@@ -1441,12 +1544,12 @@ public static void main(String[] args) {
    根据hash值查找对应的数组下标查找,
    虽然存入Integer 123  根据 Long 123 来获取返回的 是 NULL
 
-### 12-9-4：使用final static修饰集合hashmap会产生什么影响
+### 12-10-4：使用final static修饰集合hashmap会产生什么影响
 
 当final修饰变量时，对于基本类型和string，这个变量的值是不能改变的；
 当修饰其他类型的对象时，final使其引用恒定不变，但是对象自身却可以自由修改变换。
 
-## 12-10：JDK的hashmap与Redis的hashmap的区别
+## 12-11：JDK的hashmap与Redis的hashmap的区别
 
 1. HashMap由于对链表size超过8采用二叉树结构，
    使得get操作随着激烈冲突导致变成一个类二叉树，
@@ -1464,7 +1567,8 @@ public static void main(String[] args) {
 
 ## 13-1：ConcurrentHashMap的底层实现
 
-在JDK7的时候，这种安全策略采用的是分段锁的机制，ConcurrentHashMap维护了一个Segment数组，
+在JDK7的时候，这种安全策略采用的是分段锁的机制，
+ConcurrentHashMap维护了一个Segment数组，
 Segment这个类继承了重入锁ReentrantLock，
 并且该类里面维护了一个 HashEntry<K,V>[] table数组，
 在写操作put，remove，扩容的时候，会对Segment加锁，
@@ -1522,6 +1626,13 @@ ConcurrentHashmap和Hashtable都是支持并发的，
 ConcurrentHashMap 是一个 Segment 数组， Segment 通过继承ReentrantLock 来进行加锁，
 所以每次需要加锁的操作锁住的是一个 segment，
 这样只要保证每个 Segment 是线程安全的，也就实现了全局的线程安全
+
+### 13-1-4：为什么要使用内置锁synchronized来代替重入锁 ReentrantLock？
+
+1. 粒度降低了；
+2. 基于 JVM 的 synchronized 优化空间更大
+   在大量的数据操作下，对于 JVM 的内存压力，
+   基于 API 的 ReentrantLock 会开销更多的内存。
 
 ## 13-2：ConcurrentHashMap的put操作
 
@@ -1670,7 +1781,7 @@ public V get(Object key) {
 ```
 
 
-## 13-14：ConcurrentHashMap扩容机制
+## 13-4：ConcurrentHashMap扩容机制
 
 1. 通过计算CPU核心数和Map数组的长度得到每个线程要帮助处理多少个桶，
    并且这里每个线程处理都是平均的。默认每个线程处理 16 个桶。
@@ -1705,7 +1816,7 @@ public V get(Object key) {
      改造成链表。反之，继续使用红黑树结构。
  43. 到这里，就完成了一个桶从旧表转移到新表的过程。
 
-### 13-14-1：什么时候会发生扩容机制
+### 13-4-1：什么时候会发生扩容机制
 
 1. put操作（插入键值对）
 2. putAll操作（批量插入键值对）
@@ -1713,7 +1824,7 @@ public V get(Object key) {
 4. replace操作（对已存在的键值对替换值）
 5. computeIfAbsent操作（若key对应的value为空，会将第二个参数的返回值存入并返回）
 
-### 13-14-2：hashmap与ConcurrentHashMap中扩容的区别
+### 13-4-2：hashmap与ConcurrentHashMap中扩容的区别
 
 1. concurrenthashmap中扩容时候会判断这个值，如果超过阈值就要扩容，
    首先根据运算得到需要遍历的次数i，
@@ -1731,7 +1842,7 @@ public V get(Object key) {
    所以JDK8做了优化对于单个链表的个数大于8的链表，
    会直接转为红黑树结构算是以空间换时间，这样以来查询的效率就变为O(logN)
 
-## 13-15：ConcurrentHashMap读写操作的锁
+## 13-5：ConcurrentHashMap读写操作的锁
 
 1. ConcurrentHashMap在读操作时不需要加锁，
    也就是说在get操作时，会发现get操作全程是没有加任何锁的
@@ -1740,6 +1851,27 @@ public V get(Object key) {
    而数组用volatile修饰主要是保证在数组扩容的时候保证可见性
 2. 在写操作会加入锁，将键、值构造为Entry节点加入到对应的Segment段里
 
+## 13-6：为什么 ConcurrentHashMap 比 HashTable 效率要高？
+
+HashTable 使用一把锁（锁住整个链表结构）处理并发问题，
+多个线程竞争一把锁，容易阻塞；
+而在ConcurrentHashMap
+JDK 1.7 中使用分段锁（ReentrantLock + Segment + HashEntry），
+相当于把一个 HashMap 分成多个段，
+每段分配一把锁，这样支持多线程访问。
+锁粒度：基于 Segment，包含多个 HashEntry。
+JDK 1.8 中使用 CAS + synchronized + Node + 红黑树。
+锁粒度：Node（首结点）（实现 Map.Entry<K,V>）。锁粒度降低了。
+
+## 13-7：ConcurrentHashMap 的并发度是什么？
+
+程序运行时能够同时更新 ConccurentHashMap 
+且不产生锁竞争的最大线程数。默认为 16，
+且可以在构造函数中设置。
+当用户设置并发度时，ConcurrentHashMap 
+会使用大于等于该值的最小2幂指数
+作为实际并发度
+（假如用户设置并发度为17，实际并发度则为32）
 
 
 # 14.TreeMap
@@ -2070,14 +2202,18 @@ LinkedHashSet底层使用LinkedHashMap来保存所有元素，
 （因为HashMap中元素的排列顺序是不固定的）。
 除此之外，由于HashMap有更好的性能，
 所以大多不需要排序的时候我们会使用HashMap。
+LinkedHashMap：在需要输出的顺序和输入的顺序相同的情况下
 
 ## 25-5：HashTable、Hashmap区别和适用场景
 
-1. 线程安全，hashtable更加安全
-2. 底层，hashtable底层加入了锁保护
-3. 时间复杂度，由于加入了锁保护，hashtable时间复杂度要低于hashmap
-4. 内存，
-5. 其他
+1. HashMap 是线程不安全的，HashTable 是线程安全的；
+2. 由于线程安全，所以 HashTable 的效率比不上 HashMap；
+3. HashMap最多只允许一条记录的键为null，
+   允许多条记录的值为null，而 HashTable不允许；
+4. HashMap 默认初始化数组的大小为16，
+   HashTable 为 11，前者扩容时，扩大两倍，后者扩大两倍+1；
+5. HashMap 需要重新计算 hash 值，
+   而 HashTable 直接使用对象的 hashCode
 
 <font color="#986078">使用场景：</font>
 
@@ -2146,8 +2282,6 @@ Collections则是集合类的一个工具类/帮助类，其中提供了一系�
 
 1. 实现Comparable的类，该类就具有自身比较的功能；
    Comparator的实现，是一个外部比较工具器 
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # 27.java基础-IO
 
@@ -2306,10 +2440,23 @@ epoll会把哪个流发生了怎样的I/O事件通知我们。
 
 ## 27-5：同步、异步与阻塞、非阻塞
 
-同步：执行一个操作之后， 等待结果，然后执行其他后续的操作
-异步：执行一个操作后，可以去执行其他的操作，然后等待通知再回来执行刚才没有执行完的操作
-阻塞：进程给CPU传达一个任务后，一直等待CPU处理完成，然后执行后面的操作
-非阻塞：进程给CPU传达一个任务后，继续处理其他的操作，隔段时间来询问之前的操作是否完成
+### 27-5-1：IO发生时涉及的对象和步骤（23期修改）
+
+等待数据准备
+将数据从内核拷贝到进程中
+
+
+
+## 27-5-2：同步、异步与阻塞、非阻塞区别
+
+同步：执行一个操作之后， 等待结果，
+     然后执行其他后续的操作
+异步：执行一个操作后，可以去执行其他的操作，
+     然后等待通知再回来执行刚才没有执行完的操作
+阻塞：进程给CPU传达一个任务后，
+     一直等待CPU处理完成，然后执行后面的操作
+非阻塞：进程给CPU传达一个任务后，
+       继续处理其他的操作，隔段时间来询问之前的操作是否完成
 
 # 28.java基础-反射
 
@@ -2617,7 +2764,7 @@ Java 中有两种异常：受检查的(checked)异常和不受检查的(unchecke
    原因：在运行时，ClassLoader动态加载了大量的Class信息，超出方法区上限；
    解决方法：通过修改参数来修改方法区大小；
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 # 32.java基础-String
 
@@ -2754,52 +2901,49 @@ JDK1.7开始支持
 
 ## 35-1：Object类有哪些方法
 
-1. clone方法
-保护方法，实现对象的浅复制，只有实现了Cloneable接口才可以调用该方法，
-否则抛出CloneNotSupportedException异常。
-2. getClass方法
-final方法，获得运行时类型。
-3. toString方法
-该方法用得比较多，一般子类都有覆盖。
-4. finalize方法
-Java允许在类中定义一个名为finalize()的方法。
-它的工作原理是：一旦垃圾回收器准备好释放对象占用的存储空间，
-将首先调用其finalize()方法。并且在下一次垃圾回收动作发生时，才会真正回收对象占用的内存。
-finalize()的用途：
-　　无论对象是如何创建的，垃圾回收器都会负责释放对象占据的所有内存。
-   这就将对finalize()的需求限制到一种特殊情况，
-    即通过某种创建对象方式以外的方式为对象分配了存储空间。  
-    不过这种情况一般发生在使用“本地方法”的情况下， 
-    本地方法是一种在Java中调用非Java代码的方式。
-5. equals方法
-该方法是非常重要的一个方法。一般equals和==是不一样的，
-但是在Object中两者是一样的。子类一般都要重写这个方法。
-6. hashCode方法
-该方法用于哈希查找，重写了equals方法一般都要重写hashCode方法。
-这个方法在一些具有哈希功能的Collection中用到。
-一般必须满足obj1.equals(obj2)==true。
-可以推出obj1.hash- Code()==obj2.hashCode()，
-但是hashCode相等不一定就满足equals。
-不过为了提高效率，应该尽量使上面两个条件接近等价。
-7. wait方法
-wait方法就是使当前线程等待该对象的锁，
-当前线程必须是该对象的拥有者，
-也就是具有该对象的锁。
-wait()方法一直等待，
-直到获得锁或者被中断。
-wait(long timeout)设定一个超时间隔，
-如果在规定时间内没有获得锁就返回。
-调用该方法后当前线程进入睡眠状态，直到以下事件发生。
-（1）其他线程调用了该对象的notify方法。
-（2）其他线程调用了该对象的notifyAll方法。
-（3）其他线程调用了interrupt中断该线程。
-（4）时间间隔到了。
-此时该线程就可以被调度了，
-如果是被中断的话就抛出一个InterruptedException异常。
-8. notify方法
-该方法唤醒在该对象上等待的某个线程。
-9. notifyAll方法
-该方法唤醒在该对象上等待的所有线程。
+一共有11种方法
+
+1. `Object()`
+   Object类的构造方法。
+2. `registerNatives()`
+   为了使JVM发现本机功能，
+   他们被一定的方式命名。
+   例如，对于java.lang.Object.registerNatives，
+   对应的C函数命名为Java_java_lang_Object_registerNatives。
+   通过使用registerNatives
+   或者更确切地说，JNI函数RegisterNatives，
+   可以命名任何你想要你的C函数。
+3. clone方法
+   clone()函数的用途是用来另存一个当前存在的对象。
+   只有实现了Cloneable接口才可以调用该方法，
+   否则抛出CloneNotSupportedException异常。
+4. getClass方法
+   final方法，用于获得运行时的类型。
+   该方法返回的是此Object对象的
+   类对象/运行时类对象Class。
+   效果与Object.class相同。
+5. toString方法
+   toString()方法返回该对象的字符串表示
+6. finalize方法
+   当垃圾回收器确定不存在对该对象的更多引用时，由对象的垃圾回收器调用此方法。
+7. equals方法
+   equals用来比较两个对象的内容是否相等。
+   默认情况下(继承自Object类)，
+   equals和==是一样的，除非被覆写(override)了。
+8. hashCode方法
+   该方法用来返回其所在对象的物理地址（哈希码值），
+   常会和equals方法同时重写，
+   确保相等的两个对象拥有相等的hashCode。
+9. wait方法
+  导致当前的线程等待，
+  直到其他线程调用此对象的 
+  notify() 方法或 notifyAll() 方法。
+10. notify方法
+   唤醒在此对象监视器上等待的单个线程。
+11. notifyAll方法
+   唤醒在此对象监视器上等待的所有线程。
+
+### 35-1-1：XX.toString和String.valueOf()
 
 ### 35-1-1：为什么操作线程方法会在Object对象中
 
@@ -2809,15 +2953,47 @@ wait(long timeout)设定一个超时间隔，
 
 # 36.java基础-序列化与反序列化
 
-## 36-1：序列化的作用
+## 36-1：Java序列化与反序列化是什么？
 
-1)序列化就是一种用来处理对象流的机制,
-  所谓对象流也就是将对象的内容进行流化,
-  可以对流化后的对象进行读写操作,也可以将流化后的对象传输与网络之间;
-2)为了解决对象流读写操作时可能引发的问题(如果不进行序列化,可能会存在数据乱序的问题)
-3）序列化除了能够实现对象的持久化之外，还能够用于对象的深度克隆
+序列化：对象序列化的最主要的用处就
+       是在传递和保存对象的时候，
+       保证对象的完整性和可传递性。
+       序列化是把对象转换成有序字节流，
+       以便在网络上传输或者保存在本地文件中。
+       核心作用是对象状态的保存与重建。
+反序列化：客户端从文件中或网络上获得序列化后的对象字节流，
+         根据字节流中所保存的对象状态及描述信息，
+         通过反序列化重建对象。
 
-## 36-2：java对象如何实现序列化
+## 36-2：为什么需要序列化与反序列化？
+
+一：对象序列化可以实现分布式对象。
+   主要应用比如说：RMI(即远程调用Remote Method Invocation)
+   要利用对象序列化运行远程主机上的服务，就像在本地机上运行对象时一样。
+二：java对象序列化不仅保留一个对象的数据，
+   而且递归保存对象引用的每个对象的数据。
+   可以将整个对象层次写入字节流中，
+   可以保存在文件中或在网络连接上传递。
+   利用对象序列化可以进行对象的"深复制"，
+   即复制对象本身及引用的对象本身。
+   序列化一个对象可能得到整个对象序列。
+三：序列化可以将内存中的类写入文件或数据库中。
+    比如：将某个类序列化后存为文件，
+    下次读取时只需将文件中的数据反序列化就
+    可以将原先的类还原到内存中。
+    也可以将类序列化为流数据进行传输。
+    就是将一个已经实例化的类转成文件存储，
+    下次需要实例化的时候只要反序列化即可
+    将类实例化到内存中并保留序列化时类中的所有变量和状态。
+四：对象、文件、数据，有许多不同的格式，很难统一传输和保存。
+    序列化以后就都是字节流了，无论原来是什么东西，
+    都能变成一样的东西，就可以进行通用的格式传输或保存，
+    传输结束以后，要再次使用，就进行反序列化还原，
+    这样对象还是对象，文件还是文件。
+
+## 36-3：java对象如何实现序列化与反序列化
+
+### 36-3-1：如何实现序列化
 
 1. 通过实现Serializable接口
 
@@ -2892,20 +3068,25 @@ public class UserInfo implements Externalizable{
  测试函数同上
 ```
 
-### 36-2-1：externalizable和Serializable的区别
+#### 36-2-1-1：externalizable和Serializable的区别
 
 1. 实现serializable接口是默认序列化所有属性，如果有不需要序列化的属性使用transient修饰。
-
-2. 实现serializable接口的对象序列化文件进行反序列化不走构造方法，载入的是该类对象的一个持久化状态，再将
+2. 实现serializable接口的对象序列化文件进行反序列化不走构造方法，
+   载入的是该类对象的一个持久化状态，再将
    这个状态赋值给该类的另一个变量
 
-### 36-2-2: 什么是serialVersionUID
+#### 36-2-1-2: 什么是serialVersionUID
 
-1. 这样做是为了serialVersionUID是用来验证版本一致性的，保证安全的，因为⽂件存储中的内容可能被篡改。
-2. 在进⾏反序列化时， JVM会把传来的字节流中的serialVersionUID与本地相应实体类的serialVersionUID进⾏⽐
-   较， 如果相同就认为是⼀致的， 可以进⾏反序列化， 否则就会出现序列化版本不⼀致的异常
+1. 这样做是为了serialVersionUID是用来验证版本一致性的，
+   保证安全的，因为⽂件存储中的内容可能被篡改。
+2. 在进⾏反序列化时， JVM会把传来的字节流中的
+   serialVersionUID与本地相应实体类的
+   serialVersionUID进⾏⽐较，
+   如果相同就认为是⼀致的，
+   可以进⾏反序列化，
+   否则就会出现序列化版本不⼀致的异常
 
-### 36-2-3：序列化协议有哪些
+#### 36-2-1-3：序列化协议有哪些
 
 1. COM,COM的序列化的原理利用了编译器中虚表,使得其学习成本巨大.
 2. CORBA，COBRA的主要问题是版本之间兼容性较差,以及使用复杂晦涩.
@@ -2914,12 +3095,12 @@ public class UserInfo implements Externalizable{
 5. JSON，序列化后数据更加简洁，而且解析速度较快
 6. protobuf、avro不仅兼容json格式，解析速度更快
 
-### 36-2-4：该接口并没有方法和字段，为什么只有实现了该接口的类的对象才能被序列化呢？
+#### 36-2-1-4：该接口并没有方法和字段，为什么只有实现了该接口的类的对象才能被序列化呢？
 
 这是因为，在序列化操作过程中会对类型进行检查，
 要求被序列化的类必须属于Enum、Array和Serializable类型其中的任何一种。
 
-## 36-3：java对象如何实现反序列化
+### 36-3-2：java对象如何实现反序列化
 
 * 实现Serializable接口的对象在反序列化时不需要调用对象所在类的构造方法。
 * 实现externalSerializable接口的方法在反序列化时会调用构造方法。
@@ -2933,8 +3114,6 @@ public class UserInfo implements Externalizable{
 
 （1）将对象或者异常等写入文件，通过文件交互传输信息；
 （2）将对象或者异常等通过网络进行传输。
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # 37.JDK8新特性
 
@@ -2982,6 +3161,22 @@ UTF-8使用可变长度字节来储存 Unicode字符，
 2）对于n字节的符号（n>1），第一个字节的前n位都设为1，
 第n+1位设为0，后面字节的前两位一律设为10。
 剩下的没有提及的二进制位，全部为这个符号的unicode码。
+
+# 39.创建对象
+
+1. 使用new关键字
+2. 使用反射的机制创建对象
+   * 使用Class类的newInstance方法
+   * 使用Constructor类的newInstance方法
+3. 使用clone方法
+   * 需要已经有一个分配了内存的源对象，创建新对象时，
+     首先应该分配一个和源对象一样大的内存空间。
+4. 反序列化
+   * 调用ObjectInputStream类的readObject（）方法
+5. 通过Unsafe实例化一个类
+
+注：使用构造器的三种(new和反射的两种newInstance)，没用构造器的两种(clone和反序列化)
+
 
 # ---------并发-------------------------------------------------------------------------------------
 
@@ -3345,6 +3540,184 @@ LWP与普通进程的区别也在于它只有一个最小的执行上下文和�
    开发人员可以针对不同的应用特点调节内核线程的
    数目来达到物理并行性和逻辑并行性的最佳方案。
 
+## 2-3：线程之间通信方式
+
+1. 同步
+2. while轮询的方式
+3. wait/notify机制
+4. 管道通信
+
+### 2-3-1：同步
+
+通过synchronized关键字这种方式来实现线程间的通信。
+本质上就是“共享内存”式的通信。
+多个线程需要访问同一个共享变量，
+谁拿到了锁（获得了访问权限），谁就可以执行。
+
+```java
+public class MyObject {
+
+    synchronized public void methodA() {//do something....}
+    synchronized public void methodB() {//do some other thin}}
+
+public class ThreadA extends Thread {
+    private MyObject object;
+//省略构造方法
+    @Override
+    public void run() {
+        super.run();
+        object.methodA();}}
+public class ThreadB extends Thread {
+    private MyObject object;
+//省略构造方法
+    @Override
+    public void run() {
+        super.run();
+        object.methodB();}}
+public class Run {
+    public static void main(String[] args) {
+        MyObject object = new MyObject();
+
+        //线程A与线程B 持有的是同一个对象:object
+        ThreadA a = new ThreadA(object);
+        ThreadB b = new ThreadB(object);
+        a.start();
+        b.start();}}
+```
+### 2-3-2：while轮询的方式
+
+```java
+public class MyList {
+    private List<String> list = new ArrayList<String>();
+    public void add() {
+        list.add("elements");}
+    public int size() {
+        return list.size();}}
+-------------------------------------------------------
+public class ThreadA extends Thread {
+    private MyList list;
+    public ThreadA(MyList list) {
+        super();
+        this.list = list;
+    }
+    @Override
+    public void run() {
+        try {
+            for (int i = 0; i < 10; i++) {
+                list.add();
+                System.out.println("添加了" + (i + 1) + "个元素");
+                Thread.sleep(1000);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();}}}
+---------------------------------------------------------------------
+public class ThreadB extends Thread {
+    private MyList list;
+    public ThreadB(MyList list) {
+        super();
+        this.list = list;}
+  @Override
+    public void run() {
+        try {
+            while (true) {
+                if (list.size() == 5) {
+                    System.out.println("==5, 线程b准备退出了");
+                    throw new InterruptedException();}}}
+               atch (InterruptedException e) {
+            e.printStackTrace();}}}
+------------------------------------------------------------------
+public class Test {
+    public static void main(String[] args) {
+        MyList service = new MyList();
+        ThreadA a = new ThreadA(service);
+        a.setName("A");
+        a.start();
+        ThreadB b = new ThreadB(service);
+        b.setName("B");
+        b.start();}}
+```
+线程A不断地改变条件，
+线程ThreadB不停地通过while语句检测这个条件是否成立 ，
+从而实现了线程间的通信。但是这种方式会浪费CPU资源。
+因为JVM调度器将CPU交给线程B执行时，它没做啥“有用”的工作，
+只是在不断地测试 某个条件是否成立。
+线程都是先把变量读取到本地线程栈空间，
+然后再去再去修改的本地变量。
+因此，如果线程B每次都在取本地的条件变量，
+那么尽管另外一个线程已经改变了轮询的条件，
+它也察觉不到，这样也会造成死循环。
+
+### 2-3-3：wait/notify机制
+
+```java
+public class MyList {
+    private static List<String> list = new ArrayList<String>();
+    public static void add() {
+        list.add("anyString");}
+    public static int size() {
+        return list.size();}}
+--------------------------------------------------------------------------
+public class ThreadA extends Thread {
+    private Object lock;
+    public ThreadA(Object lock) {
+        super();
+        this.lock = lock;}
+    @Override
+    public void run() {
+        try {
+            synchronized (lock) {
+                if (MyList.size() != 5) {
+                    System.out.println("wait begin "
+                            + System.currentTimeMillis());
+                    lock.wait();
+                    System.out.println("wait end  "
+                            + System.currentTimeMillis());}}}
+                catch (InterruptedException e) {
+            e.printStackTrace();}}}
+----------------------------------------------------------------
+public class ThreadB extends Thread {
+    private Object lock;
+    public ThreadB(Object lock) {
+        super();
+        this.lock = lock;}
+    @Override
+    public void run() {
+        try {
+            synchronized (lock) {
+                for (int i = 0; i < 10; i++) {
+                    MyList.add();
+                    if (MyList.size() == 5) {
+                        lock.notify();
+                        System.out.println("已经发出了通知");
+                    }
+                    System.out.println("添加了" + (i + 1) + "个元素!");
+                    Thread.sleep(1000);}}}
+                catch (InterruptedException e) {
+            e.printStackTrace();}}}
+
+public class Run {
+    public static void main(String[] args) {
+        try {
+            Object lock = new Object();
+            ThreadA a = new ThreadA(lock);
+            a.start();
+            Thread.sleep(50);
+            ThreadB b = new ThreadB(lock);
+            b.start();
+        } catch (InterruptedException e) {
+            e.printStackTrace();}}}
+       
+```
+比如，线程B先执行，
+一下子添加了5个元素并调用了notify()发送了通知，
+而此时线程A还执行；当线程A执行并调用wait()时，
+那它永远就不可能被唤醒了。
+因为，线程B已经发了通知了，
+以后不再发通知了。
+这说明：通知过早，会打乱程序的执行逻辑。
+
+### 2-3-4：管道通信
+
 # 3.线程与进程的区别
 
 1. 拥有资源
@@ -3583,6 +3956,21 @@ CPU 上下文切换就是先把前一个任务的 CPU 上下文
 2. 信号量(Semphares) ：它允许同一时刻多个线程访问同一资源，但是需要控制同一时刻访问此资源的最大线程数量
 3. 事件(Event) :Wait/Notify：通过通知操作的方式来保持多线程同步，还可以方便的实现多线程优先级的比较操
 
+### 6-2-2：同步方法和同步代码块的区别是什么？
+
+同步方法默认用this或者当前类class对象作为锁；
+同步代码块可以选择以什么来加锁，比同步方法要更细颗粒度，
+我们可以选择只同步会发生同步问题的部分代码而不是整个方法；
+
+### 6-2-3：在监视器内部，是如何做线程同步的？
+
+监视器和锁在Java虚拟机中是一块使用的。
+监视器监视一块同步代码块，
+确保一次只有一个线程执行同步代码块。
+每一个监视器都和一个对象引用相关联。
+线程在获取锁之前不允许执行同步代码。
+java 还提供了显式监视器( Lock )和隐式监视器( synchronized )两种锁方案。
+
 ## 6-3：同步与互斥的区别
 
 1. 同步就好比：「操作 A 应在操作 B 之前执行」，
@@ -3763,8 +4151,6 @@ public class ProAndCon3 {
             con.start();}}}
 ```
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 # 8.并发级别
 
 1. `阻塞`
@@ -3815,6 +4201,13 @@ public class ProAndCon3 {
 因此，所有的读操作是无等待的，他们既不会被锁定等待也不会引起任何冲突。
 但是在写数据的时候，先取得原始数据的副本，
 接着只修改副本数据（这就是为什么读可不加控制），修改完成后，在合适的时机回写数据。
+
+## 8-1：并行与并发概念
+
+1. 并发： 同⼀时间段，多个任务都在执⾏；
+2. 并⾏： 单位时间内，多个任务同时执⾏。
+
+
 
 # 9.并发特性
 
@@ -3905,7 +4298,7 @@ start() 会执⾏线程的相应准备⼯作，然后⾃动执⾏run() ⽅法的
 会把 run ⽅法当成⼀个 main线程下的普通⽅法去执⾏，
 并不会在某个线程中执⾏它，所以这并不是多线程⼯作。
 
-## 6-4：中断线程方法 
+## 6-4：中断线程方法（36期）
 
 1. 当 run 方法完成后线程终止。 
 2. 通过 return 退出 run 方法
@@ -3944,9 +4337,10 @@ start() 会执⾏线程的相应准备⼯作，然后⾃动执⾏run() ⽅法的
    3）调用线程对象的start()方法来启动该线程。
 3. `使用Callable和Future创建线程`
    1）创建Callable接口的实现类，并实现call方法，call方法作为线程执行体
-   2）创建Callable实现类的实例，使用FutureTask类来包装Callable对象， 
+   2）创建Callable实现类的实例，使用FutureTask类来包装Callable对象，
       该FutureTask对象封装了该Callable对象的call（）方法的返回值
-      FutureTask是一个包装器，它通过接受Callable来创建，它同时实现了Future和Runnable接口
+      FutureTask是一个包装器，它通过接受Callable来创建，
+      它同时实现了Future和Runnable接口
    3）使用FutureTask作为对象
       作为Thread对象的target创建并启动新线程。
    4）调用FutureTask对象的get方法获得子线程执行结束后的返回值
@@ -3982,28 +4376,18 @@ Runnable 接⼝不会返回结果或抛出检查异常，
 ## 12-2：创建线程的对比
 
 创建线程的方式的对比
-
 1)采用实现Runnable、Callable接口的方式创建多线程时，线程类只是实现了Runnable接口或Callable接口，还可以继承其他类。
-  
   在这种方式下，多个线程可以共享同一个 target对象，
   所以非常适合多个相同线程来处理同一份资源的情况，从而可以将CPU、代码和数据分开。
   但是，缺点是编程稍微复杂，如果要访问当前线程，则必须使用 Thread.currentThread)方法。
-
 2）使用继承Thread类的方式创建多线程时，
-
    如果需要访问当前线程，则无需使用Thread.currentThread()方法，直接使用this即可获得当前线程。
    缺点是线程类已经继承了Thread类，所以不能再继承其他父类。
-
 3）Runnable和Callable的区别
-  
   1) Callable规定（重写）的方法是call()，Runnable规定（重写）的方法是run()。
-  
   2) Callable的任务执行后可返回值，而Runnable的任务是不能返回值的。
-  
   3)call方法可以抛出异常，run方法不可以。
-  
   4)运行Callable任务可以拿到一个Future对象，表示异步计算的结果。它提供了检查计算是否完成的方法，并检索计算的结果。
-  
     通过Future对象可以了解任务执行情况，可取准任务的执行，还可获取执行结果。
 
 
@@ -4034,8 +4418,6 @@ Runnable 接⼝不会返回结果或抛出检查异常，
    lockInterruptily 可打断式， 还有trylock的带超时时间版本。
    本质上和监视器锁（即synchronized）是一样的
 6. 容器类（BlockingQueue、ConcurrentHashMap）
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # 14.synchronized关键字
 
@@ -4322,8 +4704,6 @@ volatile不是保护线程安全的。
 3. volatile关键字能保证数据的可见性，但不能保证数据的原子性。synchronized关键字两者都能保证。
 4. volatile关键字主要用于解决变量在多个线程之间的可见性，而 synchronized关键字解决的是多个线程之间访问资源的同步性。
 
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # 17.线程池
 
 ## 17-1：使⽤线程池的好处
@@ -4468,8 +4848,112 @@ volatile不是保护线程安全的。
 心跳机制，线程每隔一段时间往另一服务器进程发送数据包，
 如果服务器进程长时间没有到心跳包，则说明当前线程已经死机！
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## 17-9：线程池的风险
 
+用线程池构建的应用程序容易
+遭受任何其它多线程应用程序容易遭受的所有并发风险，
+诸如同步错误和死锁，
+它还容易遭受特定于线程池的少数其它风险，
+诸如与池有关的死锁、资源不足和线程泄漏。
+1. 死锁
+   虽然任何多线程程序中都有死锁的风险，
+   但线程池却引入了另一种死锁可能，在那种情况下，
+   所有池线程都在执行已阻塞的等待队列中另一任务的执行结果的任务，
+   但这一任务却因为没有未被占用的线程而不能运行。
+   当线程池被用来实现涉及许多交互对象的模拟，
+   被模拟的对象可以相互发送查询，
+   这些查询接下来作为排队的任务执行，
+   查询对象又同步等待着响应时，会发生这种情况。
+2. 资源不足
+   如果线程池太大，那么被那些线程消耗的资源可能严重地影响系统性能。
+   在线程之间进行切换将会浪费时间，
+   而且使用超出比您实际需要的线程可能会引起资源匮乏问题，
+   因为池线程正在消耗一些资源，
+   而这些资源可能会被其它任务更有效地利用。
+   除了线程自身所使用的资源以外，
+   服务请求时所做的工作可能需要其它资源，
+   例如 JDBC 连接、套接字或文件。
+   这些也都是有限资源，
+   有太多的并发请求也可能引起失效，例如不能分配 JDBC 连接。
+3. 线程泄漏
+   各种类型的线程池中一个严重的风险是线程泄漏，
+   当从池中除去一个线程以执行一项任务，
+   而在任务完成后该线程却没有返回池时，
+   会发生这种情况。
+   发生线程泄漏的一种情形出现在任务抛出一个
+   RuntimeException 或一个 Error 时。
+   如果池类没有捕捉到它们，
+   那么线程只会退出而线程池的大小
+   将会永久减少一个。
+   当这种情况发生的次数足够多时，
+   线程池最终就为空，
+   而且系统将停止，
+   因为没有可用的线程来处理任务。
+
+### 17-9-1：死锁
+
+#### 17-9-1-1：什么是线程死锁
+
+多个线程同时被阻塞，它们中的⼀个或者全部都在等待某个资源被释放。
+由于线程被⽆限期地阻塞，因此程序不可能正常终⽌。
+
+#### 17-9-1-2：产生死锁的条件
+
+1. 该资源任意⼀个时刻只由⼀个线程占⽤。
+2. ⼀个进程因请求资源⽽阻塞时，对已获得的资源保持不放。
+3. 线程已获得的资源在末使⽤完之前不能被其他线程强⾏剥夺，只有⾃⼰使⽤完毕后才释放资源。
+4. 若⼲进程之间形成⼀种头尾相接的循环等待资源关系。
+
+#### 17-9-1-3：如何解决线程死锁问题
+
+1. ⼀次性申请所有的资源。
+2. 占⽤部分资源的线程进⼀步申请其他资源时，如果申请不到，可以主动释放它占有的资源。
+3. 靠按序申请资源来预防。按某⼀顺序申请资源，释放资源则反序释放。破坏循环等待条件。
+
+## 17-10：线程池单例问题
+
+首先在ThreadPool类里面实现线程池的创建，
+我们这里创建的是FixedThreadPool线程池
+```java
+private ThreadPool(int corepoolsize, int maximumpoolsize, long keepalivetime){
+            this.corepoolsize = corepoolsize;
+            this.maximumpoolsize = maximumpoolsize;
+            this.keepalivetime = keepalivetime;
+        }
+public void executor(Runnable runnable){
+
+            if (runnable == null){
+                return;
+            }
+            if (mexecutor == null){
+                mexecutor = new ThreadPoolExecutor(corepoolsize, //核心线程数
+                        maximumpoolsize, //最大线程数
+                        keepalivetime, //闲置线程存活时间
+                        TimeUnit.MILLISECONDS, // 时间单位
+                        new LinkedBlockingDeque<Runnable>(), //线程队列
+                        Executors.defaultThreadFactory(), //线程工厂
+                        new ThreadPoolExecutor.AbortPolicy() //队列已满，而且当前线程数已经超过最大线程数时的异常处理策略
+                );
+            }
+            mexecutor.execute(runnable);
+        }
+```
+再然后对ThreadPool内部类，在类里面对他实例化，实现单例
+```java
+ // 获取单例的线程池对象
+    public static ThreadPool getThreadPool() {
+        if (mThreadPool == null) {
+            synchronized (ThreadManager.class) {
+                if (mThreadPool == null) {
+                    int cpuNum = Runtime.getRuntime().availableProcessors();// 获取处理器数量
+                    int threadNum = cpuNum * 2 + 1;// 根据cpu数量,计算出合理的线程并发数
+                    mThreadPool = new ThreadPool(threadNum, threadNum, 0L);
+                }
+            }
+        }
+        return mThreadPool;
+    }
+```
 # 18.锁
 
 ## 18-1：锁
@@ -4772,8 +5256,6 @@ Java中的死锁不能自行打破，所以线程死锁后，
 4. 锁分离
 5. 锁粗话
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 # 19.ThreadLocal
 
 ## 19-1：什么是ThreadLocal，优势在哪里
@@ -4827,8 +5309,6 @@ ThreadLocalMap实现中已经考虑了这种情况，
 这样就不存在线程安全问题，也不会影响程序的执行性能。
 但是由于在每个线程中都创建了副本，
 所以要考虑它对资源的消耗，比如内存的占用会比不使用 ThreadLocal 要大。
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # 21.无锁-CAS、Atomic
 
@@ -4923,27 +5403,7 @@ c. CAS存在的问题：
 a. LockSupport类中的park与unpark方法对unsafe中的park与unpark方法做了封装，LockSupport类中有各种版本pack方法，
 但最终都调用了Unsafe.park()方法。
 
-# 22. 死锁
 
-## 22-1：什么是线程死锁
-
-多个线程同时被阻塞，它们中的⼀个或者全部都在等待某个资源被释放。
-由于线程被⽆限期地阻塞，因此程序不可能正常终⽌。
-
-## 22-2：产生死锁的条件
-
-1. 该资源任意⼀个时刻只由⼀个线程占⽤。
-2. ⼀个进程因请求资源⽽阻塞时，对已获得的资源保持不放。
-3. 线程已获得的资源在末使⽤完之前不能被其他线程强⾏剥夺，只有⾃⼰使⽤完毕后才释放资源。
-4. 若⼲进程之间形成⼀种头尾相接的循环等待资源关系。
-
-## 22-3：如何解决线程死锁问题
-
-1. ⼀次性申请所有的资源。
-2. 占⽤部分资源的线程进⼀步申请其他资源时，如果申请不到，可以主动释放它占有的资源。
-3. 靠按序申请资源来预防。按某⼀顺序申请资源，释放资源则反序释放。破坏循环等待条件。
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # 23.AQS（队列同步器）
 
@@ -5104,7 +5564,7 @@ PriorityBlockingQueue它其实是一个特殊的无界队列，它其中无论�
 
 类的生命周期包括：加载、连接、初始化、使用和卸载
 
-## 1-2：类的加载过程
+## 1-2：类的加载过程（37期）
 
 类的加载过程分为：加载->连接->初始化。连接过程又可分为三步:验证->准备->解析
 1. 加载，
@@ -5112,10 +5572,16 @@ PriorityBlockingQueue它其实是一个特殊的无界队列，它其中无论�
       2. 将字节流所代表的静态存储结构转换为方法区的运行时数据结构
       3. 在内存中生成一个代表该类的 Class 对象,作为方法区这些数据的访问入口
 2. 连接，连接又包含三块内容：验证、准备、初始化。
-   * 1）验证，文件格式验证、元数据验证、字节码验证、符号引用验证；
+   * 1）验证，验证阶段用于检查被加载的类是否有正确的内部结构，
+             并和其他类协调一致。即是否满足java虚拟机的约束。
    * 2）准备，为类的静态变量分配内存，并将其初始化为默认值；
-   * 3）解析，虚拟机将常量池内的符号引用转换为直接引用
-3. 初始化，开始执行java代码
+   * 3）解析，解析阶段的目的，就是将这些符号引用解析为实际引用。
+             如果符号引用指向一个未被加载的类，
+             或者未被加载类的字段或方法，
+             那么解析将触发这个类的加载
+             但未必会触发解析与初始化
+3. 初始化，类的初始化阶段，虚拟机主要对类变量进行初始化。
+         虚拟机调用< clinit>方法，进行类变量的初始化。
 4. 使用，new出对象程序中使用
 5. 卸载，执行垃圾回收
     卸载类需要满足3个要求:
@@ -5172,6 +5638,62 @@ PriorityBlockingQueue它其实是一个特殊的无界队列，它其中无论�
 　　系统类加载器(AppClassLoader)，由Java语言实现，父类加载器为ExtClassLoader
 　　自定义类加载器，父类加载器肯定为AppClassLoader。
 
+## 1-5：创建并使用自定义类加载器
+
+我们可以通过继承ClassLoader来实现自己的类加载器。
+如果要实现自定义类，通过重写findClass方法
+```java
+public class Hello {
+   public void test(String str){
+       System.out.println(str);}}
+--------------------------------------------------------------------------
+public class MyClassloader extends ClassLoader {
+    private byte[] getBytes(String fileName) throws IOException {
+        File file = new File(fileName);
+        long len = file.length();
+        byte[] raw = new byte[(int) len];
+        try (FileInputStream fin = new FileInputStream(file)) {
+            //一次性读取Class文件的全部二进制数据
+            int read = fin.read(raw);
+            if (read != len) {
+                throw new IOException("无法读取全部文件");
+            }
+            return raw;}}
+    @Override
+    protected Class<?> findClass(String name) throws ClassNotFoundException {
+        Class clazz = null;
+        //将包路径的(.)替换为斜线(/)
+        String fileStub = name.replace(".", "/");
+        String classFileName = fileStub + ".class";
+        File classFile = new File(classFileName);
+
+        //如果Class文件存在，系统负责将该文件转换为Class对象
+        if (classFile.exists()) {
+            try {
+                //将Class文件的二进制数据读入数组
+                byte[] raw = getBytes(classFileName);
+                //调用ClassLoader的defineClass方法将二进制数据转换为Class对象
+                clazz = defineClass(name, raw, 0, raw.length);
+            } catch (IOException e) {
+                e.printStackTrace();}}
+        //如果clazz为null,表明加载失败，抛出异常
+        if (null == clazz) {
+            throw new ClassNotFoundException(name);
+        }
+        return clazz;}
+----------------------------------------------------------------------------------------
+    public static void main(String[] args) throws Exception {
+        String classPath = "loader.Hello";
+        MyClassloader myClassloader = new MyClassloader();
+        Class<?> aClass = myClassloader.loadClass(classPath);
+        Method main = aClass.getMethod("test", String.class);
+        System.out.println(main);
+        main.invoke(aClass.newInstance(), "Hello World");}}
+//输出结果
+//Hello World
+```
+
+
 ## 1-5：双亲委派模型流程
 
 每一个类都有一个对应的的类加载器。
@@ -5216,6 +5738,7 @@ jvm实现中已经保证了必须由bootatrp来加载
 自定义类加载器，重写loadClass方法；
 使用线程上下文类加载器；
 
+## 1-6：
 
 # 3.垃圾回收
 
@@ -5479,6 +6002,14 @@ CMS（Concurrent Mark Sweep）收集器是并发收集器，
          但是内存整理的过程是无法并发的，
          空间碎片没有了但是停顿时间变长了
 
+#### 3-8-6-1：CMS 出现FullGC的原因
+
+1、年轻代晋升到老年代没有足够的连续空间，
+   很有可能是内存碎片导致的，因此会触发FULL GC
+2、在并发过程中JVM觉得在
+   并发过程结束之前堆就会满，需要提前触发FullGC
+CMS失败后使用备案SerialOld收集器
+
 ### 3-8-7：G1收集器
 
 G1 (Garbage-First) 是一款面向服务器的垃圾收集器,
@@ -5599,8 +6130,6 @@ G1收集器使用的是“标记-整理”算法，进行了空间整合，降�
 因为老年代的空间比较大，
 不可能采用复制算法，特别占用内存空间，
 
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # 4. JVM内存模型
 
@@ -5908,6 +6437,12 @@ Frame 被创建时，操作栈是空的。
 
 为了保证线程中的局部变量不被别的线程访问到，虚拟机栈和本地⽅法栈是线程私有的。
 
+### 4-1-5：堆和栈的区别是什么？
+
+一个是线程独享的，一个是线程共享的
+堆中主要存放对象实例。栈（局部变量表）
+中主要存放各种基本数据类型、对象的引用。
+
 ## 4-3：程序计数器
 
 ### 4-3-1：为什么要有程序计数器（作用）
@@ -5923,6 +6458,8 @@ JVM就是通过读取程序计数器的值来决定下一条需要执行的字�
 ### 4-3-2：程序计数器为什么是私有的?
 
 程序计数器私有主要是为了线程切换后能恢复到正确的执⾏位置。
+
+
 
 ## 4-4：元空间
 
@@ -6084,8 +6621,6 @@ JMM是Java内存模型，
    如果小于检查HandlePromotionFailure设置，
    如果true则只进行Monitor GC,如果false则进行Full GC。 
 
-# -----------------------------------------------------------------------------------------------
-
 # 8.内存泄露与内存溢出
 
 ## 8-1：什么是内存泄漏
@@ -6096,36 +6631,11 @@ JMM是Java内存模型，
 
 可以通过一些性能监测分析工具， 如 JProfiler、 Optimizeit Profiler。
 
-### 8-1-2：java中会存在内存泄露呢？什么时候发生
-
-会存在内存泄露
-但是也有几种情况会造成内存泄漏：
-1. 静态集合类，容器中的对象在程序结束之前将不能被释放，从而造成内存泄漏。
-2. 各种连接，如数据库连接、网络连接和IO连接等。
-             只有连接被关闭后，垃圾回收器才会回收对应的对象。
-             否则，将会造成大量的对象无法被回收，从而引起内存泄漏。
-3. 变量不合理的作用域。一个变量的定义的作用范围大于其使用范围，
-                     很有可能会造成内存泄漏。
-4. 内部类持有外部类，由于内部类持有外部类的实例对象，
-                   这个外部类对象将不会被垃圾回收，
-                   这也会造成内存泄露。
-5. 改变哈希值，造成内存泄露
-   
 ## 8-2：什么是内存溢出
 
 指程序申请内存时，没有足够的内存供申请者使用，
 或者说，给了你一块存储int类型数据的存储空间，
 但是你却存储long类型的数据，那么结果就是内存不够用，
-
-### 8-2-1：什么情况下会发生堆内存溢出，栈内存溢出
-
-`栈溢出(StackOverflowError)`
-栈是线程私有的，他的生命周期与线程相同，
-每个方法在执行的时候都会创建一个栈帧，用来存储局部变量表，操作数栈，动态链接，方法出口灯信息。
-局部变量表又包含基本数据类型，对象引用类型（局部变量表编译器完成，运行期间不会变化）
-栈溢出就是方法执行是创建的栈帧超过了栈的深度。那么最有可能的就是方法递归调用产生这种结果。
-`堆溢出(OutOfMemoryError:java heap space)`
-堆中主要存储的是对象。如果不断的new对象则会导致堆中的空间溢出
 
 ### 8-2-2：手写出现内存溢出的情形
 ```java
@@ -6168,6 +6678,35 @@ public class Test {
    尽量避免使用String，
    而应使用StringBuffer，
    因为每一个String对象都会独立占用内存一块区域
+
+## 8-5：内存结构的溢出与泄露
+
+### 8-5-1：溢出
+
+`栈溢出(StackOverflowError)`
+栈溢出就是方法执行是创建的栈帧超过了栈的深度。
+那么最有可能的就是方法递归调用产生这种结果。
+`堆溢出(OutOfMemoryError:java heap space)`
+堆中主要存储的是对象。如果不断的new对象则会导致堆中的空间溢出
+`计数器溢出`
+不会发生溢出，因为它所需要存储的内容仅仅
+就是下一个需要待执行的命令的地址，
+无论代码有多少，最坏情况下死循环也不会让这块内存区域超限
+
+### 8-5-2：泄露
+
+`堆泄露`
+非静态内部类创建静态实例造成的内存泄漏
+单例造成的内存泄漏
+线程造成的内存泄漏
+
+`栈泄露`
+比如说栈中的元素已经弹出，
+已经没有用了。但是事实上，
+被弹出的元素依然存在于某个数组中，
+它依然被某个数组所引用，GC是无法回收被引用着的对象的。
+
+
 
 # 9.调优工具
 
