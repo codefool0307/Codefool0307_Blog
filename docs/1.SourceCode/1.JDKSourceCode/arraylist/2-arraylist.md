@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-10-12 08:14:25
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-10-12 09:22:25
+ * @LastEditTime: 2020-10-12 09:33:46
  * @FilePath: \1.JDKSourceCode\arraylist\2-arraylist.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/Java-Point/#/)，如对源码有异议请在我的博客中提问
 -->
@@ -34,13 +34,30 @@ RandomAccess 是 List 实现所使用的标记接口，用来表明其`支持快
 
 此接口的主要目的是允许一般的算法更改其行为，从而在将其应用到随机或连续访问列表时能提供良好的性能。
 
-标记接口（Marker）：这就说明了 RandomAccess 为空的原因，这个接口的功能仅仅起到标记的作用。
+ RandomAccess 为空的原因就是`这个接口的功能仅仅起到标记的作用。`
 
 ### 2.2.1 其他的空接口
 
 那么看看arraylist还有没有继承其他的空接口呢
 
+1. Cloneable 接口
+   实现了 Cloneable 接口，以指示 Object.clone() 方法可以合法地对该类实例进行按字段复制。
 
+   如果在没有实现 Cloneable 接口的实例上调用 Object 的 clone 方法，则会导致抛出 CloneNotSupportedException 异常。
+
+2. Serializable 接口
+   类通过实现 java.io.Serializable 接口以启用其序列化功能。
+
+   未实现此接口的类将无法使其任何状态序列化或反序列化。
+
+### 2.2.2 标记接口的作用
+
+先说一下**结论**
+
+我们可以利用RandomAccess在遍历前进行判断，根据 List 的不同子类选择不同的遍历方式， 提升算法性能。
+
+再来看看
+以RandomAccess为例，
 
 ## 2.3 arraylist源码部分
 
