@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-09-05 17:08:02
+ * @LastEditTime: 2020-10-12 09:35:36
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -11,7 +11,8 @@
     
     * <font color="#00E0FF">一、JDK源码</font>
     
-        * [1 数据类型](./1.SourceCode/1.JDKSourceCode/1-数据类型.md)  
+        * [1 数据类型](./1.SourceCode/1.JDKSourceCode/1-数据类型.md)
+        * [2 ArrayList](./1.SourceCode/1.JDKSourceCode/arraylist/2-arraylist.md)  
   
     * <font color="#00E0FF">二、并发源码</font>
     
