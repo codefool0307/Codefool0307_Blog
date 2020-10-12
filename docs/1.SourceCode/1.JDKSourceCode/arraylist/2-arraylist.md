@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-10-12 08:14:25
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-10-12 09:33:46
+ * @LastEditTime: 2020-10-12 14:22:27
  * @FilePath: \1.JDKSourceCode\arraylist\2-arraylist.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/Java-Point/#/)，如对源码有异议请在我的博客中提问
 -->
@@ -36,7 +36,7 @@ RandomAccess 是 List 实现所使用的标记接口，用来表明其`支持快
 
  RandomAccess 为空的原因就是`这个接口的功能仅仅起到标记的作用。`
 
-### 2.2.1 其他的空接口
+### 2.2.2 其他的空接口
 
 那么看看arraylist还有没有继承其他的空接口呢
 
@@ -50,7 +50,7 @@ RandomAccess 是 List 实现所使用的标记接口，用来表明其`支持快
 
    未实现此接口的类将无法使其任何状态序列化或反序列化。
 
-### 2.2.2 标记接口的作用
+### 2.2.3 标记接口的作用
 
 先说一下**结论**
 
@@ -59,177 +59,160 @@ RandomAccess 是 List 实现所使用的标记接口，用来表明其`支持快
 再来看看
 以RandomAccess为例，
 
-## 2.3 arraylist源码部分
+因为JDK作者说实现了RandomAccess 接口，那表示它能快速随机访问存储的元素
+
+既然能够实现快速访问，那么想一下啥样子的`数据结构`可以实现快速访问--->数组可以实现
+
+1. 数组支持随机访问，查询速度快，增删元素慢；
+2. 链表支持顺序访问，查询速度慢，增删元素快。
+
+那么这样，LinkedList底层是链表，那么他查询慢，是不是就没有实现RandomAccess 接口
+带着这样的疑问，我去看源码LinkedList源码
 
 ```java
-package java.util;
+public class LinkedList<E>
+    extends AbstractSequentialList<E>
+    implements List<E>, Deque<E>, Cloneable, java.io.Serializable
+```
 
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.UnaryOperator;
-import sun.misc.SharedSecrets;
+好了，来总结一下
 
-/**
- * Resizable-array implementation of the <tt>List</tt> interface.  Implements
- * all optional list operations, and permits all elements, including
- * <tt>null</tt>.  In addition to implementing the <tt>List</tt> interface,
- * this class provides methods to manipulate the size of the array that is
- * used internally to store the list.  (This class is roughly equivalent to
- * <tt>Vector</tt>, except that it is unsynchronized.)
- *
- * <p>The <tt>size</tt>, <tt>isEmpty</tt>, <tt>get</tt>, <tt>set</tt>,
- * <tt>iterator</tt>, and <tt>listIterator</tt> operations run in constant
- * time.  The <tt>add</tt> operation runs in <i>amortized constant time</i>,
- * that is, adding n elements requires O(n) time.  All of the other operations
- * run in linear time (roughly speaking).  The constant factor is low compared
- * to that for the <tt>LinkedList</tt> implementation.
- *
- * <p>Each <tt>ArrayList</tt> instance has a <i>capacity</i>.  The capacity is
- * the size of the array used to store the elements in the list.  It is always
- * at least as large as the list size.  As elements are added to an ArrayList,
- * its capacity grows automatically.  The details of the growth policy are not
- * specified beyond the fact that adding an element has constant amortized
- * time cost.
- *
- * <p>An application can increase the capacity of an <tt>ArrayList</tt> instance
- * before adding a large number of elements using the <tt>ensureCapacity</tt>
- * operation.  This may reduce the amount of incremental reallocation.
- *
- * <p><strong>Note that this implementation is not synchronized.</strong>
- * If multiple threads access an <tt>ArrayList</tt> instance concurrently,
- * and at least one of the threads modifies the list structurally, it
- * <i>must</i> be synchronized externally.  (A structural modification is
- * any operation that adds or deletes one or more elements, or explicitly
- * resizes the backing array; merely setting the value of an element is not
- * a structural modification.)  This is typically accomplished by
- * synchronizing on some object that naturally encapsulates the list.
- *
- * If no such object exists, the list should be "wrapped" using the
- * {@link Collections#synchronizedList Collections.synchronizedList}
- * method.  This is best done at creation time, to prevent accidental
- * unsynchronized access to the list:<pre>
- *   List list = Collections.synchronizedList(new ArrayList(...));</pre>
- *
- * <p><a name="fail-fast">
- * The iterators returned by this class's {@link #iterator() iterator} and
- * {@link #listIterator(int) listIterator} methods are <em>fail-fast</em>:</a>
- * if the list is structurally modified at any time after the iterator is
- * created, in any way except through the iterator's own
- * {@link ListIterator#remove() remove} or
- * {@link ListIterator#add(Object) add} methods, the iterator will throw a
- * {@link ConcurrentModificationException}.  Thus, in the face of
- * concurrent modification, the iterator fails quickly and cleanly, rather
- * than risking arbitrary, non-deterministic behavior at an undetermined
- * time in the future.
- *
- * <p>Note that the fail-fast behavior of an iterator cannot be guaranteed
- * as it is, generally speaking, impossible to make any hard guarantees in the
- * presence of unsynchronized concurrent modification.  Fail-fast iterators
- * throw {@code ConcurrentModificationException} on a best-effort basis.
- * Therefore, it would be wrong to write a program that depended on this
- * exception for its correctness:  <i>the fail-fast behavior of iterators
- * should be used only to detect bugs.</i>
- *
- * <p>This class is a member of the
- * <a href="{@docRoot}/../technotes/guides/collections/index.html">
- * Java Collections Framework</a>.
- *
- * @author  Josh Bloch
- * @author  Neal Gafter
- * @see     Collection
- * @see     List
- * @see     LinkedList
- * @see     Vector
- * @since   1.2
- */
+首先数组支持随机快速查询，链表是不支持快速查询
 
-public class ArrayList<E> extends AbstractList<E>
-        implements List<E>, RandomAccess, Cloneable, java.io.Serializable
-{
-    private static final long serialVersionUID = 8683452581122892189L;
+那么我就可以用这个标记接口用来标记，我这个方法支持快速访问，看起来简单明了，没有其他意思
 
-    /**
-     * Default initial capacity.
-     */
-    private static final int DEFAULT_CAPACITY = 10;
+### 2.2.4 遍历方式的选择
 
-    /**
-     * Shared empty array instance used for empty instances.
-     */
-    private static final Object[] EMPTY_ELEMENTDATA = {};
+由于不同的类，选择不同的遍历方式，算法性能是不一样的
 
-    /**
-     * Shared empty array instance used for default sized empty instances. We
-     * distinguish this from EMPTY_ELEMENTDATA to know how much to inflate when
-     * first element is added.
-     */
-    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+-------------------------------------------------------
+想一下有哪几种遍历方式
+-------------------------------------------------------
 
-    /**
-     * The array buffer into which the elements of the ArrayList are stored.
-     * The capacity of the ArrayList is the length of this array buffer. Any
-     * empty ArrayList with elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA
-     * will be expanded to DEFAULT_CAPACITY when the first element is added.
-     */
-    transient Object[] elementData; // non-private to simplify nested class access
+比较一下：ArrayList与LinkedList
 
-    /**
-     * The size of the ArrayList (the number of elements it contains).
-     *
-     * @serial
-     */
-    private int size;
+`总结：ArrayList 使用 for 循环遍历优于迭代器遍历 LinkedList 使用 迭代器遍历优于 for 循环遍历`
 
-    /**
-     * Constructs an empty list with the specified initial capacity.
-     *
-     * @param  initialCapacity  the initial capacity of the list
-     * @throws IllegalArgumentException if the specified initial capacity
-     *         is negative
-     */
-    public ArrayList(int initialCapacity) {
-        if (initialCapacity > 0) {
-            this.elementData = new Object[initialCapacity];
-        } else if (initialCapacity == 0) {
-            this.elementData = EMPTY_ELEMENTDATA;
-        } else {
-            throw new IllegalArgumentException("Illegal Capacity: "+
-                                               initialCapacity);
-        }
-    }
+实验待做（https://juejin.im/post/6844903519066193927）
 
-    /**
-     * Constructs an empty list with an initial capacity of ten.
-     */
-    public ArrayList() {
+## 2.3 arraylist源码部分
+
+### 2.3.1 类的头部信息
+
+已经在2.2节类图进行了阐述，不在阐述
+
+### 2.3.2 属性
+
+```java
+transient Object[] elementData; 
+private int size;
+```
+
+ArrayList只有两个属性
+
+elementData---->元素数组
+size----------->数组大小（已使用的数组大小）
+
+有两点是需要注意的：
+1. size只是表示已使用的数量，比如说elementData有十个位置，但是size只用了3个位置
+   但是数组真正的大小却是elementData 的大小
+2. 当添加新的元素时，如果该`数组不够`，会创建新数组，并将原数组的元素拷贝到新数组。之后，将该变量指向新数组。
+
+### 2.3.3 构造方法
+
+ArrayList一共有三个构造器
+
+#### 2.3.3.1 无参构造函数
+
+```java
+
+ public ArrayList() {
         this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
     }
+```
 
-    /**
-     * Constructs a list containing the elements of the specified
-     * collection, in the order they are returned by the collection's
-     * iterator.
-     *
-     * @param c the collection whose elements are to be placed into this list
-     * @throws NullPointerException if the specified collection is null
-     */
-    public ArrayList(Collection<? extends E> c) {
-        elementData = c.toArray();
-        if ((size = elementData.length) != 0) {
-            // c.toArray might (incorrectly) not return Object[] (see 6260652)
-            if (elementData.getClass() != Object[].class)
-                elementData = Arrays.copyOf(elementData, size, Object[].class);
-        } else {
-            // replace with empty array.
-            this.elementData = EMPTY_ELEMENTDATA;
-        }
+同时，由于有一个变量，DEFAULTCAPACITY_EMPTY_ELEMENTDATA
+
+看看定义中有没有
+
+```java
+private static final int DEFAULT_CAPACITY = 10;
+
+private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+```
+
+我一直以为，在未初始化的时候，arraylist默认大小是10，其实不是很严谨的
+
+因为，有一个DEFAULTCAPACITY_EMPTY_ELEMENTDATA的空数组，因为arraylist考虑到节省内存
+
+一些场景下仅仅创建了ArrayList对象，但是没有用到他，所以ArrayList初始化是一个空数组
+
+只有当`首次`**注意**`必须是首次`才真正初始化为容量为10的数组
+
+#### 2.3.3.2 ArrayList(int initialCapacity)
+
+```java
+public ArrayList(int initialCapacity) {
+    // 初始化容量大于 0 时，创建 Object 数组
+    if (initialCapacity > 0) {
+        this.elementData = new Object[initialCapacity];
+    // 初始化容量等于 0 时，使用 EMPTY_ELEMENTDATA 对象
+    } else if (initialCapacity == 0) {
+        this.elementData = EMPTY_ELEMENTDATA;<-----有个这个
+    // 初始化容量小于 0 时，抛出 IllegalArgumentException 异常
+    } else {
+        throw new IllegalArgumentException("Illegal Capacity: "+
+                                           initialCapacity);
     }
+}
+```
 
-    /**
-     * Trims the capacity of this <tt>ArrayList</tt> instance to be the
-     * list's current size.  An application can use this operation to minimize
-     * the storage of an <tt>ArrayList</tt> instance.
-     */
+主要是根据传入的初始化容量，创建ArrayList数组
+
+但是呢，如果我们已经知道了数组的大小，一定要使用构造方法
+
+这样做的目的是可以避免数组扩容，提高性能；也可以合理使用内存
+
+同时有一个，EMPTY_ELEMENTDATA
+
+```java
+private static final Object[] EMPTY_ELEMENTDATA = {};
+```
+
+哎，这个不就是跟无参构造函数中DEFAULTCAPACITY_EMPTY_ELEMENTDATA一样的作用呢。
+
+一个空数组
+
+原来在下面的扩容机制上对这两种空白数组机制进行了解释，在扩容机制上，
+
+DEFAULTCAPACITY_EMPTY_ELEMENTDATA 首次扩容为 10 ，
+而EMPTY_ELEMENTDATA按照1.5 倍扩容从 0 开始而不是10 
+之后会详细介绍
+
+#### 2.3.3.3 ArrayList(Collection<? extends E> c)
+
+```java
+public ArrayList(Collection<? extends E> c) {
+    // 将 c 转换成 Object 数组
+    elementData = c.toArray();
+    // 如果数组大小大于 0
+    if ((size = elementData.length) != 0) {
+        // <X> 如果集合元素不是 Object[] 类型，则会创建新的 Object[] 数组，
+        //并将 elementData 赋值到其中，最后赋值给 elementData 。
+        if (elementData.getClass() != Object[].class)
+            elementData = Arrays.copyOf(elementData, size, Object[].class);
+    // 如果数组大小等于 0 ，则使用 EMPTY_ELEMENTDATA 。
+    } else {
+        // replace with empty array.
+        this.elementData = EMPTY_ELEMENTDATA;
+    }
+}
+```
+待修订http://svip.iocoder.cn/JDK/Collection-ArrayList/
+
+### 2.3.4 添加单个元素
+
+```java
     public void trimToSize() {
         modCount++;
         if (size < elementData.length) {

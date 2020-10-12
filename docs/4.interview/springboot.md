@@ -453,7 +453,7 @@ Spring Boot 项目最终打包成的 jar 是可执行 jar ，这种 jar 可以�
 
 Spring Boot 的 jar 无法被其他项目依赖，主要还是他和普通 jar 的结构不同。普通的 jar 包，解压后直接就是包名，包里就是我们的代码，而 Spring Boot 打包成的可执行 jar 解压后，在 \BOOT-INF\classes 目录下才是我们的代码，因此无法被直接引用。如果非要引用，可以在 pom.xml 文件中增加配置，将 Spring Boot 项目打包成两个 jar ，一个可执行，一个可引用。
 
-## 22-5：运行 Spring Boot 有哪几种方式？
+## 22-5：运行 Spring Boot 有哪几种方式
 
 1）打包用命令或者放到容器中运行
 
@@ -461,7 +461,7 @@ Spring Boot 的 jar 无法被其他项目依赖，主要还是他和普通 jar �
 
 3）直接执行 main 方法运行
 
-## 22-6：Spring Boot 需要独立的容器运行吗？
+## 22-6：Spring Boot 需要独立的容器运行吗
 
 可以不需要，内置了 Tomcat/ Jetty 等容器。
 
@@ -471,7 +471,7 @@ Spring Boot 的 jar 无法被其他项目依赖，主要还是他和普通 jar �
 
 2）导入spring-boot-dependencies项目依赖
 
-## 22-7：如何使用 Spring Boot 实现异常处理？
+## 22-7：如何使用 Spring Boot 实现异常处理
 
 Spring 提供了一种使用 ControllerAdvice 处理异常的非常有用的方法。我们通过实现一个 ControlerAdvice 类，来处理控制器类抛出的所有异常。
 
