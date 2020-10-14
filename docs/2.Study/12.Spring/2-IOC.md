@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-07-08 14:02:49
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-10-12 15:39:08
+ * @LastEditTime: 2020-10-12 16:13:13
  * @FilePath: \2.Study\12.Spring\2-IOC.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
 --> 
@@ -48,7 +48,9 @@ Ioc就是一个专门<font color="red" size="5">用来创建对象</font>的<fon
 
 2. 我想让spring自动创建一个person对象，我就需要使用bean----->使用xml文件
    * bean是什么？~~组成应用程序的主体及由 Spring IOC 容器所管理的对象~~简单的说就是一个对象，而且在bean里面把想写的写在里面
- 
+   
+   目前bean有一种写法在xml中写
+
    * bean 标签有三个常用属性
      * id
      * name
@@ -73,8 +75,6 @@ Ioc就是一个专门<font color="red" size="5">用来创建对象</font>的<fon
 </bean>
 </beans>
 ```
-
-
 
 3. 我有了这个person类的bean，那么我怎么使用呢，就需要对spring核心容器进行创建工作
 
