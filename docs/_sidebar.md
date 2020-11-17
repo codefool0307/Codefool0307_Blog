@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-11-17 20:19:17
+ * @LastEditTime: 2020-11-17 20:20:37
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -259,7 +259,7 @@
     * <font color="#00E0FF">八、Kafka学习</font>
    
 
-    * <font color="#FF0000">V-面试经验</font>
+* <font color="#FF0000">V-面试经验</font>
   
         * [1-java基础面试考察点](./4.interview/java.md)
         * [2-并发面试考察点](./4.interview/并发.md)
