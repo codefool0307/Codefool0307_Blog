@@ -7,7 +7,7 @@
 Spring Boot 是 Spring 开源组织下的子项目，是 Spring 组件一站式解决方案，
 主要是简化了使用 Spring 的难度，简省了繁重的配置，提供了各种启动器，开发者能快速上手。
 
-## 15-2：springboot跟spring的差别？
+## 1-2：springboot跟spring的差别？
 
 1. Maven依赖
    Spring创建Web应用程序所需的最小依赖项至少需要两个
@@ -63,7 +63,27 @@ Spring Boot引导
       部署时灵活指定配置文件的选项
       用于集成测试的随机端口生成
 
-## 1-3：Spring Boot 有哪些优点？
+## 1-3：Spring Boot、Spring MVC 和 Spring 有什么区别？
+
+1. Spring 框架就像一个家族，但他们的基础都是Spring 的ioc和 aop，ioc 提供了依赖注入的容器， 
+   aop解决了面向横切面的编程，然后在此两者的基础上实现了其他延伸产品的高级功能。
+2. Spring MVC提供了一种轻度耦合的方式来开发web应用。
+   它是Spring的一个模块，是一个web框架。
+   通过Dispatcher Servlet, ModelAndView 和 View Resolver，
+   开发web应用变得很容易。
+   解决的问题领域是网站应用程序或者服务开发——URL路由、Session、模板引擎、静态Web资源等等。
+3. Spring Boot实现了自动配置，降低了项目搭建的复杂度。
+   它主要是为了解决使用Spring框架需要进行大量的配置太麻烦的问题，
+   所以它并不是用来替代Spring的解决方案，
+   而是和Spring框架紧密结合用于提升Spring开发者体验的工具。
+   同时它集成了大量常用的第三方库配置(例如Jackson, JDBC, Mongo, Redis, Mail等等)，
+   Spring Boot应用中这些第三方库几乎可以零配置的开箱即用(out-of-the-box)。
+所以
+Spring 是一个“引擎”;
+Spring MVC 是基于Spring的一个 MVC 框架;
+Spring Boot 是基于Spring4的条件注册的一套快速开发整合包。
+
+## 1-3：Spring Boot 有哪些优点
 
 1. 容易上手，提升开发效率，为 Spring 开发提供一个更快、更广泛的入门体验。
 2. 开箱即用，远离繁琐的配置。
@@ -72,6 +92,22 @@ Spring Boot引导
          运行状况检查和外部化配置等。
 4. 没有代码生成，也不需要XML配置。
 5. 避免大量的 Maven 导入和各种版本冲突。
+
+## 1-4：Spring Boot 有哪些缺点
+
+1. 没有提供相应的【服务发现和注册】的配套功能。
+
+## 1-5：Spring Boot项目结构
+
+方式一，controller、service、dao 三个包，
+       每个包下面添加相应的 XXXController、YYYService、ZZZDAO 。
+方式二，按照业务模块分包，每个包里面放 Controller、Service、DAO 类。
+       例如，业务模块分成 user、order、item 等等包，
+       在 user 包里放 UserController、UserService、UserDAO 类。
+
+
+
+
 
 # 2.Springboot流程
 
@@ -121,6 +157,13 @@ run方法中去创建了一个SpringApplication实例，
 
 ## 2-3：SpringBoot的自动装配原理
 
+1. Spring Boot 在启动时扫描项目所依赖的 jar 包，
+   寻找包含spring.factories 文件的 jar 包。
+2. 根据 spring.factories 配置加载 AutoConfigure 类。
+3. 根据 @Conditional 等条件注解 的条件，
+   进行自动配置并将Bean注入Spring IoC中。
+
+
 Spring Boot启动的时候会通过@EnableAutoConfiguration注解
 找到META-INF/spring.factories配置文件中的所有自动配置类，
 并对其进行加载，这些自动配置类都是以AutoConfiguration结尾来命名的，
@@ -137,10 +180,39 @@ Spring Boot启动的时候会通过@EnableAutoConfiguration注解
 3、找出所有的应用程序监听器，设置到listeners属性中
 4、推断并设置main方法的定义类，找到运行的主类
  
-## 2-5：如何在自定义端口上运行 Spring Boot 应用程序？
+## 2-5：如何在自定义端口上运行 Spring Boot 应用程序
 
 为了在自定义端口上运行 Spring Boot 应用程序，
 可以在application.properties 中指定端口。server.port = 8090
+
+## 2-6：运行 Spring Boot 有哪几种方式
+
+1、打包成 Fat Jar ，直接使用 java -jar 运行。
+2、在 IDEA 或 Eclipse 中，
+   直接运行应用的 Spring Boot 
+   启动类的 #main(String[] args) 启动。适用于开发调试场景。
+3、如果是 Web 项目，可以打包成 War 包，使用外部 Tomcat 或 Jetty 等容器。
+
+## 2-7：重新加载 Spring Boot 上的更改，而无需重新启动服务器
+
+一共有三种方式，可以实现效果：
+
+1. spring-boot-devtools 插件。这个工具需要配置 IDEA 的自动编译。
+2. Spring Loaded 插件。
+3. JRebel 插件，需要付费。
+
+# 3.解决Springboot循环依赖
+
+当然最好的方法是重构代码抽取公用部分被大家一起依赖，当然代价也比较大。
+将两个service类进行松耦合，我们常见的循环依赖多发生于多个业务类之间，
+由于业务需要，可能会发生方法互相调用的情况。
+这种方式，我们可以将公开的方法抽成接口，
+而方法的实现类里面值注入接口就可以，这样就不会发生循环依赖。
+也即是在A实现类里面@autowired是B的接口，
+B实现类里面@autowired是A的接口，这样就不会循环依赖。
+在你的配置文件中，在互相依赖的两个bean的任意
+一个@autowired后面加上@lazy-init属性。在你注入bean时，
+在互相依赖的两个bean上加上@Lazy注解也可以。
 
 # 3.视图技术Thymeleaf
 
@@ -148,66 +220,129 @@ Spring Boot启动的时候会通过@EnableAutoConfiguration注解
 Thymeleaf 最大的特点是能够直接在浏览器中打开并正确显示模板页面，
 而不需要启动整个 Web 应用。
 
-# 3.配置
 
-## 3-1：什么是 JavaConfig？
+
+
+
+# 5.配置文件
+
+## 5-1：Spring Boot 的配置文件有哪几种格式
+
+`1、XML配置文件`
+  Bean 所需的依赖项和服务在XML格式的配置文件中指定。
+  这些配置文件通常包含许多 bean 定义和特定于应用程序的配置选项。
+  通常以 bean 标签开头。例如：
+```java
+<bean id="studentBean" class="org.edureka.firstSpring.StudentBean">
+    <property name="name" value="Edureka"></property>
+</bean>
+```
+
+`2、注解配置。`
+
+可以通过在相关的类，方法或字段声明上使用注解，
+将 Bean 配置为组件类本身，而不是使用 XML 来描述 Bean 装配。
+默认情况下，Spring 容器中未打开注解装配。
+因此，您需要在使用它之前在 Spring 配置文件中启用它。例如：
+```java
+<beans>
+<context:annotation-config/>
+<!-- bean definitions go here -->
+</beans>
+```
+
+`3、Java Config 配置`
+
+Spring的Java配置是通过使用@Bean和@Configuration来实现。
+@Bean 注解扮演与 <bean/> 元素相同的角色。
+@Configuration 类允许通过简单地调用同一个类中的其他 @Bean 方法来定义 Bean 间依赖关系。
+```java
+@Configuration
+public class StudentConfig {
+    
+    @Bean
+    public StudentBean myStudent() {
+        return new StudentBean();
+    }  
+}
+```
+### 5-1-1：什么是 JavaConfig
 
 它提供了配置 Spring IoC 容器的纯Java 方法。因此它有助于避免使用 XML 配置。
 
-## 3-2：JavaConfig
+### 5-1-2：JavaConfig
 
 使用 JavaConfig 的优点在于：
 
 （1）面向对象的配置。由于配置被定义为 JavaConfig 中的类，因此用户可以充分利用 Java 
-中的面向对象功能。一个配置类可以继承另一个，重写它的@Bean 方法等。
-
+     中的面向对象功能。一个配置类可以继承另一个，重写它的@Bean 方法等。
 （2）减少或消除 XML 配置。基于依赖注入原则的外化配置的好处已被证明。但是，许多开发人员
-不希望在 XML 和 Java 之间来回切换。JavaConfig 为开发人员提供了一种纯 Java 
-方法来配置与 XML 配置概念相似的 Spring 容器。从技术角度来讲，
-只使用 JavaConfig 配置类来配置容器是可行的，
-但实际上很多人认为将JavaConfig 与 XML 混合匹配是理想的。
-
+      不希望在 XML 和 Java 之间来回切换。JavaConfig 为开发人员提供了一种纯 Java 
+      方法来配置与 XML 配置概念相似的 Spring 容器。从技术角度来讲，
+      只使用 JavaConfig 配置类来配置容器是可行的，
+      但实际上很多人认为将JavaConfig 与 XML 混合匹配是理想的。
 （3）类型安全和重构友好。JavaConfig 提供了一种类型安全的方法来配置 Spring容器。
-由于 Java 5.0 对泛型的支持，现在可以按类型而不是按名称检索 bean，
-不需要任何强制转换或基于字符串的查找。
+     由于 Java 5.0 对泛型的支持，现在可以按类型而不是按名称检索 bean，
+     不需要任何强制转换或基于字符串的查找。
 
+## 5-2：Spring Boot 默认配置文件是什么
 
-## 4-2：你如何理解 Spring Boot 配置加载顺序？
+对于 Spring Boot 应用，
+默认的配置文件根目录下的 application 配置文件，
+当然可以是 Properties 格式，也可以是 YAML 格式。
 
-在 Spring Boot 里面，可以使用以下几种方式来加载配置。
-1）properties文件；
-2）YAML文件；
-3）系统环境变量；
-4）命令行参数；
+## 5-3：Spring Boot配置加载顺序
 
-# 5.YAML与XML文件
+1. spring-boot-devtools依赖的spring-boot-devtools.properties 配置文件。
+2. 单元测试上的 @TestPropertySource 和 @SpringBootTest 注解指定的参数。
+3. 命令行指定的参数。例如 java -jar springboot.jar --server.port=9090。
+4. 命令行中的spring.application.json指定参数。
+   例如 java -Dspring.application.json='{"name":"Java"}' -jar springboot.jar 。
+5. ServletConfig 初始化参数。
+6. ServletContext 初始化参数。
+7. JNDI 参数。例如 java:comp/env 。
+8. Java 系统变量，即 System#getProperties() 方法对应的。
+9. 操作系统环境变量。
+10. RandomValuePropertySource 配置的 random.* 属性对应的值。
+11. Jar 外部的带指定 profile 的 application 配置文件。例如 application-{profile}.yaml 。
+12. Jar 内部的带指定 profile 的 application 配置文件。例如 application-{profile}.yaml 。
+13. Jar 外部 application 配置文件。例如 application.yaml 。
+14. Jar 内部 application 配置文件。例如 application.yaml 。
+15. 在自定义的 @Configuration 类中定于的 @PropertySource 。
+16. 启动的 main 方法中，定义的默认配置。
+    即通过 SpringApplication
+    #setDefaultProperties(Map<String, Object> defaultProperties) 
+    方法进行设置。
 
-## 17-5：什么是 YAML？
+## 5-4：Spring Boot 有哪几种读取配置的方式？
+
+1. @Value 注解，读取配置到属性。最常用的
+   另外，支持和@PropertySource 注解一起使用，指定使用的配置文件。
+2. @ConfigurationProperties 注解，读取配置到类上。
+   另外，支持和 @PropertySource 注解一起使用，指定使用的配置文件。
+
+## 5-4：什么是 YAML
 
 YAML 是一种可读的数据序列化语言。
-
 通常用于配置文件。与属性文件相比，
-
 如果我们想要在配置文件中添加复杂的属性，
-
 YAML 文件就更加结构化，而且更少混淆。
-
 YAML 具有分层配置数据。
 
-## 17-6：YAML 配置的优势在哪里 ?
+## 5-5：YAML 配置的优势在哪里
 
 配置有序，在一些特殊的场景下，配置有序很关键
 支持数组，数组中的元素可以是基本数据类型也可以是对象
 简洁
-相比 properties 配置文件，YAML 还有一个缺点，就是不支持 @PropertySource 注解导入自定义的 YAML 配置。
+相比 properties 配置文件，
+YAML 还有一个缺点，
+就是不支持 @PropertySource 注解导入自定义的 YAML 配置。
 
-## 17-7：Spring Boot 是否可以使用 XML 配置 ?
+## 5-6：Spring Boot 是否可以使用 XML 配置
 
 Spring Boot 推荐使用 Java 配置而非 XML 配置，但是 Spring Boot 中也可以使用 XML 配置，
 通过 @ImportResource 注解可以引入一个 XML 配置。
-
 spring boot 核心配置文件是什么？bootstrap.properties 和 application.properties 有何区别 ?
-
 单纯做 Spring Boot 开发，可能不太容易遇到 bootstrap.properties 配置文件，但是在结合 Spring Cloud 时，
 这个配置就会经常遇到了，特别是在需要加载一些远程配置文件的时侯。
 
@@ -407,9 +542,76 @@ Swagger 广泛用于可视化 API，使用 Swagger UI 为前端开发人员提�
    创建一个xml文件，该文件的名字就是站点的名字。
    编写XML的方式来进行设置。
 
-# 10.其他
+## 10-3：更改内嵌Tomcat的端口？
 
-## 22-1：如何重新加载 Spring Boot 上的更改，而无需重新启动服务器？Spring Boot项目如何热部署？
+方式一，修改 application.properties 配置文件的 server.port 属性。
+server.port=9090
+方式二，通过启动命令增加 server.port 参数进行修改。
+java -jar xxx.jar --server.port=9090
+
+
+
+# 10.Starter
+
+## 10-1：starter是什么
+
+Starter 主要用来简化依赖用的。比如我们之前做MVC时要引入日志组件
+，那么需要去找到log4j的版本，
+然后引入，现在有了Starter之后，直接用这个之后，
+log4j就自动引入了，也不用关心版本这些问题。
+
+## 10-1：Spring Boot 中的 starter 到底是什么
+
+它提供了一个自动化配置类，一般命名为 XXXAutoConfiguration ，
+在这个配置类中通过条件注解来决定一个配置是否生效（条件注解就是 Spring 中原本就有的），
+然后它还会提供一系列的默认配置，也允许开发者根据实际情况自定义相关配置，
+然后通过类型安全的属性注入将这些配置属性注入进来，新注入的属性会代替掉默认属性。
+
+## 10-2：spring-boot-starter-parent 有什么用
+
+定义了 Java 编译版本为 1.8 。
+使用 UTF-8 格式编码。
+继承自 spring-boot-dependencies，这个里边定义了依赖的版本，
+也正是因为继承了这个依赖，所以我们在写依赖时才不需要写版本号。
+执行打包操作的配置。
+自动化的资源过滤。
+自动化的插件配置。
+针对 application.properties 和 application.yml 的资源过滤，
+包括通过 profile 定义的不同环境的配置文件，
+例如 application-dev.properties 和 application-dev.yml。
+
+## 10-3： Starter 启动器
+
+spring-boot-starter-web 启动器，可以快速配置 Spring MVC 。
+mybatis-spring-boot-starter 启动器，可以快速配置 MyBatis 。
+
+# 11.打包
+
+## 11-1：Spring Boot打成的jar和普通的jar有什么区别
+
+Spring Boot 项目最终打包成的 jar 是可执行 jar ，
+这种 jar 可以直接通过 java -jar xxx.jar 命令来运行，
+这种 jar 不可以作为普通的 jar 被其他项目依赖，
+即使依赖了也无法使用其中的类。
+Spring Boot 的 jar 无法被其他项目依赖，
+主要还是他和普通 jar 的结构不同。
+普通的 jar 包，解压后直接就是包名，包里就是我们的代码，
+而 Spring Boot 打包成的可执行 jar 解压后，
+在 \BOOT-INF\classes 目录下才是我们的代码，
+因此无法被直接引用。
+如果非要引用，可以在 pom.xml 文件中增加配置，
+将 Spring Boot 项目打包成两个 jar ，一个可执行，一个可引用。
+
+## 11-2：如何打包 Spring Boot 项目？
+
+通过引入 spring-boot-maven-plugin 插件，
+执行 mvn clean package 命令，
+将 Spring Boot 项目打成一个 Fat Jar 。
+后续，我们就可以直接使用 java -jar 运行。
+
+# 12.
+
+## 22-1：如何重新加载 Spring Boot上的更改，而无需重新启动服务器？Spring Boot项目如何热部署？
 
 这可以使用 DEV 工具来实现。通过这种依赖关系，您可以节省任何更改，嵌入式tomcat 将重新启动。Spring Boot 有一个开发工具（DevTools）模块，它有助于提高开发人员的生产力。Java 开发人员面临的一个主要挑战是将文件更改自动部署到服务器并自动重启服务器。开发人员可以重新加载 Spring Boot 上的更改，而无需重新启动服务器。这将消除每次手动部署更改的需要。Spring Boot 在发布它的第一个版本时没有这个功能。这是开发人员最需要的功能。DevTools 模块完全满足开发人员的需求。该模块将在生产环境中被禁用。它还提供 H2 数据库控制台以更好地测试应用程序。
 
@@ -428,38 +630,9 @@ spring-boot-starter-security
 
 这有助于增加更少的依赖关系，并减少版本的冲突。
 
-## 22-3：Spring Boot 中的 starter 到底是什么 ?
 
-它提供了一个自动化配置类，一般命名为 XXXAutoConfiguration ，
 
-在这个配置类中通过条件注解来决定一个配置是否生效（条件注解就是 Spring 中原本就有的），
 
-然后它还会提供一系列的默认配置，也允许开发者根据实际情况自定义相关配置，
-
-然后通过类型安全的属性注入将这些配置属性注入进来，新注入的属性会代替掉默认属性。
-
-## 22-4：spring-boot-starter-parent 有什么用 ?
-
-定义了 Java 编译版本为 1.8 。
-使用 UTF-8 格式编码。
-继承自 spring-boot-dependencies，这个里边定义了依赖的版本，也正是因为继承了这个依赖，所以我们在写依赖时才不需要写版本号。
-执行打包操作的配置。
-自动化的资源过滤。
-自动化的插件配置。
-针对 application.properties 和 application.yml 的资源过滤，包括通过 profile 定义的不同环境的配置文件，例如 application-dev.properties 和 application-dev.yml。
-Spring Boot 打成的 jar 和普通的 jar 有什么区别 ?
-
-Spring Boot 项目最终打包成的 jar 是可执行 jar ，这种 jar 可以直接通过 java -jar xxx.jar 命令来运行，这种 jar 不可以作为普通的 jar 被其他项目依赖，即使依赖了也无法使用其中的类。
-
-Spring Boot 的 jar 无法被其他项目依赖，主要还是他和普通 jar 的结构不同。普通的 jar 包，解压后直接就是包名，包里就是我们的代码，而 Spring Boot 打包成的可执行 jar 解压后，在 \BOOT-INF\classes 目录下才是我们的代码，因此无法被直接引用。如果非要引用，可以在 pom.xml 文件中增加配置，将 Spring Boot 项目打包成两个 jar ，一个可执行，一个可引用。
-
-## 22-5：运行 Spring Boot 有哪几种方式
-
-1）打包用命令或者放到容器中运行
-
-2）用 Maven/ Gradle 插件运行
-
-3）直接执行 main 方法运行
 
 ## 22-6：Spring Boot 需要独立的容器运行吗
 

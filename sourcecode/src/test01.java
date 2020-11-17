@@ -3,6 +3,8 @@ import java.util.*;
 public class Main {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
+        String s1 = new String();
+        String next = scanner.next();
         int n = scanner.nextInt();
         String s = scanner.next();
         int[] a = new int[13];
