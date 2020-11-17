@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: 孙浩然
- * @LastEditTime: 2020-11-17 20:14:39
+ * @LastEditTime: 2020-11-17 20:15:01
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -282,4 +282,4 @@
   
 * <font color="#FF0000">VI-项目</font>
 
-    * <font color="#00E0FF">修订中</font>
+* <font color="#00E0FF">修订中</font>
