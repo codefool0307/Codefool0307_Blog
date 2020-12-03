@@ -1326,9 +1326,6 @@ HashMap 是否扩容，由 threshold 决定，而 threshold 又由初始容量�
    将扩容阈值 threshold 重新调整为 table.size * loadFactor。
   * 那么可以储存的最大容量就是：16384*0.75=12288
 
-
-
-
 ## 12-7：hash函数
 
 1. 直接定址法：直接以key或者key上加上某个常数作为哈希地址
