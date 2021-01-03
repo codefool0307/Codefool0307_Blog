@@ -259,7 +259,7 @@
     * <font color="#00E0FF">八、Kafka学习</font>
    
 
-* <font color="#FF0000">V-面试经验</font>
+<!--* <font color="#FF0000">V-面试经验</font>
   
     * [1-java基础面试考察点](./4.interview/java.md)
     * [2-并发面试考察点](./4.interview/并发.md)
@@ -278,7 +278,7 @@
     * [18-Ngnix面试考察点](./4.interview/18-Ngnix面经.md)
     * [19-Maven面试考察点](./4.interview/19-Maven面经.md)
     * [20-Git面试考察点](./4.interview/20-Git面经.md)
-    * [21-Jekins面试考察点](./4.interview/21-Jekins面经.md)
+    * [21-Jekins面试考察点](./4.interview/21-Jekins面经.md)-->
   
 * <font color="#FF0000">VI-项目</font>
 
