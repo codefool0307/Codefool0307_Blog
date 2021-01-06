@@ -1,8 +1,8 @@
 <!--
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
- * @LastEditors: 孙浩然
- * @LastEditTime: 2020-11-17 20:21:35
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-01-06 11:16:15
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -259,9 +259,10 @@
     * <font color="#00E0FF">八、Kafka学习</font>
    
 
-<!--* <font color="#FF0000">V-面试经验</font>
+* <font color="#FF0000">V-面试经验</font>
   
-    * [1-java基础面试考察点](./4.interview/java.md)
+    * [面经更新记录](./4.interview/11.更新记录.md)
+    <!--* [1-java基础面试考察点](./4.interview/java.md)
     * [2-并发面试考察点](./4.interview/并发.md)
     * [3-虚拟机面试考察点](./4.interview/JVM.md)
     * [4-linux面试考察点](./4.interview/4-linux面经.md)
