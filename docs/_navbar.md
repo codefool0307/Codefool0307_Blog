@@ -17,5 +17,6 @@
 * 秋招二维码
   
   * [好未来秋招二维码](./navbar/好未来.md) 
+  * [春招二维码](./navbar/招聘.md)
   
 * [博客项目](https://github.com/codefool0307/Java-Blog)
