@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-01-06 14:18:40
+ * @LastEditTime: 2021-01-06 14:34:10
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -262,24 +262,6 @@
 * <font color="#FF0000">V-面试经验</font>
   
     * [面经更新记录](./4.interview/11.更新记录.md)
-<!--* [1-java基础面试考察点](./4.interview/java.md)
-    * [2-并发面试考察点](./4.interview/并发.md)
-    * [3-虚拟机面试考察点](./4.interview/JVM.md)
-    * [4-linux面试考察点](./4.interview/4-linux面经.md)
-    * [5-shell面试考察点](./4.interview/5-shell面经.md)
-    * [6-计算机网络面试考察点](./4.interview/计网+操作.md)
-    * [7-MySQL面试考察点](./4.interview/数据库.md)
-    * [8-redis面试考察点](./4.interview/Redis.md)
-    * [9-MongDB面试考察点](./4.interview/9-MongDB面经.md)
-    * [10-算法面试考察点](./4.interview/10-算法面经.md)
-    * [11-设计模式面试考察点](./4.interview/11-设计模式.md)
-    * [12-框架面试考察点](./4.interview/12-15-框架面经.md)
-    * [16-SpringSecurity面试考察点](./4.interview/16-SpringSecurity面经.md)
-    * [17-Netty面试考察点](./4.interview/17-Netty面经.md)
-    * [18-Ngnix面试考察点](./4.interview/18-Ngnix面经.md)
-    * [19-Maven面试考察点](./4.interview/19-Maven面经.md)
-    * [20-Git面试考察点](./4.interview/20-Git面经.md)
-    * [21-Jekins面试考察点](./4.interview/21-Jekins面经.md)-->
   
 * <font color="#FF0000">VI-项目</font>
 
