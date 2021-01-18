@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-01-18 22:02:09
+ * @LastEditTime: 2021-01-18 22:12:11
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -13,7 +13,7 @@
     
         * [1 数据类型](./1.SourceCode/1.JDKSourceCode/1-数据类型.md)
         * [2 ArrayList](./1.SourceCode/1.JDKSourceCode/arraylist/2-arraylist.md)
-        * [zanding](./4.interview/1.java.md)  
+        * [zanding](./4.interview/2.JVM.md)  
   
     * <font color="#00E0FF">二、并发源码</font>
     
