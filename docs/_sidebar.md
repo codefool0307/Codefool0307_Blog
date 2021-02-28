@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-01-19 15:41:58
+ * @LastEditTime: 2021-02-28 21:15:31
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -269,7 +269,8 @@
 
     * <font color="#00E0FF">一、Andriod基础</font>
    
-        * [1 Andriod安装与helloworld](./7.Andriod/1.Andriodbasic/1.HelloWorld.md)  
+        * [1 Andriod安装与helloworld](./7.Andriod/1.Andriodbasic/1.HelloWorld.md)
+        * [2 Activity](./7.Andriod/1.Andriodbasic/2.Activity.md)
     <!--* [2 Andriod的helloworld](./2.Study/1.java-basic/2-基础语法.md)
         * [3 关键字](./2.Study/1.java-basic/3-关键字.md)
         * [4 集合与数组](./2.Study/1.java-basic/4-集合.md)
