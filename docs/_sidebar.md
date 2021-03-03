@@ -2,7 +2,7 @@
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-02-28 21:15:31
+ * @LastEditTime: 2021-03-03 15:05:19
  * @FilePath: \docs\_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
@@ -271,9 +271,9 @@
    
         * [1 Andriod安装与helloworld](./7.Andriod/1.Andriodbasic/1.HelloWorld.md)
         * [2 Activity](./7.Andriod/1.Andriodbasic/2.Activity.md)
-    <!--* [2 Andriod的helloworld](./2.Study/1.java-basic/2-基础语法.md)
-        * [3 关键字](./2.Study/1.java-basic/3-关键字.md)
-        * [4 集合与数组](./2.Study/1.java-basic/4-集合.md)
+        * [3 UI开发](./7.Andriod/1.Andriodbasic/3.UI开发.md)
+        * [4 数据存储方案](./7.Andriod/1.Andriodbasic/4.数据存储方案.md)
+    <!--* [4 集合与数组](./2.Study/1.java-basic/4-集合.md)
         * [5 BIO](./2.Study/1.java-basic/5-IO.md)
         * [5-1 NIO与AIO](./2.Study/1.java-basic/5-1-IO.md)
         * [6 反射](./2.Study/1.java-basic/6-反射.md)
