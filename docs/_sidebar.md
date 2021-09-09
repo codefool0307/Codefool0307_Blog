@@ -1,9 +1,9 @@
 <!--
  * @Author: 孙浩然
  * @Date: 2020-04-15 22:09:19
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-03-16 08:44:15
- * @FilePath: \docs\_sidebar.md
+ * @LastEditors: 孙浩然
+ * @LastEditTime: 2021-09-09 14:51:12
+ * @FilePath: /Codefool0307_Blog/docs/_sidebar.md
  * @博客地址: 个人博客，如果各位客官觉得不错，请点个赞，谢谢。[地址](https://codefool0307.github.io/JavaScholar/#/)
  -->
 
@@ -262,6 +262,11 @@
 * <font color="#FF0000">V-面试经验</font>
   
     * [面经更新记录](./4.interview/11.更新记录.md)
+    * [Java](./4.interview/1.java.md)
+    * [JVM](./4.interview/2.JVM.md)
+    * [并发](./4.interview/3.并发.md)
+    * [计算机网络](./4.interview/4.计网+操作.md)
+    * [MySQL](./4.interview/5.数据库.md)
   
 * <font color="#FF0000">VI-项目</font>
 
