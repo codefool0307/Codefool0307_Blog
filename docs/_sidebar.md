@@ -263,10 +263,10 @@
   
     * [面经更新记录](./4.interview/11.更新记录.md)
     * [Java](./4.interview/1.java.md)
-    * [JVM](./4.interview/2.JVM.md)
-    * [并发](./4.interview/3.并发.md)
-    * [计算机网络](./4.interview/4.计网+操作.md)
-    * [MySQL](./4.interview/5.数据库.md)
+    * [数据库](./4.interview/3.数据库.md)
+    * [计算机网络+操作系统](./4.interview/2.计网+操作.md)
+    * [框架](./4.interview/4.框架.md)
+    * [设计模式](./4.interview/5.设计模式.md)
   
 * <font color="#FF0000">VI-项目</font>
 
